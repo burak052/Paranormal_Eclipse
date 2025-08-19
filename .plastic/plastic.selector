@@ -1,0 +1,4 @@
+repository "Paranormal Eclipse 2025-08-15_15-46-13/Paranormal Eclipse@18967476528573@cloud"
+  path "/"
+    br "/main"
+    co "/main"
