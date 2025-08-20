@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RenderPipelineSettings:
     supportShadowMask: 0
-    supportSSR: 0
-    supportSSRTransparent: 0
+    supportSSR: 1
+    supportSSRTransparent: 1
     supportSSAO: 1
     supportSSGI: 1
     supportSubsurfaceScattering: 1
@@ -35,10 +35,10 @@ MonoBehaviour:
     waterSimulationResolution: 128
     supportWaterExclusion: 1
     supportWaterDecals: 1
-    waterDecalAtlasSize: 1024
-    maximumWaterDecalCount: 48
+    waterDecalAtlasSize: 512
+    maximumWaterDecalCount: 64
     waterScriptInteractionsMode: 0
-    waterFullCPUSimulation: 0
+    waterFullCPUSimulation: 1
     supportComputeThickness: 0
     computeThicknessResolution: 1
     computeThicknessLayerMask:
@@ -61,10 +61,10 @@ MonoBehaviour:
       m_SchemaId:
         m_Id: With3Levels
     supportDecals: 1
-    supportDecalLayers: 0
+    supportDecalLayers: 1
     supportSurfaceGradient: 0
-    decalNormalBufferHP: 0
-    supportHighQualityLineRendering: 0
+    decalNormalBufferHP: 1
+    supportHighQualityLineRendering: 1
     highQualityLineRenderingMemoryBudget: 128
     msaaSampleCount: 1
     supportMotionVectors: 1
@@ -151,8 +151,8 @@ MonoBehaviour:
       screenSpaceShadowBufferFormat: 48
     decalSettings:
       drawDistance: 1000
-      atlasWidth: 2048
-      atlasHeight: 2048
+      atlasWidth: 512
+      atlasHeight: 512
       transparentTextureResolution:
         m_Values: 000100000002000000040000
         m_SchemaId:
