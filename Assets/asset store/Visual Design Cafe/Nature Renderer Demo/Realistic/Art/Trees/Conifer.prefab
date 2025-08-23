@@ -57,6 +57,10 @@ PrefabInstance:
       value: Conifer
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 84780ae5ff5a1ca4985fc4b147cd81a6, type: 3}
+      propertyPath: m_FadeMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 84780ae5ff5a1ca4985fc4b147cd81a6, type: 3}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
       value: 0.5
       objectReference: {fileID: 0}
@@ -66,6 +70,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4742473837712756890, guid: 84780ae5ff5a1ca4985fc4b147cd81a6, type: 3}
       propertyPath: m_LODs.Array.data[2].screenRelativeHeight
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 4742473837712756890, guid: 84780ae5ff5a1ca4985fc4b147cd81a6, type: 3}
+      propertyPath: m_LODs.Array.data[3].screenRelativeHeight
       value: 0.125
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -97,17 +105,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _render: 1
-  _overrideRendering: 0
+  _overrideRendering: 1
   _renderDistance: 0
-  _overrideRenderDistance: 0
-  _renderShadows: 1
-  _overrideRenderShadows: 0
+  _overrideRenderDistance: 1
+  _renderShadows: 0
+  _overrideRenderShadows: 1
   _shadowDistance: 0
-  _overrideShadowDistance: 0
-  _densityInDistance: 0.08
-  _overrideDensityInDistance: 0
+  _overrideShadowDistance: 1
+  _densityInDistance: 1
+  _overrideDensityInDistance: 1
   _densityInDistanceFalloff: {x: 0.07249999, y: 0}
-  _overrideDensityInDistanceFalloff: 0
+  _overrideDensityInDistanceFalloff: 1
 --- !u!65 &-6637917580601006600
 BoxCollider:
   m_ObjectHideFlags: 0
