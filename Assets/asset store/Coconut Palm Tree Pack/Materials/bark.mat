@@ -47,7 +47,7 @@ Material:
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
   - _MATERIAL_FEATURE_TRANSMISSION
-  - _WINDQUALITY_BEST
+  - _WINDQUALITY_FAST
   m_InvalidKeywords:
   - _BENDINGCONTROLS_VERTEX_COLORS_AND_UV4
   - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
@@ -167,7 +167,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailNormalMapScale: 1
-    - _Diffusion_Profile: 0
+    - _Diffusion_Profile: 2.6486764
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 0
@@ -229,7 +229,7 @@ Material:
     - _TransparentZWrite: 0
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WINDQUALITY: 4
+    - _WINDQUALITY: 2
     - _WIND_BRANCH1: 0
     - _WIND_BRANCH2: 0
     - _WIND_RIPPLE: 0
@@ -244,7 +244,7 @@ Material:
     - Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 0}
-    - _Diffusion_Profile_Asset: {r: 0, g: 0, b: 0, a: 0}
+    - _Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}

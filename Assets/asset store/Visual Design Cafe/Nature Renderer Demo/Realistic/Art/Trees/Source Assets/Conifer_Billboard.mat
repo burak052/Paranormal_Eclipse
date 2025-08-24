@@ -21,14 +21,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Conifer_Billboard
-  m_Shader: {fileID: -631450621483338060, guid: 4c1bd072456474490933b0172ace546b,
-    type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 4819724840ee9444f9da841b477038ce, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - EFFECT_BILLBOARD
   - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
   - _MATERIAL_FEATURE_TRANSMISSION
+  - _WINDQUALITY_FASTEST
   m_InvalidKeywords:
   - _GLOSSYREFLECTIONS_OFF
   - _NORMALMAP
@@ -245,6 +246,7 @@ Material:
     - _SurfaceMapMethod: 0
     - _SurfaceType: 0
     - _TemporalAntiAliasing: 0
+    - _Thickness: 1
     - _Translucency: 1
     - _TranslucencyAmbient: 0.5
     - _TranslucencyBlendMode: 0
@@ -288,8 +290,7 @@ Material:
     - __strip__reflection_probe_box_projection: 1
     - __strip__shadow_mask: 1
     m_Colors:
-    - Diffusion_Profile_Asset: {r: 2.2888926e+38, g: 1.2389358e-26, b: 7.69327e-37,
-        a: 0.00018220427}
+    - Diffusion_Profile_Asset: {r: 2.2888926e+38, g: 1.2389358e-26, b: 7.69327e-37, a: 0.00018220427}
     - _AO_Remap: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

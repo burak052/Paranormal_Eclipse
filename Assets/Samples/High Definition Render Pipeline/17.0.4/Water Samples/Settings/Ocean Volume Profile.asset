@@ -167,7 +167,7 @@ MonoBehaviour:
     m_Value: 1
   fixedExposure:
     m_OverrideState: 1
-    m_Value: 11.177252
+    m_Value: 12.232044
   compensation:
     m_OverrideState: 0
     m_Value: 0
@@ -309,7 +309,7 @@ MonoBehaviour:
   active: 1
   rotation:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 192.50002
   skyIntensityMode:
     m_OverrideState: 1
     m_Value: 0
@@ -321,10 +321,10 @@ MonoBehaviour:
     m_Value: 1
   upperHemisphereLuxValue:
     m_OverrideState: 1
-    m_Value: 0.017615702
+    m_Value: 0.69230485
   upperHemisphereLuxColor:
     m_OverrideState: 1
-    m_Value: {x: 0.09756685, y: 0.1994781, z: 0.5}
+    m_Value: {x: 0.2636277, y: 0.33049455, z: 0.5}
   desiredLuxValue:
     m_OverrideState: 0
     m_Value: 20000
@@ -339,7 +339,7 @@ MonoBehaviour:
     m_Value: 0
   hdriSky:
     m_OverrideState: 1
-    m_Value: {fileID: 8900000, guid: 97259d0c0ea9f491692be825da27978a, type: 3}
+    m_Value: {fileID: 8900000, guid: 927f1165e7b6f7b49bf1f8dbf6ad7a9d, type: 3}
   distortionMode:
     m_OverrideState: 1
     m_Value: 2
@@ -365,7 +365,7 @@ MonoBehaviour:
       multiplyValue: 1
   sunInitialRotation:
     m_OverrideState: 0
-    m_Value: 169.68886
+    m_Value: -192.50002
   lockSun:
     m_OverrideState: 1
     m_Value: 1
@@ -662,12 +662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953beb541740ddc499d005ee80c9ff29, type: 3}
   m_Name: Fog
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   quality:
     m_OverrideState: 0
     m_Value: 1
   enabled:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   colorMode:
     m_OverrideState: 0
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7593b3a9277ac4696b20006c21dde2, type: 3}
   m_Name: VisualEnvironment
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   skyType:
     m_OverrideState: 1
     m_Value: 4

@@ -31,9 +31,10 @@ Material:
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
   - _MATERIAL_FEATURE_TRANSMISSION
-  - _WINDQUALITY_BEST
+  - _WINDQUALITY_NONE
   m_InvalidKeywords:
   - _BENDINGCONTROLS_VERTEX_COLORS_AND_UV4
+  - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -91,6 +92,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _NormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -104,6 +109,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SubsurfaceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TerrainHolesTexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -128,13 +137,16 @@ Material:
     - Diffusion_Profile: 2.6486764
     - EFFECT_BILLBOARD: 0
     - EFFECT_EXTRA_TEX: 1
+    - _AO: 2.4
     - _AddPrecomputedVelocity: 0
     - _AfsXtraBending: 0
     - _AlphaClipThreshold: 0.1
     - _AlphaCutoffEnable: 1
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _BaseLight: 0.35
     - _BendingControls: 1
+    - _BillboardKwToggle: 0
     - _BlendMode: 0
     - _BumpScale: 1
     - _ConservativeDepthOffsetEnable: 0
@@ -143,6 +155,7 @@ Material:
     - _Cutoff: 0.5
     - _DepthOffsetEnable: 0
     - _DetailNormalMapScale: 1
+    - _Diffusion_Profile: 2.6486764
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 0
@@ -151,8 +164,12 @@ Material:
     - _EmissionScaleUI: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
+    - _EnableHeightBlend: 0
+    - _EnableInstancedPerPixelNormal: 1
     - _ExcludeFromTUAndAA: 0
+    - _ExtraMapKwToggle: 0
     - _Glossiness: 0.5
+    - _HeightTransition: 0
     - _HueVariationKwToggle: 1
     - _LeafTurbulence: 0.5
     - _MaterialID: 5
@@ -160,6 +177,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _NormalMapKwToggle: 1
+    - _Occlusion: 7.5
     - _OcclusionStrength: 1
     - _OpaqueCullMode: 2
     - _Parallax: 0.02
@@ -172,6 +190,8 @@ Material:
     - _RequireSplitLighting: 0
     - _ShadowOffsetScale: 1
     - _ShadowStrength: 0.9
+    - _Smoothness: 0
+    - _SpecularOcclusionMode: 1
     - _SquashAmount: 1
     - _SrcBlend: 1
     - _StencilRef: 0
@@ -190,6 +210,7 @@ Material:
     - _Thickness: 1
     - _TranslucencyViewDependency: 0.7
     - _TransmissionEnable: 1
+    - _TransmissionScale: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0
@@ -199,7 +220,12 @@ Material:
     - _TransparentZWrite: 0
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WINDQUALITY: 4
+    - _WINDQUALITY: 0
+    - _WIND_BRANCH1: 0
+    - _WIND_BRANCH2: 0
+    - _WIND_RIPPLE: 0
+    - _WIND_SHARED: 0
+    - _WIND_SHIMMER: 0
     - _WindQuality: 1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
@@ -208,6 +234,8 @@ Material:
     m_Colors:
     - Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorTint: {r: 1, g: 1, b: 1, a: 0}
+    - _Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
