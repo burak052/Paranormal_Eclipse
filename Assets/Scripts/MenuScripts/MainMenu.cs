@@ -15,11 +15,11 @@ public class MainMenu : MonoBehaviour
     }
     public void Settings()
     {
-        Camera.Play("MenutoSettings");
+        Camera.Play("Menu2Settings");
     }
     public void BacktoMenu()
     {
-        Camera.Play("SettingstoMenu");
+        Camera.Play("Settings2Menu");
     }
     public void Exit()
     {
