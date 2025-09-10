@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.soupday.cc3_unity_tools": "file:C:/Users/Administrator/Downloads/Character_Creator_and_iClone_Auto_Setup_1.4.6_for_Unity_HDRP12",
     "com.unity.ai.navigation": "2.0.8",
     "com.unity.burst": "1.8.23",
     "com.unity.cinemachine": "2.10.4",
