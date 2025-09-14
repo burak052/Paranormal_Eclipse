@@ -1,49 +1,9 @@
 fileFormatVersion: 2
-guid: 8a73d2e81c8a89042a1a0b297f80f331
+guid: c41bd9af9458b1445b51b9080ef98f74
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SBody_M
-    second: {fileID: 2100000, guid: 6d12a3e97148d05458b8674606c70553, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SEyeBall_M
-    second: {fileID: 2100000, guid: b61266e24ac9cec4cb2bbeabce6b7d4c, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SEyelash_M
-    second: {fileID: 2100000, guid: 11d446002468b2f46b535af06dd3a948, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SGluss_M
-    second: {fileID: 2100000, guid: b9d3f4863249e2148bf68dcb4c754bfd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SHair_M
-    second: {fileID: 2100000, guid: ef71dc6e10375794cb1a57827d605d5e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SJaw_M
-    second: {fileID: 2100000, guid: b5b6f1fd5225b644b96404e6d56932f2, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: SPant_M
-    second: {fileID: 2100000, guid: fd0a531931b7fe34ba2e33af3ed1e412, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: STongue_M
-    second: {fileID: 2100000, guid: 77bcc6b782a08234ea869607b639eb27, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -69,7 +29,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walking
+      takeName: mixamo.com
+      internalID: -203655887218126122
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
