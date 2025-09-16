@@ -192,7 +192,7 @@ Material:
     - _ExcludeFromTUAndAA: 0
     - _GlancingClipMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0
     - _GlossyReflections: 1
     - _HueVariationKwToggle: 1
     - _MaterialID: 5
