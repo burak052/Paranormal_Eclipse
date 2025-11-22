@@ -10,6 +10,11 @@ ModelImporter:
       name: Material.002
     second: {fileID: 2100000, guid: 73e9e2f89ca54ee40ae67c734f8049ef, type: 2}
   - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.011
+    second: {fileID: 2100000, guid: 3b3d09ab347cb494aab1827ad7325fee, type: 2}
+  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: texture_pbr_v128
