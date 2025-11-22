@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 26bd9b6f33e0e5a44b0abe0def405f56
+guid: 5907d377896ed3b408517f4f8ed837c5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -556,13 +556,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: maleRunning(Clone)
+    - name: Running(Clone)
       parentName: 
       position: {x: 0.051064048, y: -0.06598671, z: -0.116109855}
       rotation: {x: 0.04684165, y: -0.026368534, z: 0.023842597, w: 0.99826956}
       scale: {x: 1, y: 1, z: 1}
     - name: FemaleRig_ROOTSHJnt
-      parentName: maleRunning(Clone)
+      parentName: Running(Clone)
       position: {x: 0.0027099438, y: 1.0784687, z: 0.024239063}
       rotation: {x: -0.5, y: 0.5, z: -0.5, w: 0.5}
       scale: {x: 1, y: 1, z: 1}
