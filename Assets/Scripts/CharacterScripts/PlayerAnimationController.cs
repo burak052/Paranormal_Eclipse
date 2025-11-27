@@ -15,7 +15,7 @@ public class PlayerAnimationController : MonoBehaviour
         if (maleModel != null)
             _animator = maleModel.GetComponent<Animator>();
         else
-            Debug.LogError("Male Model referansý atanmadý!");
+            Debug.LogError("Male Model referansï¿½ atanmadï¿½!");
 
         _controller = GetComponent<CharacterController>();
     }
@@ -27,18 +27,20 @@ public class PlayerAnimationController : MonoBehaviour
             bool wPressed = Input.GetKey(KeyCode.W);
             bool sPressed = Input.GetKey(KeyCode.S);
             bool shiftPressed = Input.GetKey(KeyCode.LeftShift);
-            bool ctrlPressed = Input.GetKeyDown(KeyCode.LeftControl);
+            bool ctrlPressed = Input.GetKey(KeyCode.LeftControl);
 
             if (ctrlPressed)
             {
-                isCrouching = !isCrouching;
+                isCrouching = true;
             }
+            else
+                isCrouching = false;
 
-            // Koþma öncelikli
+            // Koï¿½ma ï¿½ncelikli
             bool isRunning = wPressed && shiftPressed;
             bool isWalking = ((wPressed || sPressed) && !isRunning);
 
-            // Animator parametrelerini güncelle
+            // Animator parametrelerini gï¿½ncelle
             _animator.SetBool("isRunning", isRunning);
             _animator.SetBool("isWalking", isWalking);
             _animator.SetBool("isCrouching", isCrouching);
