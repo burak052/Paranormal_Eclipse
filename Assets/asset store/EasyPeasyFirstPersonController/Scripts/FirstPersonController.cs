@@ -109,8 +109,8 @@ namespace EasyPeasyFirstPersonController
 
             if (isLook)
             {
-                float mouseX = Input.GetAxis("Mouse X") * 10 * mouseSensitivity * Time.deltaTime;
-                float mouseY = Input.GetAxis("Mouse Y") * 10 * mouseSensitivity * Time.deltaTime;
+                float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity/10;
+                float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity/10;
 
                 rotX += mouseX;
                 rotY -= mouseY;
@@ -133,6 +133,11 @@ namespace EasyPeasyFirstPersonController
             float capsuleRadius = characterController.radius * 0.95f;
             float castDistance = isSliding ? originalHeight + 0.2f : originalHeight - crouchHeight + 0.2f;
             bool hasCeiling = Physics.CapsuleCast(point1, point2, capsuleRadius, Vector3.up, castDistance, groundMask, ceilingCheckQueryTriggerInteraction);
+            if (hasCeiling && moveDirection.y > 0)
+            {
+                moveDirection.y = -2f; // karakteri doğal şekilde aşağı indirir
+            }
+
             if (isSliding)
             {
                 postSlideCrouchTimer = 0.3f;
