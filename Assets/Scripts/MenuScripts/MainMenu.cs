@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
-        Application.LoadLevel(1);
+        Application.LoadLevel(2);
     }
     public void LoadGame()
     {
