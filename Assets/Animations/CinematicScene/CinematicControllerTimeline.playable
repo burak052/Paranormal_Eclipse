@@ -522,7 +522,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 21
+  - time: 20
     functionName: SwitchCam
     data: 
     objectReferenceParameter: {fileID: 0}

@@ -5,7 +5,7 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     public Animation Camera;
-    public Image blackScreen;    // Fade için siyah ekran
+    public Image blackScreen;    
     public float fadeTime = 1.5f;
 
     void Start()
