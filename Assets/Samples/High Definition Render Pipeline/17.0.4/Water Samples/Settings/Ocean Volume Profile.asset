@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d877ec3e844f2ca46830012e8e79319b, type: 3}
   m_Name: PhysicallyBasedSky
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   rotation:
     m_OverrideState: 0
     m_Value: 0
@@ -92,7 +92,7 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 20000
   groundTint:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: {r: 0.07553097, g: 0.32960576, b: 0.6320754, a: 1}
   groundColorTexture:
     m_OverrideState: 0
@@ -169,7 +169,7 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 12.232044
   compensation:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0
   limitMin:
     m_OverrideState: 0
@@ -365,7 +365,7 @@ MonoBehaviour:
       multiplyValue: 1
   sunInitialRotation:
     m_OverrideState: 0
-    m_Value: -192.50002
+    m_Value: -3.9500122
   lockSun:
     m_OverrideState: 1
     m_Value: 1

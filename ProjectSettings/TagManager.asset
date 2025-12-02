@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Heli
+  - keypad1
   layers:
   - Default
   - TransparentFX

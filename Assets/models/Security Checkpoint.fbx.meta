@@ -3,7 +3,17 @@ guid: 2de3acdccd5f49c43817f369dcb55349
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Property Scanner.001
+    second: {fileID: 2100000, guid: 8d8ed17e96f9e6146b977d8c59e3e203, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Security X-Ray
+    second: {fileID: 2100000, guid: d99c5afde2d90274c94331d654095fc8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
