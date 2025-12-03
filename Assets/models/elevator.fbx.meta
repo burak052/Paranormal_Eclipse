@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d0b88495dfaa0d944b995164cde711a3
+guid: 910972651c083894dac0d0a2fdf84f8b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,23 +7,83 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat
-    second: {fileID: 2100000, guid: 7894d4b1f5886b049a2a0fb1e2d85d7d, type: 2}
+      name: Material #2100470029
+    second: {fileID: 2100000, guid: 76b9aa7f565c09e4ebd56863500fca56, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat.1
-    second: {fileID: 2100000, guid: 291ace429a242374ab6fa676e386400a, type: 2}
+      name: Material #2100470053
+    second: {fileID: 2100000, guid: a7d64ec16161c4645aa6f621e71cf82e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat.2
-    second: {fileID: 2100000, guid: 69e306ed57e2a2147b3c2f551e0211bf, type: 2}
+      name: Material #2100470054
+    second: {fileID: 2100000, guid: d2e53c8905e80e04eac64e4b62338d6b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Mat.3
-    second: {fileID: 2100000, guid: 3268286c1a3ec8440963fec69163c03b, type: 2}
+      name: bronze
+    second: {fileID: 2100000, guid: d32239342740a114fa9c29e0e9b0ccf0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: butto
+    second: {fileID: 2100000, guid: 37434f96f8367234ca28566eaca42f0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: door
+    second: {fileID: 2100000, guid: 6f19791ec27f5194d8366ac1e2a28c16, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elevator Slot #5.001
+    second: {fileID: 2100000, guid: 5a28fce493cab3240be4d065424c6fca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elevator Slot #5.002
+    second: {fileID: 2100000, guid: b41585404cbc49840b08162eeb855dcf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elevator Slot #6.001
+    second: {fileID: 2100000, guid: 4cfab140a479ad14896be203e2e75be7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: elevator Slot #6.002
+    second: {fileID: 2100000, guid: e06e76fe0d22099459366399a9b72371, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: 93f8afc76af9f5b4cb90c64f807dcba6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hipoxy
+    second: {fileID: 2100000, guid: 81cf1a6a775db4c4bbfa2527c240e5ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mirrror
+    second: {fileID: 2100000, guid: 4b1e418c15b5cb04aab4009344a612ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: screen
+    second: {fileID: 2100000, guid: 4294d5fc0d5c045408f79b6c6a244749, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: venneer
+    second: {fileID: 2100000, guid: f5335169ff2b2a84f8e3cc4346155f1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 8ca3f7b3bb06fe047a8fcc71f84cc2d4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
