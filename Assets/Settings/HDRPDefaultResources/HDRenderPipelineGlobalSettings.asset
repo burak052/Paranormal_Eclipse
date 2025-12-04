@@ -345,11 +345,11 @@ MonoBehaviour:
         m_Camera:
           bitDatas:
             data1: 72198260625768268
-            data2: 13799031440106553368
-          lodBias: 100
+            data2: 13799031440106569752
+          lodBias: 1.5
           lodBiasMode: 2
           lodBiasQualityLevel: 2
-          maximumLODLevel: 203
+          maximumLODLevel: 0
           maximumLODLevelMode: 2
           maximumLODLevelQualityLevel: 2
           sssQualityMode: 0
