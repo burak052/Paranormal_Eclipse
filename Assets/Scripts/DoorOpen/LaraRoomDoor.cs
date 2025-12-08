@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AutoDoor : MonoBehaviour
+public class LaraRoomDoor : MonoBehaviour
 {
     [Header("Door Animator")]
     public Animator doorAnimator;
@@ -19,7 +19,7 @@ public class AutoDoor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Lara"))
         {
             doorAnimator.SetBool("Open", true);
             doorAnimator2.SetBool("Open", true);
@@ -28,7 +28,7 @@ public class AutoDoor : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Lara"))
         {
             doorAnimator.SetBool("Open", false);
             doorAnimator2.SetBool("Open", false);
