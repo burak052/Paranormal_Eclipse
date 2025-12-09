@@ -8,6 +8,7 @@ TagManager:
   - Heli
   - keypad1
   - Lara
+  - BoilerDoor
   layers:
   - Default
   - TransparentFX

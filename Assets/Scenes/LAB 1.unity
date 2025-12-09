@@ -23998,6 +23998,7 @@ GameObject:
   - component: {fileID: 1008384641}
   - component: {fileID: 1008384640}
   - component: {fileID: 1008384639}
+  - component: {fileID: 1008384642}
   m_Layer: 0
   m_Name: "Bakanl\u0131klar.001 (1)"
   m_TagString: Untagged
@@ -24013,13 +24014,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008384637}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5517851, y: 0.44219142, z: -0.44219136, w: 0.5517851}
-  m_LocalPosition: {x: 0.624, y: 1.3624746, z: 0.809}
+  m_LocalRotation: {x: 0.51788306, y: 0.48145324, z: -0.48145318, w: 0.517883}
+  m_LocalPosition: {x: 0.76, y: 1.184, z: -0.037}
   m_LocalScale: {x: 100, y: -100, z: -100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 590799122}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -77.416}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -85.825}
 --- !u!64 &1008384639
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24099,6 +24100,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1008384637}
   m_Mesh: {fileID: -1207430427996848503, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
+--- !u!95 &1008384642
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008384637}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6e1827e78db8f02469572f079d5a06e9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1011232898
 GameObject:
   m_ObjectHideFlags: 0
@@ -25323,6 +25346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boiler_Room_Door
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
+      propertyPath: m_TagString
+      value: BoilerDoor
+      objectReference: {fileID: 0}
     - target: {fileID: 6292004025849867694, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
@@ -25333,31 +25360,31 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f2d030afc3a95b1418322eecce67b919, type: 2}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.699
+      value: -0.78
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3624746
+      value: 1.1729999
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.788
+      value: -0.019
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.5317561
+      value: 0.7070914
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.53175604
+      value: 0.7070914
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.46608537
+      value: 0.004671196
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.4660852
+      value: -0.004671196
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -25365,7 +25392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363568072147497233, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 82.469
+      value: -0.757
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -25378,6 +25405,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1240371529694968487, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2025578701}
+    - targetCorrespondingSourceObject: {fileID: 1240371529694968487, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2025578702}
     - targetCorrespondingSourceObject: {fileID: -3003935286852206088, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
       insertIndex: -1
       addedObject: {fileID: 567859715}
@@ -51071,6 +51101,28 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1207430427996848503, guid: da986ac5bd83c15458641473f28e23bd, type: 3}
+--- !u!95 &2025578702
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2025578699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a3173263b513b4844b17bfc477d83244, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &2025610613
 PrefabInstance:
   m_ObjectHideFlags: 0

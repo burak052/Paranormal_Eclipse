@@ -51,8 +51,8 @@ Material:
     m_Floats:
     - _EmissiveIntensity: 1
     - _Glossiness: 0.658
-    - _Metallic: 1
-    - _Smoothness: 0.396
+    - _Metallic: 0.624
+    - _Smoothness: 0.532
     m_Colors:
     - _BaseColor: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 0, g: 0, b: 0, a: 1}
