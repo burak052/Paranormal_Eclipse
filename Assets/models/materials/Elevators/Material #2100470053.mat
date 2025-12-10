@@ -26,7 +26,7 @@ Material:
   m_Name: Material #2100470053
   m_Shader: {fileID: 4800000, guid: 6e4ae4064600d784cac1e41a9e6f2e59, type: 3}
   m_Parent: {fileID: 2100000, guid: 4b1e418c15b5cb04aab4009344a612ca, type: 2}
-  m_ModifiedSerializedProperties: 0
+  m_ModifiedSerializedProperties: 8
   m_ValidKeywords:
   - _DISABLE_SSR_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
@@ -58,7 +58,10 @@ Material:
     m_Floats:
     - _AlphaCutoff: 0.5
     - _AlphaCutoffShadow: 0.5
+    - _CullMode: 2
+    - _CullModeForward: 2
     - _Cutoff: 0.5
+    - _DoubleSidedEnable: 0
     - _Mode: 0
     - _NormalScale: 1
     - _Smoothness: 0.4472136
