@@ -9,7 +9,7 @@ public class Raycast : MonoBehaviour
 
     [Header("UI")]
     public GameObject pressEUI;          // "Press E" UI'si
-
+    public GameObject EnviroKeypad;
     private Animator currentDoorAnimator;
 
     void Start()
@@ -44,6 +44,21 @@ public class Raycast : MonoBehaviour
                         bool state = currentDoorAnimator.GetBool("Open");
                         currentDoorAnimator.SetBool("Open", !state);
                     }
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("EnviroKeypad"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+              
+
+                // E tuşuna basılırsa animasyon tetikle
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (EnviroKeypad != null)
+                        EnviroKeypad.SetActive(true);
                 }
                 return;
             }

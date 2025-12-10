@@ -9,6 +9,7 @@ TagManager:
   - keypad1
   - Lara
   - BoilerDoor
+  - EnviroKeypad
   layers:
   - Default
   - TransparentFX
