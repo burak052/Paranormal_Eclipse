@@ -9,6 +9,7 @@ public class Raycast : MonoBehaviour
     public LayerMask layerMask;          
 
     [Header("UI")]
+    public GameObject disableFloor1;
     public GameObject pressEUI;          
     public GameObject EnviroKeypad;
     private Animator currentDoorAnimator;
@@ -26,6 +27,7 @@ public class Raycast : MonoBehaviour
             EnviroKeypad.SetActive(false);
         pressenter = false;
         passwordText.text = "";
+        disableFloor1.SetActive(true);
     }
 
     void Update()
@@ -112,30 +114,6 @@ public class Raycast : MonoBehaviour
                             ClearKey();
                         }
                     }
-                                        
-                    // if(passwordText.text.Length <= 3)
-                    // {
-                    //     if(Input.GetKeyDown(KeyCode.Alpha0) || Input.GetKeyDown(KeyCode.Keypad0))
-                    //         passwordText.text = passwordText.text + "0";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
-                    //         passwordText.text = passwordText.text + "1";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-                    //         passwordText.text = passwordText.text + "2";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
-                    //         passwordText.text = passwordText.text + "3";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
-                    //         passwordText.text = passwordText.text + "4";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))
-                    //         passwordText.text = passwordText.text + "5";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))
-                    //         passwordText.text = passwordText.text + "6";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha7) || Input.GetKeyDown(KeyCode.Keypad7))
-                    //         passwordText.text = passwordText.text + "7";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha8) || Input.GetKeyDown(KeyCode.Keypad8))
-                    //         passwordText.text = passwordText.text + "8";
-                    //     if(Input.GetKeyDown(KeyCode.Alpha9) || Input.GetKeyDown(KeyCode.Keypad9))
-                    //         passwordText.text = passwordText.text + "9";
-                    // }
                 }
 
                 if (pressEUI != null)
@@ -148,6 +126,54 @@ public class Raycast : MonoBehaviour
                     playerMovement.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
+                }
+                return;
+            }
+            
+            if (hit.collider.CompareTag("ElevatorButton"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                }
+                return;
+            }
+            
+            if (hit.collider.CompareTag("ElevatorKeypad"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+
+                    //disableFloor1.SetActive(false);
                 }
                 return;
             }

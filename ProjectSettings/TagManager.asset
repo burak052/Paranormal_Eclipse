@@ -10,6 +10,8 @@ TagManager:
   - Lara
   - BoilerDoor
   - EnviroKeypad
+  - ElevatorButton
+  - ElevatorKeypad
   layers:
   - Default
   - TransparentFX
