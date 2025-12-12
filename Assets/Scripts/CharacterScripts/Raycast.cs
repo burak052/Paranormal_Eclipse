@@ -5,7 +5,7 @@ using TMPro;
 public class Raycast : MonoBehaviour
 {
     [Header("Raycast Ayarları")]
-    public float interactDistance = 3f;  
+    public float interactDistance = 1f;  
     public LayerMask layerMask;          
 
     [Header("UI")]
@@ -18,6 +18,7 @@ public class Raycast : MonoBehaviour
     public TextMeshProUGUI passwordText;
     public string password;
     public bool pressenter;
+    private ActiveBlackScreen ABS;
 
     void Start()
     {
@@ -115,6 +116,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
                 }
+                
 
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -129,7 +131,21 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
-            
+            if (hit.collider.CompareTag("CupBoard"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    ABS = GetComponent<ActiveBlackScreen>();
+                    ABS.BlackScreenOn();
+                }
+                return;
+            }
+
             if (hit.collider.CompareTag("ElevatorButton"))
             {
                 if (pressEUI != null)

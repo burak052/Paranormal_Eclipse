@@ -12,6 +12,7 @@ TagManager:
   - EnviroKeypad
   - ElevatorButton
   - ElevatorKeypad
+  - CupBoard
   layers:
   - Default
   - TransparentFX
