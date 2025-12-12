@@ -5,8 +5,9 @@ using System.Collections;
 public class ActiveBlackScreen : MonoBehaviour
 {
     public Image blackScreen;
-    public float delay = 3f;          // Bekleme süresi
+    public float delay = 3f;          // Bekleme sï¿½resi
     public float fadeTime = 1.5f;
+    public AudioSource clothesAudio;
 
       public void BlackScreenOn()
       {
@@ -16,6 +17,7 @@ public class ActiveBlackScreen : MonoBehaviour
     IEnumerator DisableAfterDelay()
     {
         float t = 0f;
+        clothesAudio.Play();
 
         while (t < fadeTime)
         {
