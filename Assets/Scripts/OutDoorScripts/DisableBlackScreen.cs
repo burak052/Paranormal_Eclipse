@@ -10,6 +10,7 @@ public class DisableImageAfterDelay : MonoBehaviour
 
     void Start()
     {
+        blackScreen.gameObject.SetActive(true);
         StartCoroutine(DisableAfterDelay());
     }
 
@@ -27,6 +28,6 @@ public class DisableImageAfterDelay : MonoBehaviour
         }
         yield return new WaitForSeconds(delay);
 
-        blackScreen.gameObject.SetActive(true);
+        blackScreen.gameObject.SetActive(false);
     }
 }

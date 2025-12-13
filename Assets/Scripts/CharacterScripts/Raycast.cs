@@ -193,7 +193,90 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
+            if (hit.collider.CompareTag("keypad1"))
+            {
+                if (EnviroKeypad != null && EnviroKeypad.activeSelf)
+                {
+                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
+                    {
+                        if (Input.GetKeyDown(KeyCode.Return) || pressenter)
+                        {
+
+                            if (passwordText.text == password)
+                            {
+                                EnviroKeypad.SetActive(false);
+                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_01").GetComponent<Animator>();
+                                if (currentDoorAnimator != null)
+                                {
+                                    bool state = currentDoorAnimator.GetBool("Open");
+                                    currentDoorAnimator.SetBool("Open", !state);
+                                }
+                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_02").GetComponent<Animator>();
+                                if (currentDoorAnimator != null)
+                                {
+                                    bool state = currentDoorAnimator.GetBool("Open");
+                                    currentDoorAnimator.SetBool("Open", !state);
+                                }
+                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_03").GetComponent<Animator>();
+                                if (currentDoorAnimator != null)
+                                {
+                                    bool state = currentDoorAnimator.GetBool("Open");
+                                    currentDoorAnimator.SetBool("Open", !state);
+                                }
+                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_04").GetComponent<Animator>();
+                                if (currentDoorAnimator != null)
+                                {
+                                    bool state = currentDoorAnimator.GetBool("Open");
+                                    currentDoorAnimator.SetBool("Open", !state);
+                                }
+                                pressenter = false;
+                                EnviroKeypad.SetActive(false);
+
+                                playerMovement.enabled = true;
+
+                                Cursor.visible = false;
+                                Cursor.lockState = CursorLockMode.Locked;
+                            }
+                            else
+                            {
+                                ClearKey();
+                                pressenter = false;
+                            }
+                        }
+
+                        if (Input.GetKeyDown(KeyCode.Escape))
+                        {
+                            EnviroKeypad.SetActive(false);
+
+                            playerMovement.enabled = true;
+
+                            Cursor.visible = false;
+                            Cursor.lockState = CursorLockMode.Locked;
+                        }
+
+                        if (Input.GetKeyDown(KeyCode.Backspace))
+                        {
+                            ClearKey();
+                        }
+                    }
+                }
+
+
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (EnviroKeypad != null)
+                        EnviroKeypad.SetActive(true);
+                    playerMovement.enabled = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                return;
+            }
         }
+
 
         if (pressEUI != null)
             pressEUI.SetActive(false);
