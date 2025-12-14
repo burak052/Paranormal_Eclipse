@@ -13,6 +13,7 @@ TagManager:
   - ElevatorButton
   - ElevatorKeypad
   - CupBoard
+  - LabCaveDoor
   layers:
   - Default
   - TransparentFX

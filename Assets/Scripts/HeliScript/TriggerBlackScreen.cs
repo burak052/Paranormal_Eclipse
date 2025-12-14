@@ -23,7 +23,6 @@ public class TriggerScript : MonoBehaviour
         // Diğer obje ile tag kontrolü (isteğe bağlı)
         if (other.CompareTag("Heli"))
         {
-            Debug.Log("Heli tetikledi!");
             StartCoroutine(FadeAndStart());
         }
     }
