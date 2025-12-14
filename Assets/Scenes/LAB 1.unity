@@ -13045,6 +13045,7 @@ MonoBehaviour:
   pressEUI: {fileID: 799348178}
   EnviroKeypad: {fileID: 1018049574}
   playerMovement: {fileID: 2070778186}
+  Callfloor: {fileID: 1570863080}
   passwordText: {fileID: 1797413058}
   password: 1327
   pressenter: 1
@@ -14971,7 +14972,7 @@ PrefabInstance:
     - target: {fileID: 7912714754983089796, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 606b1feb8388cf341a0746c8dbf462ab, type: 2}
+      objectReference: {fileID: 2100000, guid: 76d4a24a3caf52e48aaecc0cb143ac8b, type: 2}
     - target: {fileID: 8175593673880602943, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
       propertyPath: m_TagString
       value: ElevatorButton
@@ -14991,9 +14992,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8175593673880602943, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 592136258}
+    - targetCorrespondingSourceObject: {fileID: 8175593673880602943, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 592136260}
     - targetCorrespondingSourceObject: {fileID: 5382265969776698040, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 970261903}
+    - targetCorrespondingSourceObject: {fileID: -2292486434096612660, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1570863080}
   m_SourcePrefab: {fileID: 100100000, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
 --- !u!1 &588376507
 GameObject:
@@ -15184,6 +15191,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07641613, y: 0.1250001, z: 0.024456391}
   m_Center: {x: 0.0016633157, y: 0.000000005954331, z: 0.012167165}
+--- !u!114 &592136260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 592136256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca8418937e0f294481ea10b6ac99344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &597253813 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7555ed3ea940c5045a0bb5a3c9e27afc, type: 3}
@@ -44178,6 +44197,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09d65da87a549042bc15e144c4f1fca, type: 3}
+--- !u!1 &1570863078 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -2292486434096612660, guid: b05f1ddd942cf2e4280831eafd03e0d5, type: 3}
+  m_PrefabInstance: {fileID: 587711680}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1570863080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1570863078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662679ac1810e424596b985142699f40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floor1: {fileID: 2100000, guid: 606b1feb8388cf341a0746c8dbf462ab, type: 2}
+  floor2: {fileID: 2100000, guid: b87045a696eb49c48989a40755890590, type: 2}
+  floor3: {fileID: 2100000, guid: 15c625c27aa20634ba114ecccbee5fac, type: 2}
+  floor4: {fileID: 2100000, guid: faddd42453105334986d7e579c8371c6, type: 2}
+  floor1stay: {fileID: 2100000, guid: 70061c1177dde5d45a015a76cb2f1364, type: 2}
+  floor2stay: {fileID: 2100000, guid: 437f137e19b34c740ad25d750ccee545, type: 2}
+  floor3stay: {fileID: 2100000, guid: 9d95f69731feab24b972106d3ee16129, type: 2}
+  floor4stay: {fileID: 2100000, guid: 76d4a24a3caf52e48aaecc0cb143ac8b, type: 2}
+  delay: 3
 --- !u!1001 &1574879698
 PrefabInstance:
   m_ObjectHideFlags: 0

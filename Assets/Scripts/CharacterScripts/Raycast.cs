@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class Raycast : MonoBehaviour
 {
@@ -13,12 +14,15 @@ public class Raycast : MonoBehaviour
     public GameObject pressEUI;          
     public GameObject EnviroKeypad;
     private Animator currentDoorAnimator;
+    private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
-
+    public ElevatorFloor Callfloor;
     public TextMeshProUGUI passwordText;
     public string password;
     public bool pressenter;
     private ActiveBlackScreen ABS;
+    private int fscreen = 4;
+    private bool isbusy = false;
 
     void Start()
     {
@@ -153,18 +157,14 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
-                    if (currentDoorAnimator != null)
-                    {
-                        bool state = currentDoorAnimator.GetBool("Open");
-                        currentDoorAnimator.SetBool("Open", !state);
-                    }
+                    Callfloor.floorcall();
+                    
+                    //yield return new WaitForSeconds(12f);
+                    currentDoorAnimator2 = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
                     currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
-                    if (currentDoorAnimator != null)
-                    {
-                        bool state = currentDoorAnimator.GetBool("Open");
-                        currentDoorAnimator.SetBool("Open", !state);
-                    }
+                    if (isbusy) return;
+                    StartCoroutine(OpenDoorSequence(currentDoorAnimator , currentDoorAnimator2));
+                    
                 }
                 return;
             }
@@ -283,7 +283,23 @@ public class Raycast : MonoBehaviour
 
         currentDoorAnimator = null;
     }
+    IEnumerator OpenDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
+    {
 
+        isbusy = true;
+        yield return new WaitForSeconds(14f);
+        isbusy = false;
+        if (currentDoorAnimator != null)
+        {
+            bool state = currentDoorAnimator.GetBool("Open");
+            currentDoorAnimator.SetBool("Open", !state);
+        }
+        if (currentDoorAnimator2 != null)
+        {
+            bool state = currentDoorAnimator2.GetBool("Open");
+            currentDoorAnimator2.SetBool("Open", !state);
+        }
+    }
     public void KeyButton(string key)
     {        
         if (passwordText.text.Length <= 3)
