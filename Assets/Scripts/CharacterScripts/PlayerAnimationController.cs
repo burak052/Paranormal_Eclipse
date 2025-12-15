@@ -38,11 +38,17 @@ public class PlayerAnimationController : MonoBehaviour
 
             // Ko�ma �ncelikli
             bool isRunning = wPressed && shiftPressed;
-            bool isWalking = ((wPressed || sPressed) && !isRunning);
+            bool isWalking = ((wPressed || sPressed) && !isRunning && !ctrlPressed);
+            bool isCrouchingWalking = ((wPressed || sPressed) && !isRunning && ctrlPressed);
+
+            Debug.Log("yürüme "  + isWalking);
+            Debug.Log("çömelmeyürüme" +isCrouchingWalking);
+            Debug.Log("çömelme " + isCrouching);
 
             // Animator parametrelerini g�ncelle
             _animator.SetBool("isRunning", isRunning);
             _animator.SetBool("isWalking", isWalking);
+            _animator.SetBool("isWalkingCrounching", isCrouchingWalking);
             _animator.SetBool("isCrouching", isCrouching);
 
         }
