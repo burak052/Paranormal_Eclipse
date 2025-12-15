@@ -6,7 +6,7 @@ using System.Collections;
 public class Raycast : MonoBehaviour
 {
     [Header("Raycast Ayarları")]
-    public float interactDistance = 1f;  
+    public float interactDistance = 1.5f;  
     public LayerMask layerMask;          
 
     [Header("UI")]
@@ -23,6 +23,7 @@ public class Raycast : MonoBehaviour
     private ActiveBlackScreen ABS;
     private int fscreen = 4;
     private bool isbusy = false;
+    private bool HaveCard = false;
 
     void Start()
     {
@@ -140,10 +141,12 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
-
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    hit.collider.transform.parent.Find("Plane (6)").gameObject.tag = "Untagged";
+                    hit.collider.transform.parent.Find("Plane (3)").gameObject.tag = "Untagged";
+                    hit.collider.transform.parent.Find("Plane (8)").gameObject.tag = "Untagged";
+                    hit.collider.transform.parent.Find("Plane (5)").gameObject.tag = "Untagged";
                     ABS = GetComponent<ActiveBlackScreen>();
                     ABS.BlackScreenOn();
                 }
@@ -272,6 +275,41 @@ public class Raycast : MonoBehaviour
                     playerMovement.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
+                }
+                return;
+            }
+
+
+            if (hit.collider.CompareTag("IDCard"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    HaveCard = true;
+                    hit.collider.gameObject.SetActive(false);
+                }
+                return;
+            }
+
+            if (hit.collider.CompareTag("SleepDoor"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E) && HaveCard)
+                {
+                    currentDoorAnimator = hit.collider.transform.parent.Find("door_01").GetComponent<Animator>();
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                }
+                if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
+                {
+                    hit.collider.GetComponent<AudioSource>().Play();
                 }
                 return;
             }

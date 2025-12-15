@@ -8,6 +8,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public float delay = 3f;          // Bekleme s�resi
     public float fadeTime = 1.5f;
     public AudioSource clothesAudio;
+    public MonoBehaviour playerMovement;
 
       public void BlackScreenOn()
       {
@@ -16,8 +17,10 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator DisableAfterDelay()
     {
+        playerMovement.enabled = false;
         float t = 0f;
         clothesAudio.Play();
+        blackScreen.gameObject.SetActive(true);
 
         while (t < fadeTime)
         {
@@ -28,7 +31,6 @@ public class ActiveBlackScreen : MonoBehaviour
         }
         yield return new WaitForSeconds(delay);
 
-        blackScreen.gameObject.SetActive(true);
         t = 0f;
 
         yield return new WaitForSeconds(delay);
@@ -39,8 +41,8 @@ public class ActiveBlackScreen : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        yield return new WaitForSeconds(delay);
 
         blackScreen.gameObject.SetActive(false);
+        playerMovement.enabled = true;
     }
 }
