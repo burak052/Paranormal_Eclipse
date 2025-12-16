@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_DiffusionProfileReferences:
-  - {fileID: 11400000, guid: 879ffae44eefa4412bb327928f1a96dd, type: 2}
+  - {fileID: 11400000, guid: cb724139ea2be234da0b4c3fcd984446, type: 2}
   m_MaterialReferences: []
 --- !u!21 &2100000
 Material:
@@ -23,20 +23,23 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: leaf
-  m_Shader: {fileID: -6465566751694194690, guid: 4819724840ee9444f9da841b477038ce, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 1761cdf9dc4cfbd4fb6bbdb133f17592, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - ALPHAALBEDO_ON
   - _ALPHATEST_ON
   - _DISABLE_SSR_TRANSPARENT
   - _DOUBLESIDED_ON
+  - _LEAFTUMBLING
+  - _LEAFTURBULENCE
   - _MATERIAL_FEATURE_TRANSMISSION
-  - _WINDQUALITY_NONE
   m_InvalidKeywords:
   - _BENDINGCONTROLS_VERTEX_COLORS_AND_UV4
   - _TERRAIN_INSTANCED_PERPIXEL_NORMAL
+  - _WINDQUALITY_BEST
   m_LightmapFlags: 1
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 1
   m_CustomRenderQueue: 2475
   stringTagMap:
@@ -47,11 +50,14 @@ Material:
   - TransparentDepthPostpass
   - TransparentBackface
   - RayTracingPrepass
-  - MOTIONVECTORS
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -134,6 +140,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - ALPHAALBEDO: 1
     - Diffusion_Profile: 2.6486764
     - EFFECT_BILLBOARD: 0
     - EFFECT_EXTRA_TEX: 1
@@ -144,6 +151,8 @@ Material:
     - _AlphaCutoffEnable: 1
     - _AlphaDstBlend: 0
     - _AlphaSrcBlend: 1
+    - _BAKEDBRANCHAXIS: 0
+    - _BackfaceSmoothness: 0
     - _BaseLight: 0.35
     - _BendingControls: 1
     - _BillboardKwToggle: 0
@@ -152,26 +161,33 @@ Material:
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 0
     - _CullModeForward: 0
-    - _Cutoff: 0.5
+    - _Cutoff: 0.53
     - _DepthOffsetEnable: 0
     - _DetailNormalMapScale: 1
+    - _DiffusionProfileHash: 2.5867534
     - _Diffusion_Profile: 2.6486764
     - _DoubleSidedEnable: 1
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 0
     - _DstBlend: 0
     - _DstBlend2: 0
+    - _EdgeFlutterInfluence: 0.476
     - _EmissionScaleUI: 0
+    - _EnableAdvancedEdgeBending: 1
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _EnableHeightBlend: 0
     - _EnableInstancedPerPixelNormal: 1
+    - _EnableNormalRotation: 0
     - _ExcludeFromTUAndAA: 0
     - _ExtraMapKwToggle: 0
     - _Glossiness: 0.5
     - _HeightTransition: 0
     - _HueVariationKwToggle: 1
-    - _LeafTurbulence: 0.5
+    - _LEAFTUMBLING: 1
+    - _LEAFTURBULENCE: 1
+    - _LeafNoise: 0.5
+    - _LeafTurbulence: 3
     - _MaterialID: 5
     - _MaterialTypeMask: 32
     - _Metallic: 0
@@ -191,6 +207,8 @@ Material:
     - _ShadowOffsetScale: 1
     - _ShadowStrength: 0.9
     - _Smoothness: 0
+    - _SmoothnessRemapMax: 0
+    - _SmoothnessRemapMin: 0
     - _SpecularOcclusionMode: 1
     - _SquashAmount: 1
     - _SrcBlend: 1
@@ -208,6 +226,7 @@ Material:
     - _SupportDecals: 1
     - _SurfaceType: 0
     - _Thickness: 1
+    - _ThicknessMultiplier: 1
     - _TranslucencyViewDependency: 0.7
     - _TransmissionEnable: 1
     - _TransmissionScale: 0
@@ -218,9 +237,11 @@ Material:
     - _TransparentSortPriority: 0
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
+    - _TumbleFrequency: 0.5
+    - _TumbleStrength: 0.025
     - _UVSec: 0
     - _UseShadowThreshold: 0
-    - _WINDQUALITY: 0
+    - _WINDQUALITY: 4
     - _WIND_BRANCH1: 0
     - _WIND_BRANCH2: 0
     - _WIND_RIPPLE: 0
@@ -233,17 +254,21 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
+    - _AdvancedEdgeBending: {r: 0.1, g: 5, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 1, g: 1, b: 1, a: 0}
+    - _DiffusionProfileAsset: {r: 0.00018448678, g: 0.00000042127732, b: 0.79705584, a: 12582.2}
     - _Diffusion_Profile_Asset: {r: -3.698545e+22, g: 20.616848, b: -5.291675e-28, a: -1.3520143e+18}
     - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
+    - _HueVariation: {r: 0.9, g: 0.5, b: 0, a: 0.1019608}
     - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.2}
     - _SpecularReflectivity: {r: 0.11764706, g: 0.11764706, b: 0.11764706, a: 1}
     - _TranslucencyColor: {r: 0.5955882, g: 0.58154345, b: 0.35472533, a: 1}
     - _TreeInstanceColor: {r: 1, g: 1, b: 1, a: 1}
     - _TreeInstanceScale: {r: 1, g: 1, b: 1, a: 1}
+    - _WindMultipliers: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &5868048573703536941

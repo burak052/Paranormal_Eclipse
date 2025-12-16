@@ -798,10 +798,10 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {x: 0, y: -6378.1, z: 0}
   windOrientation:
-    m_OverrideState: 0
-    m_Value: 39.3
+    m_OverrideState: 1
+    m_Value: 80
   windSpeed:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 3.08
   fogType:
     m_OverrideState: 1
