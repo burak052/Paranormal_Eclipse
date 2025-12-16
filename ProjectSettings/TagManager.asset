@@ -16,6 +16,7 @@ TagManager:
   - LabCaveDoor
   - IDCard
   - SleepDoor
+  - bed
   layers:
   - Default
   - TransparentFX

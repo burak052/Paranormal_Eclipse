@@ -313,6 +313,21 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
+
+            if (hit.collider.CompareTag("bed"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.transform.parent.Find("bed_02").gameObject.tag = "Untagged";
+                    hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
+                    ABS = GetComponent<ActiveBlackScreen>();
+                    ABS.BlackScreenOn();
+                }
+                return;
+            }
         }
 
 

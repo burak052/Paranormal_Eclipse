@@ -9,6 +9,10 @@ public class ActiveBlackScreen : MonoBehaviour
     public float fadeTime = 1.5f;
     public AudioSource clothesAudio;
     public MonoBehaviour playerMovement;
+    public GameObject day;
+    public GameObject sunLight;
+    public GameObject night;
+    public GameObject moonLight;
 
       public void BlackScreenOn()
       {
@@ -19,7 +23,8 @@ public class ActiveBlackScreen : MonoBehaviour
     {
         playerMovement.enabled = false;
         float t = 0f;
-        clothesAudio.Play();
+        if(clothesAudio != null)
+          clothesAudio.Play();
         blackScreen.gameObject.SetActive(true);
 
         while (t < fadeTime)
@@ -30,6 +35,14 @@ public class ActiveBlackScreen : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(delay);
+        if(day != null)
+        day.SetActive(false);
+        if(sunLight != null)
+        sunLight.SetActive(false);
+        if(night != null)
+        night.SetActive(true);
+        if(moonLight != null)
+        moonLight.SetActive(true);
 
         t = 0f;
 

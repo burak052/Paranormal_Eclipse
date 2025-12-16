@@ -20157,6 +20157,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9156347143994207886, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2087430265}
+    - targetCorrespondingSourceObject: {fileID: 9156347143994207886, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2087430266}
   m_SourcePrefab: {fileID: 100100000, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
 --- !u!4 &748939940 stripped
 Transform:
@@ -54998,6 +55001,27 @@ MonoBehaviour:
   passwordText: {fileID: 1112214749}
   password: 1327
   pressenter: 0
+--- !u!114 &2087430266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087430259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4da7daf4cecff84483e96a10d68af67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blackScreen: {fileID: 1756279569}
+  delay: 3
+  fadeTime: 1.5
+  clothesAudio: {fileID: 0}
+  playerMovement: {fileID: 991071736}
+  day: {fileID: 1831849931}
+  sunLight: {fileID: 275041447}
+  night: {fileID: 2030425105}
+  moonLight: {fileID: 1645507303}
 --- !u!4 &2093667858
 Transform:
   m_ObjectHideFlags: 0
@@ -64906,7 +64930,7 @@ GameObject:
   - component: {fileID: 8910293634852225602}
   m_Layer: 0
   m_Name: bed_02
-  m_TagString: Untagged
+  m_TagString: bed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -67998,7 +68022,7 @@ GameObject:
   - component: {fileID: 6230384199088149572}
   m_Layer: 0
   m_Name: bed_01
-  m_TagString: Untagged
+  m_TagString: bed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
