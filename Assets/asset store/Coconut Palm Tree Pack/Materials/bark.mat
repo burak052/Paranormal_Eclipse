@@ -251,7 +251,7 @@ Material:
     - _DoubleSidedConstants: {r: -1, g: -1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColorUI: {r: 1, g: 1, b: 1, a: 1}
-    - _HueVariation: {r: 0.4528302, g: 0.253038, b: 0, a: 1}
+    - _HueVariation: {r: 0, g: 0, b: 0, a: 1}
     - _HueVariationColor: {r: 1, g: 0.5, b: 0, a: 0.2}
     - _SpecColor: {r: 0.26666668, g: 0.26666668, b: 0.26666668, a: 1}
     - _SpecularReflectivity: {r: 0.2, g: 0.2, b: 0.2, a: 1}
