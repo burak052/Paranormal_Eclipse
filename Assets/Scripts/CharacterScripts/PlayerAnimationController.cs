@@ -26,6 +26,9 @@ public class PlayerAnimationController : MonoBehaviour
         {
             bool wPressed = Input.GetKey(KeyCode.W);
             bool sPressed = Input.GetKey(KeyCode.S);
+            bool aPressed = Input.GetKey(KeyCode.A);
+            bool dPressed = Input.GetKey(KeyCode.D);
+            bool spacePressed = Input.GetKeyDown(KeyCode.Space);
             bool shiftPressed = Input.GetKey(KeyCode.LeftShift);
             bool ctrlPressed = Input.GetKey(KeyCode.LeftControl);
 
@@ -38,17 +41,18 @@ public class PlayerAnimationController : MonoBehaviour
 
             // Ko�ma �ncelikli
             bool isRunning = wPressed && shiftPressed;
-            bool isWalking = ((wPressed || sPressed) && !isRunning && !ctrlPressed);
-            bool isCrouchingWalking = ((wPressed || sPressed) && !isRunning && ctrlPressed);
+            bool isJumping = spacePressed && !ctrlPressed;
+            bool isWalking = ((wPressed || sPressed || aPressed || dPressed) && !isRunning && !ctrlPressed && !spacePressed);
+            bool isCrouchingWalkingFoward =((wPressed || dPressed || aPressed) && !sPressed && !isRunning && ctrlPressed);
+            bool isCrouchingWalkingBack = (sPressed || (sPressed && (dPressed || aPressed)) && !isRunning && ctrlPressed);
 
-            Debug.Log("yürüme "  + isWalking);
-            Debug.Log("çömelmeyürüme" +isCrouchingWalking);
-            Debug.Log("çömelme " + isCrouching);
 
             // Animator parametrelerini g�ncelle
             _animator.SetBool("isRunning", isRunning);
             _animator.SetBool("isWalking", isWalking);
-            _animator.SetBool("isWalkingCrounching", isCrouchingWalking);
+            _animator.SetBool("isJumping", isJumping);
+            _animator.SetBool("isWalkingCrounching", isCrouchingWalkingFoward);
+            _animator.SetBool("isWalkingCrounchingBack", isCrouchingWalkingBack);
             _animator.SetBool("isCrouching", isCrouching);
 
         }
