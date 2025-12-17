@@ -149,7 +149,7 @@ namespace EasyPeasyFirstPersonController
             }
             else
             {
-                isCrouching = canCrouch && (wantsToCrouch || (hasCeiling && !isSliding));
+                isCrouching = canCrouch && wantsToCrouch;
             }
 
             if (canSlide && isSprinting && Input.GetKeyDown(KeyCode.LeftControl) && isGrounded)

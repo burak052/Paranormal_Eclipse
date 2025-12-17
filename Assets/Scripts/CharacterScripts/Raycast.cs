@@ -18,6 +18,7 @@ public class Raycast : MonoBehaviour
     public MonoBehaviour playerMovement;
     public ElevatorFloor Callfloor;
     public TextMeshProUGUI passwordText;
+    public TextMeshProUGUI pressEUIText;
     public string password;
     public bool pressenter;
     private ActiveBlackScreen ABS;
@@ -62,6 +63,7 @@ public class Raycast : MonoBehaviour
             }
             if (hit.collider.CompareTag("EnviroKeypad"))
             {
+                pressEUIText.text = "to enter";
                 if(EnviroKeypad != null && EnviroKeypad.activeSelf)
                 {
                     if(Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
@@ -138,6 +140,7 @@ public class Raycast : MonoBehaviour
             }
             if (hit.collider.CompareTag("CupBoard"))
             {
+                pressEUIText.text = "to change clothes";
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
@@ -155,6 +158,7 @@ public class Raycast : MonoBehaviour
 
             if (hit.collider.CompareTag("ElevatorButton"))
             {
+                pressEUIText.text = "to call elevator";
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
@@ -198,6 +202,7 @@ public class Raycast : MonoBehaviour
             }
             if (hit.collider.CompareTag("keypad1"))
             {
+                pressEUIText.text = "to enter";
                 if (EnviroKeypad != null && EnviroKeypad.activeSelf)
                 {
                     if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
@@ -284,7 +289,7 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-
+                pressEUIText.text = "to take";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     HaveCard = true;
@@ -297,7 +302,6 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-
                 if (Input.GetKeyDown(KeyCode.E) && HaveCard)
                 {
                     currentDoorAnimator = hit.collider.transform.parent.Find("door_01").GetComponent<Animator>();
@@ -309,6 +313,8 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
                 {
+                    pressEUIText.text = "Need IDCard";
+                    pressEUI.transform.Find("E").gameObject.SetActive(false);
                     hit.collider.GetComponent<AudioSource>().Play();
                 }
                 return;
@@ -318,6 +324,7 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
+                pressEUIText.text = "to sleep";
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -332,7 +339,9 @@ public class Raycast : MonoBehaviour
 
 
         if (pressEUI != null)
+            pressEUIText.text = "to open";
             pressEUI.SetActive(false);
+            pressEUI.transform.Find("E").gameObject.SetActive(true);
 
         currentDoorAnimator = null;
     }
