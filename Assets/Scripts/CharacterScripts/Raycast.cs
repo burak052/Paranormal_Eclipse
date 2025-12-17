@@ -25,6 +25,8 @@ public class Raycast : MonoBehaviour
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
+    public Sprite ESprite;
+    public Sprite redxSprite;
 
     void Start()
     {
@@ -195,14 +197,12 @@ public class Raycast : MonoBehaviour
                         bool state = currentDoorAnimator.GetBool("Open");
                         currentDoorAnimator.SetBool("Open", !state);
                     }
-
-                    //disableFloor1.SetActive(false);
                 }
                 return;
             }
             if (hit.collider.CompareTag("keypad1"))
             {
-                pressEUIText.text = "to enter";
+                pressEUIText.text = "to enterddddddddddddddddddddddddddddddddd";
                 if (EnviroKeypad != null && EnviroKeypad.activeSelf)
                 {
                     if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
@@ -314,7 +314,8 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
                 {
                     pressEUIText.text = "Need IDCard";
-                    pressEUI.transform.Find("E").gameObject.SetActive(false);
+    
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                     hit.collider.GetComponent<AudioSource>().Play();
                 }
                 return;
@@ -340,8 +341,8 @@ public class Raycast : MonoBehaviour
 
         if (pressEUI != null)
             pressEUIText.text = "to open";
+            pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
             pressEUI.SetActive(false);
-            pressEUI.transform.Find("E").gameObject.SetActive(true);
 
         currentDoorAnimator = null;
     }
