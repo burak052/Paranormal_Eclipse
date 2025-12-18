@@ -8,6 +8,7 @@ public class keypadmat : MonoBehaviour
     public Material successscreen;
     public AudioSource successsound;
     public AudioSource deniedsound;
+    public AudioSource buttonsound;
 
     public void emptyScreen()
     {
@@ -26,5 +27,9 @@ public class keypadmat : MonoBehaviour
     {
         successsound.Play();
         GetComponent<Renderer>().material = successscreen;
+    }
+    public void keySound()
+    {
+        buttonsound.Play();
     }
 }

@@ -369,6 +369,7 @@ public class Raycast : MonoBehaviour
     }
     public void KeyButton(string key)
     {      
+        keymat.keySound();
         keymat.emptyScreen();
         if (passwordText.text.Length <= 3)
             passwordText.text = passwordText.text + key;
@@ -376,12 +377,14 @@ public class Raycast : MonoBehaviour
     
     public void ClearKey()
     {
+        keymat.keySound();
         keymat.emptyScreen();
         passwordText.text = "";
     }    
 
     public void EnterKey()
     {
+        keymat.keySound();
         pressenter = true;
     }   
 
