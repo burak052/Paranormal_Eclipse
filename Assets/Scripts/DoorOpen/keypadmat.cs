@@ -6,6 +6,8 @@ public class keypadmat : MonoBehaviour
     public Material emptyscreen;
     public Material deniedscreen;
     public Material successscreen;
+    public AudioSource successsound;
+    public AudioSource deniedsound;
 
     public void emptyScreen()
     {
@@ -17,10 +19,12 @@ public class keypadmat : MonoBehaviour
     }
     public void deniedScreen()
     {
+        deniedsound.Play();
         GetComponent<Renderer>().material = deniedscreen;
     }
     public void successScreen()
     {
+        successsound.Play();
         GetComponent<Renderer>().material = successscreen;
     }
 }
