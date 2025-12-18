@@ -12,7 +12,7 @@ public class Raycast : MonoBehaviour
     [Header("UI")]
     public GameObject disableFloor1;
     public GameObject pressEUI;          
-    public GameObject EnviroKeypad;
+    public GameObject EnviroKeypad;   
     private Animator currentDoorAnimator;
     private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
@@ -22,9 +22,12 @@ public class Raycast : MonoBehaviour
     public string password;
     public bool pressenter;
     private ActiveBlackScreen ABS;
+    public SmoothCameraMove cameraMove;
+    public keypadmat keymat;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
+    private bool inkeypad = false;
     public Sprite ESprite;
     public Sprite redxSprite;
 
@@ -75,7 +78,6 @@ public class Raycast : MonoBehaviour
                             
                             if(passwordText.text == password)
                             {   
-                                EnviroKeypad.SetActive(false);
                                 currentDoorAnimator = hit.collider.transform.parent.Find("Up").GetComponent<Animator>();
                                 if (currentDoorAnimator != null)
                                 {
@@ -95,7 +97,8 @@ public class Raycast : MonoBehaviour
                                     currentDoorAnimator.SetBool("Open", !state);
                                 }
                                 pressenter = false;
-                                EnviroKeypad.SetActive(false);
+                                if (EnviroKeypad != null)
+                                    EnviroKeypad.SetActive(false);
                                 
                                 playerMovement.enabled = true;
 
@@ -111,7 +114,8 @@ public class Raycast : MonoBehaviour
 
                         if(Input.GetKeyDown(KeyCode.Escape))
                         {
-                            EnviroKeypad.SetActive(false);
+                            if (EnviroKeypad != null)
+                                EnviroKeypad.SetActive(false);
                             
                             playerMovement.enabled = true;
 
@@ -202,81 +206,81 @@ public class Raycast : MonoBehaviour
             }
             if (hit.collider.CompareTag("keypad1"))
             {
-                pressEUIText.text = "to enterddddddddddddddddddddddddddddddddd";
-                if (EnviroKeypad != null && EnviroKeypad.activeSelf)
+                pressEUIText.text = "to enter";
+                
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
                 {
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
+                    if (Input.GetKeyDown(KeyCode.Return) || pressenter)
                     {
-                        if (Input.GetKeyDown(KeyCode.Return) || pressenter)
+                        if (passwordText.text == password)
                         {
-
-                            if (passwordText.text == password)
+                            ClearKey();
+                            keymat.successScreen();
+                            hit.collider.tag = "Untagged";
+                            inkeypad = false;
+                            currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_01").GetComponent<Animator>();
+                            if (currentDoorAnimator != null)
                             {
-                                EnviroKeypad.SetActive(false);
-                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_01").GetComponent<Animator>();
-                                if (currentDoorAnimator != null)
-                                {
-                                    bool state = currentDoorAnimator.GetBool("Open");
-                                    currentDoorAnimator.SetBool("Open", !state);
-                                }
-                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_02").GetComponent<Animator>();
-                                if (currentDoorAnimator != null)
-                                {
-                                    bool state = currentDoorAnimator.GetBool("Open");
-                                    currentDoorAnimator.SetBool("Open", !state);
-                                }
-                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_03").GetComponent<Animator>();
-                                if (currentDoorAnimator != null)
-                                {
-                                    bool state = currentDoorAnimator.GetBool("Open");
-                                    currentDoorAnimator.SetBool("Open", !state);
-                                }
-                                currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_04").GetComponent<Animator>();
-                                if (currentDoorAnimator != null)
-                                {
-                                    bool state = currentDoorAnimator.GetBool("Open");
-                                    currentDoorAnimator.SetBool("Open", !state);
-                                }
-                                pressenter = false;
-                                EnviroKeypad.SetActive(false);
-
-                                playerMovement.enabled = true;
-
-                                Cursor.visible = false;
-                                Cursor.lockState = CursorLockMode.Locked;
+                                bool state = currentDoorAnimator.GetBool("Open");
+                                currentDoorAnimator.SetBool("Open", !state);
                             }
-                            else
+                            currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_02").GetComponent<Animator>();
+                            if (currentDoorAnimator != null)
                             {
-                                ClearKey();
-                                pressenter = false;
+                                bool state = currentDoorAnimator.GetBool("Open");
+                                currentDoorAnimator.SetBool("Open", !state);
                             }
-                        }
+                            currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_03").GetComponent<Animator>();
+                            if (currentDoorAnimator != null)
+                            {
+                                bool state = currentDoorAnimator.GetBool("Open");
+                                currentDoorAnimator.SetBool("Open", !state);
+                            }
+                            currentDoorAnimator = hit.collider.transform.parent.parent.Find("G07_04").GetComponent<Animator>();
+                            if (currentDoorAnimator != null)
+                            {
+                                bool state = currentDoorAnimator.GetBool("Open");
+                                currentDoorAnimator.SetBool("Open", !state);
+                            }
 
-                        if (Input.GetKeyDown(KeyCode.Escape))
-                        {
-                            EnviroKeypad.SetActive(false);
-
-                            playerMovement.enabled = true;
+                            pressenter = false;
+                            returncam();
 
                             Cursor.visible = false;
                             Cursor.lockState = CursorLockMode.Locked;
                         }
-
-                        if (Input.GetKeyDown(KeyCode.Backspace))
+                        else
                         {
                             ClearKey();
+                            pressenter = false;
+                            keymat.deniedScreen();
                         }
+                    }
+
+                    if (Input.GetKeyDown(KeyCode.Escape))
+                    {
+                        keymat.novaScreen();
+                        returncam();
+                        inkeypad = false;
+                        Cursor.visible = false;
+                        Cursor.lockState = CursorLockMode.Locked;
+                    }
+                    if (Input.GetKeyDown(KeyCode.Backspace))
+                    {
+                        keymat.emptyScreen();
+                        ClearKey();
                     }
                 }
 
 
-                if (pressEUI != null)
+                if (pressEUI != null && !inkeypad)
                     pressEUI.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (EnviroKeypad != null)
-                        EnviroKeypad.SetActive(true);
+                    inkeypad = true;
+                    ActivateKeypad();
+                    pressEUI.SetActive(false);
                     playerMovement.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
@@ -364,13 +368,15 @@ public class Raycast : MonoBehaviour
         }
     }
     public void KeyButton(string key)
-    {        
+    {      
+        keymat.emptyScreen();
         if (passwordText.text.Length <= 3)
             passwordText.text = passwordText.text + key;
     }
     
     public void ClearKey()
     {
+        keymat.emptyScreen();
         passwordText.text = "";
     }    
 
@@ -378,4 +384,13 @@ public class Raycast : MonoBehaviour
     {
         pressenter = true;
     }   
+
+    public void ActivateKeypad()
+    {
+        cameraMove.MoveToKeypad();
+    }
+    public void returncam()
+    {
+        cameraMove.ReturnCamera();
+    }
 }
