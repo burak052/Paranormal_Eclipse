@@ -13,8 +13,9 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject sunLight;
     public GameObject night;
     public GameObject moonLight;
+    public GameObject headlight;
 
-      public void BlackScreenOn()
+    public void BlackScreenOn()
       {
         StartCoroutine(DisableAfterDelay());
       }
@@ -43,6 +44,8 @@ public class ActiveBlackScreen : MonoBehaviour
         night.SetActive(true);
         if(moonLight != null)
         moonLight.SetActive(true);
+        if (headlight != null)
+        headlight.SetActive(true);
 
         t = 0f;
 

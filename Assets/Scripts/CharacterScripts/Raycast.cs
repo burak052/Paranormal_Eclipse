@@ -11,7 +11,8 @@ public class Raycast : MonoBehaviour
 
     [Header("UI")]
     public GameObject disableFloor1;
-    public GameObject pressEUI;        
+    public GameObject pressEUI;
+    public GameObject spotlight;
     private Animator currentDoorAnimator;
     private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
@@ -29,8 +30,11 @@ public class Raycast : MonoBehaviour
     private bool HaveCard = false;
     private bool inkeypad = false;
     private bool haveRepairKit = false;
+    public bool haveheadlight = false;
+    private bool havesleep = false;
     public Sprite ESprite;
     public Sprite redxSprite;
+    
 
     void Start()
     {
@@ -291,7 +295,7 @@ public class Raycast : MonoBehaviour
             }
 
 
-            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit"))
+            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -299,12 +303,19 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take IDCard";
                 if(hit.collider.CompareTag("RepairKit"))
                     pressEUIText.text = "to take RepairKit";
+                if (hit.collider.CompareTag("HeadLight"))
+                    pressEUIText.text = "to take HeadLight";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if(hit.collider.CompareTag("IDCard"))
                         HaveCard = true;
                     if(hit.collider.CompareTag("RepairKit"))
                         haveRepairKit = true;
+                    if (hit.collider.CompareTag("HeadLight")) 
+                    { 
+                        haveheadlight = true;
+                        spotlight.SetActive(true);
+                    }
                     hit.collider.gameObject.SetActive(false);
                 }
                 return;
@@ -314,13 +325,12 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                if (Input.GetKeyDown(KeyCode.E) && HaveCard)
+                if ((Input.GetKeyDown(KeyCode.E) && HaveCard) && ((havesleep && haveheadlight) || (!havesleep && !haveheadlight)))
                 {
                     currentDoorAnimator = hit.collider.transform.parent.Find("door_01").GetComponent<Animator>();
                     if (currentDoorAnimator != null)
                     {
-                        bool state = currentDoorAnimator.GetBool("Open");
-                        currentDoorAnimator.SetBool("Open", !state);
+                        currentDoorAnimator.SetTrigger("Open");
                         repairt.ChangeTag();
                     }
                 }
@@ -330,6 +340,12 @@ public class Raycast : MonoBehaviour
     
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                     hit.collider.GetComponent<AudioSource>().Play();
+                }
+                if ((Input.GetKeyDown(KeyCode.E) && HaveCard) && (havesleep && !haveheadlight))
+                {
+                    pressEUIText.text = "Need to take headlight";
+
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
                 return;
             }
@@ -346,6 +362,7 @@ public class Raycast : MonoBehaviour
                     hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
                     ABS = GetComponent<ActiveBlackScreen>();
                     ABS.BlackScreenOn();
+                    havesleep = true;
                 }
                 return;
             }
