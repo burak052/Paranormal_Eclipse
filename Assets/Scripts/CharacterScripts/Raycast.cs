@@ -22,12 +22,13 @@ public class Raycast : MonoBehaviour
     public bool pressenter;
     private ActiveBlackScreen ABS;
     public SmoothCameraMove cameraMove;
+    public repairtool repairt;
     public keypadmat keymat;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
-    private bool haveReapirKit = false;
+    private bool haveRepairKit = false;
     public Sprite ESprite;
     public Sprite redxSprite;
 
@@ -303,7 +304,7 @@ public class Raycast : MonoBehaviour
                     if(hit.collider.CompareTag("IDCard"))
                         HaveCard = true;
                     if(hit.collider.CompareTag("RepairKit"))
-                        haveReapirKit = true;
+                        haveRepairKit = true;
                     hit.collider.gameObject.SetActive(false);
                 }
                 return;
@@ -320,6 +321,7 @@ public class Raycast : MonoBehaviour
                     {
                         bool state = currentDoorAnimator.GetBool("Open");
                         currentDoorAnimator.SetBool("Open", !state);
+                        repairt.ChangeTag();
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
@@ -352,12 +354,23 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                pressEUIText.text = "to repair";
-
-                if (Input.GetKeyDown(KeyCode.E) && haveReapirKit)
+                if(haveRepairKit)
+                    pressEUIText.text = "to repair";
+                else
+                {
+                    pressEUIText.text = "Need repairkit";
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                }
+                if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
+                }
+                if (Input.GetKeyDown(KeyCode.E) && !haveRepairKit)
+                {
+                    pressEUIText.text = "Need repairkit";
+    
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
                 return;
             }
