@@ -27,6 +27,7 @@ public class Raycast : MonoBehaviour
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
+    private bool haveReapirKit = false;
     public Sprite ESprite;
     public Sprite redxSprite;
 
@@ -289,14 +290,20 @@ public class Raycast : MonoBehaviour
             }
 
 
-            if (hit.collider.CompareTag("IDCard"))
+            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                pressEUIText.text = "to take";
+                if(hit.collider.CompareTag("IDCard"))
+                    pressEUIText.text = "to take IDCard";
+                if(hit.collider.CompareTag("RepairKit"))
+                    pressEUIText.text = "to take RepairKit";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    HaveCard = true;
+                    if(hit.collider.CompareTag("IDCard"))
+                        HaveCard = true;
+                    if(hit.collider.CompareTag("RepairKit"))
+                        haveReapirKit = true;
                     hit.collider.gameObject.SetActive(false);
                 }
                 return;
@@ -337,6 +344,20 @@ public class Raycast : MonoBehaviour
                     hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
                     ABS = GetComponent<ActiveBlackScreen>();
                     ABS.BlackScreenOn();
+                }
+                return;
+            }
+
+            if (hit.collider.CompareTag("ElectricBox"))
+            {
+                if (pressEUI != null)
+                    pressEUI.SetActive(true);
+                pressEUIText.text = "to repair";
+
+                if (Input.GetKeyDown(KeyCode.E) && haveReapirKit)
+                {
+                    hit.collider.GetComponent<AudioSource>().Play();
+                    hit.collider.tag = "Untagged";
                 }
                 return;
             }

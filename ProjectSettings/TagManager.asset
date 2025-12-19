@@ -17,6 +17,8 @@ TagManager:
   - IDCard
   - SleepDoor
   - bed
+  - ElectricBox
+  - RepairKit
   layers:
   - Default
   - TransparentFX
