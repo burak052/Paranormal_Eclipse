@@ -25,6 +25,7 @@ public class Raycast : MonoBehaviour
     public SmoothCameraMove cameraMove;
     public repairtool repairt;
     public keypadmat keymat;
+    public signal sig;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
@@ -32,6 +33,7 @@ public class Raycast : MonoBehaviour
     private bool haveRepairKit = false;
     public bool haveheadlight = false;
     private bool havesleep = false;
+    private bool cansleep = false;
     public Sprite ESprite;
     public Sprite redxSprite;
     
@@ -354,15 +356,22 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                pressEUIText.text = "to sleep";
+                if(cansleep)
+                    pressEUIText.text = "to sleep";
+                else
+                {
+                    pressEUIText.text = "can't sleep";
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                }
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && cansleep)
                 {
                     hit.collider.transform.parent.Find("bed_02").gameObject.tag = "Untagged";
                     hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
                     ABS = GetComponent<ActiveBlackScreen>();
                     ABS.BlackScreenOn();
                     havesleep = true;
+                    sig.PasswordActive();
                 }
                 return;
             }
@@ -382,6 +391,8 @@ public class Raycast : MonoBehaviour
                 {
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
+                    sig.SignalOn();
+                    cansleep = true;
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !haveRepairKit)
                 {
