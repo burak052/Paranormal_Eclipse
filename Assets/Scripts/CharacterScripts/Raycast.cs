@@ -26,6 +26,7 @@ public class Raycast : MonoBehaviour
     public repairtool repairt;
     public keypadmat keymat;
     public signal sig;
+    public LaraMovement Lara;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
@@ -34,6 +35,7 @@ public class Raycast : MonoBehaviour
     public bool haveheadlight = false;
     private bool havesleep = false;
     private bool cansleep = false;
+    private bool firsttimeopen = true;
     public Sprite ESprite;
     public Sprite redxSprite;
     
@@ -329,6 +331,11 @@ public class Raycast : MonoBehaviour
                     pressEUI.SetActive(true);
                 if ((Input.GetKeyDown(KeyCode.E) && HaveCard) && ((havesleep && haveheadlight) || (!havesleep && !haveheadlight)))
                 {
+                    if(firsttimeopen)
+                    {
+                        Lara.LaraShelter();
+                        firsttimeopen = false;
+                    }
                     currentDoorAnimator = hit.collider.transform.parent.Find("door_01").GetComponent<Animator>();
                     if (currentDoorAnimator != null)
                     {
@@ -372,6 +379,7 @@ public class Raycast : MonoBehaviour
                     ABS.BlackScreenOn();
                     havesleep = true;
                     sig.PasswordActive();
+                    Lara.LaraBeach();
                 }
                 return;
             }
