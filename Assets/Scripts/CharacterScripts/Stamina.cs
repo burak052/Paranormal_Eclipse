@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-    public EasyPeasyFirstPersonController.FirstPersonController fpsController;
-    public CharacterController charController;
+    EasyPeasyFirstPersonController.FirstPersonController fpsController;
+    CharacterController charController;
     public CanvasGroup staminaCanvasGroup;
 
     [Header("UI")]
@@ -17,9 +17,9 @@ public class Stamina : MonoBehaviour
 
     [Header("Exhausted Audio")]
     public AudioSource exhaustedAudio;
-    public float exhaustedThreshold = 10f;
+    public float exhaustedThreshold = 20f;
     public float exhaustedMaxVolume = 0.8f;
-    public float audioFadeSpeed = 2.5f;
+    public float audioFadeSpeed = 5f;
 
     void Start()
     {
@@ -43,7 +43,7 @@ public class Stamina : MonoBehaviour
         if (staminaSlider != null)
             staminaSlider.value = stamina;
 
-        bool showStamina = fpsController.isSprinting || stamina < 30f;
+        bool showStamina =  stamina < 40f;
         float targetAlpha = showStamina ? 1f : 0f;
 
         if (staminaCanvasGroup != null)
@@ -55,21 +55,21 @@ public class Stamina : MonoBehaviour
             );
         }
 
-        // ????? STAMINA MANTIÐI
+        // ????? STAMINA MANTIï¿½I
         if (fpsController.isSprinting)
             stamina -= decreaseRate * Time.deltaTime;
         else
-            stamina += 2f * Time.deltaTime;
+            stamina += 10f * Time.deltaTime;
 
         stamina = Mathf.Clamp(stamina, 0f, 100f);
 
-        // ?? SPRINT KÝLÝDÝ
+        // ?? SPRINT Kï¿½Lï¿½Dï¿½
         if (stamina <= 0f)
             fpsController.sprintSpeed = fpsController.walkSpeed;
         else
             fpsController.sprintSpeed = 25f;
 
-        // ????? YORGUNLUK SESÝ (FADE IN / OUT)
+        // ????? YORGUNLUK SESï¿½ (FADE IN / OUT)
         HandleExhaustedAudio();
     }
 

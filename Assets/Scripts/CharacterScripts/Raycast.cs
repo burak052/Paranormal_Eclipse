@@ -10,6 +10,7 @@ public class Raycast : MonoBehaviour
     public LayerMask layerMask;          
 
     [Header("UI")]
+    public AudioSource pickupSound;
     public GameObject disableFloor1;
     public GameObject pressEUI;
     public GameObject spotlight;
@@ -311,6 +312,7 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take HeadLight";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    pickupSound.Play();
                     if(hit.collider.CompareTag("IDCard"))
                         HaveCard = true;
                     if(hit.collider.CompareTag("RepairKit"))

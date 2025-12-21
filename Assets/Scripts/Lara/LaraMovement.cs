@@ -62,7 +62,7 @@ public class LaraMovement : MonoBehaviour
         }
 
         start = transform.position;
-        target = new Vector3(1409.43f,5.21f,1668.57f);
+        target = new Vector3(1409.43f,5.15f,1668.57f);
         Quaternion startRot = transform.rotation;
         Quaternion targetRot = Quaternion.Euler(0f, 209f, 0f);
         t = 0f;
@@ -75,20 +75,20 @@ public class LaraMovement : MonoBehaviour
         }
 
         start = transform.position;
-        target = new Vector3(1408.92f,5.21f,1667.66f);
+        target = new Vector3(1408.92f,5.15f,1667.66f);
         startRot = transform.rotation;
         targetRot = Quaternion.Euler(0f, 251f, 0f);
         t = 0f;
         while (t < 1f)
         {
-            t += Time.deltaTime * 0.7f;
+            t += Time.deltaTime * 1.2f;
             transform.position = Vector3.Lerp(start, target, t);
             transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
 
         start = transform.position;
-        target = new Vector3(1405.61f,5.21f,1666.51f);
+        target = new Vector3(1405.61f,5.15f,1666.51f);
         t = 0f;
         while (t < 1f)
         {
