@@ -2535,7 +2535,7 @@ GameObject:
   - component: {fileID: 138203795}
   m_Layer: 0
   m_Name: GameObject (14)
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -5649,7 +5649,7 @@ GameObject:
   - component: {fileID: 264648323}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -7785,6 +7785,135 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: dd0ea6f255477ae40bcb9085e5b77c4e, type: 3}
   m_PrefabInstance: {fileID: 430057071}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &327985411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327985408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a9e970b2b98fb40a6a3d71de99eede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 327985412}
+  concreteSteps:
+  - {fileID: 8300000, guid: c06a4a5f44c935845978cc443226aca0, type: 3}
+  - {fileID: 8300000, guid: c45750621b5854b4788b03cbeadaa4f8, type: 3}
+  - {fileID: 8300000, guid: a33f083023cbf404a85153ef8ea40978, type: 3}
+  - {fileID: 8300000, guid: 8bb547748f8e0414c947a586916ee534, type: 3}
+  - {fileID: 8300000, guid: d81ac1cbc02d0424aa6a2d18878f486b, type: 3}
+  metalSteps:
+  - {fileID: 8300000, guid: c789e249b6762c44f8d6603145cc452a, type: 3}
+  - {fileID: 8300000, guid: 9beaf8ee664872f448faa98fb41e8255, type: 3}
+  - {fileID: 8300000, guid: 7c5d09ba1eb09d84abb936759e09be57, type: 3}
+  - {fileID: 8300000, guid: f480b7522e21b3a4aa2780a0a47562bc, type: 3}
+  - {fileID: 8300000, guid: f09fb7aa8adecd248862abf805037db0, type: 3}
+  dirtSteps:
+  - {fileID: 8300000, guid: 27355c2d1c554a145903c8c738770129, type: 3}
+  - {fileID: 8300000, guid: c2a5d794edc22634d81b521b900569f9, type: 3}
+  - {fileID: 8300000, guid: 892979de85474e042b4d8dde88cf1472, type: 3}
+  - {fileID: 8300000, guid: c96a041970dfb4c489644f405ed6aff5, type: 3}
+  - {fileID: 8300000, guid: acc916252f136ca41863c6a82e113a72, type: 3}
+  rayDistance: 1.5
+--- !u!82 &327985412
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 327985408}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 99ca0b97a61ffa645835b44bd35e4ad0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &333323635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8630,8 +8759,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8197907351931045122, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
+      propertyPath: m_TagString
+      value: Ground_Concrete
+      objectReference: {fileID: 0}
+    - target: {fileID: -8197907351931045122, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6642364707643372689, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
+      propertyPath: m_TagString
+      value: Ground_Metal
       objectReference: {fileID: 0}
     - target: {fileID: -6642364707643372689, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8640,6 +8777,10 @@ PrefabInstance:
     - target: {fileID: -6582943753340507323, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -5716645318938495740, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
+      propertyPath: m_TagString
+      value: Ground_Concrete
       objectReference: {fileID: 0}
     - target: {fileID: -5716645318938495740, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8674,19 +8815,17 @@ PrefabInstance:
       value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7903917037679870326, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
+      propertyPath: m_TagString
+      value: Ground_Concrete
+      objectReference: {fileID: 0}
+    - target: {fileID: 7903917037679870326, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: -3987311353195648191, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 561885729}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1103585208}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: -5716645318938495740, guid: 5a0ee3892a7d016439868e71bc6083e6, type: 3}
       insertIndex: -1
@@ -11631,7 +11770,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dd0ea6f255477ae40bcb9085e5b77c4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 327985412}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: dd0ea6f255477ae40bcb9085e5b77c4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 327985411}
   m_SourcePrefab: {fileID: 100100000, guid: dd0ea6f255477ae40bcb9085e5b77c4e, type: 3}
 --- !u!1001 &433026018
 PrefabInstance:
@@ -13548,7 +13693,7 @@ GameObject:
   - component: {fileID: 523523966}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -14218,59 +14363,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559225862}
   m_CullTransparentMesh: 1
---- !u!1 &561885728
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 561885729}
-  - component: {fileID: 561885730}
-  m_Layer: 0
-  m_Name: stairs colliders
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &561885729
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561885728}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.000000011175871, y: 0.000000029802322, z: -0.14323166, w: 0.98968923}
-  m_LocalPosition: {x: 1.357611, y: -0.50452465, z: -0.04212851}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 585453878}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -16.47}
---- !u!65 &561885730
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561885728}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9146774, y: 0.06485157, z: 3.171171}
-  m_Center: {x: 2.6424425, y: 2.0615735, z: 20.51191}
 --- !u!1 &564011537
 GameObject:
   m_ObjectHideFlags: 0
@@ -20118,7 +20210,7 @@ GameObject:
   - component: {fileID: 749316733}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -21011,6 +21103,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 093759fd15f81b844a59a99acc843fdd, type: 3}
       propertyPath: m_Name
       value: stairs
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 093759fd15f81b844a59a99acc843fdd, type: 3}
+      propertyPath: m_TagString
+      value: Ground_Metal
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 093759fd15f81b844a59a99acc843fdd, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -25510,7 +25606,7 @@ GameObject:
   - component: {fileID: 925898701}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -31254,59 +31350,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: d11d8096e6b14aa43aa74d862d2d01f7, type: 3}
---- !u!1 &1103585207
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1103585208}
-  - component: {fileID: 1103585209}
-  m_Layer: 0
-  m_Name: stairs colliders (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
---- !u!4 &1103585208
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103585207}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.11517744, y: -0.7014653, z: -0.11494616, w: 0.69387895}
-  m_LocalPosition: {x: 20.556, y: 1.078, z: 13.246}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 585453878}
-  m_LocalEulerAnglesHint: {x: -0.082, y: -90.61, z: -18.73}
---- !u!65 &1103585209
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103585207}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.9146774, y: 0.06485157, z: 3.171171}
-  m_Center: {x: 2.6424425, y: 2.0615735, z: 20.51191}
 --- !u!1 &1114573180
 GameObject:
   m_ObjectHideFlags: 0
@@ -34168,7 +34211,7 @@ GameObject:
   - component: {fileID: 1283161497}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -37848,7 +37891,7 @@ GameObject:
   - component: {fileID: 1404578393}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -39565,7 +39608,7 @@ GameObject:
   - component: {fileID: 1471402114}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -39866,7 +39909,7 @@ GameObject:
   - component: {fileID: 1483137715}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -40636,7 +40679,7 @@ GameObject:
   - component: {fileID: 1511930999}
   m_Layer: 0
   m_Name: GameObject (17)
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -42104,7 +42147,7 @@ GameObject:
   - component: {fileID: 1581312681}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -44845,7 +44888,7 @@ GameObject:
   - component: {fileID: 1661730988}
   m_Layer: 0
   m_Name: GameObject (18)
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -45869,7 +45912,7 @@ GameObject:
   - component: {fileID: 1691855476}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Ground_Dirt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -49611,7 +49654,7 @@ GameObject:
   - component: {fileID: 1875949831}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -49719,7 +49762,7 @@ GameObject:
   - component: {fileID: 1878411101}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -49828,7 +49871,7 @@ GameObject:
   - component: {fileID: 1879827298}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -51084,7 +51127,7 @@ GameObject:
   - component: {fileID: 1927847071}
   m_Layer: 0
   m_Name: default
-  m_TagString: Untagged
+  m_TagString: Ground_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -51927,7 +51970,7 @@ GameObject:
   - component: {fileID: 1951211809}
   m_Layer: 0
   m_Name: stairs
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -62120,21 +62163,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!4 &2169044306816758861
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8719771546979678501}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.03325101, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6583733711280943768}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2234036172419063888
 Transform:
   m_ObjectHideFlags: 0
@@ -64104,7 +64132,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6059913321955965807}
   - {fileID: 4602221267842885584}
   m_Father: {fileID: 5094988294690320752}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -65110,7 +65137,7 @@ GameObject:
   - component: {fileID: 4542468883045297550}
   m_Layer: 0
   m_Name: Tower_ant_A_m_0
-  m_TagString: Untagged
+  m_TagString: Ground_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -67926,7 +67953,7 @@ GameObject:
   - component: {fileID: 8690093556116845640}
   m_Layer: 0
   m_Name: Ground_ground_m_0
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -68407,22 +68434,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 337119533857720844}
   m_Mesh: {fileID: -2837590758734036574, guid: 4c87a6a7966219f40966fa48cc275a55, type: 3}
---- !u!1 &5432273140845969271
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6059913321955965807}
-  m_Layer: 0
-  m_Name: Bone_end
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!4 &5493777065240815016
 Transform:
   m_ObjectHideFlags: 0
@@ -69554,21 +69565,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 244277694}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &6059913321955965807
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5432273140845969271}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0.033125933, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3164982296751175097}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6079091825014974966
 GameObject:
   m_ObjectHideFlags: 0
@@ -69728,7 +69724,7 @@ GameObject:
   - component: {fileID: 6213182098696573940}
   m_Layer: 0
   m_Name: enclosdeShelter_01
-  m_TagString: Untagged
+  m_TagString: Ground_Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -71032,7 +71028,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2169044306816758861}
   - {fileID: 542114444881435532}
   m_Father: {fileID: 8879528568087843316}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74418,7 +74413,7 @@ GameObject:
   - component: {fileID: 1740996962}
   m_Layer: 0
   m_Name: foundation
-  m_TagString: Untagged
+  m_TagString: Ground_Concrete
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -75034,22 +75029,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5164147885590439732, guid: 4c87a6a7966219f40966fa48cc275a55, type: 3}
---- !u!1 &8719771546979678501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2169044306816758861}
-  m_Layer: 0
-  m_Name: Bone_end
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
 --- !u!108 &8731683671210250112
 Light:
   m_ObjectHideFlags: 0

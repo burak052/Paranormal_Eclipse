@@ -20,6 +20,9 @@ TagManager:
   - ElectricBox
   - RepairKit
   - HeadLight
+  - Ground_Dirt
+  - Ground_Metal
+  - Ground_Concrete
   layers:
   - Default
   - TransparentFX
