@@ -28,6 +28,7 @@ public class Raycast : MonoBehaviour
     public keypadmat keymat;
     public signal sig;
     public LaraMovement Lara;
+    public ItemInspectSystem inspectSystem;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
@@ -37,6 +38,8 @@ public class Raycast : MonoBehaviour
     private bool havesleep = false;
     private bool cansleep = false;
     private bool firsttimeopen = true;
+    private bool takelight = false;
+    public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
     
@@ -304,14 +307,17 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                if(hit.collider.CompareTag("IDCard"))
+                if (inspectSystem.isInspecting)
+                    pressEUI.SetActive(false);
+                if (hit.collider.CompareTag("IDCard"))
                     pressEUIText.text = "to take IDCard";
-                if(hit.collider.CompareTag("RepairKit"))
+                if (hit.collider.CompareTag("RepairKit"))
                     pressEUIText.text = "to take RepairKit";
                 if (hit.collider.CompareTag("HeadLight"))
                     pressEUIText.text = "to take HeadLight";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    inspectSystem.StartInspect(hit.collider.gameObject);
                     pickupSound.Play();
                     if(hit.collider.CompareTag("IDCard"))
                         HaveCard = true;
@@ -322,7 +328,12 @@ public class Raycast : MonoBehaviour
                         haveheadlight = true;
                         spotlight.SetActive(true);
                     }
-                    hit.collider.gameObject.SetActive(false);
+                }
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+                {
+                    inspectSystem.EndInspect();
+                    if (hit.collider.CompareTag("HeadLight")) 
+                        takelight = true;
                 }
                 return;
             }
@@ -415,11 +426,21 @@ public class Raycast : MonoBehaviour
         }
 
 
-        if (pressEUI != null)
-            pressEUIText.text = "to open";
-            pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
-            pressEUI.SetActive(false);
+        pressEUIText.text = "to open";
+        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
+        pressEUI.SetActive(false);
 
+        if(takelight)
+        {
+            pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = LSprite;
+            pressEUIText.text = "to open light";
+            pressEUI.SetActive(true);
+            if(Input.GetKeyDown(KeyCode.L))
+            {
+                pressEUI.SetActive(false);
+                takelight = false;
+            }
+        }
         currentDoorAnimator = null;
     }
     IEnumerator OpenDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
