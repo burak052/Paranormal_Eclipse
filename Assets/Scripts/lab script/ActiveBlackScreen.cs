@@ -14,6 +14,8 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject night;
     public GameObject moonLight;
     public GameObject headlight;
+    public AudioSource forestSound;
+    public AudioClip nightSound;
 
     public void BlackScreenOn()
       {
@@ -46,6 +48,8 @@ public class ActiveBlackScreen : MonoBehaviour
         moonLight.SetActive(true);
         if (headlight != null)
         headlight.SetActive(true);
+        if (forestSound != null && nightSound != null)
+        forestSound.PlayOneShot(nightSound);
 
         t = 0f;
 
