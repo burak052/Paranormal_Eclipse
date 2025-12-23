@@ -16,6 +16,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject headlight;
     public AudioSource forestSound;
     public AudioClip nightSound;
+    public ShadowDisable Shaddis;
 
     public void BlackScreenOn()
       {
@@ -50,6 +51,8 @@ public class ActiveBlackScreen : MonoBehaviour
         headlight.SetActive(true);
         if (forestSound != null && nightSound != null)
         forestSound.PlayOneShot(nightSound);
+        if (Shaddis != null)
+        Shaddis.EnableShadow();
 
         t = 0f;
 

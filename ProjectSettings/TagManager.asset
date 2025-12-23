@@ -23,6 +23,7 @@ TagManager:
   - Ground_Dirt
   - Ground_Metal
   - Ground_Concrete
+  - DisShadow
   layers:
   - Default
   - TransparentFX
