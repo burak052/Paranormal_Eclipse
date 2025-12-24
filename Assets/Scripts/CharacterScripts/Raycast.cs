@@ -426,8 +426,18 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
-        }
+            if (hit.collider.CompareTag("Security"))
+            {
+                if (pressEUI != null)
+                {
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "Firstly, You have to wear lab coat.";
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                }
 
+                return;
+            }
+        }
 
         pressEUIText.text = "to open";
         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;

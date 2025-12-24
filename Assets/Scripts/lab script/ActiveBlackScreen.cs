@@ -14,6 +14,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject night;
     public GameObject moonLight;
     public GameObject headlight;
+    public GameObject security;
     public AudioSource forestSound;
     public AudioClip nightSound;
     public ShadowDisable Shaddis;
@@ -70,5 +71,7 @@ public class ActiveBlackScreen : MonoBehaviour
 
         blackScreen.gameObject.SetActive(false);
         playerMovement.enabled = true;
+        if (security != null)
+            security.GetComponent<BoxCollider>().enabled = false;
     }
 }
