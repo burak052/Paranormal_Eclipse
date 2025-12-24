@@ -4,6 +4,7 @@ public class PlayerAnimationController : MonoBehaviour
 {
     [Header("Model inside Capsule")]
     public GameObject maleModel;
+    public GameObject malelabModel;
 
     private Animator _animator;
     private CharacterController _controller;
@@ -55,6 +56,16 @@ public class PlayerAnimationController : MonoBehaviour
             _animator.SetBool("isWalkingCrounchingBack", isCrouchingWalkingBack);
             _animator.SetBool("isCrouching", isCrouching);
 
+        }
+    }
+
+    public void ChangeOutfit()
+    {
+        if(malelabModel != null)
+        {
+            maleModel.SetActive(false);
+            malelabModel.SetActive(true);
+            _animator = malelabModel.GetComponent<Animator>();
         }
     }
 }

@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: e02cca8c3849aa24bb28f46ac28eb295
+guid: b5bf81eba7be0f346a38081e64a47d1b
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cotton_Twill_FRONT_289623
+    second: {fileID: 2100000, guid: 3cc1b5ca71760de4883a88901ba448c5, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
