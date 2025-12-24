@@ -11,6 +11,7 @@ public class Raycast : MonoBehaviour
 
     [Header("UI")]
     public AudioSource pickupSound;
+    public AudioSource horrorSoundOutdoor;
     public GameObject disableFloor1;
     public GameObject pressEUI;
     public GameObject spotlight;
@@ -354,6 +355,8 @@ public class Raycast : MonoBehaviour
                     {
                         currentDoorAnimator.SetTrigger("Open");
                         repairt.ChangeTag();
+                        if(havesleep && horrorSoundOutdoor != null)
+                            horrorSoundOutdoor.Play();
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)

@@ -4,19 +4,19 @@ using System.Collections;
 
 public class ShadowDisable : MonoBehaviour
 {
-    public Image Shadow;
+    public GameObject Shadow;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Shadow.enabled = false;
+        DisableShadow();
     }
 
     public void EnableShadow()
     {
-        Shadow.enabled = true;
+        Shadow.SetActive(true);
     }
     public void DisableShadow()
     {
-        Shadow.enabled = false;
+        Shadow.SetActive(false);
     }
 }
