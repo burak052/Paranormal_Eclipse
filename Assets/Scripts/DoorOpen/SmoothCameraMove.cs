@@ -4,6 +4,7 @@ using UnityEngine;
 public class SmoothCameraMove : MonoBehaviour
 {
     public Transform keypadCameraPoint;
+    public Transform laptopCameraPoint;
     public float moveDuration = 1.2f;
 
     private Vector3 startPos;
@@ -19,6 +20,15 @@ public class SmoothCameraMove : MonoBehaviour
 
         StopAllCoroutines();
         StartCoroutine(MoveCamera());
+    }
+    public void MoveToLaptop()
+    {
+        startPos = transform.position;
+        startRot = transform.rotation;
+        originalLocalRotation = transform.localRotation;
+
+        StopAllCoroutines();
+        StartCoroutine(MoveLaptopCamera());
     }
     public void ReturnCamera()
     {
@@ -36,6 +46,21 @@ public class SmoothCameraMove : MonoBehaviour
 
             transform.position = Vector3.Lerp(startPos, keypadCameraPoint.position, t);
             transform.rotation = Quaternion.Slerp(startRot, keypadCameraPoint.rotation, t);
+
+            yield return null;
+        }
+    }
+
+    IEnumerator MoveLaptopCamera()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / moveDuration;
+
+            transform.position = Vector3.Lerp(startPos, laptopCameraPoint.position, t);
+            transform.rotation = Quaternion.Slerp(startRot, laptopCameraPoint.rotation, t);
 
             yield return null;
         }

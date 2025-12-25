@@ -158,6 +158,32 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
+
+            if (hit.collider.CompareTag("BoilerLaptop"))
+            {
+                pressEUIText.text = "to Log-in";
+                
+                if (pressEUI != null && !inkeypad)
+                    pressEUI.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    inkeypad = true;
+                    ActivateLaptop();
+                    pressEUI.SetActive(false);
+                    playerMovement.enabled = false;
+                    Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    inkeypad = false;
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    returncam();
+                }
+                return;
+            }
             
             if (hit.collider.CompareTag("CupBoard"))
             {
@@ -497,6 +523,10 @@ public class Raycast : MonoBehaviour
     public void ActivateKeypad()
     {
         cameraMove.MoveToKeypad();
+    }
+    public void ActivateLaptop()
+    {
+        cameraMove.MoveToLaptop();
     }
     public void returncam()
     {
