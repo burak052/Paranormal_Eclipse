@@ -27497,6 +27497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maleModel: {fileID: 327985408}
+  malelabModel: {fileID: 0}
 --- !u!114 &991071736 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9156347144040445544, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
@@ -50614,7 +50615,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1875478957}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: e02cca8c3849aa24bb28f46ac28eb295, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
   m_Controller: {fileID: 9100000, guid: b4e3f0b7977246041a9a1d842d020236, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -57514,9 +57515,11 @@ MonoBehaviour:
   night: {fileID: 2030425105}
   moonLight: {fileID: 1645507303}
   headlight: {fileID: 1300341135}
+  security: {fileID: 0}
   forestSound: {fileID: 991071738}
   nightSound: {fileID: 8300000, guid: be364b763f2b21c4ba69f8674d2c14e3, type: 3}
   Shaddis: {fileID: 1586235725}
+  pac: {fileID: 0}
 --- !u!114 &2087430267
 MonoBehaviour:
   m_ObjectHideFlags: 0
