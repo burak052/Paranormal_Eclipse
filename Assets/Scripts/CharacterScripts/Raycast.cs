@@ -32,6 +32,7 @@ public class Raycast : MonoBehaviour
     public LaraMovement Lara;
     public ItemInspectSystem inspectSystem;
     public inventory inventor;
+    public searchlabcoat paper;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -472,6 +473,26 @@ public class Raycast : MonoBehaviour
 
                 return;
             }
+            if (hit.collider.CompareTag("LabCoat"))
+            {
+                if (pressEUI != null)
+                {
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "To Search";
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    pressEUIText.text = "Searching";
+                    StartCoroutine(searchindelay());
+                    
+                }
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    paper.offpaper();
+                }
+
+                return;
+            }
         }
 
         pressEUIText.text = "to open";
@@ -490,6 +511,11 @@ public class Raycast : MonoBehaviour
             }
         }
         currentDoorAnimator = null;
+    }
+    IEnumerator searchindelay()
+    {
+        yield return new WaitForSeconds(2f);
+        paper.showpaper();
     }
     IEnumerator OpenDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
     {

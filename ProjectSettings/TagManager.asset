@@ -26,6 +26,7 @@ TagManager:
   - DisShadow
   - Security
   - BoilerLaptop
+  - LabCoat
   layers:
   - Default
   - TransparentFX
