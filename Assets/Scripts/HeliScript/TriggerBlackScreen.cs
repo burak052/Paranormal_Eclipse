@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Cinemachine; 
+using UnityEngine.SceneManagement;
 
 public class TriggerScript : MonoBehaviour
 {
@@ -82,6 +83,6 @@ public class TriggerScript : MonoBehaviour
         }
         yield return new WaitForSeconds(waitTime);
 
-        Application.LoadLevel(1);
+        SceneManager.LoadScene(1);
     }
 }

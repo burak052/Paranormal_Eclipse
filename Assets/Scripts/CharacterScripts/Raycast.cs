@@ -18,6 +18,7 @@ public class Raycast : MonoBehaviour
     private Animator currentDoorAnimator;
     private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
+    public PlayerAnimationController playeranim;
     public ElevatorFloor Callfloor;
     public TextMeshProUGUI passwordText;
     public TextMeshProUGUI pressEUIText;
@@ -31,7 +32,6 @@ public class Raycast : MonoBehaviour
     public LaraMovement Lara;
     public ItemInspectSystem inspectSystem;
     public inventory inventor;
-    private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -154,6 +154,7 @@ public class Raycast : MonoBehaviour
                     ActivateKeypad();
                     pressEUI.SetActive(false);
                     playerMovement.enabled = false;
+                    playeranim.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
@@ -173,6 +174,7 @@ public class Raycast : MonoBehaviour
                     ActivateLaptop();
                     pressEUI.SetActive(false);
                     playerMovement.enabled = false;
+                    playeranim.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
@@ -199,6 +201,7 @@ public class Raycast : MonoBehaviour
                     hit.collider.transform.parent.Find("Plane (8)").gameObject.tag = "Untagged";
                     hit.collider.transform.parent.Find("Plane (5)").gameObject.tag = "Untagged";
                     ABS = GetComponent<ActiveBlackScreen>();
+                    ABS.outfit = true;
                     ABS.BlackScreenOn();
                 }
                 return;
@@ -324,6 +327,7 @@ public class Raycast : MonoBehaviour
                     ActivateKeypad();
                     pressEUI.SetActive(false);
                     playerMovement.enabled = false;
+                    playeranim.enabled = false;
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
@@ -342,7 +346,7 @@ public class Raycast : MonoBehaviour
                 if (hit.collider.CompareTag("RepairKit"))
                     pressEUIText.text = "to take RepairKit";
                 if (hit.collider.CompareTag("HeadLight"))
-                    pressEUIText.text = "to take HeadLight";
+                    pressEUIText.text = "to take lapel light";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     inspectSystem.StartInspect(hit.collider.gameObject);
@@ -399,7 +403,7 @@ public class Raycast : MonoBehaviour
                 }
                 if ((Input.GetKeyDown(KeyCode.E) && HaveCard) && (havesleep && !haveheadlight))
                 {
-                    pressEUIText.text = "Need to take headlight";
+                    pressEUIText.text = "Need to take lapel light";
 
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
@@ -477,7 +481,7 @@ public class Raycast : MonoBehaviour
         if(takelight)
         {
             pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = LSprite;
-            pressEUIText.text = "to open light";
+            pressEUIText.text = "to open lapel light";
             pressEUI.SetActive(true);
             if(Input.GetKeyDown(KeyCode.L))
             {

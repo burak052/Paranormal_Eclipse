@@ -11,6 +11,7 @@ public class SmoothCameraMove : MonoBehaviour
     private Quaternion startRot;
     private Quaternion originalLocalRotation;
     public MonoBehaviour playerMovement; 
+    public PlayerAnimationController playeranim;
 
     public void MoveToKeypad()
     {
@@ -87,5 +88,6 @@ public class SmoothCameraMove : MonoBehaviour
             yield return null;
         }
         playerMovement.enabled = true;
+        playeranim.enabled = true;
     }
 }

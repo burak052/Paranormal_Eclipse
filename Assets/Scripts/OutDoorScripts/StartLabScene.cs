@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class StartLabScene : MonoBehaviour
 {
@@ -27,6 +28,6 @@ public class StartLabScene : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        Application.LoadLevel(3);
+        SceneManager.LoadScene(3);
     }
 }

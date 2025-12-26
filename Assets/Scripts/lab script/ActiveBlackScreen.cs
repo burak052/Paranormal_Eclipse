@@ -19,6 +19,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public AudioClip nightSound;
     public ShadowDisable Shaddis;
     public PlayerAnimationController pac;
+    public bool outfit = false;
 
     public void BlackScreenOn()
       {
@@ -27,7 +28,9 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator DisableAfterDelay()
     {
+        pac.enabled = false;
         playerMovement.enabled = false;
+
         float t = 0f;
         if(clothesAudio != null)
           clothesAudio.Play();
@@ -55,8 +58,13 @@ public class ActiveBlackScreen : MonoBehaviour
         forestSound.PlayOneShot(nightSound);
         if (Shaddis != null)
         Shaddis.EnableShadow();
-        if (pac != null)
-        pac.ChangeOutfit();
+        if (outfit)
+        {
+          pac.enabled = true;
+          pac.ChangeOutfit(); 
+          pac.enabled = false;
+          outfit = false;
+        }
 
         t = 0f;
 
@@ -71,6 +79,8 @@ public class ActiveBlackScreen : MonoBehaviour
 
         blackScreen.gameObject.SetActive(false);
         playerMovement.enabled = true;
+        pac.enabled = true;
+        pac.ChangeOutfit();
         if (security != null)
             security.GetComponent<BoxCollider>().enabled = false;
     }
