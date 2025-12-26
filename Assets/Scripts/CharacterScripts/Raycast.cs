@@ -30,6 +30,7 @@ public class Raycast : MonoBehaviour
     public signal sig;
     public LaraMovement Lara;
     public ItemInspectSystem inspectSystem;
+    public inventory inventor;
     private int fscreen = 4;
     private bool isbusy = false;
     private bool HaveCard = false;
@@ -347,11 +348,15 @@ public class Raycast : MonoBehaviour
                     inspectSystem.StartInspect(hit.collider.gameObject);
                     pickupSound.Play();
                     if(hit.collider.CompareTag("IDCard"))
+                    {
                         HaveCard = true;
+                        inventor.takeItem("IDCard");
+                    }
                     if(hit.collider.CompareTag("RepairKit"))
                         haveRepairKit = true;
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
+                        inventor.takeItem("Light");
                         haveheadlight = true;
                         spotlight.SetActive(true);
                     }
