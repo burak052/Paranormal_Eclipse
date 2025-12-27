@@ -16,7 +16,7 @@ public class LaptopController : MonoBehaviour
         string username = usernameInput.text;
         string password = passwordInput.text;
 
-        if (username.ToLower() == "nova" && password.ToLower() == "1327")
+        if (username.ToLower() == "nova" && password.ToLower() == "1441")
         {
             laptopsuccess.Play();
             canvasLaptop.transform.Find("Login Image").gameObject.SetActive(false);

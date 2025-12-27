@@ -12,6 +12,8 @@ public class Raycast : MonoBehaviour
     [Header("UI")]
     public AudioSource pickupSound;
     public AudioSource horrorSoundOutdoor;
+    public AudioSource searchSound;
+    public AudioSource paperSound;
     public GameObject disableFloor1;
     public GameObject pressEUI;
     public GameObject spotlight;
@@ -32,7 +34,7 @@ public class Raycast : MonoBehaviour
     public LaraMovement Lara;
     public ItemInspectSystem inspectSystem;
     public inventory inventor;
-    public searchlabcoat paper;
+    public ShowNotes paper;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -42,6 +44,7 @@ public class Raycast : MonoBehaviour
     private bool cansleep = false;
     private bool firsttimeopen = true;
     private bool takelight = false;
+    private bool issearching = false;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
@@ -480,15 +483,21 @@ public class Raycast : MonoBehaviour
                     pressEUI.SetActive(true);
                     pressEUIText.text = "To Search";
                 }
+                if (issearching)
+                    pressEUIText.text = "Searching";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    issearching = true;
                     pressEUIText.text = "Searching";
+                    searchSound.Play();
                     StartCoroutine(searchindelay());
-                    
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
+                    hit.collider.gameObject.tag = "Untagged";
                     paper.offpaper();
+                    playerMovement.enabled = true;
+                    playeranim.enabled = true;
                 }
 
                 return;
@@ -514,8 +523,11 @@ public class Raycast : MonoBehaviour
     }
     IEnumerator searchindelay()
     {
+        playerMovement.enabled = false;
+        playeranim.enabled = false;
         yield return new WaitForSeconds(2f);
-        paper.showpaper();
+        paperSound.Play();
+        paper.showpaper(1);
     }
     IEnumerator OpenDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
     {
