@@ -9,14 +9,14 @@ public class inventory : MonoBehaviour
     public GameObject playerInventory;
     public MonoBehaviour playerMovement;
     public PlayerAnimationController playeranim;
+    public PlayerInventoryData inventoryData;
     public Sprite IDCardSprite;
     public Sprite LightSprite;
     public Sprite PaperSprite;
-    int itemCount = 0;
     bool InventoryState = false;
     string[] itemName = new string[16];
     string[] itemDesc = new string[16];
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     void Start()
     {
         for (int i = 0; i<16; i++)
@@ -33,9 +33,24 @@ public class inventory : MonoBehaviour
                 itemName[i] = "Light";
                 itemDesc[i] = "A light worn on the lapel";
             }
+            if (i == 2)
+            {
+                itemName[i] = "Artur's note";
+                itemDesc[i] = @"    Experiment 27 showed an earlier deviation than expected. The chronometer is functioning correctly, but the observer can no longer be considered a reliable reference. Time is becoming unstable.
+
+    Magnetic instability has been detected on the second level of the laboratory. Time spent in the isolation chamber should not exceed four minutes. Prolonged exposure results in memory gaps that cannot be recalled.
+
+    If I need to access the system again:
+    Username: NOVA
+    Password: 1441
+
+    - Prof. Arthur";
+            }
+
+
         }
 
-        for (int i = 1; i <= 16; i++)
+        for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)
         {
             Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
 
@@ -44,9 +59,21 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.SetActive(false);
             }
         }
+
+        for (int i = 1; i <= inventoryData.ownedItemIDs.Count; i++)
+        {
+            Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
+            slotImage.gameObject.GetComponent<Image>().sprite = PaperSprite;
+
+            if (inventoryData.ownedItemIDs[i-1] == 0)
+                slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 1)
+                slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
+        }
+
         playerInventory.SetActive(false);
     }
-    // Update is called once per frame
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab))
@@ -56,21 +83,18 @@ public class inventory : MonoBehaviour
         }
     }
 
-    public void takeItem(string st)
+    public void takeItem(int id)
     {
-        itemCount++;
-            Transform slotImage = playerInventory.transform.Find($"Image/slot{itemCount}/Image");
+        inventoryData.ownedItemIDs.Add(id);
+        Transform slotImage = playerInventory.transform.Find($"Image/slot{inventoryData.ownedItemIDs.Count}/Image");
 
-        if (slotImage != null)
-        {
-            if (st == "IDCard")
-                slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
-            else if (st == "Light")
-                slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
-            else
-                slotImage.gameObject.GetComponent<Image>().sprite = PaperSprite;
-            slotImage.gameObject.SetActive(true);
-        }
+        slotImage.gameObject.GetComponent<Image>().sprite = PaperSprite;
+        if (id == 0)
+            slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
+        else if (id == 1)
+            slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
+
+        slotImage.gameObject.SetActive(true);
     }
 
     public void playermove()
@@ -97,10 +121,16 @@ public class inventory : MonoBehaviour
 
     public void showDescription(int slot)
     {
-        if (slot < itemCount)
+        if(slot < inventoryData.ownedItemIDs.Count)
         {
-            playerInventory.transform.Find($"Image/description/name").gameObject.GetComponent<TextMeshProUGUI>().text = itemName[slot];
-            playerInventory.transform.Find($"Image/description/desc").gameObject.GetComponent<TextMeshProUGUI>().text = itemDesc[slot];
+            for(int i = 0; i < 16; i++)
+            {
+                if (inventoryData.ownedItemIDs[slot] == i)
+                {
+                    playerInventory.transform.Find($"Image/description/name").gameObject.GetComponent<TextMeshProUGUI>().text = itemName[i];
+                    playerInventory.transform.Find($"Image/description/desc").gameObject.GetComponent<TextMeshProUGUI>().text = itemDesc[i];
+                }
+            }
         }
     }
 }

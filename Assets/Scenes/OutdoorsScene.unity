@@ -41999,8 +41999,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -43260,7 +43260,7 @@ RectTransform:
   m_GameObject: {fileID: 1467846672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.00036621094}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.14125, y: 1.2579688, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1266730432}
@@ -61269,6 +61269,8 @@ MonoBehaviour:
     m_Bits: 0
   pickupSound: {fileID: 2087430271}
   horrorSoundOutdoor: {fileID: 237341595}
+  searchSound: {fileID: 0}
+  paperSound: {fileID: 0}
   disableFloor1: {fileID: 1660428704}
   pressEUI: {fileID: 1855603163}
   spotlight: {fileID: 45585799}
@@ -61286,6 +61288,7 @@ MonoBehaviour:
   Lara: {fileID: 1875478961}
   inspectSystem: {fileID: 991071742}
   inventor: {fileID: 2087430272}
+  paper: {fileID: 0}
   haveheadlight: 0
   LSprite: {fileID: 21300000, guid: a9e5b15e3d3f7114db5b7998d62909d2, type: 3}
   ESprite: {fileID: 21300000, guid: af177b9524b43fd4591502373eff93c8, type: 3}
@@ -61452,6 +61455,7 @@ MonoBehaviour:
   playerInventory: {fileID: 1467846672}
   playerMovement: {fileID: 991071736}
   playeranim: {fileID: 991071735}
+  inventoryData: {fileID: 11400000, guid: 869f9a7466f7fde468de8ad9a34cee6c, type: 2}
   IDCardSprite: {fileID: 21300000, guid: 5407634539d289143bb8c2c280ae80a5, type: 3}
   LightSprite: {fileID: 21300000, guid: cb8ec08013e45454591d5e5a92e38c99, type: 3}
   PaperSprite: {fileID: 21300000, guid: fad1612eec1611d42a702f68a81a7852, type: 3}

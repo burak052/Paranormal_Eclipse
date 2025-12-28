@@ -19,6 +19,11 @@ public class LaraMovement : MonoBehaviour
         transform.position = new Vector3(1471.97f,2.13f,1788.94f);
         transform.rotation = Quaternion.Euler(0f,25f,0f);
     }
+    public void LaraLocker()
+    {
+        transform.position = new Vector3(1381.16f,4.71f,1564.52f);
+        transform.rotation = Quaternion.Euler(0f,-34.96f,0f);
+    }
 
     public void LaraShelter()
     {

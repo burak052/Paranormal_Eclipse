@@ -207,6 +207,7 @@ public class Raycast : MonoBehaviour
                     ABS = GetComponent<ActiveBlackScreen>();
                     ABS.outfit = true;
                     ABS.BlackScreenOn();
+                    Lara.LaraLocker();
                 }
                 return;
             }
@@ -358,13 +359,13 @@ public class Raycast : MonoBehaviour
                     if(hit.collider.CompareTag("IDCard"))
                     {
                         HaveCard = true;
-                        inventor.takeItem("IDCard");
+                        inventor.takeItem(0);
                     }
                     if(hit.collider.CompareTag("RepairKit"))
                         haveRepairKit = true;
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
-                        inventor.takeItem("Light");
+                        inventor.takeItem(1);
                         haveheadlight = true;
                         spotlight.SetActive(true);
                     }
@@ -491,6 +492,7 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "Searching";
                     searchSound.Play();
                     StartCoroutine(searchindelay());
+                    inventor.takeItem(2);
                 }
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
