@@ -3,15 +3,12 @@ using System.Collections;
 
 public class LaraMovement : MonoBehaviour
 {
-    Rigidbody rb;
-    void Start()
+    public void LaraShelter()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        GetComponent<Animator>().SetBool("walk", true);
+        transform.position = new Vector3(1417.83704f, 4.01999998f, 1670.13098f);
+        transform.rotation = Quaternion.Euler(0f,262f,0f);
+        StartCoroutine(MoveRoutine());
     }
     public void LaraBeach()
     {
@@ -24,14 +21,35 @@ public class LaraMovement : MonoBehaviour
         transform.position = new Vector3(1381.16f,4.71f,1564.52f);
         transform.rotation = Quaternion.Euler(0f,-34.96f,0f);
     }
-
-    public void LaraShelter()
+    public void LaraXray()
     {
-        GetComponent<Animator>().SetBool("walk", true);
-        transform.position = new Vector3(1417.83704f, 4.01999998f, 1670.13098f);
-        transform.rotation = Quaternion.Euler(0f,262f,0f);
-        StartCoroutine(MoveRoutine());
+        StartCoroutine(MoveXray());
     }
+    IEnumerator MoveXray()
+    {
+        Vector3 start = transform.position;
+        Vector3 target = new Vector3(1377.34f,4.71f, 1563.40f);
+        Quaternion startRot = transform.rotation;
+        Quaternion targetRot = Quaternion.Euler(0f, -134.208f, 0f);
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 2f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("walk", true);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.3f;
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("walk", false);
+    }
+
     IEnumerator MoveRoutine()
     {
         Vector3 start = transform.position;

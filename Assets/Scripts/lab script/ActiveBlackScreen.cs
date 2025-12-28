@@ -15,6 +15,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject moonLight;
     public GameObject headlight;
     public GameObject security;
+    public GameObject looklara;
     public AudioSource forestSound;
     public AudioClip nightSound;
     public ShadowDisable Shaddis;
@@ -60,6 +61,7 @@ public class ActiveBlackScreen : MonoBehaviour
         Shaddis.EnableShadow();
         if (outfit)
         {
+          looklara.SetActive(true);
           pac.enabled = true;
           pac.ChangeOutfit(); 
           pac.enabled = false;
