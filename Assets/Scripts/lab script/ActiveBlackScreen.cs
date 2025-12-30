@@ -84,6 +84,10 @@ public class ActiveBlackScreen : MonoBehaviour
         pac.enabled = true;
         pac.ChangeOutfit();
         if (security != null)
-            security.GetComponent<BoxCollider>().enabled = false;
+        {
+            security.GetComponent<BoxCollider>().isTrigger = true;
+            security.tag = "Untagged";  
+        }
+
     }
 }
