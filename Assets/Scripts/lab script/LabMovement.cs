@@ -18,10 +18,11 @@ public class LabMovement : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * 1.5f;
+            t += Time.deltaTime * 1f;
             transform.position = Vector3.Lerp(start, target, t);
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, -135.42f, 0f), t);
             camParent.localRotation = Quaternion.Slerp(startRot, targetRot, t);
+            camParent.parent.localRotation = Quaternion.Slerp(camParent.parent.localRotation, Quaternion.Euler(0f, 0f, 0f), t);
             yield return null;
         }
         yield return new WaitForSeconds(1f);
@@ -100,6 +101,7 @@ public class LabMovement : MonoBehaviour
             yield return null;
         }
 
+        GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().SyncRotationFromCamera();
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
     }
 }

@@ -184,6 +184,18 @@ namespace EasyPeasyFirstPersonController
             HandleMovement();
         }
 
+        public void SyncRotationFromCamera()
+        {
+            rotX = transform.eulerAngles.y;
+            rotY = playerCamera.localEulerAngles.x;
+
+            // Euler 0–360 → -180–180 düzeltmesi
+            if (rotY > 180f) rotY -= 360f;
+
+            xVelocity = rotX;
+            yVelocity = rotY;
+        }
+
         private void HandleHeadBob()
         {
             Vector3 horizontalVelocity = new Vector3(characterController.velocity.x, 0f, characterController.velocity.z);

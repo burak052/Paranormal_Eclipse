@@ -22,7 +22,7 @@ public class LaraMovement : MonoBehaviour
     IEnumerator StartCinematic()
     {
         float t = 0f;
-        Vector3 start = transform.position;
+        Vector3 start = new Vector3(1377.34f,4.71f, 1563.40f);
         Vector3 target = new Vector3(1376.13f,4.72f,1562.01f);
         yield return new WaitForSeconds(3f);
         GetComponent<Animator>().SetBool("walk", true);
@@ -42,7 +42,7 @@ public class LaraMovement : MonoBehaviour
             yield return null;
         }
         GetComponent<Animator>().SetBool("walk", false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         GetComponent<Animator>().SetBool("walk", true);
 
         start = transform.position;
