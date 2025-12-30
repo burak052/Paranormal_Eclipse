@@ -48,6 +48,7 @@ public class LabMovement : MonoBehaviour
         target = new Vector3(1374.81f,4.71f,1563.33f);
         t = 0f;
 
+        transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", true);
         while (t < 1f)
         {
             t += Time.deltaTime * 0.7f;
@@ -65,6 +66,7 @@ public class LabMovement : MonoBehaviour
             transform.position = Vector3.Lerp(start, target, t);
             yield return null;
         }
+        transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", false);
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
     }
 }

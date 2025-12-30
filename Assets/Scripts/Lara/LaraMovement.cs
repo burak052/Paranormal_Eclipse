@@ -24,6 +24,8 @@ public class LaraMovement : MonoBehaviour
         float t = 0f;
         Vector3 start = transform.position;
         Vector3 target = new Vector3(1376.13f,4.72f,1562.01f);
+        yield return new WaitForSeconds(2f);
+        GetComponent<Animator>().SetBool("walk", true);
         while (t < 1f)
         {
             t += Time.deltaTime * 0.7f;
@@ -39,6 +41,7 @@ public class LaraMovement : MonoBehaviour
             transform.position = Vector3.Lerp(start, target, t);
             yield return null;
         }
+        GetComponent<Animator>().SetBool("walk", false);
     }
 
     public void LaraXray()
