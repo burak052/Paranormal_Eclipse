@@ -9,21 +9,26 @@ public class LabMovement : MonoBehaviour
     }
     IEnumerator StartCinematic()
     {
+        Transform camParent = transform.Find("CameraParent").Find("Camera");
         Vector3 start = transform.position;
         Vector3 target = new Vector3(1376.07f,4.71f,1564.65f);
-        Quaternion startRot = transform.rotation;
-        Quaternion targetRot = Quaternion.Euler(0f, -203.87f, 0f);
+        Quaternion startRot = camParent.localRotation;
+        Quaternion targetRot = Quaternion.Euler(0f, 0f, 0f);
         float t = 0f;
 
         while (t < 1f)
         {
             t += Time.deltaTime * 1.5f;
             transform.position = Vector3.Lerp(start, target, t);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, -135.42f, 0f), t);
+            camParent.localRotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
         yield return new WaitForSeconds(1f);
         t = 0f; 
 
+        startRot = transform.rotation;
+        targetRot = Quaternion.Euler(0f, -203.87f, 0f);
         while (t < 1f)
         {
             t += Time.deltaTime * 0.7f;
@@ -57,16 +62,44 @@ public class LabMovement : MonoBehaviour
         }
         
         start = transform.position;
-        target = new Vector3(1374.33f,4.90f,1562.84f);
+        target = new Vector3(1374.42f,4.90f,1562.93f);
         t = 0f;
 
         while (t < 1f)
         {
-            t += Time.deltaTime * 0.7f;
+            t += Time.deltaTime * 1.2f;
             transform.position = Vector3.Lerp(start, target, t);
             yield return null;
         }
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", false);
+
+
+        startRot = camParent.localRotation;
+        targetRot = Quaternion.Euler(75f, 0f, 0f);
+
+        t = 0f;
+
+        yield return new WaitForSeconds(0.5f);
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 1.5f;
+            camParent.localRotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        startRot = camParent.localRotation;
+        targetRot = Quaternion.Euler(0f, 0f, 0f);
+        t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 1.5f;
+            camParent.localRotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
     }
 }

@@ -42,6 +42,19 @@ public class LaraMovement : MonoBehaviour
             yield return null;
         }
         GetComponent<Animator>().SetBool("walk", false);
+        yield return new WaitForSeconds(2f);
+        GetComponent<Animator>().SetBool("walk", true);
+
+        start = transform.position;
+        target = new Vector3(1374.72f,4.73f,1560.25f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.9f;
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("walk", false);
     }
 
     public void LaraXray()
