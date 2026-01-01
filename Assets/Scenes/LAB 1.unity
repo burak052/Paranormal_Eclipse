@@ -23288,8 +23288,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.1570862, y: 0.2842306, z: 0.15914284}
-  m_Center: {x: 0.0036751418, y: 0.023775281, z: -0.0011633483}
+  m_Size: {x: 0.19776621, y: 0.32298824, z: 0.15914284}
+  m_Center: {x: 0.0082377065, y: 0.0087898085, z: -0.0011633477}
 --- !u!23 &650213214
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -86016,15 +86016,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.04364751
+      value: 0.043
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0436475
+      value: 0.043
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.088189736
+      value: 0.088
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -86040,23 +86040,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6532685
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.6532685
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.27062932
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2706294
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -86077,13 +86077,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2146911269}
   m_SourcePrefab: {fileID: 100100000, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
 --- !u!4 &2146911267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
   m_PrefabInstance: {fileID: 2146911266}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2146911268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11f0f7e75c691ff41a667c23a658785e, type: 3}
+  m_PrefabInstance: {fileID: 2146911266}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &2146911269
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146911268}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2822c051599edbf4e8e55921819c15f2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!33 &215592837977619136
 MeshFilter:
   m_ObjectHideFlags: 0
