@@ -12,6 +12,8 @@ public class inventory : MonoBehaviour
     public PlayerInventoryData inventoryData;
     public Sprite IDCardSprite;
     public Sprite LightSprite;
+    public Sprite CapsuleSprite;
+    public Sprite EnergyCapsuleSprite;
     public Sprite PaperSprite;
     bool InventoryState = false;
     string[] itemName = new string[16];
@@ -46,6 +48,16 @@ public class inventory : MonoBehaviour
 
     - Prof. Arthur";
             }
+            if (i == 3)
+            {
+                itemName[i] = "Empty Capsule";
+                itemDesc[i] = "An empty capsule.";
+            }
+            if (i == 4)
+            {
+                itemName[i] = "Energy Capsule";
+                itemDesc[i] = "A capsule that holds an unimaginable amount of energy, enough to power the city of Los Angeles for 12 years.";
+            }
 
 
         }
@@ -69,6 +81,10 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
             else if (inventoryData.ownedItemIDs[i-1] == 1)
                 slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 3)
+                slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 4)
+                slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
         }
 
         playerInventory.SetActive(false);
@@ -93,6 +109,10 @@ public class inventory : MonoBehaviour
             slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
         else if (id == 1)
             slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
+        else if (id == 3)
+            slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
+        else if (id == 4)
+            slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
 
         slotImage.gameObject.SetActive(true);
     }

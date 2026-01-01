@@ -29,6 +29,7 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator DisableAfterDelay()
     {
+        pac.SetAnimator();
         pac.enabled = false;
         playerMovement.enabled = false;
 
@@ -62,9 +63,7 @@ public class ActiveBlackScreen : MonoBehaviour
         if (outfit)
         {
           looklara.SetActive(true);
-          pac.enabled = true;
           pac.ChangeOutfit(); 
-          pac.enabled = false;
           outfit = false;
         }
 
@@ -82,7 +81,6 @@ public class ActiveBlackScreen : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
         playerMovement.enabled = true;
         pac.enabled = true;
-        pac.ChangeOutfit();
         if (security != null)
         {
             security.GetComponent<BoxCollider>().isTrigger = true;

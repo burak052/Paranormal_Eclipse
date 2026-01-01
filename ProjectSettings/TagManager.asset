@@ -27,6 +27,8 @@ TagManager:
   - Security
   - BoilerLaptop
   - LabCoat
+  - Capsule
+  - EnergyCapsule
   layers:
   - Default
   - TransparentFX

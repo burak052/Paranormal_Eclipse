@@ -68,4 +68,13 @@ public class PlayerAnimationController : MonoBehaviour
             _animator = malelabModel.GetComponent<Animator>();
         }
     }
+    public void SetAnimator()
+    {
+        _animator.SetBool("isRunning", false);
+        _animator.SetBool("isWalking", false);
+        _animator.SetBool("isJumping", false);
+        _animator.SetBool("isWalkingCrounching", false);
+        _animator.SetBool("isWalkingCrounchingBack", false);
+        _animator.SetBool("isCrouching", false);
+    }
 }

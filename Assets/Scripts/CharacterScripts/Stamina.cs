@@ -39,38 +39,41 @@ public class Stamina : MonoBehaviour
 
     void Update()
     {
-        // ?? STAMINA BAR UI
-        if (staminaSlider != null)
-            staminaSlider.value = stamina;
-
-        bool showStamina =  stamina < 40f;
-        float targetAlpha = showStamina ? 1f : 0f;
-
-        if (staminaCanvasGroup != null)
+        if(fpsController.enabled)
         {
-            staminaCanvasGroup.alpha = Mathf.Lerp(
-                staminaCanvasGroup.alpha,
-                targetAlpha,
-                Time.deltaTime * uiFadeSpeed
-            );
+            // ?? STAMINA BAR UI
+            if (staminaSlider != null)
+                staminaSlider.value = stamina;
+
+            bool showStamina =  stamina < 40f;
+            float targetAlpha = showStamina ? 1f : 0f;
+
+            if (staminaCanvasGroup != null)
+            {
+                staminaCanvasGroup.alpha = Mathf.Lerp(
+                    staminaCanvasGroup.alpha,
+                    targetAlpha,
+                    Time.deltaTime * uiFadeSpeed
+                );
+            }
+
+            // ????? STAMINA MANTI�I
+            if (fpsController.isSprinting)
+                stamina -= decreaseRate * Time.deltaTime;
+            else
+                stamina += 10f * Time.deltaTime;
+
+            stamina = Mathf.Clamp(stamina, 0f, 100f);
+
+            // ?? SPRINT K�L�D�
+            if (stamina <= 0f)
+                fpsController.sprintSpeed = fpsController.walkSpeed;
+            else
+                fpsController.sprintSpeed = 25f;
+
+            // ????? YORGUNLUK SES� (FADE IN / OUT)
+            HandleExhaustedAudio();
         }
-
-        // ????? STAMINA MANTI�I
-        if (fpsController.isSprinting)
-            stamina -= decreaseRate * Time.deltaTime;
-        else
-            stamina += 10f * Time.deltaTime;
-
-        stamina = Mathf.Clamp(stamina, 0f, 100f);
-
-        // ?? SPRINT K�L�D�
-        if (stamina <= 0f)
-            fpsController.sprintSpeed = fpsController.walkSpeed;
-        else
-            fpsController.sprintSpeed = 25f;
-
-        // ????? YORGUNLUK SES� (FADE IN / OUT)
-        HandleExhaustedAudio();
     }
 
     void HandleExhaustedAudio()

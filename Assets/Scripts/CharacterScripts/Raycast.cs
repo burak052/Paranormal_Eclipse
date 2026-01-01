@@ -124,6 +124,8 @@ public class Raycast : MonoBehaviour
 
                             Cursor.visible = false;
                             Cursor.lockState = CursorLockMode.Locked;
+
+                            Lara.LaraInEnviro();
                         }
                         else
                         {
@@ -340,7 +342,7 @@ public class Raycast : MonoBehaviour
             }
 
 
-            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight"))
+            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -352,6 +354,10 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take RepairKit";
                 if (hit.collider.CompareTag("HeadLight"))
                     pressEUIText.text = "to take lapel light";
+                if (hit.collider.CompareTag("Capsule"))
+                    pressEUIText.text = "to take Empty Capsule";
+                if (hit.collider.CompareTag("EnergyCapsule"))
+                    pressEUIText.text = "to take Energy Capsule";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     inspectSystem.StartInspect(hit.collider.gameObject);
@@ -368,6 +374,14 @@ public class Raycast : MonoBehaviour
                         inventor.takeItem(1);
                         haveheadlight = true;
                         spotlight.SetActive(true);
+                    }
+                    if (hit.collider.CompareTag("Capsule")) 
+                    { 
+                        inventor.takeItem(3);
+                    }
+                    if (hit.collider.CompareTag("EnergyCapsule")) 
+                    { 
+                        inventor.takeItem(4);
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))

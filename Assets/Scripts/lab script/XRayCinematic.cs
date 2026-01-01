@@ -19,6 +19,7 @@ public class XRayCinematic : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            Aral.GetComponent<PlayerAnimationController>().enabled = false;
             aralfps.enabled = false;
             GetComponent<Collider>().enabled = false;
             aralMove.XRayCinematic();
