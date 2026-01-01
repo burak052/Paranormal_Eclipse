@@ -58,7 +58,6 @@ public class LaraMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
-        //GetComponent<Animator>().SetBool("think", true);
     }
 
     public void LaraGoEnviro()
