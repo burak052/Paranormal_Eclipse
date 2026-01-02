@@ -117,6 +117,36 @@ public class inventory : MonoBehaviour
         slotImage.gameObject.SetActive(true);
     }
 
+    public void DeleteCapsule()
+    {
+        inventoryData.ownedItemIDs.Remove(3);
+
+        for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)
+        {
+            Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
+
+            if (slotImage != null)
+            {
+                slotImage.gameObject.SetActive(false);
+            }
+        }
+
+        for (int i = 1; i <= inventoryData.ownedItemIDs.Count; i++)
+        {
+            Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
+            slotImage.gameObject.GetComponent<Image>().sprite = PaperSprite;
+
+            if (inventoryData.ownedItemIDs[i-1] == 0)
+                slotImage.gameObject.GetComponent<Image>().sprite = IDCardSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 1)
+                slotImage.gameObject.GetComponent<Image>().sprite = LightSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 3)
+                slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 4)
+                slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
+        }
+    }
+
     public void playermove()
     {
         if (InventoryState)

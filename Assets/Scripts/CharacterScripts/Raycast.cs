@@ -35,6 +35,7 @@ public class Raycast : MonoBehaviour
     public ItemInspectSystem inspectSystem;
     public inventory inventor;
     public ShowNotes paper;
+    public StartEnergyCapsule SEC;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -45,6 +46,7 @@ public class Raycast : MonoBehaviour
     private bool firsttimeopen = true;
     private bool takelight = false;
     private bool issearching = false;
+    private int capsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
@@ -342,7 +344,8 @@ public class Raycast : MonoBehaviour
             }
 
 
-            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule"))
+            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
+             || hit.collider.CompareTag("PlaceEnergyCapsule"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -358,10 +361,23 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take Empty Capsule";
                 if (hit.collider.CompareTag("EnergyCapsule"))
                     pressEUIText.text = "to take Energy Capsule";
+                if (hit.collider.CompareTag("PlaceEnergyCapsule"))
+                {
+                    if(capsuleCount>0)
+                        pressEUIText.text = "to place Capsule";
+                    else
+                    {
+                        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                        pressEUIText.text = "You dont have any Capsule!";
+                    }
+                }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    inspectSystem.StartInspect(hit.collider.gameObject);
-                    pickupSound.Play();
+                    if (!hit.collider.CompareTag("PlaceEnergyCapsule"))
+                    {
+                        inspectSystem.StartInspect(hit.collider.gameObject);
+                        pickupSound.Play();
+                    }
                     if(hit.collider.CompareTag("IDCard"))
                     {
                         HaveCard = true;
@@ -378,10 +394,22 @@ public class Raycast : MonoBehaviour
                     if (hit.collider.CompareTag("Capsule")) 
                     { 
                         inventor.takeItem(3);
+                        capsuleCount++;
                     }
                     if (hit.collider.CompareTag("EnergyCapsule")) 
                     { 
                         inventor.takeItem(4);
+                    }
+                    
+                    if(hit.collider.CompareTag("PlaceEnergyCapsule"))
+                    {
+                        if(capsuleCount>0)
+                        {
+                            SEC.TryCapsule();
+                            hit.collider.gameObject.tag = "EnergyCapsule";
+                            capsuleCount--;
+                            inventor.DeleteCapsule();
+                        }
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
@@ -389,6 +417,13 @@ public class Raycast : MonoBehaviour
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
                         takelight = true;
+                    if(hit.collider.CompareTag("EnergyCapsule"))
+                    {
+                        hit.collider.gameObject.SetActive(true);
+                        hit.collider.gameObject.tag = "PlaceEnergyCapsule";
+                        SEC.TryCapsule();
+                        SEC.SetParent();
+                    }
                 }
                 return;
             }

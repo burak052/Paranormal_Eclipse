@@ -1,71 +1,81 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class SmokeTrigger : MonoBehaviour
 {
-    public VisualEffect smokeVFX;
-    bool hasTriggered = false;
+    [Header("Audio")]
+    public AudioSource smokeAudio;
+    float maxVolume = 1f;
 
-    public AudioSource steamSound;
-    public float fadeInDuration = 2f;
-    public float playDuration = 8f;
-    public float fadeOutDuration = 2f;
-    public GameObject collider1;
-    public GameObject collider2;
+    [Header("Timing")]
+    float totalAudioDuration = 10f;
+    float fadeInDuration = 2f;
+    float fadeOutDuration = 2f;
+    float particleStopTime = 10f;
 
-    void Start()
+    [Header("Colliders To Disable")]
+    public BoxCollider colliderA;
+    public BoxCollider colliderB;
+
+    ParticleSystem[] particles;
+    bool triggered;
+
+    void Awake()
     {
-        smokeVFX.SetFloat("Alpha", 1f); 
+        particles = GetComponentsInChildren<ParticleSystem>(true);
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (hasTriggered) return;
+        if (triggered) return;
         if (!other.CompareTag("Player")) return;
 
-        hasTriggered = true;
-        GetComponent<Collider>().enabled = false;
-
-        smokeVFX.SendEvent("OnPlay");
-        smokeVFX.Play();
-
-        StartCoroutine(FadeAndStop());
+        triggered = true;
+        StartCoroutine(SmokeRoutine());
     }
 
-    IEnumerator FadeAndStop()
+    IEnumerator SmokeRoutine()
     {
-        collider1.SetActive(false);
-        collider2.SetActive(false);
-        steamSound.volume = 0f;
-        steamSound.Play();
+        if (colliderA) colliderA.enabled = false;
+        if (colliderB) colliderB.enabled = false;
+        // Particle başlat
+        foreach (var ps in particles)
+            ps.Play();
 
-        // Fade In
+        // Ses başlat
+        smokeAudio.volume = 0f;
+        smokeAudio.Play();
+
+        // Fade In (0–2 sn)
         float t = 0f;
         while (t < fadeInDuration)
         {
             t += Time.deltaTime;
-            steamSound.volume = Mathf.Lerp(0f, 1f, t / fadeInDuration);
+            smokeAudio.volume = Mathf.Lerp(0f, maxVolume, t / fadeInDuration);
             yield return null;
         }
-        steamSound.volume = 1f;
 
-        yield return new WaitForSeconds(8f);
+        // 2–8 sn bekle
+        yield return new WaitForSeconds(particleStopTime - fadeInDuration);
 
+        // Particle durdur
+        foreach (var ps in particles)
+            ps.Stop();
+
+        // Fade Out (8–10 sn)
         t = 0f;
-        while (t < 1f)
+        float startVolume = smokeAudio.volume;
+        while (t < fadeOutDuration)
         {
             t += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, t / 1f);
-            smokeVFX.SetFloat("Alpha", alpha); 
-            steamSound.volume = Mathf.Lerp(1f, 0.2f, t / 1f);
+            smokeAudio.volume = Mathf.Lerp(startVolume, 0f, t / fadeOutDuration);
             yield return null;
         }
 
-        smokeVFX.SendEvent("OnStop"); 
-        yield return new WaitForSeconds(2f);
-        steamSound.Stop();
-        collider1.SetActive(true);
-        collider2.SetActive(true);
+        smokeAudio.Stop();
+
+        // Her şey bitince collider'ları aç
+        if (colliderA) colliderA.enabled = true;
+        if (colliderB) colliderB.enabled = true;
     }
 }

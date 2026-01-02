@@ -22,7 +22,7 @@ public class ItemInspectSystem : MonoBehaviour
 
     public void StartInspect(GameObject item)
     {
-        if(item.tag != "RepairKit")
+        if(item.tag != "RepairKit" && item.tag != "PlaceEnergyCapsule")
         {
             playerMovement.enabled = false;
             isInspecting = true;

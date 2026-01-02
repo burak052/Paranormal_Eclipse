@@ -29,6 +29,7 @@ TagManager:
   - LabCoat
   - Capsule
   - EnergyCapsule
+  - PlaceEnergyCapsule
   layers:
   - Default
   - TransparentFX
