@@ -36,6 +36,7 @@ public class Raycast : MonoBehaviour
     public inventory inventor;
     public ShowNotes paper;
     public StartEnergyCapsule SEC;
+    public StartEnergySmoke SES;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -46,6 +47,7 @@ public class Raycast : MonoBehaviour
     private bool firsttimeopen = true;
     private bool takelight = false;
     private bool issearching = false;
+    private bool capsuleAnim = true;
     private int capsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
@@ -359,8 +361,16 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take lapel light";
                 if (hit.collider.CompareTag("Capsule"))
                     pressEUIText.text = "to take Empty Capsule";
-                if (hit.collider.CompareTag("EnergyCapsule"))
+                if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
+                {
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
                     pressEUIText.text = "to take Energy Capsule";
+                }
+                else if(hit.collider.CompareTag("EnergyCapsule") && !capsuleAnim)
+                {
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                    pressEUIText.text = "Please Wait...";
+                }
                 if (hit.collider.CompareTag("PlaceEnergyCapsule"))
                 {
                     if(capsuleCount>0)
@@ -371,12 +381,24 @@ public class Raycast : MonoBehaviour
                         pressEUIText.text = "You dont have any Capsule!";
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && !inspectSystem.isInspecting)
                 {
                     if (!hit.collider.CompareTag("PlaceEnergyCapsule"))
                     {
-                        inspectSystem.StartInspect(hit.collider.gameObject);
-                        pickupSound.Play();
+                        if(hit.collider.CompareTag("EnergyCapsule"))
+                        {
+                            if(capsuleAnim)
+                            {
+                                SES.ping = false;
+                                inspectSystem.StartInspect(hit.collider.gameObject);
+                                pickupSound.Play();
+                            }
+                        }
+                        else
+                        {
+                            inspectSystem.StartInspect(hit.collider.gameObject);
+                            pickupSound.Play();
+                        }
                     }
                     if(hit.collider.CompareTag("IDCard"))
                     {
@@ -396,7 +418,7 @@ public class Raycast : MonoBehaviour
                         inventor.takeItem(3);
                         capsuleCount++;
                     }
-                    if (hit.collider.CompareTag("EnergyCapsule")) 
+                    if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim) 
                     { 
                         inventor.takeItem(4);
                     }
@@ -409,10 +431,11 @@ public class Raycast : MonoBehaviour
                             hit.collider.gameObject.tag = "EnergyCapsule";
                             capsuleCount--;
                             inventor.DeleteCapsule();
+                            StartCoroutine(StartCapseuleAnim());
                         }
                     }
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && inspectSystem.isInspecting)
                 {
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
@@ -423,6 +446,7 @@ public class Raycast : MonoBehaviour
                         hit.collider.gameObject.tag = "PlaceEnergyCapsule";
                         SEC.TryCapsule();
                         SEC.SetParent();
+                        capsuleAnim = false;
                     }
                 }
                 return;
@@ -543,7 +567,7 @@ public class Raycast : MonoBehaviour
                     StartCoroutine(searchindelay());
                     inventor.takeItem(2);
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
                 {
                     hit.collider.gameObject.tag = "Untagged";
                     paper.offpaper();
@@ -596,6 +620,11 @@ public class Raycast : MonoBehaviour
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", !state);
         }
+    }
+    IEnumerator StartCapseuleAnim()
+    {
+        yield return new WaitForSeconds(19f);
+        capsuleAnim = true;
     }
     public void KeyButton(string key)
     {      
