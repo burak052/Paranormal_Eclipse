@@ -9,6 +9,7 @@ public class StartEnergySmoke : MonoBehaviour
     public AudioSource pingsound;
     public GameObject light1;
     public GameObject light2;
+    public GameObject elevatorButton;
     public bool ping = false;
     bool isPinging;
 
@@ -18,6 +19,17 @@ public class StartEnergySmoke : MonoBehaviour
         {
             StartCoroutine(StartPing());
         }
+    }
+
+    public void OffLight()
+    {
+        light1.SetActive(false);
+        light2.SetActive(false);
+        isPinging = false;
+    }
+    public void OnElevatorButton()
+    {
+        elevatorButton.tag = "ElevatorButton";
     }
 
     IEnumerator StartPing()

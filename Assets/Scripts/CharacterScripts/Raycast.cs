@@ -48,7 +48,10 @@ public class Raycast : MonoBehaviour
     private bool takelight = false;
     private bool issearching = false;
     private bool capsuleAnim = true;
+    private bool callElevator = true;
+    private bool inFloor2 = false;
     private int capsuleCount = 0;
+    private int EnergyCapsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
@@ -220,46 +223,47 @@ public class Raycast : MonoBehaviour
 
             if (hit.collider.CompareTag("ElevatorButton"))
             {
+                currentDoorAnimator2 = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
+                currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
+                pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
                 pressEUIText.text = "to call elevator";
+                if (isbusy) 
+                {
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                    pressEUIText.text = "Please Wait...";
+                }
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
-                if (Input.GetKeyDown(KeyCode.E))
+                if (Input.GetKeyDown(KeyCode.E) && callElevator)
                 {
+                    if (isbusy) return;
                     Callfloor.floorcall();
                     
-                    //yield return new WaitForSeconds(12f);
-                    currentDoorAnimator2 = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
-                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
-                    if (isbusy) return;
                     StartCoroutine(OpenDoorSequence(currentDoorAnimator , currentDoorAnimator2));
-                    
+                    Lara.LaraFrontElevator();
                 }
                 return;
             }
             
             if (hit.collider.CompareTag("ElevatorKeypad"))
             {
-                if (pressEUI != null)
-                    pressEUI.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.E))
+                if(!inFloor2)
                 {
-                    currentDoorAnimator = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
-                    if (currentDoorAnimator != null)
-                    {
-                        bool state = currentDoorAnimator.GetBool("Open");
-                        currentDoorAnimator.SetBool("Open", !state);
-                    }
+                    currentDoorAnimator2 = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
                     currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
-                    if (currentDoorAnimator != null)
+                    if (pressEUI != null)
+                        pressEUI.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
-                        bool state = currentDoorAnimator.GetBool("Open");
-                        currentDoorAnimator.SetBool("Open", !state);
+                        StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2));
+                        inFloor2 = true;
                     }
+                    return;
                 }
-                return;
             }
+
             if (hit.collider.CompareTag("keypad1"))
             {
                 pressEUIText.text = "to enter";
@@ -389,6 +393,7 @@ public class Raycast : MonoBehaviour
                         {
                             if(capsuleAnim)
                             {
+                                SES.OffLight();
                                 SES.ping = false;
                                 inspectSystem.StartInspect(hit.collider.gameObject);
                                 pickupSound.Play();
@@ -442,11 +447,14 @@ public class Raycast : MonoBehaviour
                         takelight = true;
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
+                        EnergyCapsuleCount++;
                         hit.collider.gameObject.SetActive(true);
                         hit.collider.gameObject.tag = "PlaceEnergyCapsule";
                         SEC.TryCapsule();
                         SEC.SetParent();
                         capsuleAnim = false;
+                        if (EnergyCapsuleCount == 3)
+                            SES.OnElevatorButton();
                     }
                 }
                 return;
@@ -609,7 +617,6 @@ public class Raycast : MonoBehaviour
 
         isbusy = true;
         yield return new WaitForSeconds(14f);
-        isbusy = false;
         if (currentDoorAnimator != null)
         {
             bool state = currentDoorAnimator.GetBool("Open");
@@ -619,6 +626,32 @@ public class Raycast : MonoBehaviour
         {
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", !state);
+        }
+        isbusy = false;
+        callElevator = false;
+    }
+    IEnumerator CloseDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
+    {
+        if (currentDoorAnimator != null)
+        {
+            bool state = currentDoorAnimator.GetBool("Open");
+            currentDoorAnimator.SetBool("Open", false);
+        }
+        if (currentDoorAnimator2 != null)
+        {
+            bool state = currentDoorAnimator2.GetBool("Open");
+            currentDoorAnimator2.SetBool("Open", false);
+        }
+        yield return new WaitForSeconds(11f);
+        if (currentDoorAnimator != null)
+        {
+            bool state = currentDoorAnimator.GetBool("Open");
+            currentDoorAnimator.SetBool("Open", true);
+        }
+        if (currentDoorAnimator2 != null)
+        {
+            bool state = currentDoorAnimator2.GetBool("Open");
+            currentDoorAnimator2.SetBool("Open", true);
         }
     }
     IEnumerator StartCapseuleAnim()
