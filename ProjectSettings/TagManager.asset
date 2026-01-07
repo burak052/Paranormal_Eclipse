@@ -30,6 +30,7 @@ TagManager:
   - Capsule
   - EnergyCapsule
   - PlaceEnergyCapsule
+  - Cable
   layers:
   - Default
   - TransparentFX
