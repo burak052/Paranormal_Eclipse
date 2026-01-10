@@ -21988,7 +21988,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9156347144040445546, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1421.383
+      value: 1419
       objectReference: {fileID: 0}
     - target: {fileID: 9156347144040445546, guid: c82236c16aae9d34fbd437f8dea6e2c9, type: 3}
       propertyPath: m_LocalPosition.y
@@ -48186,6 +48186,68 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 940d55d4117386f4f9398ea3ff52d4cd, type: 3}
   m_PrefabInstance: {fileID: 1798304275}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1639607801
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1655108231}
+    m_Modifications:
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -89.15991
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 46.83176
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -156.57007
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.21269934
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.94757164
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.054515064
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.23215333
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 22.196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 210.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 192.606
+      objectReference: {fileID: 0}
+    - target: {fileID: 5392311847624219332, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+      propertyPath: m_Name
+      value: security cam
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+--- !u!4 &1639607802 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4728365792288424062, guid: e3ab74b2744aaa94d99665f1d5c40ba2, type: 3}
+  m_PrefabInstance: {fileID: 1639607801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1645507303
 GameObject:
   m_ObjectHideFlags: 0
@@ -48925,6 +48987,7 @@ Transform:
   - {fileID: 1020688656}
   - {fileID: 936254073}
   - {fileID: 1586235724}
+  - {fileID: 1639607802}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660428704
@@ -61420,6 +61483,8 @@ MonoBehaviour:
   inspectSystem: {fileID: 991071742}
   inventor: {fileID: 2087430272}
   paper: {fileID: 0}
+  SEC: {fileID: 0}
+  SES: {fileID: 0}
   haveheadlight: 0
   LSprite: {fileID: 21300000, guid: a9e5b15e3d3f7114db5b7998d62909d2, type: 3}
   ESprite: {fileID: 21300000, guid: af177b9524b43fd4591502373eff93c8, type: 3}
@@ -61447,6 +61512,7 @@ MonoBehaviour:
   moonLight: {fileID: 1645507303}
   headlight: {fileID: 1300341135}
   security: {fileID: 0}
+  looklara: {fileID: 0}
   forestSound: {fileID: 991071738}
   nightSound: {fileID: 8300000, guid: be364b763f2b21c4ba69f8674d2c14e3, type: 3}
   Shaddis: {fileID: 1586235725}
@@ -61589,6 +61655,8 @@ MonoBehaviour:
   inventoryData: {fileID: 11400000, guid: 869f9a7466f7fde468de8ad9a34cee6c, type: 2}
   IDCardSprite: {fileID: 21300000, guid: 5407634539d289143bb8c2c280ae80a5, type: 3}
   LightSprite: {fileID: 21300000, guid: cb8ec08013e45454591d5e5a92e38c99, type: 3}
+  CapsuleSprite: {fileID: 0}
+  EnergyCapsuleSprite: {fileID: 0}
   PaperSprite: {fileID: 21300000, guid: fad1612eec1611d42a702f68a81a7852, type: 3}
 --- !u!4 &2093667858
 Transform:
