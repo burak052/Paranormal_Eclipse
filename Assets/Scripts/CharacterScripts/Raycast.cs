@@ -165,7 +165,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    playeranim.isSetAnimator = true;
+                    playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateKeypad();
                     pressEUI.SetActive(false);
@@ -186,7 +186,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    playeranim.isSetAnimator = true;
+                    playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateLaptop();
                     pressEUI.SetActive(false);
@@ -345,7 +345,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    playeranim.isSetAnimator = true;
+                    playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateKeypad();
                     pressEUI.SetActive(false);
@@ -584,7 +584,7 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "Searching";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    playeranim.isSetAnimator = true;
+                    playeranim.SetAnimator();
                     issearching = true;
                     pressEUIText.text = "Searching";
                     searchSound.Play();
