@@ -12,19 +12,19 @@ public class LaraMovement : MonoBehaviour
     }
     public void LaraLocker()
     {
-        transform.position = new Vector3(1381.16f,4.71f,1564.52f);
+        transform.position = new Vector3(1381.16f,4.736f,1564.52f);
         transform.rotation = Quaternion.Euler(0f,-34.96f,0f);
     }
 
     public void LaraInElevator()
-    {
-        if (elevator)
+    { 
+        if (elevator) 
             StartCoroutine(LaraInElevatorCorr());
     }
     IEnumerator LaraInElevatorCorr()
     {
         Vector3 start = transform.position;
-        Vector3 target = new Vector3(1345.83f,4.73f,1532.07f);
+        Vector3 target = new Vector3(1345.83f,4.736f,1532.07f);
         Quaternion startRot = Quaternion.Euler(0f, -135f, 0f);
         Quaternion targetRot = Quaternion.Euler(0f, 45f, 0f);
 
@@ -54,8 +54,8 @@ public class LaraMovement : MonoBehaviour
     }
     IEnumerator LaraFrontElevatorCorr()
     {
-        Vector3 start = new Vector3(1341.33f,4.73f,1543.33f);
-        Vector3 target = new Vector3(1346.45f,4.73f,1538.60f);
+        Vector3 start = new Vector3(1341.33f,4.736f,1543.33f);
+        Vector3 target = new Vector3(1346.45f,4.736f,1538.60f);
         Quaternion startRot = Quaternion.Euler(0f, -136.041f, 0f);
         Quaternion targetRot = Quaternion.Euler(0f, -223.034f, 0f);
 
@@ -84,7 +84,7 @@ public class LaraMovement : MonoBehaviour
         startRot = Quaternion.Euler(0f, -223.034f, 0f);
         targetRot = Quaternion.Euler(0f, -190.767f, 0f);
         start = transform.position;
-        target = new Vector3(1347.67f,4.73f,1533.99f);
+        target = new Vector3(1347.67f,4.736f,1533.99f);
         t = 0f;
         while (t < 1f)
         {
@@ -112,8 +112,8 @@ public class LaraMovement : MonoBehaviour
     }
     IEnumerator LaraInEnviroCorr()
     {
-        Vector3 start = new Vector3(1348.07f,4.73f,1538.92f);
-        Vector3 target = new Vector3(1341.33f,4.73f,1543.33f);
+        Vector3 start = new Vector3(1348.07f,4.736f,1538.92f);
+        Vector3 target = new Vector3(1341.33f,4.736f,1543.33f);
         Quaternion startRot = transform.rotation;
         Quaternion targetRot = Quaternion.Euler(0f, -60.206f, 0f);
 
@@ -158,7 +158,7 @@ public class LaraMovement : MonoBehaviour
     IEnumerator LaraGoEnviroCorr()
     {
         Vector3 start = transform.position;
-        Vector3 target = new Vector3(1348.07f,4.73f,1538.92f);
+        Vector3 target = new Vector3(1348.07f,4.736f,1538.92f);
         Quaternion startRot = transform.rotation;
         Quaternion targetRot = Quaternion.Euler(0f, -128.428f, 0f);
 
@@ -198,8 +198,8 @@ public class LaraMovement : MonoBehaviour
     IEnumerator StartCinematic()
     {
         float t = 0f;
-        Vector3 start = new Vector3(1377.34f,4.71f, 1563.40f);
-        Vector3 target = new Vector3(1376.13f,4.72f,1562.01f);
+        Vector3 start = new Vector3(1377.34f,4.736f, 1563.40f);
+        Vector3 target = new Vector3(1376.13f,4.736f,1562.01f);
         yield return new WaitForSeconds(3f);
         GetComponent<Animator>().SetBool("walk", true);
         while (t < 1f)
@@ -222,7 +222,7 @@ public class LaraMovement : MonoBehaviour
         GetComponent<Animator>().SetBool("walk", true);
 
         start = transform.position;
-        target = new Vector3(1374.72f,4.73f,1560.25f);
+        target = new Vector3(1374.72f,4.736f,1560.25f);
         t = 0f;
         while (t < 1f)
         {
@@ -240,7 +240,7 @@ public class LaraMovement : MonoBehaviour
     IEnumerator MoveXray()
     {
         Vector3 start = transform.position;
-        Vector3 target = new Vector3(1377.34f,4.71f, 1563.40f);
+        Vector3 target = new Vector3(1377.34f,4.736f, 1563.40f);
         Quaternion startRot = transform.rotation;
         Quaternion targetRot = Quaternion.Euler(0f, -134.208f, 0f);
         float t = 0f;
