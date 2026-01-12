@@ -8,7 +8,6 @@ public class SmokeTrigger : MonoBehaviour
     float maxVolume = 1f;
 
     [Header("Timing")]
-    float totalAudioDuration = 10f;
     float fadeInDuration = 2f;
     float fadeOutDuration = 2f;
     float particleStopTime = 10f;

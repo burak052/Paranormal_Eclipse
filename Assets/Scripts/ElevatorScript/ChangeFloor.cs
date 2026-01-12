@@ -21,6 +21,7 @@ public class ChangeFloor : MonoBehaviour
     }
     public void GoToFloor2()
     {
+        Debug.Log("Buraya düştü");
         floor1.SetActive(false);
         floor2.SetActive(true);
         floor3.SetActive(false);

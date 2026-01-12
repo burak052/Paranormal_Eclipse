@@ -351,7 +351,7 @@ public class Raycast : MonoBehaviour
 
 
             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
-             || hit.collider.CompareTag("PlaceEnergyCapsule"))
+             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -365,6 +365,8 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take lapel light";
                 if (hit.collider.CompareTag("Capsule"))
                     pressEUIText.text = "to take Empty Capsule";
+                if (hit.collider.CompareTag("EnergyCapsuleReady"))
+                    pressEUIText.text = "to take Energy Capsule";
                 if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
@@ -427,6 +429,11 @@ public class Raycast : MonoBehaviour
                     { 
                         inventor.takeItem(4);
                     }
+                    if (hit.collider.CompareTag("EnergyCapsuleReady")) 
+                    { 
+                        EnergyCapsuleCount++;
+                        inventor.takeItem(4);
+                    }
                     
                     if(hit.collider.CompareTag("PlaceEnergyCapsule"))
                     {
@@ -453,7 +460,7 @@ public class Raycast : MonoBehaviour
                         SEC.TryCapsule();
                         SEC.SetParent();
                         capsuleAnim = false;
-                        if (EnergyCapsuleCount == 3)
+                        if (EnergyCapsuleCount == 6)
                             SES.OnElevatorButton();
                     }
                 }
@@ -581,6 +588,21 @@ public class Raycast : MonoBehaviour
                     paper.offpaper();
                     playerMovement.enabled = true;
                     playeranim.enabled = true;
+                }
+
+                return;
+            }
+            if (hit.collider.CompareTag("RotorCapsule"))
+            {
+                if (pressEUI != null)
+                {
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to place energy capsule";
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if(hit.collider.gameObject.GetComponent<RotorCapsuleAnime>() != null)
+                        hit.collider.gameObject.GetComponent<RotorCapsuleAnime>().RotorAnim();
                 }
 
                 return;
