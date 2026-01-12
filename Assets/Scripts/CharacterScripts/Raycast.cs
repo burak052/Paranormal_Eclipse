@@ -607,6 +607,23 @@ public class Raycast : MonoBehaviour
 
                 return;
             }
+            if (hit.collider.CompareTag("Cable"))
+            {
+               
+                    if (pressEUI != null)
+                        { 
+                            pressEUI.SetActive(true);
+                            pressEUIText.text = "to connect the cable";
+                        }
+                if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                        hit.collider.gameObject.GetComponent<Transform>().Find("Cable").gameObject.GetComponent<MeshRenderer>().enabled=true;
+                        hit.collider.tag = "Untagged";
+                    }
+                    return;
+                
+            }
         }
 
         pressEUIText.text = "to open";
@@ -634,9 +651,9 @@ public class Raycast : MonoBehaviour
         paperSound.Play();
         paper.showpaper(1);
     }
-    IEnumerator OpenDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
+    IEnumerator OpenDoorSequence(Animator currentDoorAnimator , Animator currentDoorAnimator2)
     {
-
+        currentDoorAnimator.gameObject.GetComponent<AudioSource>().Play();
         isbusy = true;
         yield return new WaitForSeconds(14f);
         if (currentDoorAnimator != null)
@@ -652,7 +669,7 @@ public class Raycast : MonoBehaviour
         isbusy = false;
         callElevator = false;
     }
-    IEnumerator CloseDoorSequence(Animator currentDoorAnimator2 , Animator currentDoorAnimator)
+    IEnumerator CloseDoorSequence(Animator currentDoorAnimator , Animator currentDoorAnimator2)
     {
         if (currentDoorAnimator != null)
         {
@@ -664,7 +681,10 @@ public class Raycast : MonoBehaviour
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", false);
         }
-        yield return new WaitForSeconds(11f);
+        yield return new WaitForSeconds(5f);
+        AudioSource[] sources = currentDoorAnimator.gameObject.GetComponents<AudioSource>();
+        sources[1].Play();
+        yield return new WaitForSeconds(7f);
         if (currentDoorAnimator != null)
         {
             bool state = currentDoorAnimator.GetBool("Open");
