@@ -6,6 +6,8 @@ public class PlayerAnimationController : MonoBehaviour
     public GameObject maleModel;
     public GameObject malelabModel;
 
+    public bool isSetAnimator = false;
+
     private Animator _animator;
     private CharacterController _controller;
 
@@ -70,6 +72,7 @@ public class PlayerAnimationController : MonoBehaviour
     }
     public void SetAnimator()
     {
+        isSetAnimator = true;
         _animator.SetBool("isRunning", false);
         _animator.SetBool("isWalking", false);
         _animator.SetBool("isJumping", false);

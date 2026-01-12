@@ -22,6 +22,7 @@ public class ItemInspectSystem : MonoBehaviour
 
     public void StartInspect(GameObject item)
     {
+        gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = true;
         if(item.tag != "RepairKit" && item.tag != "PlaceEnergyCapsule")
         {
             playerMovement.enabled = false;
@@ -41,6 +42,7 @@ public class ItemInspectSystem : MonoBehaviour
 
     public void EndInspect()
     {
+        gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
         playerMovement.enabled = true;
         inspectedObject.transform.SetParent(null);
         inspectedObject.SetActive(false);

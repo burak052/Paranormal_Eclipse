@@ -86,6 +86,7 @@ public class ActiveBlackScreen : MonoBehaviour
             security.GetComponent<BoxCollider>().isTrigger = true;
             security.tag = "Untagged";  
         }
+        pac.isSetAnimator = false;
 
     }
 }

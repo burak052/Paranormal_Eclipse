@@ -92,7 +92,7 @@ public class inventory : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !playeranim.isSetAnimator) /////////////////////////////////////buraya değişkenler ekle
         {
             InventoryState = !InventoryState;
             playermove();
@@ -156,6 +156,8 @@ public class inventory : MonoBehaviour
             playeranim.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+            playeranim.SetAnimator();
+            playeranim.isSetAnimator = false;
         }
         else
         {

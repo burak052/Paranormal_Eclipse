@@ -9,6 +9,7 @@ public class LabMovement : MonoBehaviour
     }
     IEnumerator StartCinematic()
     {
+        gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = true;
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", true);
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isRunning", false);
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isJumping", false);
@@ -113,5 +114,6 @@ public class LabMovement : MonoBehaviour
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().SyncRotationFromCamera();
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
         GetComponent<PlayerAnimationController>().enabled = true;
+        gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
     }
 }

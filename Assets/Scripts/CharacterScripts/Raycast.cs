@@ -96,7 +96,7 @@ public class Raycast : MonoBehaviour
             {
                 pressEUIText.text = "to enter";
                 
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.G))
                 {
                     if (Input.GetKeyDown(KeyCode.Return) || pressenter)
                     {
@@ -133,6 +133,7 @@ public class Raycast : MonoBehaviour
                             Cursor.lockState = CursorLockMode.Locked;
 
                             Lara.LaraInEnviro();
+                            playeranim.isSetAnimator = false;
                         }
                         else
                         {
@@ -142,8 +143,9 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape))
+                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                     {
+                        playeranim.isSetAnimator = false;
                         keymat.novaScreen();
                         returncam();
                         inkeypad = false;
@@ -163,6 +165,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    playeranim.isSetAnimator = true;
                     inkeypad = true;
                     ActivateKeypad();
                     pressEUI.SetActive(false);
@@ -183,6 +186,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    playeranim.isSetAnimator = true;
                     inkeypad = true;
                     ActivateLaptop();
                     pressEUI.SetActive(false);
@@ -191,8 +195,9 @@ public class Raycast : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                 {
+                    playeranim.isSetAnimator = false;
                     inkeypad = false;
                     Cursor.visible = false;
                     Cursor.lockState = CursorLockMode.Locked;
@@ -268,7 +273,7 @@ public class Raycast : MonoBehaviour
             {
                 pressEUIText.text = "to enter";
                 
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.G))
                 {
                     if (Input.GetKeyDown(KeyCode.Return) || pressenter)
                     {
@@ -308,6 +313,7 @@ public class Raycast : MonoBehaviour
 
                             Cursor.visible = false;
                             Cursor.lockState = CursorLockMode.Locked;
+                            playeranim.isSetAnimator = false;
                         }
                         else
                         {
@@ -317,8 +323,9 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape))
+                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                     {
+                        playeranim.isSetAnimator = false;
                         keymat.novaScreen();
                         returncam();
                         inkeypad = false;
@@ -338,6 +345,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    playeranim.isSetAnimator = true;
                     inkeypad = true;
                     ActivateKeypad();
                     pressEUI.SetActive(false);
@@ -447,7 +455,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
                 }
-                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && inspectSystem.isInspecting)
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && inspectSystem.isInspecting)
                 {
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
@@ -576,14 +584,16 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "Searching";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    playeranim.isSetAnimator = true;
                     issearching = true;
                     pressEUIText.text = "Searching";
                     searchSound.Play();
                     StartCoroutine(searchindelay());
                     inventor.takeItem(2);
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Tab))
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))
                 {
+                    playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
                     paper.offpaper();
                     playerMovement.enabled = true;

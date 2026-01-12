@@ -291212,6 +291212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maleModel: {fileID: 1408400191}
   malelabModel: {fileID: 1081657476}
+  isSetAnimator: 0
 --- !u!114 &1993137953
 MonoBehaviour:
   m_ObjectHideFlags: 0
