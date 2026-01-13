@@ -2,12 +2,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class MainMenu : MonoBehaviour
 {
     public Animation Camera;
     public Image blackScreen;    
     public float fadeTime = 1.5f;
+    public TMP_Dropdown languageDropdown;
+    public TMP_Dropdown fontsizeDropdown;
+    public TextMeshProUGUI languageText;
+    public GameObject selecetlanguage;
+    public GameObject fontsize;
+    public GameObject fontcolor;
 
     void Start()
     {
@@ -55,5 +62,48 @@ public class MainMenu : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
+    }
+
+    public void choosefontsize()
+    {
+        fontsizeDropdown.gameObject.SetActive(true);
+    }
+
+    public void sellanguage()
+    {
+        languageDropdown.gameObject.SetActive(true);
+    }
+
+    public void language()
+    {
+        selecetlanguage.SetActive(true);
+        fontsize.SetActive(true);
+        fontcolor.SetActive(true);
+    }
+    public void lanset(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("Turkish");
+        }
+        if (val == 1)
+        {
+            Debug.Log("English");
+        }
+    }
+    public void chofontsize(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("Small");
+        }
+        if (val == 1)
+        {
+            Debug.Log("Medium");
+        }
+        if (val == 2)
+        {
+            Debug.Log("Big");
+        }
     }
 }
