@@ -71,27 +71,34 @@ public class MainMenu : MonoBehaviour
     public void choosefontsize()
     {
         fontsizeDropdown.gameObject.SetActive(true);
+        languageDropdown.gameObject.SetActive(false);
     }
 
     public void sellanguage()
     {
         languageDropdown.gameObject.SetActive(true);
+        fontsizeDropdown.gameObject.SetActive(false);
     }
 
     public void settingmainmusic()
     {
         mainvolume.gameObject.SetActive(true);
+        gamevolume.gameObject.SetActive(false);
     }
 
     public void settinggamemusic()
     {
         gamevolume.gameObject.SetActive(true);
+        mainvolume.gameObject.SetActive(false);
     }
 
     public void music()
     {
         gamemusic.SetActive(true);
         mainmusic.SetActive(true);
+        selecetlanguage.SetActive(false);
+        fontsize.SetActive(false);
+        fontcolor.SetActive(false);
     }
 
     public void language()
@@ -99,6 +106,8 @@ public class MainMenu : MonoBehaviour
         selecetlanguage.SetActive(true);
         fontsize.SetActive(true);
         fontcolor.SetActive(true);
+        gamemusic.SetActive(false);
+        mainmusic.SetActive(false);
     }
     public void lanset(int val)
     {
