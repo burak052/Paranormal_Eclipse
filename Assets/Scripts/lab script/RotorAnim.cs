@@ -3,32 +3,19 @@ using System.Collections;
 
 public class RotorAnim : MonoBehaviour
 {
+    int count = 1;
     public void CapsuleRotate()
     {
-        StartCoroutine(StartCapsuleRotate());
+        gameObject.GetComponent<Animator>().SetInteger("Count",count);
+        count++;
     }
-    IEnumerator StartCapsuleRotate()
+    public void PlaySound()
     {
-        yield return new WaitForSeconds(2f);
-
-        Vector3 startEuler = transform.localEulerAngles;
-        Vector3 targetEuler = startEuler;
-        targetEuler.z += 60f;
-
-        Quaternion startRot = Quaternion.Euler(startEuler);
-        Quaternion targetRot = Quaternion.Euler(targetEuler);
-
-        float t = 0f;
-
-        while (t < 1f)
-        {
-            t += Time.deltaTime;
-            transform.localRotation = Quaternion.Slerp(startRot, targetRot, t);
-            yield return null;
-        }
+        gameObject.GetComponent<Transform>().parent.Find("Cube").gameObject.GetComponent<AudioSource>().Play();
     }
     public void RotorSpin()
     {
-
+        gameObject.GetComponent<Transform>().parent.Find("Cube").gameObject.GetComponents<AudioSource>()[1].Play();
+        GetComponent<Animator>().SetInteger("Count",7);
     }
 }

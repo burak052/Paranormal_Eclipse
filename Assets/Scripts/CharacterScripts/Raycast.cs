@@ -60,7 +60,10 @@ public class Raycast : MonoBehaviour
     void Start()
     {
         if (pressEUI != null)
+        {
             pressEUI.SetActive(false);
+            pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
+        }
         pressenter = false;
         passwordText.text = "";
         disableFloor1.SetActive(true);
@@ -134,6 +137,7 @@ public class Raycast : MonoBehaviour
 
                             Lara.LaraInEnviro();
                             playeranim.isSetAnimator = false;
+                            pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         }
                         else
                         {
@@ -145,6 +149,7 @@ public class Raycast : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                     {
+                        pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
                         keymat.novaScreen();
                         returncam();
@@ -165,6 +170,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                     playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateKeypad();
@@ -186,6 +192,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                     playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateLaptop();
@@ -197,6 +204,7 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                 {
+                    pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
                     inkeypad = false;
                     Cursor.visible = false;
@@ -314,6 +322,7 @@ public class Raycast : MonoBehaviour
                             Cursor.visible = false;
                             Cursor.lockState = CursorLockMode.Locked;
                             playeranim.isSetAnimator = false;
+                            pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         }
                         else
                         {
@@ -325,6 +334,7 @@ public class Raycast : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
                     {
+                        pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
                         keymat.novaScreen();
                         returncam();
@@ -345,6 +355,7 @@ public class Raycast : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                     playeranim.SetAnimator();
                     inkeypad = true;
                     ActivateKeypad();
@@ -405,12 +416,15 @@ public class Raycast : MonoBehaviour
                             {
                                 SES.OffLight();
                                 SES.ping = false;
+                                pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                                 inspectSystem.StartInspect(hit.collider.gameObject);
                                 pickupSound.Play();
                             }
                         }
                         else
                         {
+                            if (!hit.collider.CompareTag("RepairKit"))
+                                pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                             inspectSystem.StartInspect(hit.collider.gameObject);
                             pickupSound.Play();
                         }
@@ -613,32 +627,34 @@ public class Raycast : MonoBehaviour
                 {
                     if(hit.collider.gameObject.GetComponent<RotorCapsuleAnime>() != null)
                         hit.collider.gameObject.GetComponent<RotorCapsuleAnime>().RotorAnim();
+                    inventor.DeleteEnergyCapsule();
                 }
 
                 return;
             }
             if (hit.collider.CompareTag("Cable"))
-            {
-               
-                    if (pressEUI != null)
-                        { 
-                            pressEUI.SetActive(true);
-                            pressEUIText.text = "to connect the cable";
-                        }
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to connect the cable";
+                }
                 if (Input.GetKeyDown(KeyCode.E))
-                    {
-                        hit.collider.gameObject.GetComponent<AudioSource>().Play();
-                        hit.collider.gameObject.GetComponent<Transform>().Find("Cable").gameObject.GetComponent<MeshRenderer>().enabled=true;
-                        hit.collider.tag = "Untagged";
-                    }
-                    return;
-                
+                {
+                    hit.collider.gameObject.GetComponent<AudioSource>().Play();
+                    hit.collider.gameObject.GetComponent<Transform>().Find("Cable").gameObject.GetComponent<MeshRenderer>().enabled=true;
+                    hit.collider.gameObject.GetComponent<Transform>().parent.Find("triangle screens").GetComponent<ScreenController>().ActiveScreen();
+                    hit.collider.tag = "Untagged";
+                    //hit.collider.gameObject.GetComponent<Transform>().parent.Find("rotor parent").Find("rotor").gameObject.GetComponent<RotorAnim>().RotorSpin();     //rotor spin start
+                }
+                return;
             }
         }
 
         pressEUIText.text = "to open";
         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
         pressEUI.SetActive(false);
+        pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
 
         if(takelight)
         {
@@ -658,6 +674,7 @@ public class Raycast : MonoBehaviour
         playerMovement.enabled = false;
         playeranim.enabled = false;
         yield return new WaitForSeconds(2f);
+        pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
         paperSound.Play();
         paper.showpaper(1);
     }
