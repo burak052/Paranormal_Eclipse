@@ -15,6 +15,10 @@ public class MainMenu : MonoBehaviour
     public GameObject selecetlanguage;
     public GameObject fontsize;
     public GameObject fontcolor;
+    public GameObject mainmusic;
+    public GameObject gamemusic;
+    public Slider mainvolume;
+    public Slider gamevolume;
 
     void Start()
     {
@@ -72,6 +76,22 @@ public class MainMenu : MonoBehaviour
     public void sellanguage()
     {
         languageDropdown.gameObject.SetActive(true);
+    }
+
+    public void settingmainmusic()
+    {
+        mainvolume.gameObject.SetActive(true);
+    }
+
+    public void settinggamemusic()
+    {
+        gamevolume.gameObject.SetActive(true);
+    }
+
+    public void music()
+    {
+        gamemusic.SetActive(true);
+        mainmusic.SetActive(true);
     }
 
     public void language()
