@@ -427,7 +427,7 @@ public class Raycast : MonoBehaviour
 
 
             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
-             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye"))
+             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye") || hit.collider.CompareTag("Gun"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -445,6 +445,8 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take Energy Capsule";
                 if (hit.collider.CompareTag("Levye"))
                     pressEUIText.text = "to take crowbar";
+                if (hit.collider.CompareTag("Gun"))
+                    pressEUIText.text = "to take gun";
                 if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
@@ -484,6 +486,8 @@ public class Raycast : MonoBehaviour
                         {
                             if (!hit.collider.CompareTag("RepairKit"))
                                 pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
+                            if (hit.collider.CompareTag("Gun"))
+                                hit.collider.gameObject.GetComponent<Transform>().Find("Bullet_Shell").gameObject.SetActive(false);
                             inspectSystem.StartInspect(hit.collider.gameObject);
                             pickupSound.Play();
                         }
@@ -514,6 +518,14 @@ public class Raycast : MonoBehaviour
                     { 
                         EnergyCapsuleCount++;
                         inventor.takeItem(4);
+                    }
+                    if (hit.collider.CompareTag("Levye")) 
+                    { 
+                        inventor.takeItem(5);
+                    }
+                    if (hit.collider.CompareTag("Gun")) 
+                    { 
+                        inventor.takeItem(6);
                     }
                     
                     if(hit.collider.CompareTag("PlaceEnergyCapsule"))

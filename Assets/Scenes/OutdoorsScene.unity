@@ -61808,6 +61808,7 @@ MonoBehaviour:
   SEC: {fileID: 0}
   SES: {fileID: 0}
   haveheadlight: 0
+  accident: 0
   LSprite: {fileID: 21300000, guid: a9e5b15e3d3f7114db5b7998d62909d2, type: 3}
   ESprite: {fileID: 21300000, guid: af177b9524b43fd4591502373eff93c8, type: 3}
   redxSprite: {fileID: 21300000, guid: 49e3d8dca23bf0941a905c5857f7aab4, type: 3}
@@ -61977,8 +61978,10 @@ MonoBehaviour:
   inventoryData: {fileID: 11400000, guid: 869f9a7466f7fde468de8ad9a34cee6c, type: 2}
   IDCardSprite: {fileID: 21300000, guid: 5407634539d289143bb8c2c280ae80a5, type: 3}
   LightSprite: {fileID: 21300000, guid: cb8ec08013e45454591d5e5a92e38c99, type: 3}
-  CapsuleSprite: {fileID: 0}
-  EnergyCapsuleSprite: {fileID: 0}
+  CapsuleSprite: {fileID: 21300000, guid: 7d1cb0f645ead48438a630c61f0252e6, type: 3}
+  EnergyCapsuleSprite: {fileID: 21300000, guid: 7721a47fa0841da4a96d59ea53ac9458, type: 3}
+  CrowbarSprite: {fileID: 21300000, guid: 5ed7e34ee530ad545b13e04a1c5d09f4, type: 3}
+  GunSprite: {fileID: 21300000, guid: dade86179985c234084a2e79655cc702, type: 3}
   PaperSprite: {fileID: 21300000, guid: fad1612eec1611d42a702f68a81a7852, type: 3}
 --- !u!4 &2093667858
 Transform:
