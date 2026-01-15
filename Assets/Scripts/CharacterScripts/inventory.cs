@@ -14,6 +14,7 @@ public class inventory : MonoBehaviour
     public Sprite LightSprite;
     public Sprite CapsuleSprite;
     public Sprite EnergyCapsuleSprite;
+    public Sprite CrowbarSprite;
     public Sprite PaperSprite;
     bool InventoryState = false;
     string[] itemName = new string[16];
@@ -58,6 +59,11 @@ public class inventory : MonoBehaviour
                 itemName[i] = "Energy Capsule";
                 itemDesc[i] = "A capsule that holds an unimaginable amount of energy, enough to power the city of Los Angeles for 12 years.";
             }
+            if (i == 5)
+            {
+                itemName[i] = "Crowbar";
+                itemDesc[i] = "a crowbar you can use to open jammed doors.";
+            }
 
 
         }
@@ -85,6 +91,8 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
             else if (inventoryData.ownedItemIDs[i-1] == 4)
                 slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 5)
+                slotImage.gameObject.GetComponent<Image>().sprite = CrowbarSprite;
         }
 
         playerInventory.SetActive(false);
@@ -113,6 +121,8 @@ public class inventory : MonoBehaviour
             slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
         else if (id == 4)
             slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
+        else if (id == 5)
+            slotImage.gameObject.GetComponent<Image>().sprite = CrowbarSprite;
 
         slotImage.gameObject.SetActive(true);
     }
@@ -144,6 +154,8 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
             else if (inventoryData.ownedItemIDs[i-1] == 4)
                 slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 5)
+                slotImage.gameObject.GetComponent<Image>().sprite = CrowbarSprite;
         }
     }
 
@@ -175,6 +187,8 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.GetComponent<Image>().sprite = CapsuleSprite;
             else if (inventoryData.ownedItemIDs[i-1] == 4)
                 slotImage.gameObject.GetComponent<Image>().sprite = EnergyCapsuleSprite;
+            else if (inventoryData.ownedItemIDs[i-1] == 5)
+                slotImage.gameObject.GetComponent<Image>().sprite = CrowbarSprite;
         }
     }
 

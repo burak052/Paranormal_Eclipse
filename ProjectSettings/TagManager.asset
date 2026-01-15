@@ -35,6 +35,9 @@ TagManager:
   - Gun
   - RotorCapsule
   - EnergyCapsuleReady
+  - AirLockDoor
+  - Levye
+  - LevyeDoor
   layers:
   - Default
   - TransparentFX

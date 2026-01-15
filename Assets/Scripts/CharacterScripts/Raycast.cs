@@ -50,6 +50,9 @@ public class Raycast : MonoBehaviour
     private bool capsuleAnim = true;
     private bool callElevator = true;
     private bool inFloor2 = false;
+    private bool levye = false;
+    private bool uselevye = false;
+    public bool accident = false;
     private int capsuleCount = 0;
     private int EnergyCapsuleCount = 0;
     public Sprite LSprite;
@@ -87,6 +90,60 @@ public class Raycast : MonoBehaviour
                 {
                     if (currentDoorAnimator != null)
                     {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("AirLockDoor"))
+            {
+                if (pressEUI != null)
+                {
+                    if(!accident)
+                    {
+                        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                        pressEUIText.text = "Locked";
+                    }
+                    pressEUI.SetActive(true);
+                    
+                }
+
+                currentDoorAnimator = hit.collider.GetComponent<Animator>();
+
+                if (Input.GetKeyDown(KeyCode.E) && accident)
+                {
+                    if (currentDoorAnimator != null)
+                    {
+                        bool state = currentDoorAnimator.GetBool("Open");
+                        currentDoorAnimator.SetBool("Open", !state);
+                    }
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("LevyeDoor") && !uselevye)
+            {
+                if (pressEUI != null)
+                {
+                    if(!levye)
+                    {
+                        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                        pressEUIText.text = "need crowbar";
+                    }
+                    else
+                    {
+                        pressEUIText.text = "to use crowbar";
+                    }
+                        pressEUI.SetActive(true);
+                }
+
+                currentDoorAnimator = hit.collider.GetComponent<Animator>();
+
+                if (Input.GetKeyDown(KeyCode.E) && levye)
+                {
+                    if (currentDoorAnimator != null)
+                    {
+                        uselevye = true;
                         bool state = currentDoorAnimator.GetBool("Open");
                         currentDoorAnimator.SetBool("Open", !state);
                     }
@@ -370,7 +427,7 @@ public class Raycast : MonoBehaviour
 
 
             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
-             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady"))
+             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -386,6 +443,8 @@ public class Raycast : MonoBehaviour
                     pressEUIText.text = "to take Empty Capsule";
                 if (hit.collider.CompareTag("EnergyCapsuleReady"))
                     pressEUIText.text = "to take Energy Capsule";
+                if (hit.collider.CompareTag("Levye"))
+                    pressEUIText.text = "to take crowbar";
                 if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
@@ -474,6 +533,8 @@ public class Raycast : MonoBehaviour
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
                         takelight = true;
+                    if (hit.collider.CompareTag("Levye"))
+                        levye = true;
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
                         EnergyCapsuleCount++;
