@@ -39,6 +39,9 @@ TagManager:
   - Levye
   - LevyeDoor
   - SecurityNote
+  - GeneratorNote
+  - MaterialNote
+  - LaraNote
   layers:
   - Default
   - TransparentFX

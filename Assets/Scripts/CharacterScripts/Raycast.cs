@@ -689,7 +689,7 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
-            if (hit.collider.CompareTag("SecurityNote"))
+            if (hit.collider.CompareTag("SecurityNote") || hit.collider.CompareTag("GeneratorNote") || hit.collider.CompareTag("LaraNote") || hit.collider.CompareTag("MaterialNote"))
             {
                 if (pressEUI != null)
                 {
@@ -703,8 +703,27 @@ public class Raycast : MonoBehaviour
                     playeranim.enabled = false;
                     pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                     paperSound.Play();
-                    paper.showpaper(2);
-                    inventor.takeItem(7);
+                    if (hit.collider.CompareTag("SecurityNote"))
+                    {
+                        paper.showpaper(2);
+                        inventor.takeItem(7);
+                    }
+                    if(hit.collider.CompareTag("GeneratorNote"))
+                    {
+                        paper.showpaper(3);
+                        inventor.takeItem(8);
+                    }
+                    if(hit.collider.CompareTag("LaraNote"))
+                    {
+                        paper.showpaper(4);
+                        inventor.takeItem(9);
+                    }
+                    if(hit.collider.CompareTag("MaterialNote"))
+                    {
+                        StartCoroutine(PlayHorrorSound(hit.collider.gameObject));
+                        paper.showpaper(5);
+                        inventor.takeItem(10);
+                    }
                     ispressE = true;
                 }
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))
@@ -830,6 +849,12 @@ public class Raycast : MonoBehaviour
     {
         yield return new WaitForSeconds(19f);
         capsuleAnim = true;
+    }
+    IEnumerator PlayHorrorSound(GameObject GO)
+    {
+        yield return new WaitForSeconds(3f);
+        if(GO.activeInHierarchy)
+            GO.GetComponent<Transform>().Find("Cube").gameObject.GetComponent<AudioSource>().Play();
     }
     public void KeyButton(string key)
     {      

@@ -10,6 +10,7 @@ public class inventory : MonoBehaviour
     public MonoBehaviour playerMovement;
     public PlayerAnimationController playeranim;
     public PlayerInventoryData inventoryData;
+    public ShowNotes notes;
     public Sprite IDCardSprite;
     public Sprite LightSprite;
     public Sprite CapsuleSprite;
@@ -40,15 +41,7 @@ public class inventory : MonoBehaviour
             if (i == 2)
             {
                 itemName[i] = "Artur's note";
-                itemDesc[i] = @"    Experiment 27 showed an earlier deviation than expected. The chronometer is functioning correctly, but the observer can no longer be considered a reliable reference. Time is becoming unstable.
-
-    Magnetic instability has been detected on the second level of the laboratory. Time spent in the isolation chamber should not exceed four minutes. Prolonged exposure results in memory gaps that cannot be recalled.
-
-    If I need to access the system again:
-    Username: NOVA
-    Password: 1441
-
-    - Prof. Arthur";
+                itemDesc[i] = notes.noteTextEN1;
             }
             if (i == 3)
             {
@@ -73,20 +66,22 @@ public class inventory : MonoBehaviour
             if (i == 7)
             {
                 itemName[i] = "Security Protokol";
-                itemDesc[i] = @"Security Protocol – Internal Use Only
-
-These weapons have been placed in the security room for emergency situations.
-Ammunition is limited. No resupply is available.
-
-Anomalies that emerge during temporal experiments do not behave like standard threats. Firing a weapon is not always a solution; in some cases, it may make the situation worse.
-
-If you have a reason to take any of these weapons, the protocol has already been breached. A single decision can affect multiple timelines.
-
-Wait for the right moment.
-One wrong decision can cost years.
-
-     Chief Researcher
-     lara  ";
+                itemDesc[i] = notes.noteTextEN2;
+            }
+            if (i == 8)
+            {
+                itemName[i] = "Bob's Note";
+                itemDesc[i] = notes.noteTextEN3;
+            }
+            if (i == 9)
+            {
+                itemName[i] = "Lara's Note";
+                itemDesc[i] = notes.noteTextEN4;
+            }
+            if (i == 10)
+            {
+                itemName[i] = "Lara's Note";
+                itemDesc[i] = notes.noteTextEN5;
             }
 
 
