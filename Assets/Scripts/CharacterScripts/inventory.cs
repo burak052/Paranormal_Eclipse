@@ -19,7 +19,7 @@ public class inventory : MonoBehaviour
     public Sprite PaperSprite;
     bool InventoryState = false;
     string[] itemName = new string[16];
-    string[] itemDesc = new string[16];
+    public string[] itemDesc = new string[16];
     
     void Start()
     {
@@ -69,6 +69,24 @@ public class inventory : MonoBehaviour
             {
                 itemName[i] = "glock 17";
                 itemDesc[i] = "A Glock 17 taken from the security room. Only one bullet remains. There will be no second chance.";
+            }
+            if (i == 7)
+            {
+                itemName[i] = "Security Protokol";
+                itemDesc[i] = @"Security Protocol – Internal Use Only
+
+These weapons have been placed in the security room for emergency situations.
+Ammunition is limited. No resupply is available.
+
+Anomalies that emerge during temporal experiments do not behave like standard threats. Firing a weapon is not always a solution; in some cases, it may make the situation worse.
+
+If you have a reason to take any of these weapons, the protocol has already been breached. A single decision can affect multiple timelines.
+
+Wait for the right moment.
+One wrong decision can cost years.
+
+     Chief Researcher
+     lara  ";
             }
 
 

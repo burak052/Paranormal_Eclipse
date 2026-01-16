@@ -52,6 +52,7 @@ public class Raycast : MonoBehaviour
     private bool inFloor2 = false;
     private bool levye = false;
     private bool uselevye = false;
+    private bool ispressE = false;
     public bool accident = false;
     private int capsuleCount = 0;
     private int EnergyCapsuleCount = 0;
@@ -427,7 +428,7 @@ public class Raycast : MonoBehaviour
 
 
             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
-             || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye") || hit.collider.CompareTag("Gun"))
+            || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye") || hit.collider.CompareTag("Gun"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -686,7 +687,36 @@ public class Raycast : MonoBehaviour
                     playerMovement.enabled = true;
                     playeranim.enabled = true;
                 }
-
+                return;
+            }
+            if (hit.collider.CompareTag("SecurityNote"))
+            {
+                if (pressEUI != null)
+                {
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to take note";
+                }
+                if (Input.GetKeyDown(KeyCode.E) && !ispressE)
+                {
+                    playeranim.SetAnimator();
+                    playerMovement.enabled = false;
+                    playeranim.enabled = false;
+                    pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
+                    paperSound.Play();
+                    paper.showpaper(2);
+                    inventor.takeItem(7);
+                    ispressE = true;
+                }
+                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    playeranim.isSetAnimator = false;
+                    hit.collider.gameObject.tag = "Untagged";
+                    paper.offpaper();
+                    playerMovement.enabled = true;
+                    playeranim.enabled = true;
+                    ispressE = false;
+                }
                 return;
             }
             if (hit.collider.CompareTag("RotorCapsule"))

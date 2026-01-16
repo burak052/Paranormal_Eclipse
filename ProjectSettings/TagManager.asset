@@ -38,6 +38,7 @@ TagManager:
   - AirLockDoor
   - Levye
   - LevyeDoor
+  - SecurityNote
   layers:
   - Default
   - TransparentFX
