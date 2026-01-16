@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public float fadeTime = 1.5f;
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
+    public TMP_Dropdown fontcolorDropdown;
     public TextMeshProUGUI languageText;
     public GameObject selecetlanguage;
     public GameObject fontsize;
@@ -19,6 +21,7 @@ public class MainMenu : MonoBehaviour
     public GameObject gamemusic;
     public Slider mainvolume;
     public Slider gamevolume;
+    public AudioSource menumusic;
 
     void Start()
     {
@@ -72,11 +75,20 @@ public class MainMenu : MonoBehaviour
     {
         fontsizeDropdown.gameObject.SetActive(true);
         languageDropdown.gameObject.SetActive(false);
+        fontcolorDropdown.gameObject.SetActive(false);
     }
 
     public void sellanguage()
     {
         languageDropdown.gameObject.SetActive(true);
+        fontsizeDropdown.gameObject.SetActive(false);
+        fontcolorDropdown.gameObject.SetActive(false);
+    }
+
+    public void choosefontcolor()
+    {
+        fontcolorDropdown.gameObject.SetActive(true);
+        languageDropdown.gameObject.SetActive(false);
         fontsizeDropdown.gameObject.SetActive(false);
     }
 
@@ -84,6 +96,17 @@ public class MainMenu : MonoBehaviour
     {
         mainvolume.gameObject.SetActive(true);
         gamevolume.gameObject.SetActive(false);
+    }
+
+    public void startmainvolume()
+    {
+        mainvolume.value = menumusic.volume;
+        mainvolume.onValueChanged.AddListener(settingvolume);
+    }
+
+    public void settingvolume(float vol)
+    {
+        menumusic.volume = vol;
     }
 
     public void settinggamemusic()
@@ -133,6 +156,41 @@ public class MainMenu : MonoBehaviour
         if (val == 2)
         {
             Debug.Log("Big");
+        }
+    }
+    public void chofontcolor(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("Beyaz");
+        }
+        if (val == 1)
+        {
+            Debug.Log("Siyah");
+        }
+        if (val == 2)
+        {
+            Debug.Log("Kırmızı");
+        }
+        if (val == 3)
+        {
+            Debug.Log("Yesil");
+        }
+        if (val == 4)
+        {
+            Debug.Log("Mavi");
+        }
+        if (val == 5)
+        {
+            Debug.Log("Sarı");
+        }
+        if (val == 6)
+        {
+            Debug.Log("Turuncu");
+        }
+        if (val == 7)
+        {
+            Debug.Log("Mor");
         }
     }
 }
