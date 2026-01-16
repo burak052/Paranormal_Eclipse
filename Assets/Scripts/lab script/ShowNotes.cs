@@ -95,25 +95,21 @@ I’m okay… I think. But it isn’t safe for me to stay here. Something is fol
 
 Please, be car";
     public string noteText5 = 
-    @"Aral, 
+    @"Sen bunu okuyorken ben coktan yok olup gitmis olabilirim. Laboratuvarda olanlar kontrol edilemeyen bir anin sonucu. O ana dair hatirladigim son seyler isiklar, alarmlar, ve hemen ardindan gelen o tuhaf sessizlik… Her sey orada basladi.
 
-Isler planladigimiz gibi gitmedi. Deneyi durdurmaya calistim ama bir an icin kontrol benden cikti. Gurultu, Patlama… sonra her sey sessizlesti. Sana seslendim ama cevap vermedin.
+Bazi dongulerin cikisi yoktur, bende onlardan birinin icindeyim. Fisiltilar duyuyorum. Bana 'Senin yuzunden!' diyorlar. Beni sadece oyaliyorlar mi yoksa bir sey mi anlatmaya calisiyorlar.
 
-Iyiyim… sanirim. Ama burada kalmam guvenli degil. Bir sey beni takip ediyor. Onu tam goremiyorum. Onun ne oldugunu yada kim oldugunu bilmiyorum. Tek bildigim buradan uzaklasmam gerektigi. 
+Zaman burada bazen ileri bazen geri ilerliyor ama eninde sonunda basladigi noktaya geri geliyor. Ayni hatalar, ayni sonuclar. Acaba gecmis veya gelecek gercekten degistirilemez mi? Acele etmezsen sen de bu dongunun bir parcasi olursun.
 
-Seni bu ise daha fazla bulastirmak istemedim. Beni merak edecegini biliyorum, hatta pesimden gelecegini de.
-
- Lutfen dikkat";
+Hayat ileri dogru yasanir geriye dogru anlasilir.";
     public string noteTextEN5 =
-    @"Aral,
+    @"While you are reading this, I may already be gone. What happened in the laboratory was the result of an uncontrollable moment. The last things I remember from that moment are the lights, the alarms, and the strange silence that followed immediately after… That is where everything began.
 
-Things didn’t go the way we planned. I tried to stop the experiment, but for a moment, I lost control. The noise, the light… and then everything went quiet. I called out to you, but you didn’t answer.
+Some loops have no exit, and I am trapped inside one of them. I hear whispers. They say, “Because of you.” I can’t tell whether they are trying to distract me or if they are trying to tell me something.
 
-I’m okay… I think. But it isn’t safe for me to stay here. Something is following me. I can’t see it clearly. I don’t know what it is, or who it is. All I know is that I need to get away from here.
+Time here sometimes moves forward, sometimes backward, but in the end it always returns to where it began. The same mistakes, the same outcomes. Is it possible that the past or the future cannot truly be changed? If you do not rush, you too will become part of this loop.
 
- That’s all I could do. I didn’t want to pull you any deeper into this. I know you’ll worry about me, and I know you’ll come looking for me.
-
-Please, be car";
+Life is lived forward, but understood backward.";
 
     
     void Start()

@@ -80,7 +80,7 @@ public class inventory : MonoBehaviour
             }
             if (i == 10)
             {
-                itemName[i] = "Lara's Note";
+                itemName[i] = "Aral's Note";
                 itemDesc[i] = notes.noteTextEN5;
             }
 

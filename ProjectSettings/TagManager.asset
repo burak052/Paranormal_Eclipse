@@ -42,6 +42,7 @@ TagManager:
   - GeneratorNote
   - MaterialNote
   - LaraNote
+  - RedButton
   layers:
   - Default
   - TransparentFX

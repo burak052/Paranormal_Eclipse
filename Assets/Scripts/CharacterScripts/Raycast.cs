@@ -325,11 +325,23 @@ public class Raycast : MonoBehaviour
                     currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
                     if (pressEUI != null)
                         pressEUI.SetActive(true);
+                    
+                    if(Lara.elevator)
+                    {
+                        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                        pressEUIText.text = "Please Wait...";
+                    }
+                    else
+                    {
+                        pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
+                        pressEUIText.text = "to go floor2";
+                    }
 
-                    if (Input.GetKeyDown(KeyCode.E))
+                    if (Input.GetKeyDown(KeyCode.E) && !Lara.elevator)
                     {
                         StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2));
                         inFloor2 = true;
+                        Lara.LaraGoTest();
                     }
                     return;
                 }
@@ -726,7 +738,7 @@ public class Raycast : MonoBehaviour
                     }
                     ispressE = true;
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))&& ispressE)
                 {
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
@@ -767,7 +779,20 @@ public class Raycast : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Transform>().Find("Cable").gameObject.GetComponent<MeshRenderer>().enabled=true;
                     hit.collider.gameObject.GetComponent<Transform>().parent.Find("triangle screens").GetComponent<ScreenController>().ActiveScreen();
                     hit.collider.tag = "Untagged";
-                    //hit.collider.gameObject.GetComponent<Transform>().parent.Find("rotor parent").Find("rotor").gameObject.GetComponent<RotorAnim>().RotorSpin();     //rotor spin start
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("RedButton"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to press button";
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.gameObject.GetComponent<TestStart>().StartTest();
+                    hit.collider.tag = "Untagged";
                 }
                 return;
             }

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LaraMovement : MonoBehaviour
 {
-    bool elevator = true;
+    public bool elevator = true;
     public void LaraBeach()
     {
         GetComponent<Animator>().SetBool("sitting", true);
@@ -14,6 +14,75 @@ public class LaraMovement : MonoBehaviour
     {
         transform.position = new Vector3(1381.16f,4.736f,1564.52f);
         transform.rotation = Quaternion.Euler(0f,-34.96f,0f);
+    }
+    
+    public void LaraGoTest()
+    { 
+        StartCoroutine(LaraGoTestCorr());
+    }
+    IEnumerator LaraGoTestCorr()
+    {
+        Vector3 start = transform.position;
+        Vector3 target = new Vector3(1375.16f,4.73f,1558.22f);
+        Quaternion startRot = Quaternion.Euler(0f, 45f, 0f);
+        Quaternion targetRot = Quaternion.Euler(0f, 48.283f, 0f);
+
+        yield return new WaitForSeconds(15f);
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 1f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("walk", true);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.04f;
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        startRot = Quaternion.Euler(0f, 48.283f, 0f);
+        targetRot = Quaternion.Euler(0f, 135f, 0f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 1.6f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+        start = transform.position;
+        target = new Vector3(1383.04f,4.73f,1550.33f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.13f;
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        startRot = Quaternion.Euler(0f, 135f, 0f);
+        targetRot = Quaternion.Euler(0f, 98.124f, 0f);
+        start = transform.position;
+        target = new Vector3(1388.42f,4.73f,1549.55f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.3f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t*3f);
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        GetComponent<Animator>().SetBool("walk", false);
+        startRot = Quaternion.Euler(0f, 98.124f, 0f);
+        targetRot = Quaternion.Euler(0f, 45f, 0f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 1.6f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
     }
 
     public void LaraInElevator()
