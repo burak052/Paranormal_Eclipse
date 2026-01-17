@@ -5,7 +5,7 @@ using System.Collections;
 public class ActiveBlackScreen : MonoBehaviour
 {
     public Image blackScreen;
-    public float delay = 3f;          // Bekleme s�resi
+    public float delay = 3f;
     public float fadeTime = 1.5f;
     public AudioSource clothesAudio;
     public MonoBehaviour playerMovement;
@@ -20,6 +20,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public AudioClip nightSound;
     public ShadowDisable Shaddis;
     public PlayerAnimationController pac;
+    public Missions missions;
     public bool outfit = false;
 
     public void BlackScreenOn()
@@ -87,6 +88,6 @@ public class ActiveBlackScreen : MonoBehaviour
             security.tag = "Untagged";  
         }
         pac.isSetAnimator = false;
-
+        missions.DisMis(++(missions.missionCount));
     }
 }

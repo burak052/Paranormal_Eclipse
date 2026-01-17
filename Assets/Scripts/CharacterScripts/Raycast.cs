@@ -37,6 +37,7 @@ public class Raycast : MonoBehaviour
     public ShowNotes paper;
     public StartEnergyCapsule SEC;
     public StartEnergySmoke SES;
+    public Missions missions;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -514,11 +515,13 @@ public class Raycast : MonoBehaviour
                     }
                     if(hit.collider.CompareTag("RepairKit"))
                     {
+                        missions.DisMis(++(missions.missionCount));
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
                     }
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
+                        hit.collider.gameObject.GetComponent<Transform>().Find("Nullo").Find("Body").gameObject.GetComponent<HighlightBlink>().stopPing();
                         inventor.takeItem(1);
                         haveheadlight = true;
                         spotlight.SetActive(true);
@@ -565,6 +568,10 @@ public class Raycast : MonoBehaviour
                         takelight = true;
                     if (hit.collider.CompareTag("Levye"))
                         levye = true;
+                    if (hit.collider.CompareTag("IDCard"))
+                        missions.DisMis(++(missions.missionCount));
+                    if (hit.collider.CompareTag("HeadLight"))
+                        missions.DisMis(++(missions.missionCount));
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
                         EnergyCapsuleCount++;
@@ -588,6 +595,7 @@ public class Raycast : MonoBehaviour
                 {
                     if(firsttimeopen)
                     {
+                        missions.DisMis(++(missions.missionCount));
                         Lara.LaraShelter();
                         firsttimeopen = false;
                     }
@@ -654,6 +662,8 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
+                    missions.DisMis(++(missions.missionCount));       //////////////////////////////////speak with lara görevini dialoglar ekleyince güncelle
+                    missions.DisMis(++(missions.missionCount));
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
                     sig.SignalOn();
