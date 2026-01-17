@@ -4,6 +4,7 @@ using System.Collections;
 public class LaraMovement : MonoBehaviour
 {
     public bool elevator = true;
+    public GameObject cable;
     public void LaraBeach()
     {
         GetComponent<Animator>().SetBool("sitting", true);
@@ -83,6 +84,8 @@ public class LaraMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
+        if(cable != null)
+        cable.SetActive(true);
     }
 
     public void LaraInElevator()

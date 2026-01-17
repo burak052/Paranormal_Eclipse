@@ -9,6 +9,7 @@ public class repairtool : MonoBehaviour
     public void ChangeTag()
     {
         gameObject.tag = "RepairKit";
+        GetComponent<HighlightBlink>().ping = true;
     }
     public void Glow()
     {

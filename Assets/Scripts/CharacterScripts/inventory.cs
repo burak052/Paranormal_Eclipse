@@ -38,7 +38,7 @@ public class inventory : MonoBehaviour
                 itemName[i] = "Light";
                 itemDesc[i] = "A light worn on the lapel";
             }
-            if (i == 2)
+            if (i == 2 && notes != null)
             {
                 itemName[i] = "Artur's note";
                 itemDesc[i] = notes.noteTextEN1;
@@ -63,22 +63,22 @@ public class inventory : MonoBehaviour
                 itemName[i] = "glock 17";
                 itemDesc[i] = "A Glock 17 taken from the security room. Only one bullet remains. There will be no second chance.";
             }
-            if (i == 7)
+            if (i == 7 && notes != null)
             {
                 itemName[i] = "Security Protokol";
                 itemDesc[i] = notes.noteTextEN2;
             }
-            if (i == 8)
+            if (i == 8 && notes != null)
             {
                 itemName[i] = "Bob's Note";
                 itemDesc[i] = notes.noteTextEN3;
             }
-            if (i == 9)
+            if (i == 9 && notes != null)
             {
                 itemName[i] = "Lara's Note";
                 itemDesc[i] = notes.noteTextEN4;
             }
-            if (i == 10)
+            if (i == 10 && notes != null)
             {
                 itemName[i] = "Aral's Note";
                 itemDesc[i] = notes.noteTextEN5;
@@ -87,7 +87,7 @@ public class inventory : MonoBehaviour
 
         }
 
-        for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)
+        for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)                    
         {
             Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
 
@@ -97,6 +97,7 @@ public class inventory : MonoBehaviour
             }
         }
 
+        inventoryData.ownedItemIDs.Clear();                                     ///////steame yüklemeden önce bu satırı kaldır 
         for (int i = 1; i <= inventoryData.ownedItemIDs.Count; i++)
         {
             Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");
@@ -121,7 +122,7 @@ public class inventory : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab) && !playeranim.isSetAnimator) /////////////////////////////////////buraya değişkenler ekle
+        if (Input.GetKeyDown(KeyCode.Tab) && !playeranim.isSetAnimator) 
         {
             InventoryState = !InventoryState;
             playermove();

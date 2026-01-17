@@ -298,16 +298,13 @@ public class Raycast : MonoBehaviour
                 currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
                 pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
                 pressEUIText.text = "to call elevator";
-                if (isbusy) 
-                {
-                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                    pressEUIText.text = "Please Wait...";
-                }
+                
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E) && callElevator)
                 {
+                    hit.collider.gameObject.tag = "Untagged";
                     if (isbusy) return;
                     Callfloor.floorcall();
                     
@@ -339,7 +336,8 @@ public class Raycast : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E) && !Lara.elevator)
                     {
-                        StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2));
+                        hit.collider.gameObject.GetComponent<Transform>().Find("Cube").gameObject.SetActive(true);
+                        StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2 , hit.collider.gameObject.GetComponent<Transform>().Find("Cube").gameObject));
                         inFloor2 = true;
                         Lara.LaraGoTest();
                     }
@@ -497,11 +495,15 @@ public class Raycast : MonoBehaviour
                         }
                         else
                         {
-                            if (!hit.collider.CompareTag("RepairKit"))
-                                pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                             if (hit.collider.CompareTag("Gun"))
                                 hit.collider.gameObject.GetComponent<Transform>().Find("Bullet_Shell").gameObject.SetActive(false);
-                            inspectSystem.StartInspect(hit.collider.gameObject);
+                            if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit"))
+                                hit.collider.gameObject.GetComponent<HighlightBlink>().stopPing();
+                            if (!hit.collider.CompareTag("RepairKit"))
+                            {
+                                pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
+                                inspectSystem.StartInspect(hit.collider.gameObject);
+                            }
                             pickupSound.Play();
                         }
                     }
@@ -511,7 +513,10 @@ public class Raycast : MonoBehaviour
                         inventor.takeItem(0);
                     }
                     if(hit.collider.CompareTag("RepairKit"))
+                    {
                         haveRepairKit = true;
+                        hit.collider.gameObject.SetActive(false);
+                    }
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
                         inventor.takeItem(1);
@@ -775,9 +780,12 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    hit.collider.gameObject.GetComponent<ActiveRotor>().RotorActive();
+                    hit.collider.gameObject.GetComponent<Transform>().Find("Cable (1)").gameObject.SetActive(false);
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
                     hit.collider.gameObject.GetComponent<Transform>().Find("Cable").gameObject.GetComponent<MeshRenderer>().enabled=true;
                     hit.collider.gameObject.GetComponent<Transform>().parent.Find("triangle screens").GetComponent<ScreenController>().ActiveScreen();
+
                     hit.collider.tag = "Untagged";
                 }
                 return;
@@ -843,7 +851,7 @@ public class Raycast : MonoBehaviour
         isbusy = false;
         callElevator = false;
     }
-    IEnumerator CloseDoorSequence(Animator currentDoorAnimator , Animator currentDoorAnimator2)
+    IEnumerator CloseDoorSequence(Animator currentDoorAnimator , Animator currentDoorAnimator2, GameObject GO)
     {
         if (currentDoorAnimator != null)
         {
@@ -869,6 +877,7 @@ public class Raycast : MonoBehaviour
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", true);
         }
+        GO.SetActive(false);
     }
     IEnumerator StartCapseuleAnim()
     {

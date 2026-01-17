@@ -13,6 +13,11 @@ public class StartEnergySmoke : MonoBehaviour
     public bool ping = false;
     bool isPinging;
 
+    void Start()
+    {
+        light1.SetActive(true);
+        light2.SetActive(true);
+    }
     void Update()
     {
         if (ping && !isPinging)
