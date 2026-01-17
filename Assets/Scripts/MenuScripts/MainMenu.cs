@@ -13,12 +13,20 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
     public TMP_Dropdown fontcolorDropdown;
+    public TMP_Dropdown resolutionsize;
+    public TMP_Dropdown screensizechoose;
+    public TMP_Dropdown graphicsettings;
+    public TMP_Dropdown antialiasing;
     public TextMeshProUGUI languageText;
     public GameObject selecetlanguage;
     public GameObject fontsize;
     public GameObject fontcolor;
     public GameObject mainmusic;
     public GameObject gamemusic;
+    public GameObject resolution;
+    public GameObject screensize;
+    public GameObject graphics;
+    public GameObject aliasing;
     public Slider mainvolume;
     public Slider gamevolume;
     public AudioSource menumusic;
@@ -115,6 +123,51 @@ public class MainMenu : MonoBehaviour
         mainvolume.gameObject.SetActive(false);
     }
 
+    public void choreso()
+    {
+        resolutionsize.gameObject.SetActive(true);
+        screensizechoose.gameObject.SetActive(false);
+        graphicsettings.gameObject.SetActive(false);
+        antialiasing.gameObject.SetActive(false);
+    }
+
+    public void choscreen()
+    {
+        resolutionsize.gameObject.SetActive(false);
+        screensizechoose.gameObject.SetActive(true);
+        graphicsettings.gameObject.SetActive(false);
+        antialiasing.gameObject.SetActive(false);
+    }
+
+    public void chografik()
+    {
+        resolutionsize.gameObject.SetActive(false);
+        screensizechoose.gameObject.SetActive(false);
+        graphicsettings.gameObject.SetActive(true);
+        antialiasing.gameObject.SetActive(false);
+    }
+
+    public void choaliasing()
+    {
+        resolutionsize.gameObject.SetActive(false);
+        screensizechoose.gameObject.SetActive(false);
+        graphicsettings.gameObject.SetActive(false);
+        antialiasing.gameObject.SetActive(true);
+    }
+
+    public void grafik()
+    {
+        gamemusic.SetActive(false);
+        mainmusic.SetActive(false);
+        selecetlanguage.SetActive(false);
+        fontsize.SetActive(false);
+        fontcolor.SetActive(false);
+        resolution.SetActive(true);
+        screensize.SetActive(true);
+        graphics.SetActive(true);
+        aliasing.SetActive(true);
+    }
+
     public void music()
     {
         gamemusic.SetActive(true);
@@ -122,6 +175,10 @@ public class MainMenu : MonoBehaviour
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
         fontcolor.SetActive(false);
+        resolution.SetActive(false);
+        screensize.SetActive(false);
+        graphics.SetActive(false);
+        aliasing.SetActive(false);
     }
 
     public void language()
@@ -131,6 +188,10 @@ public class MainMenu : MonoBehaviour
         fontcolor.SetActive(true);
         gamemusic.SetActive(false);
         mainmusic.SetActive(false);
+        resolution.SetActive(false);
+        screensize.SetActive(false);
+        graphics.SetActive(false);
+        aliasing.SetActive(false);
     }
     public void lanset(int val)
     {
@@ -191,6 +252,82 @@ public class MainMenu : MonoBehaviour
         if (val == 7)
         {
             Debug.Log("Mor");
+        }
+    }
+    public void resultresosize(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("1280x720");
+        }
+        if (val == 1)
+        {
+            Debug.Log("1280x800");
+        }
+        if (val == 2)
+        {
+            Debug.Log("1366x768");
+        }
+        if (val == 3)
+        {
+            Debug.Log("1920x1080");
+        }
+        if (val == 4)
+        {
+            Debug.Log("2560x1440");
+        }
+        if (val == 5)
+        {
+            Debug.Log("3840x2160");
+        }
+    }
+    public void resultscreensize(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("Tam Ekran");
+        }
+        if (val == 1)
+        {
+            Debug.Log("Kenarlıklı Pencere");
+        }
+        if (val == 2)
+        {
+            Debug.Log("Pencere Modu");
+        }
+    }
+    public void resultgrafik(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("Dusuk");
+        }
+        if (val == 1)
+        {
+            Debug.Log("Orta");
+        }
+        if (val == 2)
+        {
+            Debug.Log("Yuksek");
+        }
+    }
+    public void resultaliasing(int val)
+    {
+        if (val == 0)
+        {
+            Debug.Log("No-aliasing");
+        }
+        if (val == 1)
+        {
+            Debug.Log("FXAA");
+        }
+        if (val == 2)
+        {
+            Debug.Log("TAA");
+        }
+        if (val == 3)
+        {
+            Debug.Log("MSAA");
         }
     }
 }
