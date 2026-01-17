@@ -12,7 +12,7 @@ public class Missions : MonoBehaviour
         missionText = GetComponent<TextMeshProUGUI>();
         if (missionCount == 0)
         {
-            missionText.text = "";
+            missionText.text = "—Find the ID card in the hangar";
         }
     } 
 }
