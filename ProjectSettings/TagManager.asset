@@ -43,6 +43,7 @@ TagManager:
   - MaterialNote
   - LaraNote
   - RedButton
+  - SpeakLara
   layers:
   - Default
   - TransparentFX

@@ -21,6 +21,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public ShadowDisable Shaddis;
     public PlayerAnimationController pac;
     public Missions missions;
+    public ESCMenu Menu;
     public bool outfit = false;
 
     public void BlackScreenOn()
@@ -30,6 +31,7 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator DisableAfterDelay()
     {
+        Menu.canOpenMenu = false;
         pac.SetAnimator();
         pac.enabled = false;
         playerMovement.enabled = false;
@@ -89,5 +91,6 @@ public class ActiveBlackScreen : MonoBehaviour
         }
         pac.isSetAnimator = false;
         missions.DisMis(++(missions.missionCount));
+        Menu.canOpenMenu = true;
     }
 }

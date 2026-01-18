@@ -5,11 +5,14 @@ public class LaraMovement : MonoBehaviour
 {
     public bool elevator = true;
     public GameObject cable;
+    public GameObject cube;
+    public Missions mis;
     public void LaraBeach()
     {
         GetComponent<Animator>().SetBool("sitting", true);
         transform.position = new Vector3(1471.97f,2.13f,1788.94f);
         transform.rotation = Quaternion.Euler(0f,25f,0f);
+        cube.SetActive(true);
     }
     public void LaraLocker()
     {
@@ -86,6 +89,7 @@ public class LaraMovement : MonoBehaviour
         }
         if(cable != null)
         cable.SetActive(true);
+        mis.DisMis(++(mis.missionCount));
     }
 
     public void LaraInElevator()

@@ -6,6 +6,7 @@ public class signal : MonoBehaviour
     public GameObject dis1;
     public GameObject dis2;
     public GameObject en1;
+    public GameObject laranote;
     public TextMeshProUGUI pass;
 
     public void SignalOn()
@@ -17,6 +18,8 @@ public class signal : MonoBehaviour
     }
     public void PasswordActive()
     {
-        pass.text = "1327";
+        pass.text = @"nova code
+1327";
+        laranote.SetActive(true);
     }
 }

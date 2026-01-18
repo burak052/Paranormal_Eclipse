@@ -5,6 +5,7 @@ public class ItemInspectSystem : MonoBehaviour
     public MonoBehaviour playerMovement;
     public Transform inspectPoint;
     public float rotateSpeed = 120f;
+    public ESCMenu Menu;
 
     GameObject inspectedObject;
     public bool isInspecting = false;
@@ -22,6 +23,7 @@ public class ItemInspectSystem : MonoBehaviour
 
     public void StartInspect(GameObject item)
     {
+        Menu.canOpenMenu = false;
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = true;
         if(item.tag != "RepairKit" && item.tag != "PlaceEnergyCapsule")
         {
@@ -42,6 +44,7 @@ public class ItemInspectSystem : MonoBehaviour
 
     public void EndInspect()
     {
+        Menu.canOpenMenu = true;
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
         playerMovement.enabled = true;
         inspectedObject.transform.SetParent(null);

@@ -9,6 +9,7 @@ public class ESCMenu : MonoBehaviour
 {  
     public PlayerAnimationController playeranim;
     public MonoBehaviour playerMovement;
+    public bool canOpenMenu = true;
     bool isOpenMenu = false;
     private Transform menu;
 
@@ -19,7 +20,7 @@ public class ESCMenu : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canOpenMenu)
         {
             isOpenMenu = !isOpenMenu;
             if(isOpenMenu)

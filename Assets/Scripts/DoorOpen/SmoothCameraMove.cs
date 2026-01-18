@@ -12,6 +12,7 @@ public class SmoothCameraMove : MonoBehaviour
     private Quaternion originalLocalRotation;
     public MonoBehaviour playerMovement; 
     public PlayerAnimationController playeranim;
+    public ESCMenu Menu;
 
     public void MoveToKeypad()
     {
@@ -39,6 +40,7 @@ public class SmoothCameraMove : MonoBehaviour
 
     IEnumerator MoveCamera()
     {
+        Menu.canOpenMenu = false;
         float t = 0f;
 
         while (t < 1f)
@@ -54,6 +56,7 @@ public class SmoothCameraMove : MonoBehaviour
 
     IEnumerator MoveLaptopCamera()
     {
+        Menu.canOpenMenu = false;
         float t = 0f;
 
         while (t < 1f)
@@ -89,5 +92,6 @@ public class SmoothCameraMove : MonoBehaviour
         }
         playerMovement.enabled = true;
         playeranim.enabled = true;
+        Menu.canOpenMenu = true;
     }
 }

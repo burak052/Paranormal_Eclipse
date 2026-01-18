@@ -38,6 +38,7 @@ public class Raycast : MonoBehaviour
     public StartEnergyCapsule SEC;
     public StartEnergySmoke SES;
     public Missions missions;
+    public ESCMenu Menu;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
@@ -164,6 +165,7 @@ public class Raycast : MonoBehaviour
                     {
                         if (passwordText.text == password)
                         {
+                            missions.DisMis(++(missions.missionCount));
                             ClearKey();
                             keymat.successScreen();
                             hit.collider.tag = "Untagged";
@@ -581,7 +583,10 @@ public class Raycast : MonoBehaviour
                         SEC.SetParent();
                         capsuleAnim = false;
                         if (EnergyCapsuleCount == 6)
+                        {
                             SES.OnElevatorButton();
+                            missions.DisMis(++(missions.missionCount));
+                        }
                     }
                 }
                 return;
@@ -700,13 +705,14 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     playeranim.SetAnimator();
+                    Menu.canOpenMenu = false;
                     issearching = true;
                     pressEUIText.text = "Searching";
                     searchSound.Play();
                     StartCoroutine(searchindelay());
                     inventor.takeItem(2);
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))&& !issearching)
                 {
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
@@ -790,6 +796,7 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    missions.DisMis(++(missions.missionCount));
                     hit.collider.gameObject.GetComponent<ActiveRotor>().RotorActive();
                     hit.collider.gameObject.GetComponent<Transform>().Find("Cable (1)").gameObject.SetActive(false);
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
@@ -811,6 +818,21 @@ public class Raycast : MonoBehaviour
                 {
                     hit.collider.gameObject.GetComponent<TestStart>().StartTest();
                     hit.collider.tag = "Untagged";
+                    missions.DisMis(++(missions.missionCount));
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("SpeakLara"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to speak with lara";
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.gameObject.SetActive(false);
+                    missions.DisMis(++(missions.missionCount));
                 }
                 return;
             }
@@ -836,12 +858,15 @@ public class Raycast : MonoBehaviour
     }
     IEnumerator searchindelay()
     {
+        Menu.canOpenMenu = false;
         playerMovement.enabled = false;
         playeranim.enabled = false;
         yield return new WaitForSeconds(2f);
         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
         paperSound.Play();
         paper.showpaper(1);
+        Menu.canOpenMenu = true;
+        issearching = false;
     }
     IEnumerator OpenDoorSequence(Animator currentDoorAnimator , Animator currentDoorAnimator2)
     {

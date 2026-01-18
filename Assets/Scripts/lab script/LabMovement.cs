@@ -3,12 +3,14 @@ using System.Collections;
 
 public class LabMovement : MonoBehaviour
 {
+    public ESCMenu Menu;
     public void XRayCinematic()
     {
         StartCoroutine(StartCinematic());
     }
     IEnumerator StartCinematic()
     {
+        Menu.canOpenMenu = false;
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = true;
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", true);
         transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isRunning", false);
@@ -115,5 +117,6 @@ public class LabMovement : MonoBehaviour
         GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
         GetComponent<PlayerAnimationController>().enabled = true;
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
+        Menu.canOpenMenu = true;
     }
 }

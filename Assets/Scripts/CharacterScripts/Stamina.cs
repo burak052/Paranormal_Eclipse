@@ -20,6 +20,7 @@ public class Stamina : MonoBehaviour
     public float exhaustedThreshold = 20f;
     public float exhaustedMaxVolume = 0.8f;
     public float audioFadeSpeed = 5f;
+    public bool canplay = true;
 
     void Start()
     {
@@ -74,6 +75,8 @@ public class Stamina : MonoBehaviour
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();
         }
+        else
+            IncreaseStamina();
     }
 
     void HandleExhaustedAudio()
@@ -82,7 +85,7 @@ public class Stamina : MonoBehaviour
 
         bool shouldPlay = stamina <= exhaustedThreshold;
 
-        if (shouldPlay)
+        if (shouldPlay && canplay)
         {
             if (!exhaustedAudio.isPlaying)
                 exhaustedAudio.Play();
@@ -104,5 +107,21 @@ public class Stamina : MonoBehaviour
             if (exhaustedAudio.volume <= 0.01f && exhaustedAudio.isPlaying)
                 exhaustedAudio.Stop();
         }
+    }
+    void IncreaseStamina()
+    {
+        // ?? STAMINA BAR UI
+        if (staminaSlider != null)
+            staminaSlider.value = stamina;
+
+        if (staminaCanvasGroup != null)
+            staminaCanvasGroup.alpha = 0f;
+
+        stamina += 10f * Time.deltaTime;
+
+        stamina = Mathf.Clamp(stamina, 0f, 100f);
+
+        // ????? YORGUNLUK SES� (FADE IN / OUT)
+        HandleExhaustedAudio();
     }
 }
