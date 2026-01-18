@@ -36,6 +36,17 @@ public class MainMenu : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
     }
 
+    void Awake()
+    {
+        antialiasing.onValueChanged.RemoveAllListeners();
+        antialiasing.onValueChanged.AddListener(resultaliasing);
+    }
+
+    public void resultaliasing(int val)
+    {
+        Debug.Log("SECILEN: " + val);
+    }
+
     public void NewGame()
     {
         blackScreen.gameObject.SetActive(true);
@@ -74,9 +85,23 @@ public class MainMenu : MonoBehaviour
         Camera.Play("Settings2Menu");
     }
 
+    public void credits()
+    {
+        Camera.Play("menu2credits");
+    }
+
+    public void back2menu()
+    {
+        Camera.Play("credits2menu");
+    }
+
     public void Exit()
     {
+        Debug.Log("Uygulama kapatılıyor...");
         Application.Quit();
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
     }
 
     public void choosefontsize()
@@ -195,139 +220,31 @@ public class MainMenu : MonoBehaviour
     }
     public void lanset(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("Turkish");
-        }
-        if (val == 1)
-        {
-            Debug.Log("English");
-        }
+        Debug.Log(languageDropdown.options[val].text);
     }
     public void chofontsize(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("Small");
-        }
-        if (val == 1)
-        {
-            Debug.Log("Medium");
-        }
-        if (val == 2)
-        {
-            Debug.Log("Big");
-        }
+        Debug.Log(fontsizeDropdown.options[val].text);
     }
     public void chofontcolor(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("Beyaz");
-        }
-        if (val == 1)
-        {
-            Debug.Log("Siyah");
-        }
-        if (val == 2)
-        {
-            Debug.Log("Kırmızı");
-        }
-        if (val == 3)
-        {
-            Debug.Log("Yesil");
-        }
-        if (val == 4)
-        {
-            Debug.Log("Mavi");
-        }
-        if (val == 5)
-        {
-            Debug.Log("Sarı");
-        }
-        if (val == 6)
-        {
-            Debug.Log("Turuncu");
-        }
-        if (val == 7)
-        {
-            Debug.Log("Mor");
-        }
+        Debug.Log(fontcolorDropdown.options[val].text);
     }
     public void resultresosize(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("1280x720");
-        }
-        if (val == 1)
-        {
-            Debug.Log("1280x800");
-        }
-        if (val == 2)
-        {
-            Debug.Log("1366x768");
-        }
-        if (val == 3)
-        {
-            Debug.Log("1920x1080");
-        }
-        if (val == 4)
-        {
-            Debug.Log("2560x1440");
-        }
-        if (val == 5)
-        {
-            Debug.Log("3840x2160");
-        }
+        Debug.Log(resolutionsize.options[val].text);
     }
     public void resultscreensize(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("Tam Ekran");
-        }
-        if (val == 1)
-        {
-            Debug.Log("Kenarlıklı Pencere");
-        }
-        if (val == 2)
-        {
-            Debug.Log("Pencere Modu");
-        }
+        Debug.Log(screensizechoose.options[val].text);
     }
     public void resultgrafik(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("Dusuk");
-        }
-        if (val == 1)
-        {
-            Debug.Log("Orta");
-        }
-        if (val == 2)
-        {
-            Debug.Log("Yuksek");
-        }
+        Debug.Log(graphicsettings.options[val].text);
     }
-    public void resultaliasing(int val)
+    /*public void resultaliasing(int val)
     {
-        if (val == 0)
-        {
-            Debug.Log("No-aliasing");
-        }
-        if (val == 1)
-        {
-            Debug.Log("FXAA");
-        }
-        if (val == 2)
-        {
-            Debug.Log("TAA");
-        }
-        if (val == 3)
-        {
-            Debug.Log("MSAA");
-        }
-    }
+        Debug.Log(antialiasing.options[val].text);
+    }*/
+
 }
