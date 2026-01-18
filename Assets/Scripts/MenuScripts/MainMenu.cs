@@ -163,7 +163,6 @@ public class MainMenu : MonoBehaviour
         graphicsettings.gameObject.SetActive(false);
         antialiasing.gameObject.SetActive(false);
     }
-
     public void chografik()
     {
         resolutionsize.gameObject.SetActive(false);
@@ -242,9 +241,4 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log(graphicsettings.options[val].text);
     }
-    /*public void resultaliasing(int val)
-    {
-        Debug.Log(antialiasing.options[val].text);
-    }*/
-
 }
