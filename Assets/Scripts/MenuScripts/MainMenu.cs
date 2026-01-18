@@ -241,4 +241,12 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log(graphicsettings.options[val].text);
     }
+<<<<<<< Updated upstream
+=======
+    public void resultaliasing(int val)
+    {
+        Debug.Log(antialiasing.options[val].text);
+    }
+
+>>>>>>> Stashed changes
 }
