@@ -14,6 +14,7 @@ public class ExplosionTest : MonoBehaviour
     public GameObject rotorSound;
     public ActiveBlackScreen ABS;
     public GameObject laranote;
+    public GameObject lara;
 
     public void StartCinema()
     {
@@ -54,8 +55,10 @@ public class ExplosionTest : MonoBehaviour
 
         yield return new WaitForSeconds(4f);
         flame.SetActive(true);
+        transform.Find("flame_box").gameObject.SetActive(true);
         //labın enkazlı halini buraya ekle
         laranote.SetActive(true);
+        lara.SetActive(false);
         
     }
 
