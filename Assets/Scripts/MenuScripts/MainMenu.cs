@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown screensizechoose;
     public TMP_Dropdown graphicsettings;
     public TMP_Dropdown antialiasing;
+    public TMP_Dropdown headbobbingsettings;
     public TextMeshProUGUI languageText;
     public GameObject selecetlanguage;
     public GameObject fontsize;
@@ -27,9 +28,14 @@ public class MainMenu : MonoBehaviour
     public GameObject screensize;
     public GameObject graphics;
     public GameObject aliasing;
+    public GameObject camsensetive;
+    public GameObject headbobbing;
     public Slider mainvolume;
     public Slider gamevolume;
+    public Slider camerasenstive;
     public AudioSource menumusic;
+    public RectTransform content;
+    Coroutine creditscoroutine;
 
     void Start()
     {
@@ -88,11 +94,14 @@ public class MainMenu : MonoBehaviour
     public void credits()
     {
         Camera.Play("menu2credits");
+        creditscoroutine=StartCoroutine(creditsslider());
     }
 
     public void back2menu()
     {
         Camera.Play("credits2menu");
+        StopCoroutine(creditscoroutine);
+        creditscoroutine = null;
     }
 
     public void Exit()
@@ -179,6 +188,18 @@ public class MainMenu : MonoBehaviour
         antialiasing.gameObject.SetActive(true);
     }
 
+    public void chocamsensetive()
+    {
+        camerasenstive.gameObject.SetActive(true);
+        headbobbingsettings.gameObject.SetActive(false);
+    }
+
+    public void choheadbobbing()
+    {
+        camerasenstive.gameObject.SetActive(false);
+        headbobbingsettings.gameObject.SetActive(true);
+    }
+
     public void grafik()
     {
         gamemusic.SetActive(false);
@@ -190,12 +211,31 @@ public class MainMenu : MonoBehaviour
         screensize.SetActive(true);
         graphics.SetActive(true);
         aliasing.SetActive(true);
+        camsensetive.SetActive(false);
+        headbobbing.SetActive(false);
     }
 
     public void music()
     {
         gamemusic.SetActive(true);
         mainmusic.SetActive(true);
+        selecetlanguage.SetActive(false);
+        fontsize.SetActive(false);
+        fontcolor.SetActive(false);
+        resolution.SetActive(false);
+        screensize.SetActive(false);
+        graphics.SetActive(false);
+        aliasing.SetActive(false);
+        camsensetive.SetActive(false);
+        headbobbing.SetActive(false);
+    }
+
+    public void cam()
+    {
+        camsensetive.SetActive(true);
+        headbobbing.SetActive(true);
+        gamemusic.SetActive(false);
+        mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
         fontcolor.SetActive(false);
@@ -216,6 +256,8 @@ public class MainMenu : MonoBehaviour
         screensize.SetActive(false);
         graphics.SetActive(false);
         aliasing.SetActive(false);
+        camsensetive.SetActive(false);
+        headbobbing.SetActive(false);
     }
     public void lanset(int val)
     {
@@ -240,5 +282,24 @@ public class MainMenu : MonoBehaviour
     public void resultgrafik(int val)
     {
         Debug.Log(graphicsettings.options[val].text);
+    }
+    public void resultheadbobbing(int val)
+    {
+        Debug.Log(headbobbingsettings.options[val].text);
+    }
+    IEnumerator creditsslider()
+    {
+        float t = 0f;
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.025f;
+
+            Vector2 pos = content.anchoredPosition;
+            pos.y = Mathf.Lerp(-900f, 900f, t);
+            content.anchoredPosition = pos;
+
+            yield return null; // 🔥 ZORUNLU
+        }
     }
 }
