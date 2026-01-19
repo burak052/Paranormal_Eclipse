@@ -93,4 +93,39 @@ public class ActiveBlackScreen : MonoBehaviour
         missions.DisMis(++(missions.missionCount));
         Menu.canOpenMenu = true;
     }
+
+    public void StandartBS()
+      {
+        StartCoroutine(StartStandartBS());
+      }
+
+    IEnumerator StartStandartBS()
+    {
+        Menu.canOpenMenu = false;
+        pac.SetAnimator();
+        pac.enabled = false;
+        playerMovement.enabled = false;
+
+        blackScreen.gameObject.SetActive(true);
+        blackScreen.color = new Color(0, 0, 0, 1f);
+
+        yield return new WaitForSeconds(4f);
+
+        blackScreen.gameObject.GetComponent<AudioSource>().Play();
+
+        yield return new WaitForSeconds(4f);
+        float t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false);
+        playerMovement.gameObject.GetComponent<LabMovement>().ExplosionAfter();
+
+        missions.DisMis(++(missions.missionCount));  ///////
+    }
 }

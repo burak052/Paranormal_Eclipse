@@ -4,6 +4,118 @@ using System.Collections;
 public class LabMovement : MonoBehaviour
 {
     public ESCMenu Menu;
+
+    public void ExplosionAfter()
+    {
+        StartCoroutine(StartExplosionAfter());
+    }
+    IEnumerator StartExplosionAfter()
+    {
+        Menu.canOpenMenu = false;
+        GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = false;
+        GetComponent<PlayerAnimationController>().enabled = false;
+        gameObject.GetComponent<PlayerAnimationController>().SetAnimator();
+        Transform camParent = transform.Find("CameraParent").Find("Camera");
+
+        Vector3 targetcamparent = new Vector3(0f,1.7f,0.246f);
+        Quaternion startRotCam = camParent.localRotation;
+        
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.4f;
+            camParent.localRotation = Quaternion.Slerp(startRotCam, Quaternion.Euler(0f, 0f, 0f), t);
+            camParent.parent.localPosition = Vector3.Lerp(camParent.parent.localPosition, targetcamparent, t);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.4f;
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 45f, 0f), t/3);
+            camParent.localRotation = Quaternion.Slerp(camParent.localRotation, Quaternion.Euler(40f, 0f, 0f), t);
+            yield return null;
+        }
+        
+
+        GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().SyncRotationFromCamera();
+        GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = true;
+        GetComponent<PlayerAnimationController>().enabled = true;
+        gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
+        Menu.canOpenMenu = true;
+    }
+
+    public void Explosion()
+    {
+        StartCoroutine(StartExplosion());
+    }
+    IEnumerator StartExplosion()
+    {
+        Menu.canOpenMenu = false;
+        GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().enabled = false;
+        GetComponent<PlayerAnimationController>().enabled = false;
+        gameObject.GetComponent<PlayerAnimationController>().SetAnimator();
+        Transform camParent = transform.Find("CameraParent").Find("Camera");
+
+        Vector3 start = transform.position;
+        Vector3 target = new Vector3(1393.94f,4.76f,1539.48f);
+        Vector3 targetcamparent = new Vector3(0f,1.7f,0.246f);
+        Quaternion startRot = transform.rotation;
+        Quaternion targetRot = Quaternion.Euler(0f, 45f, 0f);
+        Quaternion startRotCam = camParent.localRotation;
+        Quaternion targetRotCam = Quaternion.Euler(0f, 45f, 0f);
+        
+        float t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.7f;
+            camParent.localRotation = Quaternion.Slerp(startRotCam, Quaternion.Euler(0f, 0f, 0f), t);
+            camParent.parent.localPosition = Vector3.Lerp(camParent.parent.localPosition, new Vector3(0f,1.7f,0.246f), t);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.7f;
+            transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
+            yield return null;
+        }
+        transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", true);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.8f;
+            transform.localPosition = Vector3.Lerp(start, target, t);
+            yield return null;
+        }
+        transform.Find("aral_lab").gameObject.GetComponent<Animator>().SetBool("isWalking", false);
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.5f;
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0f, -45f, 0f), t);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime * 0.5f;
+            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.Euler(0f, 135f, 0f), t);
+            yield return null;
+        }
+        yield return new WaitForSeconds(13f);
+
+        transform.position = new Vector3(1388.05f,4.76f,1549.44f); //Vector3(1388.05,4.76,1549.44)
+        transform.localRotation = Quaternion.Euler(0f, 130f, 0f);
+        camParent.parent.localPosition = new Vector3(0f,1f,0.246f);
+        camParent.localRotation = Quaternion.Euler(60f, 0f, 0f);
+    }
+
     public void XRayCinematic()
     {
         StartCoroutine(StartCinematic());

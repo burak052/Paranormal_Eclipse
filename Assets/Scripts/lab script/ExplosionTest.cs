@@ -10,6 +10,11 @@ public class ExplosionTest : MonoBehaviour
     public GameObject Electricity2;
     public GameObject Electricity3;
     public GameObject Explosion;
+    public Animator rotor;
+    public GameObject rotorSound;
+    public ActiveBlackScreen ABS;
+    public GameObject laranote;
+
     public void StartCinema()
     {
         StartCoroutine(Crash());
@@ -19,21 +24,39 @@ public class ExplosionTest : MonoBehaviour
         yield return new WaitForSeconds(8f);
         lightning.SetActive(true);
         sparks.SetActive(true);
+
         yield return new WaitForSeconds(3f);
         Electricity1.SetActive(true);
+
         yield return new WaitForSeconds(1f);
         Electricity2.SetActive(true);
+
         yield return new WaitForSeconds(0.5f);
         Electricity3.SetActive(true);
+
         yield return new WaitForSeconds(8f);
         Explosion.SetActive(true);
-        flame.SetActive(true);
-        yield return new WaitForSeconds(2f);
+        rotor.speed = 0f;    
+
+        yield return new WaitForSeconds(0.5f);
+        ABS.StandartBS();
+        yield return new WaitForSeconds(0.5f);
+        if (rotorSound.GetComponents<AudioSource>()[1].isPlaying)
+            rotorSound.GetComponents<AudioSource>()[1].Stop();
+
         lightning.SetActive(false);
         sparks.SetActive(false);
         Electricity1.SetActive(false);
         Electricity2.SetActive(false);
         Electricity3.SetActive(false);
+        yield return new WaitForSeconds(2f);
         Explosion.SetActive(false);
+
+        yield return new WaitForSeconds(4f);
+        flame.SetActive(true);
+        //labın enkazlı halini buraya ekle
+        laranote.SetActive(true);
+        
     }
+
 }

@@ -54,6 +54,7 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Missions").gameObject.SetActive(false);
         menu.Find("Menu").gameObject.SetActive(false);
         menu.Find("Settings").gameObject.SetActive(false);
+        playeranim.isSetAnimator = false;
         playerMovement.enabled = true;
         playeranim.enabled = true;
         Cursor.visible = false;
