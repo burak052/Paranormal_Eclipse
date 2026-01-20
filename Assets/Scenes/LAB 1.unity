@@ -255573,7 +255573,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1428142988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389576,7 +389576,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 2
-  MaxDistance: 15
+  MaxDistance: 24.225952
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -603700,7 +603700,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 10
+  MaxDistance: 14.50293
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
