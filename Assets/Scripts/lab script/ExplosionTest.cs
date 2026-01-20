@@ -54,10 +54,10 @@ public class ExplosionTest : MonoBehaviour
         Electricity1.SetActive(false);
         Electricity2.SetActive(false);
         Electricity3.SetActive(false);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         Explosion.SetActive(false);
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         flame.SetActive(true);
         transform.Find("flame_box").gameObject.SetActive(true);
         transform.Find("Flamethrower").gameObject.SetActive(true);

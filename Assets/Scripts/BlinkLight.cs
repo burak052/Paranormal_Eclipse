@@ -21,7 +21,7 @@ public class BlinkLight : MonoBehaviour
         while (true)
         {
             lightComp.enabled = !lightComp.enabled;
-            yield return new WaitForSeconds(Random.Range(1f, 3f));
+            yield return new WaitForSeconds(Random.Range(0.2f, 1.5f));
         }
     }
 
