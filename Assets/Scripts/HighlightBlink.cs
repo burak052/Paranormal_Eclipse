@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class HighlightBlink : MonoBehaviour
 {
@@ -8,11 +9,14 @@ public class HighlightBlink : MonoBehaviour
     Material[] mats;
     bool busy = false;
     public bool ping = true;
+    public bool ispaper = false;
 
     void Update()
     {
-        if (!busy && ping)
+        if (!busy && ping && !ispaper)
             StartCoroutine(EmissionPulse());
+        if(!busy && ping && ispaper)
+            StartCoroutine(EmissionPulsePaper());
     }
     IEnumerator EmissionPulse()
     {
@@ -37,9 +41,18 @@ public class HighlightBlink : MonoBehaviour
             GetComponent<Renderer>().material = material;
         busy = false;
     }
+    IEnumerator EmissionPulsePaper()
+    {
+        busy = true;
+        yield return new WaitForSeconds(1f);
+        GetComponent<Image>().material = material;
+        yield return new WaitForSeconds(1f);
+        GetComponent<Image>().material = material2;
+        busy = false;
+    }
     public void stopPing()
     {
-        StopCoroutine(EmissionPulse());
+        StopAllCoroutines();
         ping = false;
         if(gameObject.tag == "RepairKit")
         {

@@ -15,6 +15,10 @@ public class ExplosionTest : MonoBehaviour
     public ActiveBlackScreen ABS;
     public GameObject laranote;
     public GameObject lara;
+    public GameObject beforecrash;
+    public GameObject aftercrash;
+    public ScreenController triangle;
+    public Raycast ray;
 
     public void StartCinema()
     {
@@ -56,9 +60,17 @@ public class ExplosionTest : MonoBehaviour
         yield return new WaitForSeconds(4f);
         flame.SetActive(true);
         transform.Find("flame_box").gameObject.SetActive(true);
+        transform.Find("Flamethrower").gameObject.SetActive(true);
+        transform.Find("Flamethrower (1)").gameObject.SetActive(true);
+
         //labın enkazlı halini buraya ekle
         laranote.SetActive(true);
         lara.SetActive(false);
+        triangle.DisableScreen();
+        aftercrash.SetActive(true);
+        beforecrash.SetActive(false);
+        ray.accident = true;
+        //////////////////////////////////
         
     }
 

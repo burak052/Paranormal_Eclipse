@@ -53,7 +53,6 @@ public class Raycast : MonoBehaviour
     private bool callElevator = true;
     private bool inFloor2 = false;
     private bool levye = false;
-    private bool uselevye = false;
     private bool ispressE = false;
     public bool accident = false;
     private int capsuleCount = 0;
@@ -124,9 +123,11 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
-            if (hit.collider.CompareTag("LevyeDoor") && !uselevye)
+            if (hit.collider.CompareTag("LevyeDoor"))
             {
-                if (pressEUI != null)
+                currentDoorAnimator = hit.collider.GetComponent<Animator>();
+                bool state = currentDoorAnimator.GetBool("Open");
+                if (pressEUI != null && !state)
                 {
                     if(!levye)
                     {
@@ -140,14 +141,10 @@ public class Raycast : MonoBehaviour
                         pressEUI.SetActive(true);
                 }
 
-                currentDoorAnimator = hit.collider.GetComponent<Animator>();
-
-                if (Input.GetKeyDown(KeyCode.E) && levye)
+                if (Input.GetKeyDown(KeyCode.E) && levye && !state)
                 {
                     if (currentDoorAnimator != null)
                     {
-                        uselevye = true;
-                        bool state = currentDoorAnimator.GetBool("Open");
                         currentDoorAnimator.SetBool("Open", !state);
                     }
                 }
