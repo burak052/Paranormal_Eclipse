@@ -17,6 +17,8 @@ public class ExplosionTest : MonoBehaviour
     public GameObject lara;
     public GameObject beforecrash;
     public GameObject aftercrash;
+    public GameObject elevatorcrash;
+    public GameObject elevator;
     public ScreenController triangle;
     public Raycast ray;
 
@@ -70,6 +72,8 @@ public class ExplosionTest : MonoBehaviour
         aftercrash.SetActive(true);
         beforecrash.SetActive(false);
         ray.accident = true;
+        elevator.SetActive(false);
+        elevatorcrash.SetActive(true);
         //////////////////////////////////
         
     }

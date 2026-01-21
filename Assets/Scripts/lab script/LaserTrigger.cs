@@ -5,12 +5,17 @@ public class LaserTrigger : MonoBehaviour
 {
     public AudioSource laserSound;
     bool isfinish = true;
+    public bool other=false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && isfinish)
+        if (other.CompareTag("Player") && isfinish && !other)
         {
             StartCoroutine(LaserMove());
+        }
+        if(other && isfinish)
+        {
+            StartCoroutine(delay1f());
         }
     }
 
@@ -35,6 +40,13 @@ public class LaserTrigger : MonoBehaviour
             yield return null;
         }
 
+        isfinish = true;
+    }
+    IEnumerator delay1f()
+    {
+        isfinish = false;
+        laserSound.Play();
+        yield return new WaitForSeconds(2f);
         isfinish = true;
     }
 }

@@ -130,6 +130,8 @@ Life is lived forward, but understood backward.";
         paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = noteTextEN4;
         if(paperid == 5)
         paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = noteTextEN5;
+        if(paperid == 6)
+        paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = "behind you!";
     }
 
     public void offpaper()

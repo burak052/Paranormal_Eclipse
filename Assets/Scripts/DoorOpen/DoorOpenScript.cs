@@ -21,8 +21,10 @@ public class AutoDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            doorAnimator.SetBool("Open", true);
-            doorAnimator2.SetBool("Open", true);
+            if(doorAnimator != null)
+                doorAnimator.SetBool("Open", true);
+            if(doorAnimator2 != null)
+                doorAnimator2.SetBool("Open", true);
         }
     }
 
@@ -30,8 +32,10 @@ public class AutoDoor : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            doorAnimator.SetBool("Open", false);
-            doorAnimator2.SetBool("Open", false);
+            if(doorAnimator != null)
+                doorAnimator.SetBool("Open", false);
+            if(doorAnimator2 != null)
+                doorAnimator2.SetBool("Open", false);
         }
     }
 }

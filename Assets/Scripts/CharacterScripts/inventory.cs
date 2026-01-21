@@ -83,8 +83,11 @@ public class inventory : MonoBehaviour
                 itemName[i] = "Aral's Note";
                 itemDesc[i] = notes.noteTextEN5;
             }
-
-
+            if (i == 11 && notes != null)
+            {
+                itemName[i] = "What is that?";
+                itemDesc[i] = "Behind you!";
+            }
         }
 
         for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)                    

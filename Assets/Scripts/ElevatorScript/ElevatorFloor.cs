@@ -11,6 +11,8 @@ public class ElevatorFloor : MonoBehaviour
     public Material floor2stay;
     public Material floor3stay;
     public Material floor4stay;
+    public GameObject gofloor1;
+    public GameObject gofloor2;
     public float delay = 3f;
 
     private Renderer rend;
@@ -20,6 +22,10 @@ public class ElevatorFloor : MonoBehaviour
         rend = GetComponent<Renderer>();
     }
 
+    public void Floor1()
+    {
+        rend.material = floor1stay;
+    }
     public void floorcall()
     {
         StartCoroutine(ChangeWithDelay());
@@ -36,5 +42,13 @@ public class ElevatorFloor : MonoBehaviour
         rend.material = floor1;
         yield return new WaitForSeconds(delay);
         rend.material = floor1stay;
+    }
+    public void GoFloor1()
+    {
+        if(gofloor1 != null && gofloor2 != null)
+        {
+            gofloor1.SetActive(true);
+            gofloor2.SetActive(false);
+        }
     }
 }
