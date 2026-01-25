@@ -128,4 +128,89 @@ public class ActiveBlackScreen : MonoBehaviour
 
         missions.DisMis(++(missions.missionCount));  ///////
     }
+
+    public void GlassBroke()
+      {
+        StartCoroutine(StartGlassBroke());
+      }
+
+    IEnumerator StartGlassBroke()
+    {
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(true);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(1f);
+        blackScreen.color = new Color(0, 0, 0, 0f);
+        
+        float t = 0f;
+        blackScreen.gameObject.SetActive(true);
+
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        yield return new WaitForSeconds(2f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(false);
+        yield return new WaitForSeconds(2f);
+        t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false);
+    }
+
+    public void ActivePlayer()
+    {
+        Menu.canOpenMenu = true;
+        pac.enabled = true;
+        playerMovement.enabled = true;
+        pac.isSetAnimator = false;
+        pac.gameObject.GetComponent<EasyPeasyFirstPersonController.FirstPersonController>().SyncRotationFromCamera();
+    }
+    public void DisablePlayer()
+    {
+        Menu.canOpenMenu = false;
+        pac.SetAnimator();
+        pac.enabled = false;
+        playerMovement.enabled = false;
+    }
+
+    public void Black()
+    {
+      StartCoroutine(StartBlack());
+    }
+
+    IEnumerator StartBlack()
+    {
+        blackScreen.color = new Color(0, 0, 0, 0f);
+        
+        float t = 0f;
+        blackScreen.gameObject.SetActive(true);
+
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+        t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false);
+    }
 }

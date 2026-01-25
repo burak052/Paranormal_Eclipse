@@ -5,6 +5,8 @@ using System.Collections;
 
 public class Missions : MonoBehaviour
 {
+    public float startdelay = 3f;
+    public bool isfinal= false;
     public int missionCount = 0;
     public TextMeshProUGUI missionText;
     string[] missions = new string[50];
@@ -26,12 +28,13 @@ public class Missions : MonoBehaviour
         missions[13] = "—connect the cable";
         missions[14] = "—place 6 capsules";
         missions[15] = "—start the Chronal Synchronization Protocol";
-        missions[16] = "—Find lara.";
-        missions[17] = "—Find the password for the enviro room.";
+        missions[16] = "—Exit Lab.";
+        missions[17] = "—Speak with lara.";
         missions[18] = "—Find the password for the enviro room.";
         missions[19] = "—Find the password for the enviro room.";
         missions[20] = "—Find the password for the enviro room.";
-        StartCoroutine(StartScene(missions[missionCount]));
+        if(!isfinal)
+            StartCoroutine(StartScene(missions[missionCount]));
     } 
     public void DisMis(int i)
     {
@@ -41,8 +44,11 @@ public class Missions : MonoBehaviour
     {
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().fontStyle = FontStyles.Strikethrough;
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().color = Color.green;
-        transform.Find("Missions").gameObject.SetActive(true);
-        yield return new WaitForSeconds(3f);
+        if (missionText.text != "")
+        {
+            transform.Find("Missions").gameObject.SetActive(true);
+            yield return new WaitForSeconds(3f);
+        }
         transform.Find("Missions").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().fontStyle &= ~FontStyles.Strikethrough;
@@ -55,7 +61,7 @@ public class Missions : MonoBehaviour
     
     public IEnumerator StartScene(string s)
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(startdelay);
         missionText.text = s;
         transform.Find("Missions").gameObject.SetActive(true);
         yield return new WaitForSeconds(5f);

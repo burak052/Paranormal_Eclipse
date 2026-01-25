@@ -4,12 +4,15 @@ using System.Collections;
 
 public class DisableImageAfterDelay : MonoBehaviour
 {
+    public FinalMovement FM;
     public Image blackScreen;  
     public float delay = 3f;          // Bekleme süresi
     public float fadeTime = 1.5f;
 
     void Start()
     {
+        if (FM != null)
+            FM.StartGoBeach();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(DisableAfterDelay());
     }

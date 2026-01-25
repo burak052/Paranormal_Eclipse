@@ -4,7 +4,6 @@ using System.Collections;
 public class LaraDoorCrash : MonoBehaviour
 {
     public bool stop = false;
-    bool first = false;
     bool isPlaying = false;
 
     void Update()
