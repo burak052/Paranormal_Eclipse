@@ -5,15 +5,15 @@ public class LaserTrigger : MonoBehaviour
 {
     public AudioSource laserSound;
     bool isfinish = true;
-    public bool other=false;
+    public bool crash = false;
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && isfinish && !other)
+        if (other.CompareTag("Player") && isfinish && !crash)
         {
             StartCoroutine(LaserMove());
         }
-        if(other && isfinish)
+        if(crash && isfinish)
         {
             StartCoroutine(delay1f());
         }
