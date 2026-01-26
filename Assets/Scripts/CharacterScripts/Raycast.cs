@@ -55,11 +55,13 @@ public class Raycast : MonoBehaviour
     private bool levye = false;
     private bool ispressE = false;
     public bool accident = false;
+    public bool ctrlshow = false;
     private int capsuleCount = 0;
     private int EnergyCapsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
+    public Sprite CTRLSprite;
     
 
     void Start()
@@ -720,7 +722,7 @@ public class Raycast : MonoBehaviour
                 return;
             }
             if (hit.collider.CompareTag("SecurityNote") || hit.collider.CompareTag("GeneratorNote") || hit.collider.CompareTag("LaraNote") || hit.collider.CompareTag("MaterialNote")
-             || hit.collider.CompareTag("BoilerNote"))
+             || hit.collider.CompareTag("BoilerNote") || hit.collider.CompareTag("EasterEggNote"))
             {
                 if (pressEUI != null)
                 {
@@ -755,11 +757,16 @@ public class Raycast : MonoBehaviour
                         paper.showpaper(5);
                         inventor.takeItem(10);
                     }
+                    if(hit.collider.CompareTag("EasterEggNote"))
+                    {
+                        paper.showpaper(6);
+                        inventor.takeItem(11);
+                    }
                     if(hit.collider.CompareTag("BoilerNote"))
                     {
                         hit.collider.transform.parent.gameObject.GetComponent<AudioSource>().Play();
-                        paper.showpaper(6);
-                        inventor.takeItem(11);
+                        paper.showpaper(7);
+                        inventor.takeItem(12);
                     }
                     ispressE = true;
                 }
@@ -893,6 +900,12 @@ public class Raycast : MonoBehaviour
             }
         }
         currentDoorAnimator = null;
+        if(ctrlshow)
+        {
+            pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = CTRLSprite;
+            pressEUIText.text = "to crouch";
+            pressEUI.SetActive(true);
+        }
     }
     IEnumerator searchindelay()
     {

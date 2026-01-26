@@ -26,6 +26,7 @@ public class ShowNotes : MonoBehaviour
     Password: 1441
 
     - Prof. Arthur";
+
     public string noteText2 = 
     @"    Guvenlik Protokolu – Dahili Kullanım 
 
@@ -56,6 +57,7 @@ One wrong decision can cost years.
 
      Chief Researcher
      Lara  ";
+
     public string noteText3 = 
     @"Profesor Arthur,
 
@@ -74,6 +76,7 @@ I believe it would be best if you take a look.
 
 — Generator Room Technician
       Bob";
+
     public string noteText4 = 
     @"Aral, 
 
@@ -94,6 +97,7 @@ I’m okay… I think. But it isn’t safe for me to stay here. Something is fol
  That’s all I could do. I didn’t want to pull you any deeper into this. I know you’ll worry about me, and I know you’ll come looking for me.
 
 Please, be car";
+
     public string noteText5 = 
     @"Sen bunu okuyorken ben coktan yok olup gitmis olabilirim. Laboratuvarda olanlar kontrol edilemeyen bir anin sonucu. O ana dair hatirladigim son seyler isiklar, alarmlar, ve hemen ardindan gelen o tuhaf sessizlik… Her sey orada basladi.
 
@@ -111,6 +115,26 @@ Time here sometimes moves forward, sometimes backward, but in the end it always 
 
 Life is lived forward, but understood backward.";
 
+    public string noteText6 = 
+    @"Gelecekteki kendime,
+
+     Lara eger bu mektubu okuyorsan bilmeni isterimki Aral'i kurtarmakta basarisiz oldum. Gecmisteki kendimi oldurup onun yerine gecmem gerekti ama bosunaydi. Bu zaman dongusunu kiramadim ve Aral'i icinde bulundugu araftan kurtaramadim.
+
+     Senin kazayi olmadan engellemen gerekiyor. Bu beni oldurup yerime gecmen anlamina gelse bile bunu yapmalisin. Lutfen benim yaptigim hatalari yapma. Ne olursa olsun Aral'i kurtar ve ona yaptiklarindan sakin bahsetme. 
+
+     -Lara";
+    public string noteTextEN6 =
+    @"To my future self,
+
+Lara, if you are reading this letter, you must know that I failed to save Aral.
+I had to kill my past self and take her place, but it was in vain.
+I could not break this time loop, and I could not free Aral from the limbo he is trapped in.
+
+You must prevent the accident before it happens.
+Even if it means killing me and taking my place, you have to do it.
+Please do not make the same mistakes I did. No matter what, save Aral and never tell him what you did.
+
+— Lara";
     
     void Start()
     {
@@ -131,6 +155,8 @@ Life is lived forward, but understood backward.";
         if(paperid == 5)
         paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = noteTextEN5;
         if(paperid == 6)
+        paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = noteTextEN6;
+        if(paperid == 7)
         paper.transform.Find("papertext").gameObject.GetComponent<TextMeshProUGUI>().text = "behind you!";
     }
 

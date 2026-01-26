@@ -85,7 +85,12 @@ public class inventory : MonoBehaviour
             }
             if (i == 11 && notes != null)
             {
-                itemName[i] = "What is that?";
+                itemName[i] = "Lara's Note?";
+                itemDesc[i] = notes.noteTextEN6;
+            }
+            if (i == 12 && notes != null)
+            {
+                itemName[i] = "Unknown Note";
                 itemDesc[i] = "Behind you!";
             }
         }

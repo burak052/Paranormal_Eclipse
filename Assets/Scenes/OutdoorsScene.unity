@@ -36102,6 +36102,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 3cf2f025b5533de48af0a7200e160ea4, type: 2}
   material2: {fileID: 2100000, guid: 382900dd772a088478b555874cd535fb, type: 2}
   ping: 1
+  ispaper: 0
 --- !u!64 &1003404705
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -48243,6 +48244,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: fc55c242590680a4a864982c4cdfe7d9, type: 2}
   material2: {fileID: 2100000, guid: 85e6d194e9ef6784ca4843aab9aa1909, type: 2}
   ping: 0
+  ispaper: 0
 --- !u!1 &1357697472
 GameObject:
   m_ObjectHideFlags: 0
@@ -50426,6 +50428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248cbeafa5d27954596244fafb8a1d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startdelay: 3
+  isfinal: 0
   missionCount: 0
   missionText: {fileID: 1672259112}
 --- !u!1 &1407241435 stripped
@@ -65635,6 +65639,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 9236f2d141535494bbf635bf7803f6ea, type: 2}
   material2: {fileID: 2100000, guid: 3f9461d33250f944f994beef94644a68, type: 2}
   ping: 1
+  ispaper: 0
 --- !u!1 &1864596527
 GameObject:
   m_ObjectHideFlags: 0
@@ -74420,6 +74425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 931ce219a006a3f49885751e3098cac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FM: {fileID: 0}
   blackScreen: {fileID: 1756279569}
   delay: 3
   fadeTime: 1.5

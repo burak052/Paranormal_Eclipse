@@ -48,6 +48,7 @@ TagManager:
   - GoFloor1
   - BoilerNote
   - LockedDoor
+  - EasterEggNote
   layers:
   - Default
   - TransparentFX

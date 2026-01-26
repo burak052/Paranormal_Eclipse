@@ -21,6 +21,7 @@ public class ExplosionTest : MonoBehaviour
     public GameObject elevator;
     public ScreenController triangle;
     public Raycast ray;
+    public Animator door;
 
     public void StartCinema()
     {
@@ -74,6 +75,7 @@ public class ExplosionTest : MonoBehaviour
         ray.accident = true;
         elevator.SetActive(false);
         elevatorcrash.SetActive(true);
+        door.SetBool("Open",false);
         //////////////////////////////////
         
     }
