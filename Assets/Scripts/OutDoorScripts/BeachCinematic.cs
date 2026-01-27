@@ -18,6 +18,12 @@ public class BeachCinematic : MonoBehaviour
 
     private bool triggered = false;
 
+    void Start()
+    {
+        Laralab.SetActive(false);
+        Laradead.SetActive(false);
+    } 
+
     private void OnTriggerEnter(Collider other)
     {
         if (triggered) return;
@@ -99,6 +105,10 @@ public class BeachCinematic : MonoBehaviour
         day.SetActive(true);
         daylight.SetActive(true);
         Aral.GetComponent<Transform>().position = new Vector3(1466.43f,45.11f,1474.10f);
+        Laralab.SetActive(true);
+        Laradead.SetActive(true);
+        Lara.SetActive(false);
+        pastAral.SetActive(false);
 
 
 
