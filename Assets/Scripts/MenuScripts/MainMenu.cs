@@ -95,6 +95,8 @@ public class MainMenu : MonoBehaviour
     {
         Camera.Play("menu2credits");
         creditscoroutine=StartCoroutine(creditsslider());
+        menumusic.Stop();
+        menumusic.gameObject.GetComponents<AudioSource>()[1].Play();
     }
 
     public void back2menu()
@@ -102,6 +104,8 @@ public class MainMenu : MonoBehaviour
         Camera.Play("credits2menu");
         StopCoroutine(creditscoroutine);
         creditscoroutine = null;
+        menumusic.Play();
+        menumusic.gameObject.GetComponents<AudioSource>()[1].Stop();
     }
 
     public void Exit()
