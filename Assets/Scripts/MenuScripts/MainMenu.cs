@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
     public AudioSource menumusic;
     public RectTransform content;
     Coroutine creditscoroutine;
+    Resolution[] resolutions;
 
     void Start()
     {
@@ -161,7 +162,24 @@ public class MainMenu : MonoBehaviour
         mainvolume.gameObject.SetActive(false);
     }
 
-    public void choreso()
+    public void SetResolution(int index)
+    {
+        Debug.Log("Seçilen çözünürlük: " + resolutionsize.options[index].text);
+
+        Screen.fullScreenMode = FullScreenMode.Windowed;
+
+        switch (index)
+        {
+            case 0: Screen.SetResolution(1280, 720, false); break;
+            case 1: Screen.SetResolution(1280, 800, false); break;
+            case 2: Screen.SetResolution(1920, 1080, false); break;
+            case 3: Screen.SetResolution(1366, 768, false); break;
+            case 4: Screen.SetResolution(2560, 1440, false); break;
+            case 5: Screen.SetResolution(3840, 2160, false); break;
+        }
+    }
+
+public void choreso()
     {
         resolutionsize.gameObject.SetActive(true);
         screensizechoose.gameObject.SetActive(false);
