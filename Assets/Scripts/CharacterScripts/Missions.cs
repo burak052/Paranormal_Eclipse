@@ -46,11 +46,13 @@ public class Missions : MonoBehaviour
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().color = Color.green;
         if (missionText.text != "")
         {
+            GetComponent<AudioSource>().Play();
             transform.Find("Missions").gameObject.SetActive(true);
             yield return new WaitForSeconds(3f);
         }
         transform.Find("Missions").gameObject.SetActive(false);
         yield return new WaitForSeconds(1f);
+        GetComponents<AudioSource>()[1].Play();
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().fontStyle &= ~FontStyles.Strikethrough;
         transform.Find("Missions").Find("Mission").gameObject.GetComponent<TMP_Text>().color = Color.white;
         missionText.text = s;
@@ -63,6 +65,7 @@ public class Missions : MonoBehaviour
     {
         yield return new WaitForSeconds(startdelay);
         missionText.text = s;
+        GetComponents<AudioSource>()[1].Play();
         transform.Find("Missions").gameObject.SetActive(true);
         yield return new WaitForSeconds(5f);
         transform.Find("Missions").gameObject.SetActive(false);

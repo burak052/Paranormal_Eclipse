@@ -33165,6 +33165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maleModel: {fileID: 1442074057}
   malelabModel: {fileID: 0}
+  isSetAnimator: 0
 --- !u!4 &1768594928 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ad1f5855a33f0694886cbd301d99cc40, type: 3}
