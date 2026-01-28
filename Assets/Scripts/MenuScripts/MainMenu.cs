@@ -172,8 +172,8 @@ public class MainMenu : MonoBehaviour
         {
             case 0: Screen.SetResolution(1280, 720, false); break;
             case 1: Screen.SetResolution(1280, 800, false); break;
-            case 2: Screen.SetResolution(1920, 1080, false); break;
-            case 3: Screen.SetResolution(1366, 768, false); break;
+            case 2: Screen.SetResolution(1366, 768, false); break;
+            case 3: Screen.SetResolution(1920, 1080, false); break;
             case 4: Screen.SetResolution(2560, 1440, false); break;
             case 5: Screen.SetResolution(3840, 2160, false); break;
         }
