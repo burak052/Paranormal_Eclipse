@@ -19957,7 +19957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ECL\u0130PSE PARANORMAL"
+  m_text: "PARANORMAL ECL\u0130PSE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
