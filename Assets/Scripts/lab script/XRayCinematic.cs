@@ -24,8 +24,6 @@ public class XRayCinematic : MonoBehaviour
             GetComponent<Collider>().enabled = false;
             aralMove.XRayCinematic();
             laraMove.XRayCinematic();
-            //StartCoroutine(LaserMove());
-            //aralMove.LookDown();
         }
     }
 }

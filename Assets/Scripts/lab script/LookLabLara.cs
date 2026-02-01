@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
 
 public class LookLabLara : MonoBehaviour
 {
     public LaraMovement Lara;
     private bool hasTriggered = false;
+    public Dialogs dia;
+    public ActiveBlackScreen ABS;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,7 +15,7 @@ public class LookLabLara : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             hasTriggered = true;
-            Lara.LaraXray();
+            dia.LabCoat(ABS,Lara);
         }
     }
 }

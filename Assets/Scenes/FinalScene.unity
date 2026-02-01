@@ -41339,41 +41339,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3361227541791294905, guid: bbceca2fbf994ce43a569a4bbed8bc6d, type: 3}
---- !u!65 &846083677
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846083672}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.95878357, y: 0.7281693, z: 0.6980236}
-  m_Center: {x: 0.0000013967564, y: 0.25660923, z: -0.000273304}
---- !u!114 &846083678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 846083672}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d64a610d428351142a556d34216e546a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blackScreen: {fileID: 1756279569}
-  fadeTime: 1.5
 --- !u!1001 &847594926
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45707,13 +45672,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 307427076335157329, guid: bbceca2fbf994ce43a569a4bbed8bc6d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 846083677}
-    - targetCorrespondingSourceObject: {fileID: 307427076335157329, guid: bbceca2fbf994ce43a569a4bbed8bc6d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 846083676}
-    - targetCorrespondingSourceObject: {fileID: 307427076335157329, guid: bbceca2fbf994ce43a569a4bbed8bc6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 846083678}
     - targetCorrespondingSourceObject: {fileID: -7422486997991116990, guid: bbceca2fbf994ce43a569a4bbed8bc6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326188165}
@@ -97714,6 +97673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db8cb8ace978394cb01ea5273baaec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dia: {fileID: 0}
   jumpScareAudio: {fileID: 978149527}
   playOnce: 1
 --- !u!65 &1987402430
@@ -103872,6 +103832,8 @@ MonoBehaviour:
   SES: {fileID: 0}
   missions: {fileID: 1406290022}
   Menu: {fileID: 2087430275}
+  dialog: {fileID: 0}
+  haveRepairKit: 0
   haveheadlight: 0
   accident: 0
   ctrlshow: 0
@@ -103909,6 +103871,7 @@ MonoBehaviour:
   pac: {fileID: 991071735}
   missions: {fileID: 1406290022}
   Menu: {fileID: 2087430275}
+  dia: {fileID: 0}
   outfit: 0
 --- !u!114 &2087430267
 MonoBehaviour:

@@ -15,6 +15,7 @@ public class SmokeTrigger : MonoBehaviour
     [Header("Colliders To Disable")]
     public BoxCollider colliderA;
     public BoxCollider colliderB;
+    public Dialogs dia;
 
     ParticleSystem[] particles;
     bool triggered;
@@ -76,5 +77,6 @@ public class SmokeTrigger : MonoBehaviour
         // Her şey bitince collider'ları aç
         if (colliderA) colliderA.enabled = true;
         if (colliderB) colliderB.enabled = true;
+        dia.EventDia(4f, dia.dias[52]);
     }
 }

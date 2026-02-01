@@ -10,6 +10,8 @@ public class LaptopController : MonoBehaviour
     public AudioSource laptopsuccess;
     public AudioSource laptopdenied;
     public GameObject canvasLaptop;
+    public BoxCollider col;
+    public BoxCollider seaCol;
 
     public void TryLogin()
     {
@@ -39,6 +41,8 @@ public class LaptopController : MonoBehaviour
     {
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop window pass").gameObject.SetActive(true);
+        col.enabled = true;
+        seaCol.enabled = false;
     }
     public void ExitLog()
     {

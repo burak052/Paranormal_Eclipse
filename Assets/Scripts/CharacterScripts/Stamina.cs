@@ -58,9 +58,9 @@ public class Stamina : MonoBehaviour
                 );
             }
 
-            // ????? STAMINA MANTI�I
-            if (fpsController.isSprinting)
-                stamina -= decreaseRate * Time.deltaTime;
+            // ????? STAMINA MANTI�I/////////////////////////////////////////////////////////////////////
+            //if (fpsController.isSprinting)
+                //stamina -= decreaseRate * Time.deltaTime;
             else
                 stamina += 10f * Time.deltaTime;
 
@@ -70,7 +70,7 @@ public class Stamina : MonoBehaviour
             if (stamina <= 0f)
                 fpsController.sprintSpeed = fpsController.walkSpeed;
             else
-                fpsController.sprintSpeed = 25f;
+                fpsController.sprintSpeed = 50f;
 
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();

@@ -22,6 +22,7 @@ public class ActiveBlackScreen : MonoBehaviour
     public PlayerAnimationController pac;
     public Missions missions;
     public ESCMenu Menu;
+    public Dialogs dia;
     public bool outfit = false;
 
     public void BlackScreenOn()
@@ -62,7 +63,12 @@ public class ActiveBlackScreen : MonoBehaviour
         if (forestSound != null && nightSound != null)
         forestSound.PlayOneShot(nightSound);
         if (Shaddis != null)
-        Shaddis.EnableShadow();
+        {
+          Shaddis.EnableShadow();
+          Shaddis.gameObject.GetComponent<Transform>().Find("Cube").gameObject.SetActive(true);
+          Shaddis.gameObject.GetComponent<Transform>().Find("Cube1").gameObject.SetActive(true);
+          Shaddis.gameObject.GetComponent<Transform>().Find("Cube2").gameObject.SetActive(true);
+        }
         if (outfit)
         {
           looklara.SetActive(true);
@@ -92,6 +98,10 @@ public class ActiveBlackScreen : MonoBehaviour
         pac.isSetAnimator = false;
         missions.DisMis(++(missions.missionCount));
         Menu.canOpenMenu = true;
+        if(night != null)
+        {
+          dia.WakeUp();
+        }
     }
 
     public void StandartBS()

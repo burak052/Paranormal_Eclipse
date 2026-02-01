@@ -39,10 +39,11 @@ public class Raycast : MonoBehaviour
     public StartEnergySmoke SES;
     public Missions missions;
     public ESCMenu Menu;
+    public Dialogs dialog;
     private bool isbusy = false;
     private bool HaveCard = false;
     private bool inkeypad = false;
-    private bool haveRepairKit = false;
+    public bool haveRepairKit = false;
     public bool haveheadlight = false;
     private bool havesleep = false;
     private bool cansleep = false;
@@ -73,7 +74,8 @@ public class Raycast : MonoBehaviour
         }
         pressenter = false;
         passwordText.text = "";
-        disableFloor1.SetActive(true);
+        if(disableFloor1 != null)
+            disableFloor1.SetActive(true);
     }
 
     void Update()
@@ -164,6 +166,7 @@ public class Raycast : MonoBehaviour
                     {
                         if (passwordText.text == password)
                         {
+                            dialog.CapsuleDia();
                             missions.DisMis(++(missions.missionCount));
                             ClearKey();
                             keymat.successScreen();
@@ -309,6 +312,7 @@ public class Raycast : MonoBehaviour
                     hit.collider.gameObject.tag = "Untagged";
                     if (isbusy) return;
                     Callfloor.floorcall();
+                    dialog.ArcDia();
                     
                     StartCoroutine(OpenDoorSequence(currentDoorAnimator , currentDoorAnimator2));
                     Lara.LaraFrontElevator();
@@ -519,6 +523,7 @@ public class Raycast : MonoBehaviour
                         missions.DisMis(++(missions.missionCount));
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
+                        dialog.EventDia(4f, dialog.dias[18]);
                     }
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
@@ -566,13 +571,25 @@ public class Raycast : MonoBehaviour
                 {
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
+                    {
+                        missions.DisMis(++(missions.missionCount));
+                        dialog.EventDia(3f, dialog.dias[20]);
                         takelight = true;
+                    }
                     if (hit.collider.CompareTag("Levye"))
+                    {
+                        dialog.EventDia(3f, dialog.dias[21]);
                         levye = true;
+                    }
                     if (hit.collider.CompareTag("IDCard"))
+                    {
+                        dialog.EventDia(2f, dialog.dias[6]);
                         missions.DisMis(++(missions.missionCount));
-                    if (hit.collider.CompareTag("HeadLight"))
-                        missions.DisMis(++(missions.missionCount));
+                    }
+                    if (hit.collider.CompareTag("Gun"))
+                    {
+                        dialog.EventDia(4f, dialog.dias[22]);
+                    }
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
                         EnergyCapsuleCount++;
@@ -583,8 +600,7 @@ public class Raycast : MonoBehaviour
                         capsuleAnim = false;
                         if (EnergyCapsuleCount == 6)
                         {
-                            SES.OnElevatorButton();
-                            missions.DisMis(++(missions.missionCount));
+                            dialog.ComCapDia();
                         }
                     }
                 }
@@ -599,7 +615,7 @@ public class Raycast : MonoBehaviour
                 {
                     if(firsttimeopen)
                     {
-                        missions.DisMis(++(missions.missionCount));
+                        dialog.SleepDoor();
                         Lara.LaraShelter();
                         firsttimeopen = false;
                     }
@@ -609,7 +625,10 @@ public class Raycast : MonoBehaviour
                         currentDoorAnimator.SetTrigger("Open");
                         repairt.ChangeTag();
                         if(havesleep && horrorSoundOutdoor != null)
+                        {
                             horrorSoundOutdoor.Play();
+                            dialog.EventDia(3f, dialog.dias[34], 1.5f);
+                        }
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
@@ -666,7 +685,7 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
-                    missions.DisMis(++(missions.missionCount));       //////////////////////////////////speak with lara görevini dialoglar ekleyince güncelle
+                    dialog.EventDia(3f, dialog.dias[19]);
                     missions.DisMis(++(missions.missionCount));
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
@@ -716,6 +735,7 @@ public class Raycast : MonoBehaviour
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
                     paper.offpaper();
+                    dialog.EventDia(5f,dialog.dias[74]);
                     playerMovement.enabled = true;
                     playeranim.enabled = true;
                 }
@@ -807,6 +827,7 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    dialog.WarpDia();
                     missions.DisMis(++(missions.missionCount));
                     hit.collider.gameObject.GetComponent<ActiveRotor>().RotorActive();
                     hit.collider.transform.Find("Cable (1)").gameObject.SetActive(false);
@@ -877,7 +898,7 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.SetActive(false);
-                    missions.DisMis(++(missions.missionCount));
+                    dialog.BeachSpeak();
                 }
                 return;
             }

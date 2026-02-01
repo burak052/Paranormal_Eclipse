@@ -61,6 +61,10 @@ public class Missions : MonoBehaviour
         transform.Find("Missions").gameObject.SetActive(false);
     }
     
+    public void StartMis(int i)
+    {
+        StartCoroutine(StartScene(missions[i]));
+    }
     public IEnumerator StartScene(string s)
     {
         yield return new WaitForSeconds(startdelay);

@@ -1,8 +1,9 @@
 using UnityEngine;
+using System.Collections;
 
 public class BushScare : MonoBehaviour
 {
-
+    public Dialogs dia;
     public AudioSource jumpScareAudio;
     public bool playOnce = true;
 
@@ -20,11 +21,23 @@ public class BushScare : MonoBehaviour
         {
             jumpScareAudio.Play();
             hasPlayed = true;
+            StartCoroutine(cor1());
         }
         else
         {
-            Debug.LogWarning("JumpScare AudioSource atanmadý!");
+            Debug.LogWarning("JumpScare AudioSource atanmadï¿½!");
         }
+    }
+    IEnumerator cor1()
+    {
+        yield return new WaitForSeconds(1f);
+        dia.dialog.text = dia.dias[16];
+        yield return new WaitForSeconds(3f);
+        dia.dialog.text = "";
+        yield return new WaitForSeconds(2f);
+        dia.dialog.text = dia.dias[17];
+        yield return new WaitForSeconds(3f);
+        dia.dialog.text = "";
     }
 
 }

@@ -14,6 +14,7 @@ public class signal : MonoBehaviour
         dis1.SetActive(false);
         dis2.SetActive(false);
         en1.SetActive(true);
+        transform.parent.Find("DialogTriggerCube").gameObject.SetActive(true);
         pass.text = "please wait";
     }
     public void PasswordActive()

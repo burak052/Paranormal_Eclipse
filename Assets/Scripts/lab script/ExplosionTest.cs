@@ -22,6 +22,7 @@ public class ExplosionTest : MonoBehaviour
     public ScreenController triangle;
     public Raycast ray;
     public Animator door;
+    public Dialogs dia;
 
     public void StartCinema()
     {
@@ -29,20 +30,30 @@ public class ExplosionTest : MonoBehaviour
     }
     IEnumerator Crash()
     {
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(1f);
+        dia.EventDia(6f,dia.dias[110]);
+        yield return new WaitForSeconds(7f);
+        dia.EventDia(1f,dia.dias[111]);
         lightning.SetActive(true);
         sparks.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1f);
+        dia.EventDia(2f,dia.dias[112]);
+        yield return new WaitForSeconds(2f);
         Electricity1.SetActive(true);
 
         yield return new WaitForSeconds(1f);
+        dia.EventDia(4f,dia.dias[113]);
         Electricity2.SetActive(true);
 
         yield return new WaitForSeconds(0.5f);
         Electricity3.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        dia.EventDia(2f,dia.dias[114]);
+        yield return new WaitForSeconds(2f);
+        dia.EventDia(2f,dia.dias[115]);
 
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(2f);
         Explosion.SetActive(true);
         rotor.speed = 0f;    
 

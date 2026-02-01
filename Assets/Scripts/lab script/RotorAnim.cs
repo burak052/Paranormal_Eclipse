@@ -5,6 +5,7 @@ public class RotorAnim : MonoBehaviour
 {
     public GameObject redButton;
     public Missions mis;
+    public Dialogs dia;
     public ExplosionTest Ex;
     int count = 1;
     public void CapsuleRotate()
@@ -15,7 +16,7 @@ public class RotorAnim : MonoBehaviour
         {
             redButton.GetComponent<HighlightBlink>().ping = true;
             redButton.GetComponent<Transform>().parent.gameObject.tag = "RedButton";
-            mis.DisMis(++(mis.missionCount));
+            dia.Warp2Dia();
         }
     }
     public void PlaySound()
