@@ -174,8 +174,6 @@ public class MainMenu : MonoBehaviour
             case 1: Screen.SetResolution(1280, 800, false); break;
             case 2: Screen.SetResolution(1366, 768, false); break;
             case 3: Screen.SetResolution(1920, 1080, false); break;
-            case 4: Screen.SetResolution(2560, 1440, false); break;
-            case 5: Screen.SetResolution(3840, 2160, false); break;
         }
     }
     public void SetScreenMode(int index)
@@ -254,6 +252,7 @@ public class MainMenu : MonoBehaviour
         aliasing.SetActive(true);
         camsensetive.SetActive(false);
         headbobbing.SetActive(false);
+        antialiasing.gameObject.SetActive(true);
     }
 
     public void music()
