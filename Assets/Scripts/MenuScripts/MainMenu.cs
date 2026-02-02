@@ -178,8 +178,27 @@ public class MainMenu : MonoBehaviour
             case 5: Screen.SetResolution(3840, 2160, false); break;
         }
     }
+    public void SetScreenMode(int index)
+    {
+        Debug.Log("Seçilen ekran modu: " + screensizechoose.options[index].text);
 
-public void choreso()
+        switch (index)
+        {
+            case 0:
+                // Pencere Modu
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                Screen.fullScreen = false;
+                break;
+
+            case 1:
+                // Borderless Fullscreen (ÖNERİLEN)
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                Screen.fullScreen = true;
+                break;
+        }
+    }
+
+    public void choreso()
     {
         resolutionsize.gameObject.SetActive(true);
         screensizechoose.gameObject.SetActive(false);

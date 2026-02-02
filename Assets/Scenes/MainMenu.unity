@@ -14437,10 +14437,7 @@ MonoBehaviour:
   m_MultiSelect: 0
   m_Options:
     m_Options:
-    - m_Text: TAM EKRAN
-      m_Image: {fileID: 0}
-      m_Color: {r: 1, g: 1, b: 1, a: 1}
-    - m_Text: KENARLIK PENCERE
+    - m_Text: "CERCEVES\u0130Z EKRAN"
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 1}
     - m_Text: PENCERE MODU
@@ -14451,7 +14448,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 320894592}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: resultscreensize
+        m_MethodName: SetScreenMode
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
