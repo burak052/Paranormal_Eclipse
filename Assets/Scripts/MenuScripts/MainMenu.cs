@@ -170,10 +170,10 @@ public class MainMenu : MonoBehaviour
 
         switch (index)
         {
-            case 0: Screen.SetResolution(1280, 720, false); break;
-            case 1: Screen.SetResolution(1280, 800, false); break;
-            case 2: Screen.SetResolution(1366, 768, false); break;
-            case 3: Screen.SetResolution(1920, 1080, false); break;
+            case 0: Screen.SetResolution(1920, 1080, false); break;
+            case 1: Screen.SetResolution(1366, 768, false); break;
+            case 2: Screen.SetResolution(1280, 800, false); break;
+            case 3: Screen.SetResolution(1280, 720, false); break;
         }
     }
     public void SetScreenMode(int index)
@@ -183,15 +183,37 @@ public class MainMenu : MonoBehaviour
         switch (index)
         {
             case 0:
+                // Borderless Fullscreen (ÖNERİLEN)
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                Screen.fullScreen = true;
+                break;
+
+            case 1:
                 // Pencere Modu
                 Screen.fullScreenMode = FullScreenMode.Windowed;
                 Screen.fullScreen = false;
                 break;
+        }
+    }
+    public void SetGraphicsQuality(int index)
+    {
+        Debug.Log("Seçilen grafik ayarı: " + graphicsettings.options[index].text);
+
+        switch (index)
+        {
+            case 0:
+                // Yüksek
+                QualitySettings.SetQualityLevel(0, true);
+                break;
 
             case 1:
-                // Borderless Fullscreen (ÖNERİLEN)
-                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                Screen.fullScreen = true;
+                // Orta
+                QualitySettings.SetQualityLevel(1, true);
+                break;
+
+            case 2:
+                // Düşük
+                QualitySettings.SetQualityLevel(2, true);
                 break;
         }
     }
