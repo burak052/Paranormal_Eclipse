@@ -2205,7 +2205,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 396248150}
-  - component: {fileID: 396248151}
   m_Layer: 0
   m_Name: lantern (1)
   m_TagString: Untagged
@@ -2235,31 +2234,6 @@ Transform:
   - {fileID: 485161278}
   m_Father: {fileID: 1375019987}
   m_LocalEulerAnglesHint: {x: 0, y: -79.848, z: 0}
---- !u!114 &396248151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 396248149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 485161280}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &401290156
 GameObject:
   m_ObjectHideFlags: 0
@@ -4026,79 +4000,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5677909988790299304, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1152627830}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 651273126}
-    - targetCorrespondingSourceObject: {fileID: 2853978678062995650, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 651273127}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
---- !u!1 &651273123 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-  m_PrefabInstance: {fileID: 651273122}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &651273124 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -5677909988790299304, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
   m_PrefabInstance: {fileID: 651273122}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &651273125 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2853978678062995650, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-  m_PrefabInstance: {fileID: 651273122}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &651273126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651273123}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 0}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
---- !u!114 &651273127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 651273125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 1152627832}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &659748810
 GameObject:
   m_ObjectHideFlags: 0
@@ -7638,7 +7546,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1333747928}
-  - component: {fileID: 1333747929}
   m_Layer: 0
   m_Name: lantern (4)
   m_TagString: Untagged
@@ -7668,31 +7575,6 @@ Transform:
   - {fileID: 685042965}
   m_Father: {fileID: 1375019987}
   m_LocalEulerAnglesHint: {x: 0, y: -79.848, z: 0}
---- !u!114 &1333747929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1333747927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 685042967}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &1351508476 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 19ada405e483e2e42b3568b712163648, type: 3}
@@ -7928,19 +7810,8 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5677909988790299304, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1814669590}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1375019990}
-    - targetCorrespondingSourceObject: {fileID: 2853978678062995650, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1375019991}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
---- !u!1 &1375019986 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-  m_PrefabInstance: {fileID: 1375019985}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1375019987 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
@@ -7951,61 +7822,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -5677909988790299304, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
   m_PrefabInstance: {fileID: 1375019985}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1375019989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2853978678062995650, guid: ab45e154ce8a6d045b5a2337d01eeb6d, type: 3}
-  m_PrefabInstance: {fileID: 1375019985}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1375019990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375019986}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 0}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
---- !u!114 &1375019991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1375019989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 1814669592}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &1383235764
 GameObject:
   m_ObjectHideFlags: 0
@@ -8448,7 +8264,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1466059522}
-  - component: {fileID: 1466059523}
   m_Layer: 0
   m_Name: lantern (2)
   m_TagString: Untagged
@@ -8478,31 +8293,6 @@ Transform:
   - {fileID: 857043179}
   m_Father: {fileID: 1375019987}
   m_LocalEulerAnglesHint: {x: 0, y: -79.848, z: 0}
---- !u!114 &1466059523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466059521}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 857043181}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &1500073262
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,7 +9280,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1619281823}
-  - component: {fileID: 1619281824}
   m_Layer: 0
   m_Name: lantern (3)
   m_TagString: Untagged
@@ -9520,31 +9309,6 @@ Transform:
   - {fileID: 2094417381}
   m_Father: {fileID: 1375019987}
   m_LocalEulerAnglesHint: {x: 0, y: -79.848, z: 0}
---- !u!114 &1619281824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619281822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 2094417383}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!1 &1629415190
 GameObject:
   m_ObjectHideFlags: 0
@@ -10065,7 +9829,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1698306039}
-  - component: {fileID: 1698306038}
   m_Layer: 0
   m_Name: FlickerLamp
   m_TagString: Untagged
@@ -10073,31 +9836,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1698306038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698306037}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99aa0abf51d9e1449a33562bcdcde2db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lamp: {fileID: 0}
-  baseIntensity: 20
-  baseColor: {r: 1, g: 0.9, b: 0.7, a: 1}
-  minIntensity: 15
-  maxIntensity: 25
-  minFlickerTime: 0.1
-  maxFlickerTime: 0.5
-  offProbability: 0.1
-  subtleFlicker: 1
-  flickerAmount: 0.05
-  flickerSpeed: 1
-  sparkSound: {fileID: 0}
-  soundProbability: 0.3
 --- !u!4 &1698306039
 Transform:
   m_ObjectHideFlags: 0
@@ -10609,7 +10347,6 @@ GameObject:
   - component: {fileID: 1745447404}
   - component: {fileID: 1745447403}
   - component: {fileID: 1745447402}
-  - component: {fileID: 1745447401}
   - component: {fileID: 1745447400}
   m_Layer: 0
   m_Name: MainCamera
@@ -10638,46 +10375,6 @@ Animation:
   m_AnimatePhysics: 0
   m_UpdateMode: 0
   m_CullingType: 0
---- !u!114 &1745447401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1745447399}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bdc7582940552440bf27a13e50c0961, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Camera: {fileID: 1745447400}
-  blackScreen: {fileID: 0}
-  fadeTime: 1.5
-  languageDropdown: {fileID: 0}
-  fontsizeDropdown: {fileID: 0}
-  fontcolorDropdown: {fileID: 0}
-  resolutionsize: {fileID: 0}
-  screensizechoose: {fileID: 0}
-  graphicsettings: {fileID: 0}
-  antialiasing: {fileID: 0}
-  headbobbingsettings: {fileID: 0}
-  languageText: {fileID: 0}
-  selecetlanguage: {fileID: 0}
-  fontsize: {fileID: 0}
-  fontcolor: {fileID: 0}
-  mainmusic: {fileID: 0}
-  gamemusic: {fileID: 0}
-  resolution: {fileID: 0}
-  screensize: {fileID: 0}
-  graphics: {fileID: 0}
-  aliasing: {fileID: 0}
-  camsensetive: {fileID: 0}
-  headbobbing: {fileID: 0}
-  mainvolume: {fileID: 0}
-  gamevolume: {fileID: 0}
-  camerasenstive: {fileID: 0}
-  menumusic: {fileID: 0}
-  content: {fileID: 0}
 --- !u!114 &1745447402
 MonoBehaviour:
   m_ObjectHideFlags: 0
