@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
+using UnityEngine.Rendering.HighDefinition;
 
 public class MainMenu : MonoBehaviour
 {
@@ -31,7 +32,6 @@ public class MainMenu : MonoBehaviour
     public GameObject camsensetive;
     public GameObject headbobbing;
     public Slider mainvolume;
-    public Slider gamevolume;
     public Slider camerasenstive;
     public AudioSource menumusic;
     public RectTransform content;
@@ -41,6 +41,19 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         blackScreen.gameObject.SetActive(false);
+        if (antialiasing != null)
+        {
+            int savedAA = PlayerPrefs.GetInt("AA_SETTING", 0);
+            antialiasing.SetValueWithoutNotify(savedAA);
+            antialiasing.RefreshShownValue();
+        }
+
+        ApplyAA();
+    }
+    void OnEnable()
+    {
+        // Sahne yüklenince veya kamera aktif olunca
+        ApplyAA();
     }
 
     void Awake()
@@ -142,7 +155,6 @@ public class MainMenu : MonoBehaviour
     public void settingmainmusic()
     {
         mainvolume.gameObject.SetActive(true);
-        gamevolume.gameObject.SetActive(false);
     }
 
     public void startmainvolume()
@@ -154,12 +166,6 @@ public class MainMenu : MonoBehaviour
     public void settingvolume(float vol)
     {
         menumusic.volume = vol;
-    }
-
-    public void settinggamemusic()
-    {
-        gamevolume.gameObject.SetActive(true);
-        mainvolume.gameObject.SetActive(false);
     }
 
     public void SetResolution(int index)
@@ -217,6 +223,44 @@ public class MainMenu : MonoBehaviour
                 break;
         }
     }
+    public void SetAntiAliasing(int index)
+    {
+        Debug.Log("Seçilen AA (HDRP): " +
+                  (antialiasing != null ? antialiasing.options[index].text : index.ToString()));
+
+        PlayerPrefs.SetInt("AA_SETTING", index);
+        PlayerPrefs.Save();
+
+        ApplyAA(); // anında uygula
+    }
+    void ApplyAA()
+    {
+        var cameraData = GetComponent<HDAdditionalCameraData>();
+        if (cameraData == null) return;
+
+        int index = PlayerPrefs.GetInt("AA_SETTING", 0);
+
+        switch (index)
+        {
+            case 0:
+                // No AA
+                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
+                QualitySettings.antiAliasing = 0;
+                break;
+
+            case 1:
+                // FXAA
+                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing;
+                QualitySettings.antiAliasing = 0;
+                break;
+
+            case 2:
+                // TAA
+                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing;
+                QualitySettings.antiAliasing = 0;
+                break;
+        }
+    }
 
     public void choreso()
     {
@@ -263,7 +307,6 @@ public class MainMenu : MonoBehaviour
 
     public void grafik()
     {
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -274,12 +317,10 @@ public class MainMenu : MonoBehaviour
         aliasing.SetActive(true);
         camsensetive.SetActive(false);
         headbobbing.SetActive(false);
-        antialiasing.gameObject.SetActive(true);
     }
 
     public void music()
     {
-        gamemusic.SetActive(true);
         mainmusic.SetActive(true);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -296,7 +337,6 @@ public class MainMenu : MonoBehaviour
     {
         camsensetive.SetActive(true);
         headbobbing.SetActive(true);
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -312,7 +352,6 @@ public class MainMenu : MonoBehaviour
         selecetlanguage.SetActive(true);
         fontsize.SetActive(true);
         fontcolor.SetActive(true);
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);

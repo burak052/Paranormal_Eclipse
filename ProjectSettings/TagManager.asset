@@ -49,6 +49,7 @@ TagManager:
   - BoilerNote
   - LockedDoor
   - EasterEggNote
+  - MenuMusic
   layers:
   - Default
   - TransparentFX
