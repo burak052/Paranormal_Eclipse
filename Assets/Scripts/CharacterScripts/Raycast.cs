@@ -209,7 +209,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                    if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                     {
                         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
@@ -264,7 +264,7 @@ public class Raycast : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                 {
                     pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
@@ -405,7 +405,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                    if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                     {
                         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
@@ -600,6 +600,11 @@ public class Raycast : MonoBehaviour
                         if (EnergyCapsuleCount == 6)
                         {
                             dialog.ComCapDia();
+                        }
+                        if (hit.collider.transform.Find("check").gameObject.activeSelf)
+                        {
+                            hit.collider.transform.Find("check").gameObject.SetActive(false);
+                            dialog.FindMacDia();
                         }
                     }
                 }

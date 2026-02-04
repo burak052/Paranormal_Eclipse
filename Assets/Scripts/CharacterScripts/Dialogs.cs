@@ -13,6 +13,8 @@ public class Dialogs : MonoBehaviour
     public bool Laradia = false;
     public string Language = "turkce";
     public string[] dias = new string[300];
+
+    Coroutine activeDialog;
     void Start()
     {
         if(Language == "turkce")
@@ -256,7 +258,7 @@ public class Dialogs : MonoBehaviour
 
         dialog.text = "";
         if (scene == 1)
-            StartCoroutine(OutdoorDialog());
+            PlayDialog(OutdoorDialog());
         if (scene == 2)
             EventDia(5f,dias[53],4f);
     }
@@ -270,6 +272,18 @@ public class Dialogs : MonoBehaviour
             else
                 dialog.color = new Color32(0xFF, 0xBD, 0xE5, 0xFF);
         }
+    }
+
+    void PlayDialog(IEnumerator dialogRoutine)
+    {
+        if (activeDialog != null)
+        {
+            StopCoroutine(activeDialog);
+            activeDialog = null;
+        }
+
+        dialog.text = ""; // ekranda kalan yazıyı temizle
+        activeDialog = StartCoroutine(dialogRoutine);
     }
     
     IEnumerator OutdoorDialog()
@@ -300,7 +314,7 @@ public class Dialogs : MonoBehaviour
 
     public void EventDia(float delayafter, string s, float delaybefore=0f)
     {
-        StartCoroutine(EventDialog(delayafter, s, delaybefore));
+        PlayDialog(EventDialog(delayafter, s, delaybefore));
     }
     IEnumerator EventDialog(float delayafter, string s, float delaybefore=0f)
     {
@@ -313,7 +327,7 @@ public class Dialogs : MonoBehaviour
 
     public void SleepDoor()
     {
-        StartCoroutine(SleepDoorOpen());
+        PlayDialog(SleepDoorOpen());
     }
     IEnumerator SleepDoorOpen()
     {
@@ -353,7 +367,7 @@ public class Dialogs : MonoBehaviour
     
     public void WakeUp()
     {
-        StartCoroutine(WakeUpStart());
+        PlayDialog(WakeUpStart());
     }
     IEnumerator WakeUpStart()
     {
@@ -369,7 +383,7 @@ public class Dialogs : MonoBehaviour
     
     public void BeachSpeak()
     {
-        StartCoroutine(BeachSpeakStart());
+        PlayDialog(BeachSpeakStart());
     }
     IEnumerator BeachSpeakStart()
     {
@@ -442,7 +456,7 @@ public class Dialogs : MonoBehaviour
     
     public void Steam()
     {
-        StartCoroutine(SteamStart());
+        PlayDialog(SteamStart());
     }
     IEnumerator SteamStart()
     {
@@ -457,7 +471,7 @@ public class Dialogs : MonoBehaviour
     
     public void LabCoat(ActiveBlackScreen ABS, LaraMovement Lara)
     {
-        StartCoroutine(LabCoatDialog(ABS, Lara));
+        PlayDialog(LabCoatDialog(ABS, Lara));
     }
     IEnumerator LabCoatDialog(ActiveBlackScreen ABS, LaraMovement Lara)
     {
@@ -519,7 +533,7 @@ public class Dialogs : MonoBehaviour
     
     public void PassDia()
     {
-        StartCoroutine(PassDiaStart());
+        PlayDialog(PassDiaStart());
     }
     IEnumerator PassDiaStart()
     {
@@ -538,7 +552,7 @@ public class Dialogs : MonoBehaviour
     
     public void CapsuleDia()
     {
-        StartCoroutine(CapsuleDialog());
+        PlayDialog(CapsuleDialog());
     }
     IEnumerator CapsuleDialog()
     {
@@ -553,7 +567,14 @@ public class Dialogs : MonoBehaviour
         dialog.text = dias[81];
         yield return new WaitForSeconds(7f);
         dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
+    }
+    
+    public void FindMacDia()
+    {
+        PlayDialog(FindMacDialog());
+    }
+    IEnumerator FindMacDialog()
+    {
         dialog.text = dias[82];
         yield return new WaitForSeconds(7f);
         dialog.text = "";
@@ -565,7 +586,7 @@ public class Dialogs : MonoBehaviour
     
     public void ComCapDia()
     {
-        StartCoroutine(ComCapDialog());
+        PlayDialog(ComCapDialog());
     }
     IEnumerator ComCapDialog()
     {
@@ -593,7 +614,7 @@ public class Dialogs : MonoBehaviour
     
     public void ArcDia()
     {
-        StartCoroutine(ArcDialog());
+        PlayDialog(ArcDialog());
     }
     IEnumerator ArcDialog()
     {
@@ -653,7 +674,7 @@ public class Dialogs : MonoBehaviour
     
     public void SeaDia()
     {
-        StartCoroutine(SeaDialog());
+        PlayDialog(SeaDialog());
     }
     IEnumerator SeaDialog()
     {
@@ -671,7 +692,7 @@ public class Dialogs : MonoBehaviour
     
     public void WarpDia()
     {
-        StartCoroutine(WarpDialog());
+        PlayDialog(WarpDialog());
     }
     IEnumerator WarpDialog()
     {
@@ -690,7 +711,7 @@ public class Dialogs : MonoBehaviour
     
     public void Warp2Dia()
     {
-        StartCoroutine(Warp2Dialog());
+        PlayDialog(Warp2Dialog());
     }
     IEnumerator Warp2Dialog()
     {
