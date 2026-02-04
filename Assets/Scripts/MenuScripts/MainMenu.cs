@@ -4,6 +4,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
+using EasyPeasyFirstPersonController;
 
 public class MainMenu : MonoBehaviour
 {
@@ -42,6 +43,8 @@ public class MainMenu : MonoBehaviour
     {
         blackScreen.gameObject.SetActive(false);
         antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
+        float saved = PlayerPrefs.GetFloat("MOUSE_SENS", 10f);
+        camerasenstive.value = saved;
     }
 
     void Awake()
@@ -58,6 +61,10 @@ public class MainMenu : MonoBehaviour
     {
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeAndStart());
+    }
+    public void OnSensitivityChanged(float value)
+    {
+        GlobalMouseSensitivityManager.Instance.SetSensitivity(value*100f);
     }
 
     IEnumerator FadeAndStart()
@@ -166,56 +173,25 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Seçilen çözünürlük: " + resolutionsize.options[index].text);
 
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-
-        switch (index)
-        {
-            case 0: Screen.SetResolution(1920, 1080, false); break;
-            case 1: Screen.SetResolution(1366, 768, false); break;
-            case 2: Screen.SetResolution(1280, 800, false); break;
-            case 3: Screen.SetResolution(1280, 720, false); break;
-        }
+        GlobalResolutionManager.Instance.SetResolution(index);
     }
     public void SetScreenMode(int index)
     {
         Debug.Log("Seçilen ekran modu: " + screensizechoose.options[index].text);
 
-        switch (index)
-        {
-            case 0:
-                // Borderless Fullscreen (ÖNERİLEN)
-                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                Screen.fullScreen = true;
-                break;
-
-            case 1:
-                // Pencere Modu
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                Screen.fullScreen = false;
-                break;
-        }
+        GlobalScreenModeManager.Instance.SetScreenMode(index);
     }
+
     public void SetGraphicsQuality(int index)
     {
         Debug.Log("Seçilen grafik ayarı: " + graphicsettings.options[index].text);
 
-        switch (index)
-        {
-            case 0:
-                // Yüksek
-                QualitySettings.SetQualityLevel(0, true);
-                break;
+        GlobalGraphicsQualityManager.Instance.SetGraphicsQuality(index);
+    }
 
-            case 1:
-                // Orta
-                QualitySettings.SetQualityLevel(1, true);
-                break;
-
-            case 2:
-                // Düşük
-                QualitySettings.SetQualityLevel(2, true);
-                break;
-        }
+    public void OnHeadBobOnClicked(int index)
+    {
+        GlobalHeadBobbingManager.Instance.SetHeadBob(index);
     }
 
     public void choreso()
