@@ -311,7 +311,6 @@ public class Raycast : MonoBehaviour
                     hit.collider.gameObject.tag = "Untagged";
                     if (isbusy) return;
                     Callfloor.floorcall();
-                    dialog.ArcDia();
                     
                     StartCoroutine(OpenDoorSequence(currentDoorAnimator , currentDoorAnimator2));
                     Lara.LaraFrontElevator();
@@ -341,6 +340,7 @@ public class Raycast : MonoBehaviour
 
                     if (Input.GetKeyDown(KeyCode.E) && !Lara.elevator)
                     {
+                        dialog.ArcDia();
                         hit.collider.transform.Find("Cube").gameObject.SetActive(true);
                         StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2 , hit.collider.transform.Find("Cube").gameObject));
                         inFloor2 = true;
@@ -879,8 +879,9 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Callfloor.Floor1();
+                    hit.collider.transform.parent.Find("Elevator sign 002").gameObject.GetComponent<ElevatorFloor>().Floor1();
                     hit.collider.gameObject.tag = "Untagged";
+                    hit.collider.transform.Find("Cube").gameObject.SetActive(true);
                     StartCoroutine(CloseDoorFloor1(currentDoorAnimator , currentDoorAnimator2 , hit.collider.transform.Find("Cube").gameObject));
                 }
                 return;
@@ -985,6 +986,9 @@ public class Raycast : MonoBehaviour
     }
     IEnumerator CloseDoorFloor1(Animator currentDoorAnimator , Animator currentDoorAnimator2, GameObject GO)
     {
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(true);
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.GetComponent<Animator>().SetTrigger("run");
+        GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",true);
         if (currentDoorAnimator != null)
         {
             bool state = currentDoorAnimator.GetBool("Open");
@@ -996,6 +1000,8 @@ public class Raycast : MonoBehaviour
             currentDoorAnimator2.SetBool("Open", false);
         }
         yield return new WaitForSeconds(5f);
+        GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
         GO.GetComponent<Transform>().parent.parent.parent.Find("light").gameObject.GetComponent<AudioSource>().Play();
         AudioSource[] sources = currentDoorAnimator.gameObject.GetComponents<AudioSource>();
         sources[1].Play();
