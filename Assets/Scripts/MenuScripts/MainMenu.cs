@@ -41,17 +41,17 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         blackScreen.gameObject.SetActive(false);
+        antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
     }
 
     void Awake()
     {
         antialiasing.onValueChanged.RemoveAllListeners();
-        antialiasing.onValueChanged.AddListener(resultaliasing);
     }
 
-    public void resultaliasing(int val)
+    public void OnAntiAliasingChanged(int value)
     {
-        Debug.Log("SECILEN: " + val);
+        GlobalAAManager.Instance.SetAA(value);
     }
 
     public void NewGame()
@@ -274,7 +274,6 @@ public class MainMenu : MonoBehaviour
         aliasing.SetActive(true);
         camsensetive.SetActive(false);
         headbobbing.SetActive(false);
-        antialiasing.gameObject.SetActive(true);
     }
 
     public void music()

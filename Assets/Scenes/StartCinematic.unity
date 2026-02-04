@@ -2352,8 +2352,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.763
       objectReference: {fileID: 0}
+    - target: {fileID: 4962058667849104103, guid: 3e408c78c3c67cf4d8c6cd13841a576f, type: 3}
+      propertyPath: antialiasing
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5754579409941007560, guid: 3e408c78c3c67cf4d8c6cd13841a576f, type: 3}
       propertyPath: m_Name
+      value: MainCamera
+      objectReference: {fileID: 0}
+    - target: {fileID: 5754579409941007560, guid: 3e408c78c3c67cf4d8c6cd13841a576f, type: 3}
+      propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
     - target: {fileID: 8081057666774418465, guid: 3e408c78c3c67cf4d8c6cd13841a576f, type: 3}
