@@ -70049,6 +70049,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dia: {fileID: 1123506126}
   missions: {fileID: 1406290022}
+  bed: {fileID: 6083726558874712532}
+  bed1: {fileID: 4354214109219758728}
 --- !u!65 &1934422901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -89741,7 +89743,7 @@ GameObject:
   - component: {fileID: 8910293634852225602}
   m_Layer: 0
   m_Name: bed_02
-  m_TagString: bed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -92802,7 +92804,7 @@ GameObject:
   - component: {fileID: 6230384199088149572}
   m_Layer: 0
   m_Name: bed_01
-  m_TagString: bed
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647

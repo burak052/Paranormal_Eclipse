@@ -46,7 +46,6 @@ public class Raycast : MonoBehaviour
     public bool haveRepairKit = false;
     public bool haveheadlight = false;
     private bool havesleep = false;
-    private bool cansleep = false;
     private bool firsttimeopen = true;
     private bool takelight = false;
     private bool issearching = false;
@@ -651,15 +650,9 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                if(cansleep)
-                    pressEUIText.text = "to sleep";
-                else
-                {
-                    pressEUIText.text = "can't sleep";
-                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                }
+                pressEUIText.text = "to sleep";
 
-                if (Input.GetKeyDown(KeyCode.E) && cansleep)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.transform.parent.Find("bed_02").gameObject.tag = "Untagged";
                     hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
@@ -690,7 +683,6 @@ public class Raycast : MonoBehaviour
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
                     sig.SignalOn();
-                    cansleep = true;
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !haveRepairKit)
                 {

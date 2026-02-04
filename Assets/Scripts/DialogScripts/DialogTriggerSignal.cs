@@ -5,6 +5,8 @@ public class DialogTriggerSignal : MonoBehaviour
 {
     public Dialogs dia;
     public Missions missions;
+    public GameObject bed;
+    public GameObject bed1;
     bool triggered = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -44,5 +46,7 @@ public class DialogTriggerSignal : MonoBehaviour
         yield return new WaitForSeconds(2f);
         dia.dialog.text = "";
         missions.DisMis(++(missions.missionCount));
+        bed.tag = "bed";
+        bed1.tag = "bed";
     }
 }
