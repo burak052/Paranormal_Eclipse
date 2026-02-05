@@ -13,7 +13,6 @@ public class MainMenu : MonoBehaviour
     public float fadeTime = 1.5f;
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
-    public TMP_Dropdown fontcolorDropdown;
     public TMP_Dropdown resolutionsize;
     public TMP_Dropdown screensizechoose;
     public TMP_Dropdown graphicsettings;
@@ -22,7 +21,6 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI languageText;
     public GameObject selecetlanguage;
     public GameObject fontsize;
-    public GameObject fontcolor;
     public GameObject mainmusic;
     public GameObject gamemusic;
     public GameObject resolution;
@@ -129,20 +127,11 @@ public class MainMenu : MonoBehaviour
     {
         fontsizeDropdown.gameObject.SetActive(true);
         languageDropdown.gameObject.SetActive(false);
-        fontcolorDropdown.gameObject.SetActive(false);
     }
 
     public void sellanguage()
     {
         languageDropdown.gameObject.SetActive(true);
-        fontsizeDropdown.gameObject.SetActive(false);
-        fontcolorDropdown.gameObject.SetActive(false);
-    }
-
-    public void choosefontcolor()
-    {
-        fontcolorDropdown.gameObject.SetActive(true);
-        languageDropdown.gameObject.SetActive(false);
         fontsizeDropdown.gameObject.SetActive(false);
     }
 
@@ -243,7 +232,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(true);
         screensize.SetActive(true);
         graphics.SetActive(true);
@@ -258,7 +246,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(true);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
         graphics.SetActive(false);
@@ -275,7 +262,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
         graphics.SetActive(false);
@@ -286,7 +272,6 @@ public class MainMenu : MonoBehaviour
     {
         selecetlanguage.SetActive(true);
         fontsize.SetActive(true);
-        fontcolor.SetActive(true);
         gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         resolution.SetActive(false);
@@ -303,10 +288,6 @@ public class MainMenu : MonoBehaviour
     public void chofontsize(int val)
     {
         Debug.Log(fontsizeDropdown.options[val].text);
-    }
-    public void chofontcolor(int val)
-    {
-        Debug.Log(fontcolorDropdown.options[val].text);
     }
     public void resultresosize(int val)
     {
