@@ -7,12 +7,14 @@ public class LightController : MonoBehaviour
     [Header("Bu corridorun ışıkları")]
     public GameObject[] corridorLights;
     int x = 0;
+    public bool generator = false;
 
     private static LightController activeCorridor;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
+        if (!generator) return;
 
         // Önce önceki corridoru kapat
         if (activeCorridor != null && activeCorridor != this)

@@ -49,6 +49,8 @@ TagManager:
   - BoilerNote
   - LockedDoor
   - EasterEggNote
+  - Generator
+  - NeedGenerator
   layers:
   - Default
   - TransparentFX

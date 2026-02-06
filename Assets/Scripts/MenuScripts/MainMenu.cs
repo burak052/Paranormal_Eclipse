@@ -22,7 +22,6 @@ public class MainMenu : MonoBehaviour
     public GameObject selecetlanguage;
     public GameObject fontsize;
     public GameObject mainmusic;
-    public GameObject gamemusic;
     public GameObject resolution;
     public GameObject screensize;
     public GameObject graphics;
@@ -30,7 +29,6 @@ public class MainMenu : MonoBehaviour
     public GameObject camsensetive;
     public GameObject headbobbing;
     public Slider mainvolume;
-    public Slider gamevolume;
     public Slider camerasenstive;
     public AudioSource menumusic;
     public RectTransform content;
@@ -138,7 +136,6 @@ public class MainMenu : MonoBehaviour
     public void settingmainmusic()
     {
         mainvolume.gameObject.SetActive(true);
-        gamevolume.gameObject.SetActive(false);
     }
 
     public void startmainvolume()
@@ -150,12 +147,6 @@ public class MainMenu : MonoBehaviour
     public void settingvolume(float vol)
     {
         menumusic.volume = vol;
-    }
-
-    public void settinggamemusic()
-    {
-        gamevolume.gameObject.SetActive(true);
-        mainvolume.gameObject.SetActive(false);
     }
 
     public void SetResolution(int index)
@@ -228,7 +219,6 @@ public class MainMenu : MonoBehaviour
 
     public void grafik()
     {
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -242,7 +232,6 @@ public class MainMenu : MonoBehaviour
 
     public void music()
     {
-        gamemusic.SetActive(true);
         mainmusic.SetActive(true);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -258,7 +247,6 @@ public class MainMenu : MonoBehaviour
     {
         camsensetive.SetActive(true);
         headbobbing.SetActive(true);
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
@@ -272,7 +260,6 @@ public class MainMenu : MonoBehaviour
     {
         selecetlanguage.SetActive(true);
         fontsize.SetActive(true);
-        gamemusic.SetActive(false);
         mainmusic.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
@@ -283,7 +270,7 @@ public class MainMenu : MonoBehaviour
     }
     public void lanset(int val)
     {
-        Debug.Log(languageDropdown.options[val].text);
+        
     }
     public void chofontsize(int val)
     {

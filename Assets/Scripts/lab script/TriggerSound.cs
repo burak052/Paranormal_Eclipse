@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class TriggerSound : MonoBehaviour
 {
+    public Dialogs dia;
     bool isBroken = false;
 
     void OnTriggerEnter(Collider other)
@@ -11,6 +12,7 @@ public class TriggerSound : MonoBehaviour
 
         isBroken = true;
 
-            GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().Play();
+        dia.RunSoundDia();
     }
 }

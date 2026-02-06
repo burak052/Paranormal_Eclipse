@@ -9,6 +9,7 @@ public class SecurityCamscare : MonoBehaviour
     public Sprite glitch2;
     public Sprite glitch3;
     public Sprite glitch4;
+    public Dialogs dia;
 
     private bool hasPlayed = false;
 
@@ -41,5 +42,6 @@ public class SecurityCamscare : MonoBehaviour
         glitch.sprite = glitch4;
 
         glitch.gameObject.SetActive(false);
+        dia.EventDia(2.5f,dia.dias[122]);
     }
 }

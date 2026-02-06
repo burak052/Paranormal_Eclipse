@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BlinkLight : MonoBehaviour
 {
+    public Dialogs dia;
     Light lightComp;
     AudioSource audioSource;
     Coroutine blinkRoutine;
@@ -41,6 +42,9 @@ public class BlinkLight : MonoBehaviour
 
         // Ampül patlama sesi
         if (audioSource != null)
+        {
             audioSource.Play();
+            dia.EventDia(3f,dia.dias[118],3f);
+        }
     }
 }

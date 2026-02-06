@@ -784,11 +784,20 @@ public class Raycast : MonoBehaviour
                         hit.collider.transform.parent.gameObject.GetComponent<AudioSource>().Play();
                         paper.showpaper(7);
                         inventor.takeItem(12);
+                        dialog.EventDia(3f, dialog.dias[132],2f);
                     }
                     ispressE = true;
                 }
                 if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))&& ispressE)
                 {
+                    if(hit.collider.CompareTag("LaraNote"))
+                        dialog.EventDia(3f,dialog.dias[99]);
+                    if(hit.collider.CompareTag("MaterialNote"))
+                        dialog.ShadowDia();
+                    if(hit.collider.CompareTag("SecurityNote"))
+                        dialog.EventDia(7f,dialog.dias[125],1f);
+                    if(hit.collider.CompareTag("EasterEggNote"))
+                        dialog.EasterEggDia();
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
@@ -900,6 +909,33 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
+            if (hit.collider.CompareTag("Generator"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = "to start the generator";
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.gameObject.tag = "Untagged";
+                    dialog.EventDia(2.5f,dialog.dias[124],1f);
+                    hit.collider.gameObject.GetComponents<AudioSource>()[0].Play();
+                    hit.collider.gameObject.GetComponents<AudioSource>()[1].Play();
+                    hit.collider.gameObject.GetComponent<OpenGenerator>().PowerOn();
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("NeedGenerator"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                    pressEUIText.text = "need to start generator";
+                }
+                return;
+            }
         }
 
         pressEUIText.text = "to open";
@@ -999,7 +1035,9 @@ public class Raycast : MonoBehaviour
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", false);
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        dialog.EventDia(2f,dialog.dias[129]);
+        yield return new WaitForSeconds(2f);
         GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
         GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
         GO.GetComponent<Transform>().parent.parent.parent.Find("light").gameObject.GetComponent<AudioSource>().Play();
@@ -1009,6 +1047,7 @@ public class Raycast : MonoBehaviour
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(true);
+        dialog.EventDia(2f,dialog.dias[130]);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.2f);
@@ -1032,6 +1071,8 @@ public class Raycast : MonoBehaviour
             currentDoorAnimator2.SetBool("Open", true);
         }
         GO.SetActive(false);
+        yield return new WaitForSeconds(4f);
+        dialog.EventDia(3f,dialog.dias[131]);
     }
     IEnumerator StartCapseuleAnim()
     {
