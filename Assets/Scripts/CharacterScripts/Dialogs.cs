@@ -155,6 +155,7 @@ public class Dialogs : MonoBehaviour
             dias[133] = "Developer: Buraya kadar gelmeni beklemiyordum. Merakın seni doğru yere getirdi. Gizli bir bölgedesin ve buradaki not, oyunun üçüncü finalinin kilidini açıyor.";
             dias[134] = "Aral: İnanamıyorum! Lara geçmişteki kendini öldürüp onun yerine mi geçmiş? Beni kurtarmak için mi? Ben onun sayesinde mi hayattayım?";
             dias[135] = "Aral: Ona sormam gereken çok soru var ama hepsinden önce bu çılgınlığa bir son vermesini sağlamalıyım.";
+            dias[136] = "Aral: Sahildeki Lara mı? Onunla konuşmalıyım.";
         }
         else        /////////ingilizce dialoglar buraya eklenecek
         {
@@ -165,6 +166,8 @@ public class Dialogs : MonoBehaviour
             PlayDialog(OutdoorDialog());
         if (scene == 2)
             EventDia(5f,dias[53],4f);
+        if (scene == 3)
+            EventDia(3f,dias[136],6f);
     }
 
     void Update()

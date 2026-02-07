@@ -10,6 +10,7 @@ public class BeachCinematic : MonoBehaviour
     public GameObject Aral;
     public ActiveBlackScreen ABS;
     public Animator door;
+    public Dialogs dia;
     public GameObject pastAral;
     public GameObject night;
     public GameObject nightlight;

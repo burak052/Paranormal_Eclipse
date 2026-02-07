@@ -23,6 +23,9 @@ public class ActiveBlackScreen : MonoBehaviour
     public Missions missions;
     public ESCMenu Menu;
     public Dialogs dia;
+    public GlitchController GC;
+    public Sprite GlitchSprite1;
+    public Sprite GlitchSprite2;
     public bool outfit = false;
 
     public void BlackScreenOn()
@@ -147,8 +150,19 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator StartGlassBroke()
     {
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(true);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
+        GC.ActiveGlitch();
+        yield return new WaitForSeconds(2f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = true;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite1;
+        yield return new WaitForSeconds(0.5f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = null;
+        yield return new WaitForSeconds(2f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite2;
+        yield return new WaitForSeconds(0.5f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = null;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();  //glass broke sesi yerine glitche uygun bir ses koy
         yield return new WaitForSeconds(1f);
         blackScreen.color = new Color(0, 0, 0, 0f);
         
@@ -163,7 +177,7 @@ public class ActiveBlackScreen : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(false);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds(2f);
         t = 0f;
         while (t < fadeTime)
