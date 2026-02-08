@@ -156,6 +156,39 @@ public class Dialogs : MonoBehaviour
             dias[134] = "Aral: İnanamıyorum! Lara geçmişteki kendini öldürüp onun yerine mi geçmiş? Beni kurtarmak için mi? Ben onun sayesinde mi hayattayım?";
             dias[135] = "Aral: Ona sormam gereken çok soru var ama hepsinden önce bu çılgınlığa bir son vermesini sağlamalıyım.";
             dias[136] = "Aral: Sahildeki Lara mı? Onunla konuşmalıyım.";
+            dias[137] = "Aral: Lara, şükürler olsun ki iyisin. Burada ne yapıyorsun?";
+            dias[138] = "Lara: Aral? Bu sensin değil mi? Neden geri döndün?";
+            dias[139] = "Aral: Evet benim. Geri dönmek derken neden söz ediyorsun? Ayrıca burada ne yapıyorsun?";
+            dias[140] = "Lara: Seninle konuştuk ve bana gitmem gerektiğini söyledin, ardından vedalaştık.";
+            dias[141] = "Aral: Tüm bunlar ne zaman oldu? Laboratuvardaki kazadan sonra bir anda kayboldun. Bıraktığın notu buldum.";
+            dias[142] = "Lara: Şimdi anlıyorum...";
+            dias[143] = "Aral: Tanrı aşkına! Artık ne olup bittiğini anlatır mısın?.";
+            dias[144] = "Lara: Aral, sen arafta sıkışıp kaldın. Kıyafetine bak!";
+            dias[145] = "Lara: Eğer dediğin gibi Laboratuvardaki kazadan sonra buraya gelmiş olsan hala laboratuvar önlüğünü giyiyor olurdun, ama adaya geldiğimiz gün giydiğin ceketi giyiyorsun.";
+            dias[146] = "Aral: İnanamıyorum... Bu nasıl olabilir?";
+            dias[147] = "Lara: Şuanki zaman adaya geldiğimiz günün gecesi. Sen aslında uyuyorsun bense sahile geldim.";
+            dias[148] = "Lara: Seni bulunduğun araftan, bu zaman döngüsünden kurtarmaya çalıştım. Her şeyi senin için yaptım. Hatta...";
+            dias[149] = "Aral: Hatta ne? Ne yaptın lara?";
+            dias[150] = "Lara: Sen bunu öğrendiğin zaman gitmem gerektiğini söylemiştin. O yüzden şuanda bunu açıklamayacağım. Nasıl olsa öğreneceksin.";
+            dias[151] = "Lara: Sadece seni bunu yapacak kadar sevdiğimi bil.";
+            dias[152] = "Aral: Lara... Gitmeni istemiyorum. Sana gitmeni asla söylemem ne gelecekte ne geçmişte. Ne olur gitme benimle kal.";
+            dias[153] = "Lara: Aral sen...";
+            dias[154] = "Aral: Sorun neyse üstesinden gelebiliriz eminim. O zamana kadar ve hatta ondan sonrasında da sadece benimle kal.";
+            dias[155] = "Lara: Beni zor bir karar vermeye zorluyorsun. yine...";
+            dias[156] = "Lara: Aslına bakarsan gitmeyi zaten hiç istememiştim. Seni bu araftan kurtaracağım.";
+            dias[157] = "Aral: İkimiz halledebiliriz. Eğer-";
+            dias[158] = "Lara: Aral Çabuk saklan seni görmemeli.";
+            dias[159] = "Aral: Kim beni görmemeli?";
+            dias[160] = "Lara: Anlatacak vakit yok acele et ve şu ağacın arkasına saklan hadi.";
+            dias[161] = "Aral: Bir dakika... Laranın yanına gelen ben miyim?";
+            dias[162] = "Aral: Neler oluyor? Bu zaman kırılması mı? Geçmişteki kendimi gördüm ve gerçeklik algımı yitirmeye başladım.";
+            dias[163] = "Aral: Bu geçmişteki halim mi? Ayrıca ışığın önünde duruyorum nasıl kendimi göremem?";
+            dias[164] = "Aral: Bir dakika o sürekli gördüğüm gölge... Yoksa...";
+            dias[165] = "Aral: Ben o gölgeye dönüşüyorum.";
+            dias[166] = "Aral: Lara'nın arafta sıkışmak derken kastettiği buydu.";
+            dias[167] = "Aral: Görünen o ki geçmişteki kendimi her gördüğümde gerçeklik kırılıyor ve zamanda biraz daha geri gidiyorum.";
+            dias[168] = "Aral: Tam anlamıyla zamanda bir gölge oluyorum.";
+            dias[169] = "Unknown: Bu da ne? Bir gölgemi? Ama ışığın önünde kimse yokki...";
         }
         else        /////////ingilizce dialoglar buraya eklenecek
         {
@@ -671,6 +704,95 @@ public class Dialogs : MonoBehaviour
         yield return new WaitForSeconds(3f);
         dialog.text = dias[135];
         yield return new WaitForSeconds(6f);
+        dialog.text = "";
+    }
+    
+    public void BoatDia()
+    {
+        PlayDialog(BoatDialog());
+    }
+    IEnumerator BoatDialog()
+    {
+        dialog.text = dias[137];
+        yield return new WaitForSeconds(3f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[138];
+        yield return new WaitForSeconds(3f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[139];
+        yield return new WaitForSeconds(4.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[140];
+        yield return new WaitForSeconds(4f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[141];
+        yield return new WaitForSeconds(5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[142];
+        yield return new WaitForSeconds(1.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[143];
+        yield return new WaitForSeconds(3f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[144];
+        yield return new WaitForSeconds(4f);
+        dialog.text = dias[145];
+        yield return new WaitForSeconds(9f);
+        dialog.text = dias[146];
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[147];
+        yield return new WaitForSeconds(6f);
+        dialog.text = dias[148];
+        yield return new WaitForSeconds(6f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[149];
+        yield return new WaitForSeconds(2f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[150];
+        yield return new WaitForSeconds(6f);
+        dialog.text = dias[151];
+        yield return new WaitForSeconds(3f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[152];
+        yield return new WaitForSeconds(6f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[153];
+        yield return new WaitForSeconds(1.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[154];
+        yield return new WaitForSeconds(6f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[155];
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[156];
+        yield return new WaitForSeconds(4f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[157];
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[158];
+        yield return new WaitForSeconds(2.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[159];
+        yield return new WaitForSeconds(2f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[160];
+        yield return new WaitForSeconds(4.5f);
         dialog.text = "";
     }
 }

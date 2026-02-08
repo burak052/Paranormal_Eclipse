@@ -148,22 +148,20 @@ public class ActiveBlackScreen : MonoBehaviour
         StartCoroutine(StartGlassBroke());
       }
 
-    IEnumerator StartGlassBroke()
+    IEnumerator StartGlassBroke() //7 saniyede ekran kararıyor 4 saniye siyah ekrandan sonra 1.5 saniyede geri açılıyor.
     {
         GC.ActiveGlitch();
-        yield return new WaitForSeconds(2f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponents<AudioSource>()[1].Play();
+        yield return new WaitForSeconds(4f);
         blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = true;
         blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite1;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(0.5f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = null;
-        yield return new WaitForSeconds(2f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite2;
-        yield return new WaitForSeconds(0.5f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = null;
         blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds(1f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();  //glass broke sesi yerine glitche uygun bir ses koy
-        yield return new WaitForSeconds(1f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = true;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite2;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
         blackScreen.color = new Color(0, 0, 0, 0f);
         
         float t = 0f;
@@ -171,13 +169,15 @@ public class ActiveBlackScreen : MonoBehaviour
 
         while (t < fadeTime)
         {
+            if(t > 0.5f)
+                blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
             t += Time.deltaTime;
             float alpha = Mathf.Lerp(0, 1, t / fadeTime);
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        GC.DisableGlitchInstant();
         yield return new WaitForSeconds(2f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds(2f);
         t = 0f;
         while (t < fadeTime)

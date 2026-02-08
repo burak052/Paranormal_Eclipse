@@ -34,13 +34,13 @@ public class GlitchController : MonoBehaviour
     IEnumerator GlitchSequence()
     {
         yield return StartCoroutine(Lerp(
-            v => filmGrain.intensity.value = v, 0f, 1f, 2f));
+            v => filmGrain.intensity.value = v, 0f, 1f, 1.5f));
 
         yield return StartCoroutine(Lerp(
-            v => chromatic.intensity.value = v, 0f, 1f, 2f));
+            v => chromatic.intensity.value = v, 0f, 1f, 1.5f));
 
         yield return StartCoroutine(Lerp(
-            v => vignette.intensity.value = v, 0f, 0.072f, 2f));
+            v => vignette.intensity.value = v, 0f, 0.072f, 1f));
     }
 
     IEnumerator Lerp(System.Action<float> setter, float from, float to, float duration)
