@@ -139,9 +139,9 @@ public class Dialogs : MonoBehaviour
             dias[94] = "Lara: Sence Nova merkezinin bizden sakladığı şeyler mi var?";
             dias[95] = "Aral: Kesinlikle, bu yüzden Nova Merkezinin elemanlarına güvenmiyorum... Tabi sen istisna olabilirsin.";
             dias[96] = "Lara: Bunları bana anlattığına göre bende sana güveniyorum.";
-            dias[97] = "Aral : Ah... Başım.";
-            dias[98] = "Aral :Ne oldu?";
-            dias[99] = "Aral :Onu bulmalıyım.";
+            dias[97] = "Aral: Ah... Başım.";
+            dias[98] = "Aral: Ne oldu?";
+            dias[99] = "Aral: Onu bulmalıyım.";
             dias[100] = "Lara: Sanırım güç kablosu takılmamış.";
             dias[101] = "Aral: Ben kabloları kontrol edeyim.";
             dias[102] = "Aral: İşte oldu, tüm sistemler açıldı.";
@@ -212,8 +212,6 @@ public class Dialogs : MonoBehaviour
             dias[167] = "Aral: Görünen o ki geçmişteki kendimi her gördüğümde gerçeklik kırılıyor ve zamanda biraz daha geri gidiyorum.";
             dias[168] = "Aral: Tam anlamıyla zamanda bir gölge oluyorum.";
             dias[169] = "Unknown: Bu da ne? Bir gölgemi? Ama ışığın önünde kimse yokki...";
-            dias[170] = "Aral: Lara?";
-            dias[171] = "Aral: Lara hayır!";
         }
         void LoadEnglishDialogs()      /////////ingilizce dialoglar buraya eklenecek
         {
