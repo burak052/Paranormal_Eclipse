@@ -41,6 +41,12 @@ public class MainMenu : MonoBehaviour
         antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
         float saved = PlayerPrefs.GetFloat("MOUSE_SENS", 10f);
         camerasenstive.value = saved;
+        if (LanguageManager.CurrentLanguage == "turkce")
+            languageDropdown.value = 0;
+        else
+            languageDropdown.value = 1;
+
+        languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
     }
 
     void Awake()
@@ -51,6 +57,17 @@ public class MainMenu : MonoBehaviour
     public void OnAntiAliasingChanged(int value)
     {
         GlobalAAManager.Instance.SetAA(value);
+    }
+
+    public void OnLanguageChanged(int index)
+    {
+        if (index == 0)
+            LanguageManager.CurrentLanguage = "turkce";
+        else
+            LanguageManager.CurrentLanguage = "english";
+
+        // Ayarlar panelini kapatmak istiyorsan
+        selecetlanguage.SetActive(false);
     }
 
     public void NewGame()
