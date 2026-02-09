@@ -758,7 +758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TAM EKRAN
+  m_text: "CERCEVES\u0130Z EKRAN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
@@ -2293,7 +2293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 287.1, y: 102.4}
+  m_AnchoredPosition: {x: 263.6, y: 102.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &264228726
@@ -3197,6 +3197,7 @@ GameObject:
   - component: {fileID: 320894593}
   - component: {fileID: 320894592}
   - component: {fileID: 320894591}
+  - component: {fileID: 320894597}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -3247,6 +3248,9 @@ MonoBehaviour:
   antialiasing: {fileID: 593748830}
   headbobbingsettings: {fileID: 1830904816}
   languageText: {fileID: 2032597621}
+  menucanvas: {fileID: 1098916827}
+  settingscanvas: {fileID: 779841093}
+  creditscanvas: {fileID: 664815853}
   selecetlanguage: {fileID: 321560277}
   fontsize: {fileID: 294809016}
   mainmusic: {fileID: 1540211948}
@@ -3260,6 +3264,7 @@ MonoBehaviour:
   camerasenstive: {fileID: 1243394376}
   menumusic: {fileID: 1655108232}
   content: {fileID: 1833353980}
+  dia: {fileID: 320894597}
 --- !u!114 &320894593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3473,6 +3478,527 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 15.786659, z: 0}
+--- !u!114 &320894597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 320894590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f7818f43de0f5941adef7e0f43bb8c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene: 0
+  dialog: {fileID: 1735759092}
+  mis: {fileID: 0}
+  seaCol: {fileID: 0}
+  SES: {fileID: 0}
+  Laradia: 0
+  dias:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  menuUI:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  "u\u0131UI":
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &321560277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,7 +4035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 275, y: 200}
+  m_AnchoredPosition: {x: 288.3, y: 200}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &321560279
@@ -3733,7 +4259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &324152346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4057,7 +4583,7 @@ RectTransform:
   m_Father: {fileID: 844102554}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.2}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4463,7 +4989,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 330356428}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.2
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6560,8 +7086,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6598,7 +7124,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -102.819176, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -7891,8 +8417,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7929,7 +8455,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -102.06494, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9382,8 +9908,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9420,7 +9946,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -141.26178, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10905,7 +11431,7 @@ MonoBehaviour:
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: 0
+  m_TextStyleHashCode: -1183493901
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
@@ -11627,6 +12153,7 @@ RectTransform:
   - {fileID: 1139242030}
   - {fileID: 888960233}
   - {fileID: 210466354}
+  - {fileID: 1735759094}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12206,8 +12733,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12244,7 +12771,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -98.85656, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -13226,7 +13753,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 275, y: 0}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 192.38, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345465791
 MonoBehaviour:
@@ -14999,10 +15526,10 @@ MonoBehaviour:
   m_MultiSelect: 0
   m_Options:
     m_Options:
-    - m_Text: TURKCE
+    - m_Text: "T\xDCRK\xC7E"
       m_Image: {fileID: 0}
       m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 0.42745098}
-    - m_Text: INGILIZCE
+    - m_Text: ENGLISH
       m_Image: {fileID: 0}
       m_Color: {r: 1, g: 1, b: 1, a: 0.43137255}
   m_OnValueChanged:
@@ -15010,7 +15537,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 320894592}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: lanset
+        m_MethodName: OnLanguageChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16347,7 +16874,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -18, y: 0}
+  m_SizeDelta: {x: -17, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1695943298
 MonoBehaviour:
@@ -16795,8 +17322,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16833,7 +17360,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -81.07409, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -16966,6 +17493,142 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_IsOn: 1
+--- !u!1 &1735759091
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1735759094}
+  - component: {fileID: 1735759093}
+  - component: {fileID: 1735759092}
+  m_Layer: 5
+  m_Name: dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1735759092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735759091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1735759093
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735759091}
+  m_CullTransparentMesh: 1
+--- !u!224 &1735759094
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735759091}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -2598}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1098916831}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1743270774
 GameObject:
   m_ObjectHideFlags: 0
@@ -18111,62 +18774,887 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nYAPIMCILAR\nBURAK
-    ISBAKAN\nALPEREN TOKER\nFURKAN YILDIZ\n\n\nPROGRAMLAMA\nBURAK ISBAKAN\nALPEREN
-    TOKER\nFURKAN YILDIZ\n\n\nGRAFIK ISLEME\nBURAK ISBAKAN\nALPEREN TOKER\n\n\nTASARIMCILAR\nBURAK
-    ISBAKAN\n\n\nMUZIKLER\nFURKAN YILDIZ\n\n\nSES VE EFEKTLER\nBURAK ISBAKAN\n\n\nKULLANICI
-    ARAYUZ TASARIMI\nBURAK ISBAKAN\nALPEREN TOKER\nFURKAN YILDIZ\n\n\nARAZI TASARIMI\nBURAK
-    ISBAKAN\n\n\nLABORATUVAR  TASARIMLARI\nBURAK ISBAKAN\nALPEREN TOKER\n\n\nHIKAYE
-    TASARIMI\nBURAK ISBAKAN\nFURKAN YILDIZ\n\n\nANIMASYONLAR\nBURAK ISBAKAN\nFURKAN
-    YILDIZ\nALPEREN TOKER\n\n\nISIKLANDIRMA VE ATMOSFER TASARIMI\nBURAK ISBAKAN\n\n\nCEVRE
-    DIZAYNI\nBURAK ISBAKAN\nALPEREN TOKER\n\n\nMODELLER\r\nENVIRO LAB AGATA WILCZEK
-    TARAFINDAN HAZ\u0131RLANAN BU ICERIK, CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDA
-    YAYINLANMAKTADIR.\n\r\nEXPERIMENT ROOM 20062020YEAR TARAFINDAN HAZIRLANAN BU
-    ICERIK CREATIVE COMMONS ATIF LISANSINA SAHIPTIR.\n\r\nHANGAR ICERIGI SALAM SADEQ
-    TARAFINDAN HAZIRLANDI.\r\n\nPILLER TERRABIL TARAFINDAN HAZIRLANDI.\r\n\nKAZAN
-    DAIRESININ KAPISI SPOCIONAL TARAFINDAN HAZIRLANDI.\r\n\nMAGARA KAPISI REX-HSU
-    TARAFINDAN HAZIRLANDI.\r\n\nKAZAN DAIRESININ TAVANI REX-HSU TARAFINDAN HAZIRLANDI.\r\n\nKAZAN
-    DAIRESININ BORULARI REX-HSU TARAFINDAN HAZIRLANDI.\r\n\nANA KAMP SIGINAGI COSIMO
-    TARAFINDAN HAZIRLANAN BU ICERIK, CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDA
-    KULLANILMAKTADIR.\r\n\nASANSOR ICERIGI SAYALISHINDE TARAFINDA HAZIRLANDI.\r\n\nASANSOR
-    DUGMELERI CASPER1313 TARAFINDAN HAZIRLANDI.\r\n\nMERDIVENLER ICERIGI 3DCADENGINEER
-    TARAFINDAN HAZIRLANDI.\r\n\nIZGARA METAL ZEMINLER MAURO-CHILE TARAFINDAN HAZIRLANDI.\r\n\r\nJENERATOR
-    ICERIGI LORDCINN CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\n\nBASIT JENERATOR 
-    BLENDER3D CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\n\nCABLES  CRISANIM3D
-    CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\n\nENKAZ PARCALARI ITSDTIME3
-    CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR\n\r\nBETON CITLER CHERK CREATIVE
-    COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nKAZAN DAIRESINDEKI MASA STEVENDANIEL
-    CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nKAZAN DAIRESINDEKI KAZANLAR
-    MAXPSR TARAFINDAN HAZIRLANDI.\r\n\nLABORATUVAR ONLUKLERI JINWOOKNET TARAFINDAN
-    HAZIRLANDI.\r\n\nGIYINME ODASINDAKI ASKILIKLAR NOLVABIR TARAFINDAN HAZIRLANDI.\r\n\nMETAL
-    CITLER SIMPLE METAL FENCE CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nCIT
-    KAPILAR MEHDI SHAHSAVAN CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nGLOCK
-    17 HANIEL3D TARINDAN HAZIRLANDI.\r\n\nTEKNIK SILAH DUVARLARI GHOSTDEV CREATIVE
-    COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nGOZETLEME KULESINDEKI TRAFO MEHRANNASERI
-    TARAFINDAN HAZIRLANDI.\r\n\nBILIM MASASI NENKEA CREATIVE COMMONS ATTRIBUTION
-    LISANSI ALTINDADIR.\r\n\nHANGARDAK\u0130 MASA SAMANTHA MICHELSON CREATIVE COMMONS
-    ATTRIBUTION LISANSI ALTINDADIR.\r\n\nCONTAINER GAME QWESTGAMP CREATIVE COMMONS
-    ATTRIBUTION LISANSI ALTINDADIR.\r\n\nX-RAY CIHAZI MICHAEL V CREATIVE COMMONS
-    ATTRIBUTION LISANSI ALTINDADIR.\r\n\nISIKLAR RPACIOREK CREATIVE COMMONS ATTRIBUTION
-    LISANSI ALTINDADIR.\r\n\nYAKA FENERI FABRIZIOSANTO TARAFINDAN HAZIRLANDI.\r\n\nHELIKOPTER
-    42MANAKO CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nSCI-FI BOX GAME
-    CGGAME TARAFINDAN HAZIRLANDI.\r\n\nHELIKOPTER PISTI MEHDI SHAHSAVAN CREATIVE
-    COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nID CARD MASH VIRTUAL LIMITED CREATIVE
-    COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nLABORATUVARIN DUVARLARI TBOISTON
-    CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nKAZAN DAIRESINDEKI LAPTOPU
-    WAELEHSAN123 TARAFINDAN HAZIRLANDI.\r\n\nLEVYEYI WE3D1234 TARAFINDAN HAZIRLANDI.\r\n\nSOYUNMA
-    ODASINDAKI OTURMA ALANI AZKA3D TARAFINDAN HAZIRLANDI.\r\n\nSOYUNMA ODASINDAKI
-    ERKEK AYAKKABI BANKADYDOW TARAFINDAN HAZIRLANDI.\r\n\nSOYUNMA ODASINDAKI KADIN
-    AYAKKABI DAVIDMUS TARAFINDAN HAZIRLANDI.\r\n\nLABORATUVAR KORIDORU SIKLETRON
-    TARAFINDAN HAZIRLANDI.\r\n\nKLAVYE VE FARE GORZI CREATIVE COMMONS ATTRIBUTION
-    LISANSI ALTINDADIR.\r\n\nRADYO KULESI VETEROCK CREATIVE COMMONS ATTRIBUTION LISANSI
-    ALTINDADIR.\r\n\nKIRMIZI BUTON WOLF CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\r\n\nAYAKKABILIK
-    HELLZ TARAFINDAN HAZIRLANDI.\r\n\nRAFLAR JACOB SMITH CREATIVE COMMONS ATTRIBUTION
-    LISANSI ALTINDADIR.\r\n\nBORU DUVARLARI AERIAL_KNIGHT CREATIVE COMMONS ATTRIBUTION
-    LISANSI ALTINDADIR.\r\n\nTRIPOT INSOMNIAC74 TARAFINDAN HAZIRLANDI.\r\n\nVENTILATION
-    VALVE CEILING WALL MEHDI SHAHSAVAN CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR.\n\n\nDIGER
-    MODELLER\r\nUNITY ASSET MAGAZASI\r\nCGTRADER\r\nSKETCHFAB\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nJENERIGI
-    SONUNA KADAR IZLEYENLERE VE KARANLIK ORTAMDA OYNAYANLARA 1 DAKIKALIK SAYGI DURUSU..."
+  m_text: '
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    PRODUCERS
+
+    BURAK
+    ISBAKAN
+
+    ALPEREN TOKER
+
+    FURKAN YILDIZ
+
+    
+
+    
+
+    PROGRAMMING
+
+    BURAK
+    ISBAKAN
+
+    ALPEREN TOKER
+
+    FURKAN YILDIZ
+
+    
+
+    
+
+    GRAPHICS
+    PROCESSING
+
+    BURAK ISBAKAN
+
+    
+
+    
+
+    VISUAL EFFECTS
+
+    BURAK
+    ISBAKAN
+
+    
+
+    
+
+    MUSIC
+
+    FURKAN YILDIZ
+
+    BURAK ISBAKAN
+
+    
+
+    
+
+    SOUND
+    AND EFFECTS
+
+    BURAK ISBAKAN
+
+    
+
+    
+
+    USER INTERFACE DESIGN
+
+    BURAK
+    ISBAKAN
+
+    ALPEREN TOKER
+
+    FURKAN YILDIZ
+
+    
+
+    
+
+    TERRAIN DESIGN
+
+    BURAK
+    ISBAKAN
+
+    
+
+    
+
+    LABORATORY DESIGNS
+
+    BURAK ISBAKAN
+
+    ALPEREN
+    TOKER
+
+    
+
+    
+
+    STORY DESIGN
+
+    BURAK ISBAKAN
+
+    FURKAN YILDIZ
+
+    
+
+    
+
+    ANIMATIONS
+
+    BURAK
+    ISBAKAN
+
+    FURKAN YILDIZ
+
+    ALPEREN TOKER
+
+    
+
+    
+
+    LIGHTING
+    AND ATMOSPHERE DESIGN
+
+    BURAK ISBAKAN
+
+    
+
+    
+
+    ENVIRONMENTAL DESIGN
+
+    BURAK
+    ISBAKAN
+
+    
+
+    
+
+    
+
+    MODELS
+
+    
+
+    Sci-fi lab by Agata Wilczek
+    is licensed under Creative Commons Attribution
+
+    
+
+    EXPERIMENT ROOM by
+    20062020YEAR is licensed under Creative Commons Attribution
+
+    
+
+    HANGAR
+    created by SALAM SADEQ
+
+    
+
+    BATTERIES created by TERRABIL
+
+    
+
+    BOILER
+    ROOM DOOR created by SPOCIONAL
+
+    
+
+    CAVE DOOR created by REX-HSU
+
+    
+
+    BOILER
+    CEILING created by REX-HSU
+
+    
+
+    BOILER PIPE created by REX-HSU
+
+    
+
+    MAIN
+    CAMP SHELTER by COSIMO is licensed under Creative Commons Attribution
+
+    
+
+    ELEVATOR
+    created by SAYALISHINDE
+
+    
+
+    ELEVATOR BUTTONS created by CASPER1313
+
+    
+
+    STAIRS
+    created by 3DCADENGINEER
+
+    
+
+    GRILLED METAL FLOORS created by MAURO-CHILE
+
+    
+
+    GENERATOR
+    by LORDCINN is licensed under Creative Commons Attribution
+
+    
+
+    BASIC
+    GENERATOR by BLENDER3D is licensed under Creative Commons Attribution
+
+    
+
+    CABLES
+    by CRISANIM3D is licensed under Creative Commons Attribution
+
+    
+
+    DEBRIS
+    PIECES by ITSDTIME3 CREATIVE COMMONS ATTRIBUTION LISANSI ALTINDADIR
+
+    
+
+    CONCRETE
+    FENCES by CHERK is licensed under Creative Commons Attribution
+
+    
+
+    BOILER
+    TABLE by STEVENDANIEL is licensed under Creative Commons Attribution
+
+    
+
+    BOILER
+    created by MAXPSR
+
+    
+
+    LABORATORY COATS created by JINWOOKNET
+
+    
+
+    HANGERS
+    created by NOLVABIR
+
+    
+
+    METAL DOORS by MEHDI SHAHSAVAN is licensed under
+    Creative Commons Attribution
+
+    
+
+    GLOCK 17 created by HANIEL3D
+
+    
+
+    GUN
+    WALL by GHOSTDEV is licensed under Creative Commons Attribution
+
+    
+
+    TRANSFORMER
+    created by MEHRANNASERI
+
+    
+
+    SCI-FI TABLE by NENKEA is licensed under
+    Creative Commons Attribution
+
+    
+
+    HANGER TABLE by SAMANTHA MICHELSON
+    is licensed under Creative Commons Attribution
+
+    
+
+    CONTAINER GAME by
+    QWESTGAMP is licensed under Creative Commons Attribution
+
+    
+
+    X-RAY by
+    MICHAEL V is licensed under Creative Commons Attribution
+
+    
+
+    LIGHTS
+    by RPACIOREK is licensed under Creative Commons Attribution
+
+    
+
+    LAPEL
+    LIGHT created by FABRIZIOSANTO
+
+    
+
+    HELI by 42MANAKO is licensed under
+    Creative Commons Attribution
+
+    
+
+    SCI-FI BOX GAME created by CGGAME
+
+    
+
+    HELIPAD
+    by MEHDI SHAHSAVAN is licensed under Creative Commons Attribution
+
+    
+
+    LAB
+    WALL by TBOISTON is licensed under Creative Commons Attribution
+
+    
+
+    LAPTOP
+    created by WAELEHSAN123
+
+    
+
+    LEVYEYI created by WE3D1234
+
+    
+
+    SEATING
+    created by AZKA3D
+
+    
+
+    MAN SHOES created by BANKADYDOW
+
+    
+
+    WOMEN
+    SHOES created by DAVIDMUS
+
+    
+
+    LABORATORY CORRIDOR created by SIKLETRON
+
+    
+
+    KEYBOARD
+    AND MOUSE by GORZI is licensed under Creative Commons Attribution
+
+    
+
+    RADIO
+    TOWER by VETEROCK is licensed under Creative Commons Attribution
+
+    
+
+    RED
+    BUTTON by WOLF is licensed under Creative Commons Attribution
+
+    
+
+    SHOE
+    RACK created by HELLZ
+
+    
+
+    SHELVES by JACOB SMITH is licensed under Creative
+    Commons Attribution
+
+    
+
+    PIPE WALL by AERIAL_KNIGHT is licensed under
+    Creative Commons Attribution
+
+    
+
+    TRIPOT created by INSOMNIAC74
+
+    
+
+    VENTILATION
+    VALVE CEILING WALL by MEHDI SHAHSAVAN is licensed under Creative Commons Attribution
+
+    
+
+    
+
+    
+
+    OTHER
+    MODELS
+
+    UNITY ASSET MAGAZASI
+
+    CGTRADER
+
+    SKETCHFAB
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    A
+    minute of silence in honor of those who watched the opening credits to the end
+    and those performing in the dark'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
@@ -19572,7 +21060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: TURKISH
+  m_text: "T\xDCRK\xC7E"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
@@ -19637,7 +21125,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -9.990665, y: 0, z: -24.570549, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

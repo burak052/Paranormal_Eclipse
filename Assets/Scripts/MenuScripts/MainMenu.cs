@@ -19,6 +19,9 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown antialiasing;
     public TMP_Dropdown headbobbingsettings;
     public TextMeshProUGUI languageText;
+    public GameObject menucanvas;
+    public GameObject settingscanvas;
+    public GameObject creditscanvas;
     public GameObject selecetlanguage;
     public GameObject fontsize;
     public GameObject mainmusic;
@@ -32,11 +35,13 @@ public class MainMenu : MonoBehaviour
     public Slider camerasenstive;
     public AudioSource menumusic;
     public RectTransform content;
+    public Dialogs dia;
     Coroutine creditscoroutine;
     Resolution[] resolutions;
 
     void Start()
     {
+        LanguageMenu();
         blackScreen.gameObject.SetActive(false);
         antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
         float saved = PlayerPrefs.GetFloat("MOUSE_SENS", 10f);
@@ -65,9 +70,9 @@ public class MainMenu : MonoBehaviour
             LanguageManager.CurrentLanguage = "turkce";
         else
             LanguageManager.CurrentLanguage = "english";
-
-        // Ayarlar panelini kapatmak istiyorsan
-        selecetlanguage.SetActive(false);
+        dia.gameObject.SetActive(false);
+        dia.gameObject.SetActive(true);
+        LanguageMenu();
     }
 
     public void NewGame()
@@ -323,5 +328,53 @@ public class MainMenu : MonoBehaviour
 
             yield return null; // 🔥 ZORUNLU
         }
+    }
+
+    public void LanguageMenu()
+    {
+        menucanvas.GetComponent<Transform>().Find("Game_Start").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[1];
+        menucanvas.GetComponent<Transform>().Find("Load_Game").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[2];
+        menucanvas.GetComponent<Transform>().Find("Settings").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[3];
+        menucanvas.GetComponent<Transform>().Find("Credits").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[4];
+        menucanvas.GetComponent<Transform>().Find("Exit").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[5];
+
+        settingscanvas.GetComponent<Transform>().Find("Grafik").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[6];
+        settingscanvas.GetComponent<Transform>().Find("Ses").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[7];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[8];
+        settingscanvas.GetComponent<Transform>().Find("Dil").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[9];
+        settingscanvas.GetComponent<Transform>().Find("Back").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[10];
+        
+        creditscanvas.GetComponent<Transform>().Find("Back").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[10];
+        
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Cozunurluk").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[11];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[12];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[13];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Anti-Aliasing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[14];
+        
+        settingscanvas.GetComponent<Transform>().Find("Ses").Find("Ana Müzik").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[15];
+        
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Camera Sensetive").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[16];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[17];
+        
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Select Language").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[18];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[19];
+        
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[20];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[21];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[22];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[23];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[24];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+        
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[25];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[26];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+        
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[27];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[28];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[29];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
     }
 }
