@@ -19,82 +19,11 @@ public class inventory : MonoBehaviour
     public Sprite GunSprite;
     public Sprite PaperSprite;
     bool InventoryState = false;
-    string[] itemName = new string[16];
+    public string[] itemName = new string[16];
     public string[] itemDesc = new string[16];
     
     void Start()
     {
-        for (int i = 0; i<16; i++)
-        {
-            itemName[i] = "";
-            itemDesc[i] = "";
-            if(i == 0)
-            {
-                itemName[i] = "IDCard";
-                itemDesc[i] = "A card that can open some of the doors at Nova Lab";
-            }
-            if (i == 1)
-            {
-                itemName[i] = "Light";
-                itemDesc[i] = "A light worn on the lapel";
-            }
-            if (i == 2 && notes != null)
-            {
-                itemName[i] = "Artur's note";
-                itemDesc[i] = notes.noteTextEN1;
-            }
-            if (i == 3)
-            {
-                itemName[i] = "Empty Capsule";
-                itemDesc[i] = "An empty capsule.";
-            }
-            if (i == 4)
-            {
-                itemName[i] = "Energy Capsule";
-                itemDesc[i] = "A capsule that holds an unimaginable amount of energy, enough to power the city of Los Angeles for 12 years.";
-            }
-            if (i == 5)
-            {
-                itemName[i] = "Crowbar";
-                itemDesc[i] = "a crowbar you can use to open jammed doors.";
-            }
-            if (i == 6)
-            {
-                itemName[i] = "glock 17";
-                itemDesc[i] = "A Glock 17 taken from the security room. Only one bullet remains. There will be no second chance.";
-            }
-            if (i == 7 && notes != null)
-            {
-                itemName[i] = "Security Protokol";
-                itemDesc[i] = notes.noteTextEN2;
-            }
-            if (i == 8 && notes != null)
-            {
-                itemName[i] = "Bob's Note";
-                itemDesc[i] = notes.noteTextEN3;
-            }
-            if (i == 9 && notes != null)
-            {
-                itemName[i] = "Lara's Note";
-                itemDesc[i] = notes.noteTextEN4;
-            }
-            if (i == 10 && notes != null)
-            {
-                itemName[i] = "Aral's Note";
-                itemDesc[i] = notes.noteTextEN5;
-            }
-            if (i == 11 && notes != null)
-            {
-                itemName[i] = "Lara's Note?";
-                itemDesc[i] = notes.noteTextEN6;
-            }
-            if (i == 12 && notes != null)
-            {
-                itemName[i] = "Unknown Note";
-                itemDesc[i] = "Behind you!";
-            }
-        }
-
         for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)                    
         {
             Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");

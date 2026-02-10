@@ -8,6 +8,8 @@ public class Dialogs : MonoBehaviour
     public int scene = 1;
     public TextMeshProUGUI dialog;
     public Missions mis;
+    public inventory inv;
+    public ShowNotes sho;
     public BoxCollider seaCol;
     public StartEnergySmoke SES;
     public bool Laradia = false;
@@ -257,6 +259,172 @@ public class Dialogs : MonoBehaviour
         menuUI[27] = "KÜÇÜK";
         menuUI[28] = "ORTA";
         menuUI[29] = "BÜYÜK";
+
+
+        uıUI[0] = "Kilitli";
+        uıUI[1] = "Levye gerekli";
+        uıUI[2] = "Levye kullan";
+        uıUI[3] = "Sifreyi gir";
+        uıUI[4] = "Giris yap";
+        uıUI[5] = "Kiyafetini degistir";
+        uıUI[6] = "Asansoru cagir";
+        uıUI[7] = "Lutfen bekle";
+        uıUI[8] = "2. kat";
+        uıUI[9] = "Al";
+        uıUI[10] = "Kapsulu yerlestir";
+        uıUI[11] = "Bos kapsulun yok";
+        uıUI[12] = "ID kart gerekli";
+        uıUI[13] = "Once yaka fenerini al";
+        uıUI[14] = "Uyu";
+        uıUI[15] = "Tamir et";
+        uıUI[16] = "Tamir kiti gerekli";
+        uıUI[17] = "Devam etmeden once kıyafetini degistir";
+        uıUI[18] = "Arastir";
+        uıUI[19] = "Arastiriliyor...";
+        uıUI[20] = "Enerji kapsulunu yerlestir";
+        uıUI[21] = "Kabloyu tak";
+        uıUI[22] = "Butona bas";
+        uıUI[23] = "Ac";
+        uıUI[24] = "1. kat";
+        uıUI[25] = "Lara ile konus";
+        uıUI[26] = "Jeneratoru calistir";
+        uıUI[27] = "Elektrik yok";
+        uıUI[28] = "Feneri ac";
+        uıUI[29] = "Comelmek";
+        uıUI[30] = "Cikis";
+        uıUI[31] = "";
+        uıUI[32] = "";
+
+        if(mis != null)
+        {
+            mis.gameObject.GetComponent<Transform>().Find("Missions").Find("Missions header").gameObject.GetComponent<TextMeshProUGUI>().text = "Gorevler";
+            mis.missions[0] = "—Hangarda ID karti bulun";
+            mis.missions[1] = "—Konteyner binaya girin";
+            mis.missions[2] = "—Hangarda tamir kiti bulun";
+            mis.missions[3] = "—radyo kulesindeki arizayi onarin";
+            mis.missions[4] = "—lara'nin yanina donun";
+            mis.missions[5] = "—biraz uyuyun";
+            mis.missions[6] = "—yaka fenerini alin";
+            mis.missions[7] = "—lara ile sahilde bulusun";
+            mis.missions[8] = "—magaradaki laboratuvara girin";
+            mis.missions[9] = "—laboratuvar onlugunu giyin";
+            mis.missions[10] = "—enviro odasina gidin";
+            mis.missions[11] = "—6 enerji capsulunu alin";
+            mis.missions[12] = "—laboratuvarin 2. katina cikin";
+            mis.missions[13] = "—kabloyu baglayin";
+            mis.missions[14] = "—6 kapsulu yerlestirin";
+            mis.missions[15] = "—protokolu baslatin";
+            mis.missions[16] = "—laboratuvardan cikin";
+            mis.missions[17] = "—lara ile konusun.";
+            mis.missions[18] = "—Find the password for the enviro room.";
+            mis.missions[19] = "—Find the password for the enviro room.";
+            mis.missions[20] = "—Find the password for the enviro room.";
+        }
+
+
+        if(sho != null)
+        {
+        sho.noteText1 = 
+    @"    Deney 27 beklenenden daha erken bir sapma gosterdi. Kronometre dogru calisiyor, fakat gozlemci artik referans kabul edilemez. Zaman duzensizlesiyor.
+
+    Laboratuvarin ikinci seviyesinde manyetik alan duzensizlesti. Ozellikle izolasyon odasinda kalis suresi 4 dakikayi gecmemeli. Daha uzun maruz kalma durumunda hatirlanamayan bosluklar olusuyor.
+
+    Sisteme tekrar erismem gerekirse:
+    Kullanici adi: NOVA
+    Sifre: 1441
+
+    -Prof. Arthur";
+        sho.noteText2 = 
+    @"    Guvenlik Protokolu – Dahili Kullanım 
+
+    Bu silahlar acil durumlar icin guvenlik odasinda birakilmistir.
+Mermiler sinirlidir. Takviye yoktur. 
+
+    Zaman deneyleri sirasinda ortaya cikan anomaliler standart tehditler gibi davranmaz. Ates etmek her zaman cozum degildir; bazen durumu daha da kotulestirir.
+
+     Eger bu silahlardan her hangi birini almak icin bir nedeniniz varsa, protokol coktan ihlal edilmistir. Tek bir karar, birden fazla zamani etkileyebilir. 
+
+Dogru ani bekleyin. 
+Yanlis bir karar, yillara mal olabilir.
+
+     Sef Arastirmaci 
+     Lara
+";
+        sho.noteText3 = 
+    @"Profesor Arthur,
+
+Jenerator odasinda tuhaf bir durum var. Sistem calisiyor ama davranisi normal degil. Kisa sureli duraksamalar ve beklenmedik dalgalanmalar oluyor. Simdilik mudahale etmedim; yanlis bir hamlenin daha buyuk bir soruna yol acmasından endiseliyim.
+
+Kontrol etmenizin iyi olacagini dusunuyorum.
+
+— Jenerator Odasi Teknisyeni
+      Bob";
+        sho.noteText4 = 
+    @"Aral, 
+
+Isler planladigimiz gibi gitmedi. Deneyi durdurmaya calistim ama bir an icin kontrol benden cikti. Gurultu, Patlama… sonra her sey sessizlesti. Sana seslendim ama cevap vermedin.
+
+Iyiyim… sanirim. Ama burada kalmam guvenli degil. Bir sey beni takip ediyor. Onu tam goremiyorum. Onun ne oldugunu yada kim oldugunu bilmiyorum. Tek bildigim buradan uzaklasmam gerektigi. 
+
+Seni bu ise daha fazla bulastirmak istemedim. Beni merak edecegini biliyorum, hatta pesimden gelecegini de.
+
+ Lutfen dikkat";
+        sho.noteText5 = 
+    @"Sen bunu okuyorken ben coktan yok olup gitmis olabilirim. Laboratuvarda olanlar kontrol edilemeyen bir anin sonucu. O ana dair hatirladigim son seyler isiklar, alarmlar, ve hemen ardindan gelen o tuhaf sessizlik… Her sey orada basladi.
+
+Bazi dongulerin cikisi yoktur, bende onlardan birinin icindeyim. Fisiltilar duyuyorum. Bana 'Senin yuzunden!' diyorlar. Beni sadece oyaliyorlar mi yoksa bir sey mi anlatmaya calisiyorlar.
+
+Zaman burada bazen ileri bazen geri ilerliyor ama eninde sonunda basladigi noktaya geri geliyor. Ayni hatalar, ayni sonuclar. Acaba gecmis veya gelecek gercekten degistirilemez mi? Acele etmezsen sen de bu dongunun bir parcasi olursun.
+
+Hayat ileri dogru yasanir geriye dogru anlasilir.";
+        sho.noteText6 = 
+    @"Gelecekteki kendime,
+
+     Lara eger bu mektubu okuyorsan bilmeni isterimki Aral'i kurtarmakta basarisiz oldum. Gecmisteki kendimi oldurup onun yerine gecmem gerekti ama bosunaydi. Bu zaman dongusunu kiramadim ve Aral'i icinde bulundugu araftan kurtaramadim.
+
+     Senin kazayi olmadan engellemen gerekiyor. Bu beni oldurup yerime gecmen anlamina gelse bile bunu yapmalisin. Lutfen benim yaptigim hatalari yapma. Ne olursa olsun Aral'i kurtar ve ona yaptiklarindan sakin bahsetme. 
+
+     -Lara";
+        sho.noteText7 = "Arkanda!";
+        }
+
+
+        if(inv != null)
+        {
+            inv.itemName[0] = "ID Kart";
+            inv.itemDesc[0] = "Bu kart nova laboratuvarındaki bazi kapilari acar.";
+            inv.itemName[1] = "yaka feneri";
+            inv.itemDesc[1] = "yakaya takilan bir fener.";
+            inv.itemName[2] = "Arthur'un notu";
+            if(sho != null)
+            inv.itemDesc[2] = sho.noteText1;
+            inv.itemName[3] = "Bos kapsul";
+            inv.itemDesc[3] = "Dolduruldugunda enerji kapsulu olan boş bir kapsul.";
+            inv.itemName[4] = "enerji kapsulu";
+            inv.itemDesc[4] = "Hayal edilemeyecek miktarda enerji barindiran bir kapsul; Los Angeles sehrini 12 yil boyunca beslemeye yetecek kadar enerji barindirir.";
+            inv.itemName[5] = "levye";
+            inv.itemDesc[5] = "bu levye bazi kapilari acmak icin kullanilir";
+            inv.itemName[6] = "glock 17";
+            inv.itemDesc[6] = "Guvenlik odasindan alinan bir Glock 17. Sadece bir mermi kaldi. İkinci bir sans olmayacak.";
+            inv.itemName[7] = "guvenlik protokolu";
+            if(sho != null)
+            inv.itemDesc[7] = sho.noteText2;
+            inv.itemName[8] = "personel notu";
+            if(sho != null)
+            inv.itemDesc[8] = sho.noteText3;
+            inv.itemName[9] = "Lara'nin notu";
+            if(sho != null)
+            inv.itemDesc[9] = sho.noteText4;
+            inv.itemName[10] = "Aral'in notu?";
+            if(sho != null)
+            inv.itemDesc[10] = sho.noteText5;
+            inv.itemName[11] = "Lara'nin notu?";
+            if(sho != null)
+            inv.itemDesc[11] = sho.noteText6;
+            inv.itemName[12] = "bilinmeyen not";
+            if(sho != null)
+            inv.itemDesc[12] = sho.noteText7;
+        }
     }
     void LoadEnglishDialogs()      /////////ingilizce dialoglar buraya eklenecek
     {
@@ -463,6 +631,172 @@ public class Dialogs : MonoBehaviour
         menuUI[27] = "SMALL";
         menuUI[28] = "MEDIUM";
         menuUI[29] = "BIG";
+
+        
+        uıUI[0] = "Locked";
+        uıUI[1] = "need crowbar";
+        uıUI[2] = "to use crowbar";
+        uıUI[3] = "to enter";
+        uıUI[4] = "to Log-in";
+        uıUI[5] = "to change clothes";
+        uıUI[6] = "to call elevator";
+        uıUI[7] = "Please Wait...";
+        uıUI[8] = "to floor 2";
+        uıUI[9] = "to Take";
+        uıUI[10] = "to Place capsule";
+        uıUI[11] = "You dont have empty Capsule!";
+        uıUI[12] = "Need IDCard";
+        uıUI[13] = "Need to take lapel light";
+        uıUI[14] = "to sleep";
+        uıUI[15] = "to repair";
+        uıUI[16] = "need repairkit";
+        uıUI[17] = "Firstly, You have to wear lab coat.";
+        uıUI[18] = "to search";
+        uıUI[19] = "searching...";
+        uıUI[20] = "to place energy capsule";
+        uıUI[21] = "to connect cable";
+        uıUI[22] = "to press button";
+        uıUI[23] = "to open";
+        uıUI[24] = "to floor 1";
+        uıUI[25] = "to speak Lara";
+        uıUI[26] = "to start generator";
+        uıUI[27] = "no electric";
+        uıUI[28] = "to open light";
+        uıUI[29] = "to crouch";
+        uıUI[30] = "to exit";
+
+        
+        if(mis != null)
+        {
+            mis.gameObject.GetComponent<Transform>().Find("Missions").Find("Missions header").gameObject.GetComponent<TextMeshProUGUI>().text = "Missions";
+            mis.missions[0] = "—Find the ID card in the hangar";
+            mis.missions[1] = "—Go to shelter";
+            mis.missions[2] = "—Find the repair kit in the hangar";
+            mis.missions[3] = "—fix the electric box on the radio tower";
+            mis.missions[4] = "—speak with lara";
+            mis.missions[5] = "—go to sleep in bed";
+            mis.missions[6] = "—take lapel light";
+            mis.missions[7] = "—meet with lara in the beach";
+            mis.missions[8] = "—open the door in the cave";
+            mis.missions[9] = "—put on your lab coat";
+            mis.missions[10] = "—Go to enviro lab";
+            mis.missions[11] = "—take 6 energy capsules";
+            mis.missions[12] = "—go up to the 2nd floor";
+            mis.missions[13] = "—connect the cable";
+            mis.missions[14] = "—place 6 capsules";
+            mis.missions[15] = "—Initiate the protocol";
+            mis.missions[16] = "—Exit Lab.";
+            mis.missions[17] = "—Speak with lara.";
+            mis.missions[18] = "—Find the password for the enviro room.";
+            mis.missions[19] = "—Find the password for the enviro room.";
+            mis.missions[20] = "—Find the password for the enviro room.";
+        }
+
+        if(sho != null)
+        {
+        sho.noteText1 =
+    @"    Experiment 27 showed an earlier deviation than expected. The chronometer is functioning correctly, but the observer can no longer be considered a reliable reference. Time is becoming unstable.
+
+    Magnetic instability has been detected on the second level of the laboratory. Time spent in the isolation chamber should not exceed four minutes. Prolonged exposure results in memory gaps that cannot be recalled.
+
+    If I need to access the system again:
+    Username: NOVA
+    Password: 1441
+
+    - Prof. Arthur";
+        sho.noteText2 =
+    @"Security Protocol – Internal Use Only
+
+    These weapons have been placed in the security room for emergency situations. Ammunition is limited. No resupply is available.
+
+    Anomalies that emerge during temporal experiments do not behave like standard threats. Firing a weapon is not always a solution; in some cases, it may make the situation worse.
+
+    If you have a reason to take any of these weapons, the protocol has already been breached. A single decision can affect multiple timelines.
+
+Wait for the right moment.
+One wrong decision can cost years.
+
+     Chief Researcher
+     Lara  ";
+        sho.noteText3 =
+    @"Professor Arthur,
+
+There is something unusual in the generator room. The system is running, but it does not feel stable. There are brief pauses and unexpected fluctuations. I have not intervened yet, as a wrong move might cause a bigger problem.
+
+I believe it would be best if you take a look.
+
+— Generator Room Technician
+      Bob";
+        sho.noteText4 =
+    @"Aral,
+
+Things didn’t go the way we planned. I tried to stop the experiment, but for a moment, I lost control. The noise, the light… and then everything went quiet. I called out to you, but you didn’t answer.
+
+I’m okay… I think. But it isn’t safe for me to stay here. Something is following me. I can’t see it clearly. I don’t know what it is, or who it is. All I know is that I need to get away from here.
+
+ That’s all I could do. I didn’t want to pull you any deeper into this. I know you’ll worry about me, and I know you’ll come looking for me.
+
+Please, be car";
+        sho.noteText5 =
+    @"While you are reading this, I may already be gone. What happened in the laboratory was the result of an uncontrollable moment. The last things I remember from that moment are the lights, the alarms, and the strange silence that followed immediately after… That is where everything began.
+
+Some loops have no exit, and I am trapped inside one of them. I hear whispers. They say, “Because of you.” I can’t tell whether they are trying to distract me or if they are trying to tell me something.
+
+Time here sometimes moves forward, sometimes backward, but in the end it always returns to where it began. The same mistakes, the same outcomes. Is it possible that the past or the future cannot truly be changed? If you do not rush, you too will become part of this loop.
+
+Life is lived forward, but understood backward.";
+        sho.noteText6 =
+    @"To my future self,
+
+Lara, if you are reading this letter, you must know that I failed to save Aral.
+I had to kill my past self and take her place, but it was in vain.
+I could not break this time loop, and I could not free Aral from the limbo he is trapped in.
+
+You must prevent the accident before it happens.
+Even if it means killing me and taking my place, you have to do it.
+Please do not make the same mistakes I did. No matter what, save Aral and never tell him what you did.
+
+— Lara";
+        sho.noteText7 = "Behind you!";
+        }
+
+        
+        if(inv != null)
+        {
+            inv.itemName[0] = "ID Card";
+            inv.itemDesc[0] = "A card that can open some of the doors at Nova Lab.";
+            inv.itemName[1] = "Light";
+            inv.itemDesc[1] = "A light worn on the lapel.";
+            inv.itemName[2] = "Artur's note";
+            if(sho != null)
+            inv.itemDesc[2] = sho.noteText1;
+            inv.itemName[3] = "Empty Capsule";
+            inv.itemDesc[3] = "An empty capsule that becomes an energy capsule when filled.";
+            inv.itemName[4] = "Energy Capsule";
+            inv.itemDesc[4] = "A capsule that holds an unimaginable amount of energy, enough to power the city of Los Angeles for 12 years.";
+            inv.itemName[5] = "Crowbar";
+            inv.itemDesc[5] = "a crowbar you can use to open jammed doors.";
+            inv.itemName[6] = "glock 17";
+            inv.itemDesc[6] = "A Glock 17 taken from the security room. Only one bullet remains. There will be no second chance.";
+            inv.itemName[7] = "Security Protokol";
+            if(sho != null)
+            inv.itemDesc[7] = sho.noteText2;
+            inv.itemName[8] = "Bob's Note";
+            if(sho != null)
+            inv.itemDesc[8] = sho.noteText3;
+            inv.itemName[9] = "Lara's Note";
+            if(sho != null)
+            inv.itemDesc[9] = sho.noteText4;
+            inv.itemName[10] = "Aral's Note?";
+            if(sho != null)
+            inv.itemDesc[10] = sho.noteText5;
+            inv.itemName[11] = "Lara's Note?";
+            if(sho != null)
+            inv.itemDesc[11] = sho.noteText6;
+            inv.itemName[12] = "Unknown Note";
+            if(sho != null)
+            inv.itemDesc[12] = sho.noteText7;
+        }
     }
 
     void PlayDialog(IEnumerator dialogRoutine)
