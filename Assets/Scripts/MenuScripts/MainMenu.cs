@@ -104,7 +104,17 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
+        if (!SaveManager.Instance.HasSave())
+            return;
 
+        StartCoroutine(LoadSavedGame());
+    }
+
+    IEnumerator LoadSavedGame()
+    {
+        yield return new WaitForSeconds(0.5f);
+
+        SceneManager.LoadScene(SaveManager.Instance.LoadGame().sceneIndex);
     }
 
     public void Settings()
