@@ -3198,8 +3198,6 @@ GameObject:
   - component: {fileID: 320894592}
   - component: {fileID: 320894591}
   - component: {fileID: 320894597}
-  - component: {fileID: 320894598}
-  - component: {fileID: 320894599}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -3495,6 +3493,8 @@ MonoBehaviour:
   scene: 0
   dialog: {fileID: 1735759092}
   mis: {fileID: 0}
+  inv: {fileID: 0}
+  sho: {fileID: 0}
   seaCol: {fileID: 0}
   SES: {fileID: 0}
   Laradia: 0
@@ -4001,31 +4001,6 @@ MonoBehaviour:
   - 
   - 
   - 
---- !u!114 &320894598
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320894590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 326523f9a5e26ad468e448187f55d36f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &320894599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 320894590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a194381383b6204db6cf439cf20e2d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkpointID: 
 --- !u!1 &321560277
 GameObject:
   m_ObjectHideFlags: 0
@@ -6362,6 +6337,7 @@ GameObject:
   - component: {fileID: 580572799}
   - component: {fileID: 580572800}
   - component: {fileID: 580572801}
+  - component: {fileID: 580572802}
   m_Layer: 0
   m_Name: GeneralSettings
   m_TagString: Untagged
@@ -6454,6 +6430,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1e7db167f8e1f974e9f6436b44c0c39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &580572802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580572794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 326523f9a5e26ad468e448187f55d36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &588460582
@@ -20202,7 +20190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "PARANORMAL ECL\u0130PSE"
+  m_text: PARANORMAL ECLIPSE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}

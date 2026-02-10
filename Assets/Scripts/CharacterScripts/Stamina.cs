@@ -70,7 +70,7 @@ public class Stamina : MonoBehaviour
             if (stamina <= 0f)
                 fpsController.sprintSpeed = fpsController.walkSpeed;
             else
-                fpsController.sprintSpeed = 5f;
+                fpsController.sprintSpeed = 50f;
 
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();
