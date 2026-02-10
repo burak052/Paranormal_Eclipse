@@ -34,7 +34,6 @@ public class inventory : MonoBehaviour
             }
         }
 
-        inventoryData.ownedItemIDs.Clear();                                     ///////steame yüklemeden önce bu satırı kaldır 
         for (int i = 1; i <= inventoryData.ownedItemIDs.Count; i++)
         {
             Transform slotImage = playerInventory.transform.Find($"Image/slot{i}/Image");

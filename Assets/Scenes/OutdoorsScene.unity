@@ -42282,6 +42282,8 @@ MonoBehaviour:
   scene: 1
   dialog: {fileID: 1123506124}
   mis: {fileID: 1406290022}
+  inv: {fileID: 2087430272}
+  sho: {fileID: 0}
   seaCol: {fileID: 0}
   SES: {fileID: 0}
   Laradia: 0
@@ -51716,6 +51718,57 @@ MonoBehaviour:
   isfinal: 1
   missionCount: 0
   missionText: {fileID: 1672259112}
+  missions:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!82 &1406290023
 AudioSource:
   m_ObjectHideFlags: 0
@@ -77029,6 +77082,23 @@ MonoBehaviour:
   CrowbarSprite: {fileID: 21300000, guid: 5ed7e34ee530ad545b13e04a1c5d09f4, type: 3}
   GunSprite: {fileID: 21300000, guid: dade86179985c234084a2e79655cc702, type: 3}
   PaperSprite: {fileID: 21300000, guid: fad1612eec1611d42a702f68a81a7852, type: 3}
+  itemName:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   itemDesc:
   - 
   - 

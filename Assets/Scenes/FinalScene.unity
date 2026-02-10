@@ -4952,10 +4952,11 @@ MonoBehaviour:
   scene: 3
   dialog: {fileID: 161451331}
   mis: {fileID: 1406290022}
+  inv: {fileID: 2087430272}
+  sho: {fileID: 0}
   seaCol: {fileID: 0}
   SES: {fileID: 0}
   Laradia: 0
-  Language: turkce
   dias:
   - 
   - 
@@ -5157,6 +5158,208 @@ MonoBehaviour:
   - 
   - 
   - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  menuUI:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  "u\u0131UI":
   - 
   - 
   - 
@@ -77344,6 +77547,57 @@ MonoBehaviour:
   isfinal: 0
   missionCount: 17
   missionText: {fileID: 1672259112}
+  missions:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!82 &1406290023
 AudioSource:
   m_ObjectHideFlags: 0
@@ -104673,7 +104927,7 @@ MonoBehaviour:
   SES: {fileID: 0}
   missions: {fileID: 1406290022}
   Menu: {fileID: 2087430275}
-  dialog: {fileID: 0}
+  dialog: {fileID: 161451330}
   haveRepairKit: 0
   haveheadlight: 0
   accident: 0
@@ -104681,7 +104935,7 @@ MonoBehaviour:
   LSprite: {fileID: 21300000, guid: a9e5b15e3d3f7114db5b7998d62909d2, type: 3}
   ESprite: {fileID: 21300000, guid: af177b9524b43fd4591502373eff93c8, type: 3}
   redxSprite: {fileID: 21300000, guid: 49e3d8dca23bf0941a905c5857f7aab4, type: 3}
-  CTRLSprite: {fileID: 0}
+  CTRLSprite: {fileID: 21300000, guid: 4236507b855f5794c912fa3439a5ef87, type: 3}
 --- !u!114 &2087430266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104861,6 +105115,23 @@ MonoBehaviour:
   CrowbarSprite: {fileID: 21300000, guid: 5ed7e34ee530ad545b13e04a1c5d09f4, type: 3}
   GunSprite: {fileID: 21300000, guid: dade86179985c234084a2e79655cc702, type: 3}
   PaperSprite: {fileID: 21300000, guid: fad1612eec1611d42a702f68a81a7852, type: 3}
+  itemName:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   itemDesc:
   - 
   - 
