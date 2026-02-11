@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    public string checkpointID;
+    public int checkpointID;
     bool activated = false;
 
     private void OnTriggerEnter(Collider other)
@@ -10,14 +10,11 @@ public class Checkpoint : MonoBehaviour
         if (activated) return;
         if (!other.CompareTag("Player")) return;
 
-        SaveManager.Instance.SaveGame(other.transform);
-
-        if (SaveManager.Instance.CurrentSaveData != null)
-            SaveManager.Instance.CurrentSaveData.checkpointID = checkpointID;
+        SaveManager.Instance.SaveGame(other.transform, checkpointID);
 
         activated = true;
 
-        Debug.Log("Checkpoint kaydedildi: " + checkpointID);
-
+        Debug.Log("Checkpoint kaydedildi: " + SaveManager.Instance.CurrentSaveData.checkpointID);
+        gameObject.SetActive(false);
     }
 }

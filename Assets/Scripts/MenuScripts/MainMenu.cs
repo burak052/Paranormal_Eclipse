@@ -38,8 +38,6 @@ public class MainMenu : MonoBehaviour
     public Dialogs dia;
     Coroutine creditscoroutine;
     Resolution[] resolutions;
-    
-    public int loadInt;
 
     void Start()
     {
@@ -57,8 +55,7 @@ public class MainMenu : MonoBehaviour
 
         //load
         menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = false;
-        loadInt = PlayerPrefs.GetInt("AutoSave");
-        if(loadInt > 0)
+        if(SaveManager.Instance.HasSave())
         {
             menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = true;
         }
@@ -114,15 +111,19 @@ public class MainMenu : MonoBehaviour
 
     public void LoadGame()
     {
-        if (!SaveManager.Instance.HasSave())
-            return;
-
         StartCoroutine(LoadSavedGame());
     }
 
     IEnumerator LoadSavedGame()
     {
-        yield return new WaitForSeconds(0.5f);
+        float t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
 
         SceneManager.LoadScene(SaveManager.Instance.LoadGame().sceneIndex);
     }

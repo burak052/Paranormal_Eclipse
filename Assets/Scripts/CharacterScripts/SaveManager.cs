@@ -8,6 +8,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance;
 
     public SaveData CurrentSaveData { get; private set; }
+    public bool IsLoadingFromSave { get; private set; }
 
     string savePath;
 
@@ -28,14 +29,15 @@ public class SaveManager : MonoBehaviour
     }
 
     // OYUNU KAYDET
-    public void SaveGame(Transform playerTransform)
+    public void SaveGame(Transform playerTransform, int checkID)
     {
         CurrentSaveData = new SaveData
         {
             sceneIndex = SceneManager.GetActiveScene().buildIndex,
             posX = playerTransform.position.x,
             posY = playerTransform.position.y,
-            posZ = playerTransform.position.z
+            posZ = playerTransform.position.z,
+            checkpointID = checkID
         };
 
         File.WriteAllText(savePath, JsonUtility.ToJson(CurrentSaveData, true));
@@ -48,10 +50,11 @@ public class SaveManager : MonoBehaviour
         return File.Exists(savePath);
     }
 
-    // OYUNU YÜKLE
+    // OYUNU Yï¿½KLE
     public SaveData LoadGame()
     {
         if (!HasSave()) return null;
+        IsLoadingFromSave = true;
 
         string json = File.ReadAllText(savePath);
         return JsonUtility.FromJson<SaveData>(json);
@@ -61,7 +64,7 @@ public class SaveManager : MonoBehaviour
     {
         public int sceneIndex;
         public float posX, posY, posZ;
-        public string checkpointID;
+        public int checkpointID;
     }
 
 
