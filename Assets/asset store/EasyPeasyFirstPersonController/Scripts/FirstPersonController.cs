@@ -73,16 +73,6 @@ namespace EasyPeasyFirstPersonController
 
         public float CurrentCameraHeight => isCrouching || isSliding ? crouchCameraHeight : originalCameraParentHeight;
 
-        void Start()
-        {
-            if (SaveManager.Instance == null) return;
-
-            if (SaveManager.Instance.LoadGame() == null) return;
-
-            transform.position = new Vector3(SaveManager.Instance.LoadGame().posX, SaveManager.Instance.LoadGame().posY, SaveManager.Instance.LoadGame().posZ);
-        }
-
-
         private void Awake()
         {
             characterController = GetComponent<CharacterController>();

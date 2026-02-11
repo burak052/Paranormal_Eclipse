@@ -38,6 +38,8 @@ public class MainMenu : MonoBehaviour
     public Dialogs dia;
     Coroutine creditscoroutine;
     Resolution[] resolutions;
+    
+    public int loadInt;
 
     void Start()
     {
@@ -52,6 +54,14 @@ public class MainMenu : MonoBehaviour
             languageDropdown.value = 1;
 
         languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
+
+        //load
+        menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = false;
+        loadInt = PlayerPrefs.GetInt("AutoSave");
+        if(loadInt > 0)
+        {
+            menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = true;
+        }
     }
 
     void Awake()
