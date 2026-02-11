@@ -18,5 +18,6 @@ public class Checkpoint : MonoBehaviour
         activated = true;
 
         Debug.Log("Checkpoint kaydedildi: " + checkpointID);
+
     }
 }
