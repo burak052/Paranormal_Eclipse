@@ -3265,7 +3265,6 @@ MonoBehaviour:
   menumusic: {fileID: 1655108232}
   content: {fileID: 1833353980}
   dia: {fileID: 320894597}
-  loadInt: 0
 --- !u!114 &320894593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4262,7 +4261,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &324152346
 MonoBehaviour:
   m_ObjectHideFlags: 0

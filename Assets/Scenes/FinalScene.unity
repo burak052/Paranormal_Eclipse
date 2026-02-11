@@ -5999,7 +5999,7 @@ GameObject:
   - component: {fileID: 174591115}
   - component: {fileID: 174591114}
   m_Layer: 0
-  m_Name: wr
+  m_Name: checkpoint11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6048,7 +6048,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a194381383b6204db6cf439cf20e2d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkpointID: 
+  checkpointID: 11
 --- !u!65 &174591116
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -105123,6 +105123,7 @@ MonoBehaviour:
   disableFloor1: {fileID: 1660428704}
   pressEUI: {fileID: 1855603163}
   spotlight: {fileID: 45585799}
+  checkpoint2: {fileID: 0}
   playerMovement: {fileID: 991071736}
   playeranim: {fileID: 991071735}
   Callfloor: {fileID: 0}
@@ -105143,10 +105144,24 @@ MonoBehaviour:
   missions: {fileID: 1406290022}
   Menu: {fileID: 2087430275}
   dialog: {fileID: 161451330}
+  isbusy: 0
+  HaveCard: 0
+  inkeypad: 0
   haveRepairKit: 0
   haveheadlight: 0
+  havesleep: 0
+  firsttimeopen: 1
+  takelight: 0
+  issearching: 0
+  capsuleAnim: 1
+  callElevator: 1
+  inFloor2: 0
+  levye: 0
+  ispressE: 0
   accident: 0
   ctrlshow: 0
+  capsuleCount: 0
+  EnergyCapsuleCount: 0
   LSprite: {fileID: 21300000, guid: a9e5b15e3d3f7114db5b7998d62909d2, type: 3}
   ESprite: {fileID: 21300000, guid: af177b9524b43fd4591502373eff93c8, type: 3}
   redxSprite: {fileID: 21300000, guid: 49e3d8dca23bf0941a905c5857f7aab4, type: 3}

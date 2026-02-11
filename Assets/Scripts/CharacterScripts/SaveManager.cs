@@ -1,6 +1,8 @@
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 using EasyPeasyFirstPersonController;
 
 public class SaveManager : MonoBehaviour
@@ -8,7 +10,7 @@ public class SaveManager : MonoBehaviour
     public static SaveManager Instance;
 
     public SaveData CurrentSaveData { get; private set; }
-    public bool IsLoadingFromSave { get; private set; }
+    public bool IsLoadingFromSave { get; set; }
 
     string savePath;
 
@@ -29,7 +31,7 @@ public class SaveManager : MonoBehaviour
     }
 
     // OYUNU KAYDET
-    public void SaveGame(Transform playerTransform, int checkID)
+    public void SaveGame(Transform playerTransform, int checkID, List<int> owned, bool gen = false)
     {
         CurrentSaveData = new SaveData
         {
@@ -37,7 +39,9 @@ public class SaveManager : MonoBehaviour
             posX = playerTransform.position.x,
             posY = playerTransform.position.y,
             posZ = playerTransform.position.z,
-            checkpointID = checkID
+            checkpointID = checkID,
+            ownedItemIDs = owned,
+            generator = gen
         };
 
         File.WriteAllText(savePath, JsonUtility.ToJson(CurrentSaveData, true));
@@ -57,6 +61,7 @@ public class SaveManager : MonoBehaviour
         IsLoadingFromSave = true;
 
         string json = File.ReadAllText(savePath);
+        CurrentSaveData = JsonUtility.FromJson<SaveData>(json);
         return JsonUtility.FromJson<SaveData>(json);
     }
    
@@ -65,6 +70,8 @@ public class SaveManager : MonoBehaviour
         public int sceneIndex;
         public float posX, posY, posZ;
         public int checkpointID;
+        public List<int> ownedItemIDs;
+        public bool generator;
     }
 
 

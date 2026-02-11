@@ -22,7 +22,7 @@ public class inventory : MonoBehaviour
     public string[] itemName = new string[16];
     public string[] itemDesc = new string[16];
     
-    void Start()
+    void OnEnable()
     {
         for (int i = inventoryData.ownedItemIDs.Count+1; i <= 16; i++)                    
         {
@@ -51,6 +51,7 @@ public class inventory : MonoBehaviour
                 slotImage.gameObject.GetComponent<Image>().sprite = CrowbarSprite;
             else if (inventoryData.ownedItemIDs[i-1] == 6)
                 slotImage.gameObject.GetComponent<Image>().sprite = GunSprite;
+            slotImage.gameObject.SetActive(true);
         }
 
         playerInventory.SetActive(false);

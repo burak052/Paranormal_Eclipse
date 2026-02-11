@@ -238,4 +238,29 @@ public class ActiveBlackScreen : MonoBehaviour
 
         blackScreen.gameObject.SetActive(false);
     }
+
+    public void DisBlack()
+    {
+      StartCoroutine(StartDisBlack());
+    }
+
+    IEnumerator StartDisBlack()
+    {
+        blackScreen.color = new Color(0, 0, 0, 0f);
+        
+        float t = 0f;
+        blackScreen.gameObject.SetActive(true);
+        blackScreen.color = new Color(0, 0, 0, 1f);
+        yield return new WaitForSeconds(1f);
+        t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false);
+    }
 }

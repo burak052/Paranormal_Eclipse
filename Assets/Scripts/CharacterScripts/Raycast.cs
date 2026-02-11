@@ -17,6 +17,7 @@ public class Raycast : MonoBehaviour
     public GameObject disableFloor1;
     public GameObject pressEUI;
     public GameObject spotlight;
+    public GameObject checkpoint2;
     private Animator currentDoorAnimator;
     private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
@@ -40,24 +41,25 @@ public class Raycast : MonoBehaviour
     public Missions missions;
     public ESCMenu Menu;
     public Dialogs dialog;
-    private bool isbusy = false;
-    private bool HaveCard = false;
-    private bool inkeypad = false;
+    public bool isbusy = false;
+    public bool HaveCard = false;
+    public bool inkeypad = false;
     public bool haveRepairKit = false;
     public bool haveheadlight = false;
-    private bool havesleep = false;
-    private bool firsttimeopen = true;
-    private bool takelight = false;
-    private bool issearching = false;
-    private bool capsuleAnim = true;
-    private bool callElevator = true;
-    private bool inFloor2 = false;
-    private bool levye = false;
-    private bool ispressE = false;
+    public bool havesleep = false;
+    public bool firsttimeopen = true;
+    public bool takelight = false;
+    public bool issearching = false;
+    public bool capsuleAnim = true;
+    public bool callElevator = true;
+    public bool inFloor2 = false;
+    public bool levye = false;
+    public bool ispressE = false;
     public bool accident = false;
     public bool ctrlshow = false;
-    private int capsuleCount = 0;
-    private int EnergyCapsuleCount = 0;
+    public bool havegun = false;
+    public int capsuleCount = 0;
+    public int EnergyCapsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
@@ -523,6 +525,7 @@ public class Raycast : MonoBehaviour
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
                         dialog.EventDia(4f, dialog.dias[18]);
+                        checkpoint2.SetActive(true);
                     }
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
@@ -588,6 +591,7 @@ public class Raycast : MonoBehaviour
                     if (hit.collider.CompareTag("Gun"))
                     {
                         dialog.EventDia(4f, dialog.dias[22]);
+                        havegun = true;
                     }
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
@@ -871,6 +875,11 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    if(!havegun)
+                    {
+                        dialog.EventDia(4f,dialog.dias[172]);
+                        return;
+                    }
                     hit.collider.gameObject.tag = "Untagged";
                     currentDoorAnimator.SetBool("Open", true);
                     currentDoorAnimator2.SetBool("Open", true);

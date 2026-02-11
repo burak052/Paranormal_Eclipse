@@ -228,6 +228,7 @@ public class Dialogs : MonoBehaviour
         dias[169] = "Unknown: Bu da ne? Bir gölgemi? Ama ışığın önünde kimse yokki...";
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara hayır!";
+        dias[172] = "Aral: Asagi inmeden once bir silah bulsam iyi olur.";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -600,6 +601,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[169] = "Unknown: What is this? A shadow of mine? But there’s no one in front of the light…";
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara, no!";
+        dias[172] = "Aral: I'd better find a weapon before I go down.";
 
         
         menuUI[1] = "START NEW GAME";

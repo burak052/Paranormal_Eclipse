@@ -116,6 +116,8 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator LoadSavedGame()
     {
+        blackScreen.color = new Color(0, 0, 0, 0f);
+        blackScreen.gameObject.SetActive(true);
         float t = 0f;
         while (t < fadeTime)
         {
@@ -124,7 +126,7 @@ public class MainMenu : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-
+        
         SceneManager.LoadScene(SaveManager.Instance.LoadGame().sceneIndex);
     }
 
