@@ -7,13 +7,6 @@ public class LoadScript : MonoBehaviour
     public GameObject checkpoint1;
     public GameObject checkpoint2;
     public GameObject checkpoint4;
-    public GameObject checkpoint5;
-    public GameObject checkpoint6;
-    public GameObject checkpoint7;
-    public GameObject checkpoint8;
-    public GameObject checkpoint9;
-    public GameObject checkpoint10;
-    public GameObject checkpoint11;
     public GameObject envirokeypad;
     public GameObject locker;
     public GameObject floor1;
@@ -32,6 +25,8 @@ public class LoadScript : MonoBehaviour
         if(SaveManager.Instance.IsLoadingFromSave)
         {
             inv.inventoryData.ownedItemIDs = SaveManager.Instance.CurrentSaveData.ownedItemIDs;
+            if(inv.inventoryData.ownedItemIDs.Contains(2) && locker != null)
+                locker.GetComponent<Transform>().parent.Find("hooker/clothes/Clothes").gameObject.tag = "Untagged";
             if (inv.inventoryData.ownedItemIDs.Contains(5) && GameObject.FindGameObjectWithTag("Levye") != null)
                 GameObject.FindGameObjectWithTag("Levye").SetActive(false);
             if (inv.inventoryData.ownedItemIDs.Contains(7) && GameObject.FindGameObjectWithTag("SecurityNote") != null)
@@ -60,17 +55,22 @@ public class LoadScript : MonoBehaviour
             );
             if(SaveManager.Instance.CurrentSaveData.checkpointID == 1)  //id cart
             {
+                dia.gameObject.SetActive(false);
+                dia.gameObject.SetActive(true);
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
                 mis.StartMis(0);
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 2) //radyo kulesi
             {
+                dia.gameObject.SetActive(false);
+                dia.gameObject.SetActive(true);
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
-                mis.missionCount = 2;
-                mis.StartMis(++mis.missionCount);
+                mis.missionCount = 3;
+                StartCoroutine(StartMissions(mis.missions[3],mis));
                 ra.haveRepairKit = true;
                 ra.HaveCard = true;
                 ra.firsttimeopen = false;
@@ -83,15 +83,21 @@ public class LoadScript : MonoBehaviour
                 GameObject.FindGameObjectWithTag("Lara").GetComponent<Transform>().position = new Vector3(1405.61f,5.15f,1666.51f);
                 GameObject.FindGameObjectWithTag("Lara").GetComponent<Transform>().rotation = Quaternion.Euler(0f, 182f, 0f);
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 3) //sahil gece
             {
+                dia.gameObject.SetActive(false);
+                dia.gameObject.SetActive(true);
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
-                mis.missionCount = 6;
-                mis.StartMis(++mis.missionCount);
+                mis.missionCount = 7;
+                StartCoroutine(StartMissions(mis.missions[7],mis));
                 ra.haveRepairKit = true;
                 ra.HaveCard = true;
+                ra.haveheadlight = true;
+                ra.havesleep = true;
+                ra.isload = true;
                 ra.firsttimeopen = false;
                 ra.sig.SignalOn();
                 ra.sig.transform.parent.Find("DialogTriggerCube").gameObject.SetActive(false);
@@ -112,64 +118,21 @@ public class LoadScript : MonoBehaviour
                 ABS.moonLight.SetActive(true);
                 ABS.forestSound.PlayOneShot(ABS.nightSound);
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 4) //lab girişi
             {
+                mis.missionCount = 9;
+                StartCoroutine(StartMissions(mis.missions[9],mis));
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 5) //enviro içi
+            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 5) //kaza sonrası
             {
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
-                GetComponent<PlayerAnimationController>().ChangeOutfit(); 
-                checkpoint4.SetActive(false);
-                dia.scene = 0;
-                dia.EventDia(0.1f,"");
-                inv.gameObject.SetActive(false);
-                inv.gameObject.SetActive(true);
-                mis.missionCount = 10;
-                mis.StartMis(++mis.missionCount);
-                envirokeypad.tag = "Untagged";
-                envirokeypad.GetComponent<Transform>().parent.Find("TrigSearchDia").gameObject.SetActive(false);
-                envirokeypad.GetComponent<Transform>().parent.Find("Up").GetComponent<Animator>().SetBool("Open", true);
-                envirokeypad.GetComponent<Transform>().parent.Find("Down").GetComponent<Animator>().SetBool("Open", true);
-                envirokeypad.GetComponent<Transform>().parent.Find("Down/Middle").GetComponent<Animator>().SetBool("Open", true);
-                GameObject.FindGameObjectWithTag("Security").GetComponent<BoxCollider>().enabled = false;
-                locker.GetComponent<Transform>().Find("Plane (3)").gameObject.tag = "Untagged";
-                locker.GetComponent<Transform>().Find("Plane (5)").gameObject.tag = "Untagged";
-                locker.GetComponent<Transform>().Find("Plane (6)").gameObject.tag = "Untagged";
-                locker.GetComponent<Transform>().Find("Plane (8)").gameObject.tag = "Untagged";
-                locker.GetComponent<Transform>().parent.Find("hooker/clothes/Clothes").gameObject.tag = "Untagged";
-                GameObject.FindGameObjectWithTag("Lara").GetComponent<Transform>().position = new Vector3(1341.33f,4.736f,1543.33f);
-                GameObject.FindGameObjectWithTag("Lara").GetComponent<Transform>().rotation = Quaternion.Euler(0f, -136.041f, 0f);
-                SaveManager.Instance.IsLoadingFromSave = false;
-            }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 6) //2.kat
-            {
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
-                GetComponent<PlayerAnimationController>().ChangeOutfit(); 
-                GameObject.FindGameObjectWithTag("Lara").GetComponent<LaraMovement>().elevator = false;
-                floor1.SetActive(false);
-                floor2.SetActive(true);
-                transform.Find("CameraParent").GetComponent<AudioSource>().Play();
-                transform.position = new Vector3(1344.84f,4.73f,1533.06f);
-                transform.rotation = Quaternion.Euler(0f, 45f, 0f);
-                dia.scene = 0;
-                dia.EventDia(0.1f,"");
-                inv.gameObject.SetActive(false);
-                inv.gameObject.SetActive(true);
-                mis.missionCount = 11;
-                mis.StartMis(++mis.missionCount);
-
-                SaveManager.Instance.IsLoadingFromSave = false;
-            }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 7) //kaza sonrası
-            {
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
+                dia.gameObject.SetActive(false);
+                dia.gameObject.SetActive(true);
                 GetComponent<PlayerAnimationController>().ChangeOutfit(); 
                 floor1.SetActive(false);
                 floor1crash.SetActive(false);
@@ -189,68 +152,48 @@ public class LoadScript : MonoBehaviour
                 dia.scene = 0;
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
-                mis.missionCount = 15;
-                mis.StartMis(++mis.missionCount);
+                mis.missionCount = 16;
+                StartCoroutine(StartMissions(mis.missions[16],mis));
                 GetComponent<LabMovement>().ExplosionAfter();
                 GameObject.FindGameObjectWithTag("Lara").SetActive(false);
 
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 8) //levye odası
+            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 6) // 1. kat kaza
             {
+                dia.gameObject.SetActive(false);
+                dia.gameObject.SetActive(true);
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
                 GetComponent<PlayerAnimationController>().ChangeOutfit(); 
                 floor1.SetActive(false);
-                floor1crash.SetActive(false);
-                floor2.SetActive(true);
-                floor2.GetComponent<Transform>().Find("before crash").gameObject.SetActive(false);
-                floor2.GetComponent<Transform>().Find("after crash").gameObject.SetActive(true);
-                floor2.GetComponent<Transform>().Find("effects/crash test/vfx_Flames_01").gameObject.SetActive(true);
-                floor2.GetComponent<Transform>().Find("effects/crash test/flame_box").gameObject.SetActive(true);
-                floor2.GetComponent<Transform>().Find("effects/crash test/Flamethrower").gameObject.SetActive(true);
-                floor2.GetComponent<Transform>().Find("effects/crash test/Flamethrower (1)").gameObject.SetActive(true);
-                floor2.GetComponent<Transform>().Find("effects/crash test").gameObject.GetComponent<ExplosionTest>().triangle.DisableScreen();
-                floor2.GetComponent<Transform>().Find("effects/crash test").gameObject.GetComponent<ExplosionTest>().door.SetBool("Open",false);
-                elevator.SetActive(false);
-                elevatorcrash.SetActive(true);
-                ra.levye = true;
+                floor1crash.SetActive(true);
+                floor2.SetActive(false);
+                mis.missionCount = 16;
+                StartCoroutine(StartMissions(mis.missions[16],mis));
 
+                GameObject.FindGameObjectWithTag("Lara").SetActive(false);
                 SaveManager.Instance.IsLoadingFromSave = false;
+                ABS.DisBlack();
             }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 9) //siah odası
+            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 7) // final
             {
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
-                GetComponent<PlayerAnimationController>().ChangeOutfit(); 
+                dia.EventDia(3f, dia.dias[136], 6f);
 
                 SaveManager.Instance.IsLoadingFromSave = false;
             }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 10) // 1. kat kaza
-            {
-                inv.gameObject.SetActive(false);
-                inv.gameObject.SetActive(true);
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
-                GetComponent<PlayerAnimationController>().ChangeOutfit(); 
-
-                SaveManager.Instance.IsLoadingFromSave = false;
-            }
-            else if(SaveManager.Instance.CurrentSaveData.checkpointID == 11) // final
-            {
-                inv.gameObject.SetActive(false);
-                inv.gameObject.SetActive(true);
-                transform.Find("aral_lab").gameObject.SetActive(true);
-                transform.Find("aral.v1").gameObject.SetActive(false);
-                GetComponent<PlayerAnimationController>().ChangeOutfit(); 
-
-                SaveManager.Instance.IsLoadingFromSave = false;
-            }
-            ABS.DisBlack();
         }
+    }    
+    IEnumerator StartMissions(string s, Missions mis)
+    {
+        yield return new WaitForSeconds(3f);
+        mis.missionText.text = s;
+        mis.gameObject.GetComponents<AudioSource>()[1].Play();
+        mis.gameObject.transform.Find("Missions").gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        mis.gameObject.transform.Find("Missions").gameObject.SetActive(false);
     }
 }

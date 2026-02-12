@@ -13,7 +13,9 @@ public class LaraMovement : MonoBehaviour
         transform.position = new Vector3(1471.97f,2.13f,1788.94f);
         transform.rotation = Quaternion.Euler(0f,25f,0f);
         cube.SetActive(true);
-        cube.transform.parent.Find("Cube (1)").gameObject.SetActive(true);
+        Transform cube1 = cube.transform.parent.Find("Cube (1)");
+        if(cube1 != null)
+            cube.transform.parent.Find("Cube (1)").gameObject.SetActive(true);
     }
     public void LaraLocker()
     {

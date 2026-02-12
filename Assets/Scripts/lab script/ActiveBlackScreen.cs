@@ -246,8 +246,6 @@ public class ActiveBlackScreen : MonoBehaviour
 
     IEnumerator StartDisBlack()
     {
-        blackScreen.color = new Color(0, 0, 0, 0f);
-        
         float t = 0f;
         blackScreen.gameObject.SetActive(true);
         blackScreen.color = new Color(0, 0, 0, 1f);

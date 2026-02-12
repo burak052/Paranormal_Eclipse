@@ -58,6 +58,7 @@ public class Raycast : MonoBehaviour
     public bool accident = false;
     public bool ctrlshow = false;
     public bool havegun = false;
+    public bool isload = false;
     public int capsuleCount = 0;
     public int EnergyCapsuleCount = 0;
     public Sprite LSprite;
@@ -632,7 +633,7 @@ public class Raycast : MonoBehaviour
                     {
                         currentDoorAnimator.SetTrigger("Open");
                         repairt.ChangeTag();
-                        if(havesleep && horrorSoundOutdoor != null)
+                        if(havesleep && horrorSoundOutdoor != null && !isload)
                         {
                             horrorSoundOutdoor.Play();
                             dialog.EventDia(3f, dialog.dias[34], 1.5f);

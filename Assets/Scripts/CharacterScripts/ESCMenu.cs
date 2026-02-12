@@ -16,6 +16,7 @@ public class ESCMenu : MonoBehaviour
     void Start()
     {
         menu = transform.Find("Canvas").Find("Menu");
+        menu.gameObject.SetActive(true);
     }
 
     void Update()
@@ -77,7 +78,7 @@ public class ESCMenu : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Uygulama kapatýlýyor...");
+        Debug.Log("Uygulama kapatï¿½lï¿½yor...");
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
