@@ -34,6 +34,7 @@ public class SaveManager : MonoBehaviour
         savePath5 = Application.persistentDataPath + "/save5.json";
         savePath6 = Application.persistentDataPath + "/save6.json";
         savePath7 = Application.persistentDataPath + "/save7.json";
+        Debug.Log(Application.persistentDataPath);
     }
 
     // OYUNU KAYDET
