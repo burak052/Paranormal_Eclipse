@@ -7,7 +7,7 @@ public class GlobalHeadBobbingManager : MonoBehaviour
     public static GlobalHeadBobbingManager Instance;
 
     const string HeadBobPrefKey = "HEAD_BOB_ENABLED";
-    // 1 = Açýk, 0 = Kapalý
+    // 1 = Aï¿½ï¿½k, 0 = Kapalï¿½
 
     void Awake()
     {
@@ -43,7 +43,7 @@ public class GlobalHeadBobbingManager : MonoBehaviour
 
     void ApplySavedHeadBob()
     {
-        int enabled = PlayerPrefs.GetInt(HeadBobPrefKey, 1); // default AÇIK
+        int enabled = PlayerPrefs.GetInt(HeadBobPrefKey, 1); // default Aï¿½IK
         ApplyHeadBob(enabled);
     }
 
@@ -54,11 +54,10 @@ public class GlobalHeadBobbingManager : MonoBehaviour
 
         if (!controller)
         {
-            Debug.LogWarning("FirstPersonController bulunamadý");
             return;
         }
 
-        // EasyPeasyFirstPersonController içindeki deðiþken
+        // EasyPeasyFirstPersonController iï¿½indeki deï¿½iï¿½ken
         if (enabled == 1)
             controller.bobbingAmount = 0.05f;
         else

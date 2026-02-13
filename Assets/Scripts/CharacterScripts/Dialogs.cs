@@ -23,22 +23,7 @@ public class Dialogs : MonoBehaviour
 
     void OnEnable()
     {
-        currentLanguage = LanguageManager.CurrentLanguage;
-
-        if (currentLanguage == "turkce")
-            LoadTurkishDialogs();
-        if (currentLanguage == "english")
-            LoadEnglishDialogs();
-        if (currentLanguage == "deutsch")
-            LoadDeutschDialogs();
-        if (currentLanguage == "español")
-            LoadEspañolDialogs();
-        if (currentLanguage == "pусский")
-            LoadРусскийDialogs();
-        if (currentLanguage == "français")
-            LoadFrançaisDialogs();
-        if (currentLanguage == "italiano")
-            LoadItalianoDialogs();
+        LoadDias();
     }
 
     void Start()
@@ -62,6 +47,33 @@ public class Dialogs : MonoBehaviour
             else
                 dialog.color = new Color32(0xFF, 0xBD, 0xE5, 0xFF);
         }
+    }
+
+    public void LoadDias()
+    {
+        currentLanguage = LanguageManager.CurrentLanguage;
+
+        if (currentLanguage == "turkce")
+            LoadTurkishDialogs();
+        if (currentLanguage == "english")
+            LoadEnglishDialogs();
+        if (currentLanguage == "deutsch")
+            LoadDeutschDialogs();
+        if (currentLanguage == "español")
+            LoadEspañolDialogs();
+        if (currentLanguage == "pусский")
+            LoadРусскийDialogs();
+        if (currentLanguage == "français")
+            LoadFrançaisDialogs();
+        if (currentLanguage == "italiano")
+            LoadItalianoDialogs();
+
+        if(PlayerPrefs.GetInt("FONT_SIZE", 1) == 0)
+            dialog.fontSize = 20f;
+        if(PlayerPrefs.GetInt("FONT_SIZE", 1) == 1)
+            dialog.fontSize = 30f;
+        if(PlayerPrefs.GetInt("FONT_SIZE", 1) == 2)
+            dialog.fontSize = 40f;
     }
 
     void LoadTurkishDialogs()
@@ -271,6 +283,7 @@ public class Dialogs : MonoBehaviour
         menuUI[28] = "ORTA";
         menuUI[29] = "BÜYÜK";
         menuUI[30] = "OYUN YÜKLE";
+        menuUI[31] = "ANA MENÜ";
 
 
         uıUI[0] = "Kilitli";
@@ -645,6 +658,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         menuUI[28] = "MEDIUM";
         menuUI[29] = "BIG";
         menuUI[30] = "LOAD GAME";
+        menuUI[31] = "MAIN MANU";
 
         
         uıUI[0] = "Locked";
@@ -1019,6 +1033,7 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         menuUI[28] = "MITTEL";
         menuUI[29] = "GROSS";
         menuUI[30] = "SPIEL LADEN";
+        menuUI[31] = "HAUPTMENÜ";
 
 
 
@@ -1403,6 +1418,7 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         menuUI[28] = "MEDIO";
         menuUI[29] = "GRANDE";
         menuUI[30] = "CARGAR PARTIDA";
+        menuUI[31] = "MENÚ PRINCIPAL";
 
 
 
@@ -1790,6 +1806,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         menuUI[28] = "СРЕДНИЙ";
         menuUI[29] = "БОЛЬШОЙ";
         menuUI[30] = "ЗАГРУЗИТЬ ИГРУ";
+        menuUI[31] = "ГЛАВНОЕ МЕНЮ";
 
 
         uıUI[0] = "ЗАКРЫТО";
@@ -2166,6 +2183,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         menuUI[28] = "MOYEN";
         menuUI[29] = "GRAND";
         menuUI[30] = "CHARGER LA PARTIE";
+        menuUI[31] = "MENU PRINCIPAL";
 
 
         uıUI[0] = "Verrouillé";
@@ -2540,6 +2558,7 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         menuUI[28] = "MEDIO";
         menuUI[29] = "GRANDE";
         menuUI[30] = "CARICA PARTITA";
+        menuUI[31] = "MENÙ PRINCIPALE";
 
 
         uıUI[0] = "Bloccato";

@@ -41,7 +41,7 @@ public class GlobalAAManager : MonoBehaviour
 
     void ApplySavedAA()
     {
-        int index = PlayerPrefs.GetInt(AAPrefKey, 2); // default = SMAA
+        int index = PlayerPrefs.GetInt(AAPrefKey, 3); // default = SMAA
         ApplyAA(index);
     }
 

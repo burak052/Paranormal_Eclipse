@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
 using EasyPeasyFirstPersonController;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class MainMenu : MonoBehaviour
     public TMP_Dropdown graphicsettings;
     public TMP_Dropdown antialiasing;
     public TMP_Dropdown headbobbingsettings;
-    public TextMeshProUGUI languageText;
     public GameObject menucanvas;
     public GameObject settingscanvas;
     public GameObject creditscanvas;
@@ -31,21 +31,22 @@ public class MainMenu : MonoBehaviour
     public GameObject aliasing;
     public GameObject camsensetive;
     public GameObject headbobbing;
-    public Slider mainvolume;
+    public Slider mainvolumeslider;
     public Slider camerasenstive;
     public AudioSource menumusic;
     public RectTransform content;
     public Dialogs dia;
+    public Transform contentscroll; 
     Coroutine creditscoroutine;
     Resolution[] resolutions;
 
     void Start()
     {
+        CheckSaveSlots();
         LanguageMenu();
+        LoadSettings();
         blackScreen.gameObject.SetActive(false);
         antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
-        float saved = PlayerPrefs.GetFloat("MOUSE_SENS", 10f);
-        camerasenstive.value = saved;
         if (LanguageManager.CurrentLanguage == "turkce")
             languageDropdown.value = 0;
         if (LanguageManager.CurrentLanguage == "english")
@@ -78,6 +79,73 @@ public class MainMenu : MonoBehaviour
         antialiasing.onValueChanged.RemoveAllListeners();
     }
 
+    void CheckSaveSlots()
+    {
+        Transform slot;
+        slot = contentscroll.GetChild(0);
+        if (!File.Exists(Application.persistentDataPath + "/save7.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date7").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(7).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(1);
+        if (!File.Exists(Application.persistentDataPath + "/save6.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date6").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(6).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(2);
+        if (!File.Exists(Application.persistentDataPath + "/save5.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date5").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(5).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(3);
+        if (!File.Exists(Application.persistentDataPath + "/save4.json")) 
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date4").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(4).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(4);
+        if (!File.Exists(Application.persistentDataPath + "/save3.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date3").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(3).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(5);
+        if (!File.Exists(Application.persistentDataPath + "/save2.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date2").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(2).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(6);
+        if (!File.Exists(Application.persistentDataPath + "/save1.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date1").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(1).saveDateTime;
+        }
+    }
+
     public void OnAntiAliasingChanged(int value)
     {
         GlobalAAManager.Instance.SetAA(value);
@@ -99,14 +167,14 @@ public class MainMenu : MonoBehaviour
             LanguageManager.CurrentLanguage = "français";
         if (index == 6)
             LanguageManager.CurrentLanguage = "italiano";
-            
-        dia.gameObject.SetActive(false);
-        dia.gameObject.SetActive(true);
+
+        dia.LoadDias();
         LanguageMenu();
     }
 
     public void NewGame()
     {
+        SaveManager.Instance.IsLoadingFromSave = false;
         SaveManager.Instance.DeletePaths();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeAndStart());
@@ -135,6 +203,7 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
+        SaveManager.Instance.IsLoadingFromSave = true;
         StartCoroutine(ContinueSavedGame());
     }
 
@@ -161,6 +230,7 @@ public class MainMenu : MonoBehaviour
 
     public void Slot(int id)
     {
+        SaveManager.Instance.IsLoadingFromSave = true;
         SceneManager.LoadScene(SaveManager.Instance.LoadGame(id).sceneIndex);
     }
 
@@ -195,7 +265,6 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Uygulama kapatılıyor...");
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -216,37 +285,31 @@ public class MainMenu : MonoBehaviour
 
     public void settingmainmusic()
     {
-        mainvolume.gameObject.SetActive(true);
+        mainvolumeslider.gameObject.SetActive(true);
     }
 
     public void startmainvolume()
     {
-        mainvolume.value = menumusic.volume;
-        mainvolume.onValueChanged.AddListener(settingvolume);
+        mainvolumeslider.onValueChanged.AddListener(settingvolume);
     }
 
     public void settingvolume(float vol)
     {
         menumusic.volume = vol;
+        PlayerPrefs.SetFloat("MAIN_VOLUME", vol);
     }
 
     public void SetResolution(int index)
     {
-        Debug.Log("Seçilen çözünürlük: " + resolutionsize.options[index].text);
-
         GlobalResolutionManager.Instance.SetResolution(index);
     }
     public void SetScreenMode(int index)
     {
-        Debug.Log("Seçilen ekran modu: " + screensizechoose.options[index].text);
-
         GlobalScreenModeManager.Instance.SetScreenMode(index);
     }
 
     public void SetGraphicsQuality(int index)
     {
-        Debug.Log("Seçilen grafik ayarı: " + graphicsettings.options[index].text);
-
         GlobalGraphicsQualityManager.Instance.SetGraphicsQuality(index);
     }
 
@@ -349,29 +412,9 @@ public class MainMenu : MonoBehaviour
         camsensetive.SetActive(false);
         headbobbing.SetActive(false);
     }
-    public void lanset(int val)
-    {
-        
-    }
     public void chofontsize(int val)
     {
-        Debug.Log(fontsizeDropdown.options[val].text);
-    }
-    public void resultresosize(int val)
-    {
-        Debug.Log(resolutionsize.options[val].text);
-    }
-    public void resultscreensize(int val)
-    {
-        Debug.Log(screensizechoose.options[val].text);
-    }
-    public void resultgrafik(int val)
-    {
-        Debug.Log(graphicsettings.options[val].text);
-    }
-    public void resultheadbobbing(int val)
-    {
-        Debug.Log(headbobbingsettings.options[val].text);
+        PlayerPrefs.SetInt("FONT_SIZE", val);
     }
     IEnumerator creditsslider()
     {
@@ -385,7 +428,7 @@ public class MainMenu : MonoBehaviour
             pos.y = Mathf.Lerp(-900f, 9300f, t);
             content.anchoredPosition = pos;
 
-            yield return null; // 🔥 ZORUNLU
+            yield return null;
         }
     }
 
@@ -436,5 +479,34 @@ public class MainMenu : MonoBehaviour
         settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[28];
         settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[29];
         settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+    }
+
+    public void LoadSettings()
+    {
+        resolutionsize.value = PlayerPrefs.GetInt("RESOLUTION_INDEX", 3);
+        resolutionsize.RefreshShownValue();
+
+        screensizechoose.value = PlayerPrefs.GetInt("SCREEN_MODE", 0);
+        resolutionsize.RefreshShownValue();
+        
+        graphicsettings.value = PlayerPrefs.GetInt("GRAPHICS_QUALITY", 0);
+        graphicsettings.RefreshShownValue();
+        
+        antialiasing.value = PlayerPrefs.GetInt("AA_MODE", 3);
+        antialiasing.RefreshShownValue();
+
+
+        mainvolumeslider.value = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+        menumusic.volume = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+
+
+        camerasenstive.value = PlayerPrefs.GetFloat("MOUSE_SENS", 20f)/100f;
+        
+        headbobbingsettings.value = PlayerPrefs.GetInt("HEAD_BOB_ENABLED", 1);
+        headbobbingsettings.RefreshShownValue();
+
+        
+        fontsizeDropdown.value = PlayerPrefs.GetInt("FONT_SIZE", 1);
+        fontsizeDropdown.RefreshShownValue();
     }
 }

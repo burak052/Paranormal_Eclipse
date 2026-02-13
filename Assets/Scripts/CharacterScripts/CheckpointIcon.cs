@@ -3,18 +3,13 @@ using System.Collections;
 
 public class SaveIndicatorUI : MonoBehaviour
 {
-    public static SaveIndicatorUI Instance;
-
     public GameObject panel;          // SavePanel
-    public RectTransform icon;        // Dönecek olan ikon
-    public float rotateSpeed = 180f;  // Dönme hýzý
-    public float showDuration = 2f;   // Ekranda kalma süresi
+    public RectTransform icon;        // Dï¿½necek olan ikon
 
     private bool isShowing = false;
 
     private void Awake()
     {
-        Instance = this;
         panel.SetActive(false);
     }
 
@@ -22,33 +17,27 @@ public class SaveIndicatorUI : MonoBehaviour
     {
         if (isShowing)
         {
-            icon.Rotate(0, 0, -rotateSpeed * Time.deltaTime);
+            icon.Rotate(0, 0, -180f * Time.deltaTime);
         }
     }
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Player")) return;
-        ShowSaveIcon();
+        if (gameObject.activeSelf)
+            StartCoroutine(ShowRoutine());
     }
-    public void ShowSaveIcon()
-    {
-        if (!gameObject.activeInHierarchy) return;
-
-        StopAllCoroutines();
-        StartCoroutine(ShowRoutine());
-    }
-
     IEnumerator ShowRoutine()
     {
         isShowing = true;
         panel.SetActive(true);
 
-        yield return new WaitForSeconds(showDuration);
+        yield return new WaitForSeconds(2f);
 
         panel.SetActive(false);
         isShowing = false;
 
-        // Rotasyonu sýfýrlamak istersen:
+        // Rotasyonu sï¿½fï¿½rlamak istersen:
         icon.rotation = Quaternion.identity;
+        gameObject.SetActive(false);
     }
 }

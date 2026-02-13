@@ -6168,10 +6168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73522b5627d3a4847b3e99bbff9e7f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 1406290020}
+  panel: {fileID: 836266590}
   icon: {fileID: 836266591}
-  rotateSpeed: 180
-  showDuration: 2
 --- !u!114 &174591115
 MonoBehaviour:
   m_ObjectHideFlags: 0

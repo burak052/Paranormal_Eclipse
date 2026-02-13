@@ -47,7 +47,8 @@ public class SaveManager : MonoBehaviour
             posZ = playerTransform.position.z,
             checkpointID = checkID,
             ownedItemIDs = owned,
-            generator = gen
+            generator = gen,
+            saveDateTime = System.DateTime.Now.ToString("dd.MM.yyyy HH:mm")
         };
 
         if(checkID == 1)
@@ -94,7 +95,6 @@ public class SaveManager : MonoBehaviour
     public SaveData LoadGame(int id)
     {
         if (!HasSave()) return null;
-        IsLoadingFromSave = true;
         string json;
         if(id == 1)
             json = File.ReadAllText(savePath1);
@@ -117,7 +117,6 @@ public class SaveManager : MonoBehaviour
     public SaveData LastGame()
     {
         if (!HasSave()) return null;
-        IsLoadingFromSave = true;
         string json;
         if(File.Exists(savePath7))
             json = File.ReadAllText(savePath7);
@@ -145,6 +144,7 @@ public class SaveManager : MonoBehaviour
         public int checkpointID;
         public List<int> ownedItemIDs;
         public bool generator;
+        public string saveDateTime;
     }
 
 

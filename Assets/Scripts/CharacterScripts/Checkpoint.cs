@@ -24,8 +24,5 @@ public class Checkpoint : MonoBehaviour
             SaveManager.Instance.SaveGame(other.transform, checkpointID, other.transform.Find("CameraParent/Camera").GetComponent<inventory>().inventoryData.ownedItemIDs);
 
         activated = true;
-
-        Debug.Log("Checkpoint kaydedildi: " + SaveManager.Instance.CurrentSaveData.checkpointID);
-        gameObject.SetActive(false);
     }
 }

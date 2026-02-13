@@ -42,7 +42,7 @@ public class GlobalMouseSensitivityManager : MonoBehaviour
 
     void ApplySavedSensitivity()
     {
-        float value = PlayerPrefs.GetFloat(SensPrefKey, 10f);
+        float value = PlayerPrefs.GetFloat(SensPrefKey, 20f);
         ApplySensitivity(value);
     }
 
@@ -53,7 +53,6 @@ public class GlobalMouseSensitivityManager : MonoBehaviour
 
         if (!controller)
         {
-            Debug.LogWarning("FirstPersonController bulunamadý");
             return;
         }
 
