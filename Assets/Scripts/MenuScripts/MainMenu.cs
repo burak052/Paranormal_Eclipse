@@ -48,15 +48,27 @@ public class MainMenu : MonoBehaviour
         camerasenstive.value = saved;
         if (LanguageManager.CurrentLanguage == "turkce")
             languageDropdown.value = 0;
-        else
+        if (LanguageManager.CurrentLanguage == "english")
             languageDropdown.value = 1;
+        if (LanguageManager.CurrentLanguage == "deutsch")
+            languageDropdown.value = 2;
+        if (LanguageManager.CurrentLanguage == "español")
+            languageDropdown.value = 3;
+        if (LanguageManager.CurrentLanguage == "pусский")
+            languageDropdown.value = 4;
+        if (LanguageManager.CurrentLanguage == "français")
+            languageDropdown.value = 5;
+        if (LanguageManager.CurrentLanguage == "italiano")
+            languageDropdown.value = 6;
 
         languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
 
         //load
+        menucanvas.GetComponent<Transform>().Find("Continue").GetComponent<Button>().interactable = false;
         menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = false;
         if(SaveManager.Instance.HasSave())
         {
+            menucanvas.GetComponent<Transform>().Find("Continue").GetComponent<Button>().interactable = true;
             menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = true;
         }
     }
@@ -75,8 +87,19 @@ public class MainMenu : MonoBehaviour
     {
         if (index == 0)
             LanguageManager.CurrentLanguage = "turkce";
-        else
+        if (index == 1)
             LanguageManager.CurrentLanguage = "english";
+        if (index == 2)
+            LanguageManager.CurrentLanguage = "deutsch";
+        if (index == 3)
+            LanguageManager.CurrentLanguage = "español";
+        if (index == 4)
+            LanguageManager.CurrentLanguage = "pусский";
+        if (index == 5)
+            LanguageManager.CurrentLanguage = "français";
+        if (index == 6)
+            LanguageManager.CurrentLanguage = "italiano";
+            
         dia.gameObject.SetActive(false);
         dia.gameObject.SetActive(true);
         LanguageMenu();
@@ -84,6 +107,7 @@ public class MainMenu : MonoBehaviour
 
     public void NewGame()
     {
+        SaveManager.Instance.DeletePaths();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeAndStart());
     }
@@ -109,12 +133,12 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
-    public void LoadGame()
+    public void ContinueGame()
     {
-        StartCoroutine(LoadSavedGame());
+        StartCoroutine(ContinueSavedGame());
     }
 
-    IEnumerator LoadSavedGame()
+    IEnumerator ContinueSavedGame()
     {
         blackScreen.color = new Color(0, 0, 0, 0f);
         blackScreen.gameObject.SetActive(true);
@@ -127,12 +151,23 @@ public class MainMenu : MonoBehaviour
             yield return null;
         }
         
-        SceneManager.LoadScene(SaveManager.Instance.LoadGame().sceneIndex);
+        SceneManager.LoadScene(SaveManager.Instance.LastGame().sceneIndex);
+    }
+
+    public void LoadGame()
+    {
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(true);
+    }
+
+    public void Slot(int id)
+    {
+        SceneManager.LoadScene(SaveManager.Instance.LoadGame(id).sceneIndex);
     }
 
     public void Settings()
     {
         Camera.Play("Menu2Settings");
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(false);
     }
 
     public void BacktoMenu()
@@ -146,6 +181,7 @@ public class MainMenu : MonoBehaviour
         creditscoroutine=StartCoroutine(creditsslider());
         menumusic.Stop();
         menumusic.gameObject.GetComponents<AudioSource>()[1].Play();
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(false);
     }
 
     public void back2menu()
@@ -356,7 +392,8 @@ public class MainMenu : MonoBehaviour
     public void LanguageMenu()
     {
         menucanvas.GetComponent<Transform>().Find("Game_Start").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[1];
-        menucanvas.GetComponent<Transform>().Find("Load_Game").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[2];
+        menucanvas.GetComponent<Transform>().Find("Continue").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[2];
+        menucanvas.GetComponent<Transform>().Find("Load_Game").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[30];
         menucanvas.GetComponent<Transform>().Find("Settings").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[3];
         menucanvas.GetComponent<Transform>().Find("Credits").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[4];
         menucanvas.GetComponent<Transform>().Find("Exit").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[5];
