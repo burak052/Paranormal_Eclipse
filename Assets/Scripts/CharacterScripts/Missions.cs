@@ -18,6 +18,7 @@ public class Missions : MonoBehaviour
     public void DisMis(int i)
     {
         StartCoroutine(DisMission(missions[i]));
+        missionCount = i;
     }
     public IEnumerator DisMission(string s)
     {

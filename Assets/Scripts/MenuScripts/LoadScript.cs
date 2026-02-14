@@ -58,6 +58,7 @@ public class LoadScript : MonoBehaviour
                 dia.LoadDias();
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
+                mis.missionCount = 0;
                 mis.StartMis(0);
                 SaveManager.Instance.IsLoadingFromSave = false;
                 ABS.DisBlack();

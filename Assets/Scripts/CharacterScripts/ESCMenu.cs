@@ -280,6 +280,8 @@ public class ESCMenu : MonoBehaviour
 
         dia.LoadDias();
         LanguageMenu();
+        Missions m = menu.gameObject.GetComponent<Missions>();
+        m.missionText.text = m.missions[m.missionCount];
     }
 
 
