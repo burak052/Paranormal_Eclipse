@@ -45,7 +45,7 @@ public class DialogTriggerSignal : MonoBehaviour
         dia.dialog.text = dia.dias[31];
         yield return new WaitForSeconds(2f);
         dia.dialog.text = "";
-        missions.DisMis(++(missions.missionCount));
+        missions.DisMis(5);
         bed.tag = "bed";
         bed1.tag = "bed";
     }

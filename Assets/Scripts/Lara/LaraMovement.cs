@@ -92,7 +92,7 @@ public class LaraMovement : MonoBehaviour
         }
         if(cable != null)
         cable.SetActive(true);
-        mis.DisMis(++(mis.missionCount));
+        mis.DisMis(13);
     }
 
     public void LaraInElevator()

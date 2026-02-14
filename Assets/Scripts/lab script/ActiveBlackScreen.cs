@@ -97,13 +97,15 @@ public class ActiveBlackScreen : MonoBehaviour
         {
             security.GetComponent<BoxCollider>().isTrigger = true;
             security.tag = "Untagged";  
+            missions.DisMis(10);
         }
         pac.isSetAnimator = false;
-        missions.DisMis(++(missions.missionCount));
+        
         Menu.canOpenMenu = true;
         if(night != null)
         {
           dia.WakeUp();
+          missions.DisMis(6);
         }
     }
 
@@ -125,7 +127,7 @@ public class ActiveBlackScreen : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         blackScreen.gameObject.GetComponent<AudioSource>().Play();
-        dia.EventDia(3f, dia.dias[116]);
+        dia.EventDia(3f, dia.dias[116]);      /////comeback alive
 
         yield return new WaitForSeconds(4f);
         float t = 0f;
@@ -140,7 +142,7 @@ public class ActiveBlackScreen : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
         playerMovement.gameObject.GetComponent<LabMovement>().ExplosionAfter();
 
-        missions.DisMis(++(missions.missionCount));  ///////
+        missions.DisMis(16);  ///////
     }
 
     public void GlassBroke()

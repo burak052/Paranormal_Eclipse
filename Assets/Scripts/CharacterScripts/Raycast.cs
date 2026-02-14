@@ -169,7 +169,7 @@ public class Raycast : MonoBehaviour
                         if (passwordText.text == password)
                         {
                             dialog.CapsuleDia();
-                            missions.DisMis(++(missions.missionCount));
+                            missions.DisMis(11);
                             ClearKey();
                             keymat.successScreen();
                             hit.collider.tag = "Untagged";
@@ -522,7 +522,7 @@ public class Raycast : MonoBehaviour
                     }
                     if(hit.collider.CompareTag("RepairKit"))
                     {
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(3);
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
                         dialog.EventDia(4f, dialog.dias[18]);
@@ -575,7 +575,7 @@ public class Raycast : MonoBehaviour
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
                     {
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(7);
                         dialog.EventDia(3f, dialog.dias[20]);
                         takelight = true;
                     }
@@ -587,7 +587,7 @@ public class Raycast : MonoBehaviour
                     if (hit.collider.CompareTag("IDCard"))
                     {
                         dialog.EventDia(2f, dialog.dias[6]);
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(1);
                     }
                     if (hit.collider.CompareTag("Gun"))
                     {
@@ -689,7 +689,7 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
                     dialog.EventDia(3f, dialog.dias[19]);
-                    missions.DisMis(++(missions.missionCount));
+                    missions.DisMis(4);
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
                     sig.SignalOn();
@@ -839,7 +839,7 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialog.WarpDia();
-                    missions.DisMis(++(missions.missionCount));
+                    missions.DisMis(14);
                     hit.collider.gameObject.GetComponent<ActiveRotor>().RotorActive();
                     hit.collider.transform.Find("Cable (1)").gameObject.SetActive(false);
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
@@ -861,7 +861,6 @@ public class Raycast : MonoBehaviour
                 {
                     hit.collider.gameObject.GetComponent<TestStart>().StartTest();
                     hit.collider.tag = "Untagged";
-                    missions.DisMis(++(missions.missionCount));
                 }
                 return;
             }

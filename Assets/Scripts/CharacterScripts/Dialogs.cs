@@ -2858,7 +2858,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[14];
         yield return new WaitForSeconds(4f);
         dialog.text = "";
-        mis.DisMis(++mis.missionCount);
+        mis.DisMis(2);
     }
     
     public void WakeUp()
@@ -2946,7 +2946,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[51];
         yield return new WaitForSeconds(4f);
         dialog.text = "";
-        mis.DisMis(++mis.missionCount);
+        mis.DisMis(8);
     }
 
     
@@ -3103,7 +3103,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[87];
         yield return new WaitForSeconds(3f);
         dialog.text = "";
-        mis.DisMis(++mis.missionCount);
+        mis.DisMis(12);
         SES.OnElevatorButton();
     }
 
@@ -3214,7 +3214,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[108];
         yield return new WaitForSeconds(7f);
         dialog.text = "";
-        mis.DisMis(++mis.missionCount);
+        mis.DisMis(15);
     }
 
     public void RunSoundDia()
