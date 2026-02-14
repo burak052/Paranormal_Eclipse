@@ -55,8 +55,7 @@ public class LoadScript : MonoBehaviour
             );
             if(SaveManager.Instance.CurrentSaveData.checkpointID == 1)  //id cart
             {
-                dia.gameObject.SetActive(false);
-                dia.gameObject.SetActive(true);
+                dia.LoadDias();
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
                 mis.StartMis(0);
@@ -65,8 +64,7 @@ public class LoadScript : MonoBehaviour
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 2) //radyo kulesi
             {
-                dia.gameObject.SetActive(false);
-                dia.gameObject.SetActive(true);
+                dia.LoadDias();
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
                 mis.missionCount = 3;
@@ -87,8 +85,7 @@ public class LoadScript : MonoBehaviour
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 3) //sahil gece
             {
-                dia.gameObject.SetActive(false);
-                dia.gameObject.SetActive(true);
+                dia.LoadDias();
                 dia.scene = 0;
                 dia.EventDia(0.1f,"");
                 mis.missionCount = 7;
@@ -131,8 +128,7 @@ public class LoadScript : MonoBehaviour
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 5) //kaza sonrası
             {
-                dia.gameObject.SetActive(false);
-                dia.gameObject.SetActive(true);
+                dia.LoadDias();
                 GetComponent<PlayerAnimationController>().ChangeOutfit(); 
                 floor1.SetActive(false);
                 floor1crash.SetActive(false);
@@ -162,8 +158,7 @@ public class LoadScript : MonoBehaviour
             }
             else if(SaveManager.Instance.CurrentSaveData.checkpointID == 6) // 1. kat kaza
             {
-                dia.gameObject.SetActive(false);
-                dia.gameObject.SetActive(true);
+                dia.LoadDias();
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
                 GetComponent<PlayerAnimationController>().ChangeOutfit(); 

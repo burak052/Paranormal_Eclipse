@@ -36,6 +36,8 @@ public class Dialogs : MonoBehaviour
             EventDia(5f, dias[53], 4f);
         if (scene == 3)
             EventDia(3f, dias[136], 6f);
+        if (scene == 4)
+            PlayDialog(StartSinematicDialog());
     }
     
     void Update()
@@ -251,6 +253,11 @@ public class Dialogs : MonoBehaviour
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara hayır!";
         dias[172] = "Aral: Asagi inmeden once bir silah bulsam iyi olur.";
+        dias[173] = "Lara: Pasifik’in ortasında, anakara’dan kilometrelerce uzakta bir ada... İnsan buraya gelmeden önce iki kez düşünüyor.";
+        dias[174] = "Aral: Zaten amaç da buydu. İzole bir laboratuvar. Zaman deneyi ters giderse, etkisi sadece burada kalmalı.";
+        dias[175] = "Lara: Resmî kayıtlarda burası terk edilmiş bir meteoroloji istasyonu olarak görünüyor. Ama aşağıda, kayalıkların altında kurulu o tesis, zamanı kontrol etmemizi sağlayacak.";
+        dias[176] = "Aral: Umarım bu adadan başarılı bir sonuçla ayrılırız.";
+        dias[177] = "Lara: Adaya yaklaştık, iniş için hazırlanalım.";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -626,6 +633,12 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara, no!";
         dias[172] = "Aral: I'd better find a weapon before I go down.";
+        dias[173] = "Lara: An island in the middle of the Pacific, miles away from the mainland... You think twice before coming here.";
+        dias[174] = "Aral: That was the point. An isolated laboratory. If the time experiment goes wrong, the effects must remain contained here.";
+        dias[175] = "Lara: Official records show this place as an abandoned meteorological station. But the facility built beneath those cliffs will allow us to control time.";
+        dias[176] = "Aral: I hope we leave this island with a successful result.";
+        dias[177] = "Lara: We’re approaching the island. Prepare for landing.";
+
 
         
         menuUI[1] = "START NEW GAME";
@@ -1001,6 +1014,12 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara, nein!";
         dias[172] = "Aral: Ich sollte mir besser eine Waffe suchen, bevor ich nach unten gehe.";
+        dias[173] = "Lara: Eine Insel mitten im Pazifik, kilometerweit vom Festland entfernt... Man überlegt es sich zweimal, bevor man hierherkommt.";
+        dias[174] = "Aral: Genau das war der Plan. Ein isoliertes Labor. Wenn das Zeitexperiment schiefgeht, müssen die Auswirkungen hier bleiben.";
+        dias[175] = "Lara: Offiziell gilt dieser Ort als verlassene Wetterstation. Doch die Anlage unter den Klippen wird es uns ermöglichen, die Zeit zu kontrollieren.";
+        dias[176] = "Aral: Ich hoffe, wir verlassen diese Insel mit einem erfolgreichen Ergebnis.";
+        dias[177] = "Lara: Wir nähern uns der Insel. Bereitmachen zur Landung.";
+
 
 
         menuUI[1] = "NEUES SPIEL STARTEN";
@@ -1386,6 +1405,12 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[170] = "Aral: ¿Lara?";
         dias[171] = "Aral: ¡Lara, no!";
         dias[172] = "Aral: Será mejor que busque un arma antes de bajar.";
+        dias[173] = "Lara: Una isla en medio del Pacífico, a kilómetros del continente... Uno se lo piensa dos veces antes de venir aquí.";
+        dias[174] = "Aral: Ese era el objetivo. Un laboratorio aislado. Si el experimento temporal sale mal, los efectos deben quedarse aquí.";
+        dias[175] = "Lara: Oficialmente este lugar figura como una estación meteorológica abandonada. Pero la instalación bajo los acantilados nos permitirá controlar el tiempo.";
+        dias[176] = "Aral: Espero que abandonemos esta isla con un resultado exitoso.";
+        dias[177] = "Lara: Nos estamos acercando a la isla. Preparémonos para el aterrizaje.";
+
 
 
         menuUI[1] = "INICIAR NUEVA PARTIDA";
@@ -1774,6 +1799,12 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[170] = "Арал: Лара?";
         dias[171] = "Арал: Лара, нет!";
         dias[172] = "Арал: Лучше найти оружие, прежде чем спускаться вниз.";
+        dias[173] = "Lara: Остров посреди Тихого океана, в тысячах километров от материка... Прежде чем прилететь сюда, дважды подумаешь.";
+        dias[174] = "Aral: В этом и был смысл. Изолированная лаборатория. Если эксперимент со временем пойдет не так, последствия должны остаться здесь.";
+        dias[175] = "Lara: По официальным данным это заброшенная метеостанция. Но комплекс под скалами позволит нам управлять временем.";
+        dias[176] = "Aral: Надеюсь, мы покинем этот остров с успешным результатом.";
+        dias[177] = "Lara: Мы приближаемся к острову. Готовьтесь к посадке.";
+
 
 
         menuUI[1] = "НАЧАТЬ НОВУЮ ИГРУ";
@@ -2151,6 +2182,12 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[170] = "Aral : Lara ?";
         dias[171] = "Aral : Lara, non !";
         dias[172] = "Aral : Je ferais mieux de trouver une arme avant de descendre.";
+        dias[173] = "Lara: Une île au milieu du Pacifique, à des kilomètres du continent... On y réfléchit à deux fois avant de venir ici.";
+        dias[174] = "Aral: C’était le but. Un laboratoire isolé. Si l’expérience temporelle tourne mal, les effets doivent rester confinés ici.";
+        dias[175] = "Lara: Officiellement, cet endroit est une station météorologique abandonnée. Mais l’installation sous les falaises nous permettra de contrôler le temps.";
+        dias[176] = "Aral: J’espère que nous quitterons cette île avec un résultat concluant.";
+        dias[177] = "Lara: Nous approchons de l’île. Préparez-vous à l’atterrissage.";
+
 
 
         menuUI[1] = "COMMENCER UNE NOUVELLE PARTIE";
@@ -2526,6 +2563,12 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara, no!";
         dias[172] = "Aral: È meglio che trovi un'arma prima di scendere.";
+        dias[173] = "Lara: Un’isola nel mezzo del Pacifico, a chilometri dalla terraferma... Ci si pensa due volte prima di venire qui.";
+        dias[174] = "Aral: Era proprio questo l’obiettivo. Un laboratorio isolato. Se l’esperimento sul tempo dovesse fallire, gli effetti devono restare qui.";
+        dias[175] = "Lara: Ufficialmente questo posto è una stazione meteorologica abbandonata. Ma la struttura sotto le scogliere ci permetterà di controllare il tempo.";
+        dias[176] = "Aral: Spero che lasceremo quest’isola con un risultato positivo.";
+        dias[177] = "Lara: Ci stiamo avvicinando all’isola. Prepariamoci all’atterraggio.";
+
 
 
         menuUI[1] = "NUOVA PARTITA";
@@ -3306,6 +3349,30 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[160];
         yield return new WaitForSeconds(4.5f);
+        dialog.text = "";
+    }
+
+    IEnumerator StartSinematicDialog()
+    {
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[173];
+        yield return new WaitForSeconds(5.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[174];
+        yield return new WaitForSeconds(5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[175];
+        yield return new WaitForSeconds(7.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[176];
+        yield return new WaitForSeconds(3.5f);
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[177];
+        yield return new WaitForSeconds(3f);
         dialog.text = "";
     }
 }
