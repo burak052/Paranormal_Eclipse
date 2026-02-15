@@ -13,7 +13,6 @@ public class Stamina : MonoBehaviour
 
     [Header("Stamina")]
     public float stamina = 100f;
-    public float decreaseRate = 20f;
 
     [Header("Exhausted Audio")]
     public AudioSource exhaustedAudio;
@@ -59,8 +58,8 @@ public class Stamina : MonoBehaviour
             }
 
             // ????? STAMINA MANTI�I/////////////////////////////////////////////////////////////////////
-            //if (fpsController.isSprinting)
-                //stamina -= decreaseRate * Time.deltaTime;
+            if (fpsController.isSprinting)
+                stamina -= 10f * Time.deltaTime;
             else
                 stamina += 10f * Time.deltaTime;
 
@@ -70,7 +69,7 @@ public class Stamina : MonoBehaviour
             if (stamina <= 0f)
                 fpsController.sprintSpeed = fpsController.walkSpeed;
             else
-                fpsController.sprintSpeed = 50f;
+                fpsController.sprintSpeed = 50f;         ///////////normal koşma hızı 7 olmalı
 
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();

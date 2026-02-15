@@ -17,6 +17,7 @@ public class Raycast : MonoBehaviour
     public GameObject disableFloor1;
     public GameObject pressEUI;
     public GameObject spotlight;
+    public GameObject checkpoint2;
     private Animator currentDoorAnimator;
     private Animator currentDoorAnimator2;
     public MonoBehaviour playerMovement;
@@ -40,25 +41,26 @@ public class Raycast : MonoBehaviour
     public Missions missions;
     public ESCMenu Menu;
     public Dialogs dialog;
-    private bool isbusy = false;
-    private bool HaveCard = false;
-    private bool inkeypad = false;
+    public bool isbusy = false;
+    public bool HaveCard = false;
+    public bool inkeypad = false;
     public bool haveRepairKit = false;
     public bool haveheadlight = false;
-    private bool havesleep = false;
-    private bool cansleep = false;
-    private bool firsttimeopen = true;
-    private bool takelight = false;
-    private bool issearching = false;
-    private bool capsuleAnim = true;
-    private bool callElevator = true;
-    private bool inFloor2 = false;
-    private bool levye = false;
-    private bool ispressE = false;
+    public bool havesleep = false;
+    public bool firsttimeopen = true;
+    public bool takelight = false;
+    public bool issearching = false;
+    public bool capsuleAnim = true;
+    public bool callElevator = true;
+    public bool inFloor2 = false;
+    public bool levye = false;
+    public bool ispressE = false;
     public bool accident = false;
     public bool ctrlshow = false;
-    private int capsuleCount = 0;
-    private int EnergyCapsuleCount = 0;
+    public bool havegun = false;
+    public bool isload = false;
+    public int capsuleCount = 0;
+    public int EnergyCapsuleCount = 0;
     public Sprite LSprite;
     public Sprite ESprite;
     public Sprite redxSprite;
@@ -109,7 +111,7 @@ public class Raycast : MonoBehaviour
                     if(!accident)
                     {
                         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                        pressEUIText.text = "Locked";
+                        pressEUIText.text = dialog.uıUI[0];
                     }
                     pressEUI.SetActive(true);
                     
@@ -136,11 +138,11 @@ public class Raycast : MonoBehaviour
                     if(!levye)
                     {
                         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                        pressEUIText.text = "need crowbar";
+                        pressEUIText.text = dialog.uıUI[1];
                     }
                     else
                     {
-                        pressEUIText.text = "to use crowbar";
+                        pressEUIText.text = dialog.uıUI[2];
                     }
                         pressEUI.SetActive(true);
                 }
@@ -158,7 +160,7 @@ public class Raycast : MonoBehaviour
             
             if (hit.collider.CompareTag("EnviroKeypad"))
             {
-                pressEUIText.text = "to enter";
+                pressEUIText.text = dialog.uıUI[3];
                 
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.G))
                 {
@@ -167,7 +169,7 @@ public class Raycast : MonoBehaviour
                         if (passwordText.text == password)
                         {
                             dialog.CapsuleDia();
-                            missions.DisMis(++(missions.missionCount));
+                            missions.DisMis(11);
                             ClearKey();
                             keymat.successScreen();
                             hit.collider.tag = "Untagged";
@@ -210,7 +212,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                    if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                     {
                         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
@@ -248,7 +250,7 @@ public class Raycast : MonoBehaviour
 
             if (hit.collider.CompareTag("BoilerLaptop"))
             {
-                pressEUIText.text = "to Log-in";
+                pressEUIText.text = dialog.uıUI[4];
                 
                 if (pressEUI != null && !inkeypad)
                     pressEUI.SetActive(true);
@@ -265,7 +267,7 @@ public class Raycast : MonoBehaviour
                     Cursor.visible = true;
                     Cursor.lockState = CursorLockMode.None;
                 }
-                if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                 {
                     pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
@@ -279,7 +281,7 @@ public class Raycast : MonoBehaviour
             
             if (hit.collider.CompareTag("CupBoard"))
             {
-                pressEUIText.text = "to change clothes";
+                pressEUIText.text = dialog.uıUI[5];
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
 
@@ -302,7 +304,7 @@ public class Raycast : MonoBehaviour
                 currentDoorAnimator2 = hit.collider.transform.parent.parent.Find("RightDoor").GetComponent<Animator>();
                 currentDoorAnimator = hit.collider.transform.parent.parent.Find("LeftDoor").GetComponent<Animator>();
                 pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
-                pressEUIText.text = "to call elevator";
+                pressEUIText.text = dialog.uıUI[6];
                 
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
@@ -312,7 +314,6 @@ public class Raycast : MonoBehaviour
                     hit.collider.gameObject.tag = "Untagged";
                     if (isbusy) return;
                     Callfloor.floorcall();
-                    dialog.ArcDia();
                     
                     StartCoroutine(OpenDoorSequence(currentDoorAnimator , currentDoorAnimator2));
                     Lara.LaraFrontElevator();
@@ -332,16 +333,17 @@ public class Raycast : MonoBehaviour
                     if(Lara.elevator)
                     {
                         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                        pressEUIText.text = "Please Wait...";
+                        pressEUIText.text = dialog.uıUI[7];
                     }
                     else
                     {
                         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
-                        pressEUIText.text = "to floor2";
+                        pressEUIText.text = dialog.uıUI[8];
                     }
 
                     if (Input.GetKeyDown(KeyCode.E) && !Lara.elevator)
                     {
+                        dialog.ArcDia();
                         hit.collider.transform.Find("Cube").gameObject.SetActive(true);
                         StartCoroutine(CloseDoorSequence(currentDoorAnimator , currentDoorAnimator2 , hit.collider.transform.Find("Cube").gameObject));
                         inFloor2 = true;
@@ -353,7 +355,7 @@ public class Raycast : MonoBehaviour
 
             if (hit.collider.CompareTag("keypad1"))
             {
-                pressEUIText.text = "to enter";
+                pressEUIText.text = dialog.uıUI[3];
                 
                 if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || pressenter || Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.G))
                 {
@@ -406,7 +408,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G))
+                    if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G)) && inkeypad)
                     {
                         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
                         playeranim.isSetAnimator = false;
@@ -451,37 +453,37 @@ public class Raycast : MonoBehaviour
                 if (inspectSystem.isInspecting)
                     pressEUI.SetActive(false);
                 if (hit.collider.CompareTag("IDCard"))
-                    pressEUIText.text = "to take IDCard";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("RepairKit"))
-                    pressEUIText.text = "to take RepairKit";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("HeadLight"))
-                    pressEUIText.text = "to take lapel light";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("Capsule"))
-                    pressEUIText.text = "to take Empty Capsule";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("EnergyCapsuleReady"))
-                    pressEUIText.text = "to take Energy Capsule";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("Levye"))
-                    pressEUIText.text = "to take crowbar";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("Gun"))
-                    pressEUIText.text = "to take gun";
+                    pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
-                    pressEUIText.text = "to take Energy Capsule";
+                    pressEUIText.text = dialog.uıUI[9];
                 }
                 else if(hit.collider.CompareTag("EnergyCapsule") && !capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                    pressEUIText.text = "Please Wait...";
+                    pressEUIText.text = dialog.uıUI[7];
                 }
                 if (hit.collider.CompareTag("PlaceEnergyCapsule"))
                 {
                     if(capsuleCount>0)
-                        pressEUIText.text = "to place Capsule";
+                        pressEUIText.text = dialog.uıUI[10];
                     else
                     {
                         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                        pressEUIText.text = "You dont have any Capsule!";
+                        pressEUIText.text = dialog.uıUI[11];
                     }
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !inspectSystem.isInspecting)
@@ -520,10 +522,11 @@ public class Raycast : MonoBehaviour
                     }
                     if(hit.collider.CompareTag("RepairKit"))
                     {
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(3);
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
                         dialog.EventDia(4f, dialog.dias[18]);
+                        checkpoint2.SetActive(true);
                     }
                     if (hit.collider.CompareTag("HeadLight")) 
                     { 
@@ -572,7 +575,7 @@ public class Raycast : MonoBehaviour
                     inspectSystem.EndInspect();
                     if (hit.collider.CompareTag("HeadLight")) 
                     {
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(7);
                         dialog.EventDia(3f, dialog.dias[20]);
                         takelight = true;
                     }
@@ -584,11 +587,12 @@ public class Raycast : MonoBehaviour
                     if (hit.collider.CompareTag("IDCard"))
                     {
                         dialog.EventDia(2f, dialog.dias[6]);
-                        missions.DisMis(++(missions.missionCount));
+                        missions.DisMis(1);
                     }
                     if (hit.collider.CompareTag("Gun"))
                     {
                         dialog.EventDia(4f, dialog.dias[22]);
+                        havegun = true;
                     }
                     if(hit.collider.CompareTag("EnergyCapsule"))
                     {
@@ -601,6 +605,11 @@ public class Raycast : MonoBehaviour
                         if (EnergyCapsuleCount == 6)
                         {
                             dialog.ComCapDia();
+                        }
+                        if (hit.collider.transform.Find("check").gameObject.activeSelf)
+                        {
+                            hit.collider.transform.Find("check").gameObject.SetActive(false);
+                            dialog.FindMacDia();
                         }
                     }
                 }
@@ -624,7 +633,7 @@ public class Raycast : MonoBehaviour
                     {
                         currentDoorAnimator.SetTrigger("Open");
                         repairt.ChangeTag();
-                        if(havesleep && horrorSoundOutdoor != null)
+                        if(havesleep && horrorSoundOutdoor != null && !isload)
                         {
                             horrorSoundOutdoor.Play();
                             dialog.EventDia(3f, dialog.dias[34], 1.5f);
@@ -633,14 +642,14 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !HaveCard)
                 {
-                    pressEUIText.text = "Need IDCard";
+                    pressEUIText.text = dialog.uıUI[12];
     
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                     hit.collider.GetComponent<AudioSource>().Play();
                 }
                 if ((Input.GetKeyDown(KeyCode.E) && HaveCard) && (havesleep && !haveheadlight))
                 {
-                    pressEUIText.text = "Need to take lapel light";
+                    pressEUIText.text = dialog.uıUI[13];
 
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
@@ -651,15 +660,9 @@ public class Raycast : MonoBehaviour
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
-                if(cansleep)
-                    pressEUIText.text = "to sleep";
-                else
-                {
-                    pressEUIText.text = "can't sleep";
-                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
-                }
+                pressEUIText.text = dialog.uıUI[14];
 
-                if (Input.GetKeyDown(KeyCode.E) && cansleep)
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.transform.parent.Find("bed_02").gameObject.tag = "Untagged";
                     hit.collider.transform.parent.Find("bed_01").gameObject.tag = "Untagged";
@@ -677,24 +680,23 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
                 if(haveRepairKit)
-                    pressEUIText.text = "to repair";
+                    pressEUIText.text = dialog.uıUI[15];
                 else
                 {
-                    pressEUIText.text = "Need repairkit";
+                    pressEUIText.text = dialog.uıUI[16];
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
                 if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
                     dialog.EventDia(3f, dialog.dias[19]);
-                    missions.DisMis(++(missions.missionCount));
+                    missions.DisMis(4);
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
                     sig.SignalOn();
-                    cansleep = true;
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !haveRepairKit)
                 {
-                    pressEUIText.text = "Need repairkit";
+                    pressEUIText.text = dialog.uıUI[16];
     
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
@@ -705,7 +707,7 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 {
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "Firstly, You have to wear lab coat.";
+                    pressEUIText.text = dialog.uıUI[17];
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
                 }
 
@@ -716,16 +718,16 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 {
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "To Search";
+                    pressEUIText.text = dialog.uıUI[18];
                 }
                 if (issearching)
-                    pressEUIText.text = "Searching";
+                    pressEUIText.text = dialog.uıUI[19];
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     playeranim.SetAnimator();
                     Menu.canOpenMenu = false;
                     issearching = true;
-                    pressEUIText.text = "Searching";
+                    pressEUIText.text = dialog.uıUI[19];
                     searchSound.Play();
                     StartCoroutine(searchindelay());
                     inventor.takeItem(2);
@@ -747,7 +749,7 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 {
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to take note";
+                    pressEUIText.text = dialog.uıUI[9];
                 }
                 if (Input.GetKeyDown(KeyCode.E) && !ispressE)
                 {
@@ -787,11 +789,20 @@ public class Raycast : MonoBehaviour
                         hit.collider.transform.parent.gameObject.GetComponent<AudioSource>().Play();
                         paper.showpaper(7);
                         inventor.takeItem(12);
+                        dialog.EventDia(3f, dialog.dias[132],2f);
                     }
                     ispressE = true;
                 }
                 if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))&& ispressE)
                 {
+                    if(hit.collider.CompareTag("LaraNote"))
+                        dialog.EventDia(3f,dialog.dias[99]);
+                    if(hit.collider.CompareTag("MaterialNote"))
+                        dialog.ShadowDia();
+                    if(hit.collider.CompareTag("SecurityNote"))
+                        dialog.EventDia(7f,dialog.dias[125],1f);
+                    if(hit.collider.CompareTag("EasterEggNote"))
+                        dialog.EasterEggDia();
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
@@ -807,7 +818,7 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 {
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to place energy capsule";
+                    pressEUIText.text = dialog.uıUI[20];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -823,12 +834,12 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 { 
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to connect the cable";
+                    pressEUIText.text = dialog.uıUI[21];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     dialog.WarpDia();
-                    missions.DisMis(++(missions.missionCount));
+                    missions.DisMis(14);
                     hit.collider.gameObject.GetComponent<ActiveRotor>().RotorActive();
                     hit.collider.transform.Find("Cable (1)").gameObject.SetActive(false);
                     hit.collider.gameObject.GetComponent<AudioSource>().Play();
@@ -844,13 +855,12 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 { 
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to press button";
+                    pressEUIText.text = dialog.uıUI[22];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.GetComponent<TestStart>().StartTest();
                     hit.collider.tag = "Untagged";
-                    missions.DisMis(++(missions.missionCount));
                 }
                 return;
             }
@@ -861,10 +871,15 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 { 
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to open";
+                    pressEUIText.text = dialog.uıUI[23];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    if(!havegun)
+                    {
+                        dialog.EventDia(4f,dialog.dias[172]);
+                        return;
+                    }
                     hit.collider.gameObject.tag = "Untagged";
                     currentDoorAnimator.SetBool("Open", true);
                     currentDoorAnimator2.SetBool("Open", true);
@@ -878,12 +893,13 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 { 
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to floor1";
+                    pressEUIText.text = dialog.uıUI[24];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    Callfloor.Floor1();
+                    hit.collider.transform.parent.Find("Elevator sign 002").gameObject.GetComponent<ElevatorFloor>().Floor1();
                     hit.collider.gameObject.tag = "Untagged";
+                    hit.collider.transform.Find("Cube").gameObject.SetActive(true);
                     StartCoroutine(CloseDoorFloor1(currentDoorAnimator , currentDoorAnimator2 , hit.collider.transform.Find("Cube").gameObject));
                 }
                 return;
@@ -893,7 +909,7 @@ public class Raycast : MonoBehaviour
                 if (pressEUI != null)
                 { 
                     pressEUI.SetActive(true);
-                    pressEUIText.text = "to speak with lara";
+                    pressEUIText.text = dialog.uıUI[25];
                 }
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -902,17 +918,45 @@ public class Raycast : MonoBehaviour
                 }
                 return;
             }
+            if (hit.collider.CompareTag("Generator"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUIText.text = dialog.uıUI[26];
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.collider.gameObject.tag = "Untagged";
+                    dialog.EventDia(2.5f,dialog.dias[124],1f);
+                    hit.collider.gameObject.GetComponents<AudioSource>()[0].Play();
+                    hit.collider.gameObject.GetComponents<AudioSource>()[1].Play();
+                    hit.collider.gameObject.GetComponent<OpenGenerator>().PowerOn();
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("NeedGenerator"))
+            {           
+                if (pressEUI != null)
+                { 
+                    pressEUI.SetActive(true);
+                    pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = redxSprite;
+                    pressEUIText.text = dialog.uıUI[27];
+                }
+                return;
+            }
         }
 
-        pressEUIText.text = "to open";
+        pressEUIText.text = dialog.uıUI[23];
         pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
         pressEUI.SetActive(false);
         pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(false);
+        pressEUI.GetComponent<Transform>().parent.Find("PressGUI").Find("PressG").gameObject.GetComponent<TextMeshProUGUI>().text = dialog.uıUI[30];
 
         if(takelight)
         {
             pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = LSprite;
-            pressEUIText.text = "to open lapel light";
+            pressEUIText.text = dialog.uıUI[28];
             pressEUI.SetActive(true);
             if(Input.GetKeyDown(KeyCode.L))
             {
@@ -924,7 +968,7 @@ public class Raycast : MonoBehaviour
         if(ctrlshow)
         {
             pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = CTRLSprite;
-            pressEUIText.text = "to crouch";
+            pressEUIText.text = dialog.uıUI[29];
             pressEUI.SetActive(true);
         }
     }
@@ -988,6 +1032,9 @@ public class Raycast : MonoBehaviour
     }
     IEnumerator CloseDoorFloor1(Animator currentDoorAnimator , Animator currentDoorAnimator2, GameObject GO)
     {
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(true);
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.GetComponent<Animator>().SetTrigger("run");
+        GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",true);
         if (currentDoorAnimator != null)
         {
             bool state = currentDoorAnimator.GetBool("Open");
@@ -998,7 +1045,11 @@ public class Raycast : MonoBehaviour
             bool state = currentDoorAnimator2.GetBool("Open");
             currentDoorAnimator2.SetBool("Open", false);
         }
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
+        dialog.EventDia(2f,dialog.dias[129]);
+        yield return new WaitForSeconds(2f);
+        GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
         GO.GetComponent<Transform>().parent.parent.parent.Find("light").gameObject.GetComponent<AudioSource>().Play();
         AudioSource[] sources = currentDoorAnimator.gameObject.GetComponents<AudioSource>();
         sources[1].Play();
@@ -1006,6 +1057,7 @@ public class Raycast : MonoBehaviour
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(true);
+        dialog.EventDia(2f,dialog.dias[130]);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.2f);
@@ -1029,6 +1081,8 @@ public class Raycast : MonoBehaviour
             currentDoorAnimator2.SetBool("Open", true);
         }
         GO.SetActive(false);
+        yield return new WaitForSeconds(4f);
+        dialog.EventDia(3f,dialog.dias[131]);
     }
     IEnumerator StartCapseuleAnim()
     {

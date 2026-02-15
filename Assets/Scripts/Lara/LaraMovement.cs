@@ -13,6 +13,9 @@ public class LaraMovement : MonoBehaviour
         transform.position = new Vector3(1471.97f,2.13f,1788.94f);
         transform.rotation = Quaternion.Euler(0f,25f,0f);
         cube.SetActive(true);
+        Transform cube1 = cube.transform.parent.Find("Cube (1)");
+        if(cube1 != null)
+            cube.transform.parent.Find("Cube (1)").gameObject.SetActive(true);
     }
     public void LaraLocker()
     {
@@ -89,7 +92,7 @@ public class LaraMovement : MonoBehaviour
         }
         if(cable != null)
         cable.SetActive(true);
-        mis.DisMis(++(mis.missionCount));
+        mis.DisMis(13);
     }
 
     public void LaraInElevator()
@@ -425,6 +428,28 @@ public class LaraMovement : MonoBehaviour
             transform.rotation = Quaternion.Slerp(startRot, targetRot, t);
             yield return null;
         }
+    }
+    public void LaraIdle()
+    {
+        StartCoroutine(LaraIdleCor());
+    }
+    IEnumerator LaraIdleCor()
+    {
+        gameObject.GetComponent<Animator>().SetBool("walk",true);
+        yield return new WaitForSeconds(0.1f);
+        gameObject.GetComponent<Animator>().SetBool("walk",false);
+    }
+    public void LaraSitting()
+    {
+        StartCoroutine(LaraSittingCor());
+    }
+    IEnumerator LaraSittingCor()
+    {
+        gameObject.GetComponent<Animator>().SetBool("walk",true);
+        yield return new WaitForSeconds(0.01f);
+        gameObject.GetComponent<Animator>().SetBool("walk",false);
+        yield return new WaitForSeconds(0.01f);
+        gameObject.GetComponent<Animator>().SetBool("sitting",true);
     }
 }
 //laranın başlangıç konumu

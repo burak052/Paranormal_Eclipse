@@ -4,6 +4,7 @@ using System.Collections;
 public class LabMovement : MonoBehaviour
 {
     public ESCMenu Menu;
+    public Dialogs dia;
 
     public void ExplosionAfter()
     {
@@ -20,6 +21,8 @@ public class LabMovement : MonoBehaviour
         Vector3 targetcamparent = new Vector3(0f,1.7f,0.246f);
         Quaternion startRotCam = camParent.localRotation;
         
+        dia.EventDia(1.5f, dia.dias[97]);
+
         float t = 0f;
         while (t < 1f)
         {
@@ -29,6 +32,7 @@ public class LabMovement : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(1f);
+        dia.EventDia(1.5f, dia.dias[98]);
         
         t = 0f;
         while (t < 1f)

@@ -4,7 +4,8 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.Audio;
-using UnityEngine.Rendering.HighDefinition;
+using EasyPeasyFirstPersonController;
+using System.IO;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,64 +14,174 @@ public class MainMenu : MonoBehaviour
     public float fadeTime = 1.5f;
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
-    public TMP_Dropdown fontcolorDropdown;
     public TMP_Dropdown resolutionsize;
     public TMP_Dropdown screensizechoose;
     public TMP_Dropdown graphicsettings;
     public TMP_Dropdown antialiasing;
     public TMP_Dropdown headbobbingsettings;
-    public TextMeshProUGUI languageText;
+    public GameObject menucanvas;
+    public GameObject settingscanvas;
+    public GameObject creditscanvas;
     public GameObject selecetlanguage;
     public GameObject fontsize;
-    public GameObject fontcolor;
     public GameObject mainmusic;
-    public GameObject gamemusic;
     public GameObject resolution;
     public GameObject screensize;
     public GameObject graphics;
     public GameObject aliasing;
     public GameObject camsensetive;
     public GameObject headbobbing;
-    public Slider mainvolume;
+    public Slider mainvolumeslider;
     public Slider camerasenstive;
     public AudioSource menumusic;
     public RectTransform content;
+    public Dialogs dia;
+    public Transform contentscroll; 
     Coroutine creditscoroutine;
     Resolution[] resolutions;
 
     void Start()
     {
+        CheckSaveSlots();
+        LanguageMenu();
+        LoadSettings();
         blackScreen.gameObject.SetActive(false);
-        if (antialiasing != null)
-        {
-            int savedAA = PlayerPrefs.GetInt("AA_SETTING", 0);
-            antialiasing.SetValueWithoutNotify(savedAA);
-            antialiasing.RefreshShownValue();
-        }
+        antialiasing.onValueChanged.AddListener(OnAntiAliasingChanged);
+        if (LanguageManager.CurrentLanguage == "turkce")
+            languageDropdown.value = 0;
+        if (LanguageManager.CurrentLanguage == "english")
+            languageDropdown.value = 1;
+        if (LanguageManager.CurrentLanguage == "deutsch")
+            languageDropdown.value = 2;
+        if (LanguageManager.CurrentLanguage == "español")
+            languageDropdown.value = 3;
+        if (LanguageManager.CurrentLanguage == "pусский")
+            languageDropdown.value = 4;
+        if (LanguageManager.CurrentLanguage == "français")
+            languageDropdown.value = 5;
+        if (LanguageManager.CurrentLanguage == "italiano")
+            languageDropdown.value = 6;
 
-        ApplyAA();
-    }
-    void OnEnable()
-    {
-        // Sahne yüklenince veya kamera aktif olunca
-        ApplyAA();
+        languageDropdown.onValueChanged.AddListener(OnLanguageChanged);
+
+        //load
+        menucanvas.GetComponent<Transform>().Find("Continue").GetComponent<Button>().interactable = false;
+        menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = false;
+        if(SaveManager.Instance.HasSave())
+        {
+            menucanvas.GetComponent<Transform>().Find("Continue").GetComponent<Button>().interactable = true;
+            menucanvas.GetComponent<Transform>().Find("Load_Game").GetComponent<Button>().interactable = true;
+        }
     }
 
     void Awake()
     {
         antialiasing.onValueChanged.RemoveAllListeners();
-        antialiasing.onValueChanged.AddListener(resultaliasing);
     }
 
-    public void resultaliasing(int val)
+    void CheckSaveSlots()
     {
-        Debug.Log("SECILEN: " + val);
+        Transform slot;
+        slot = contentscroll.GetChild(0);
+        if (!File.Exists(Application.persistentDataPath + "/save7.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date7").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(7).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(1);
+        if (!File.Exists(Application.persistentDataPath + "/save6.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date6").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(6).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(2);
+        if (!File.Exists(Application.persistentDataPath + "/save5.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date5").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(5).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(3);
+        if (!File.Exists(Application.persistentDataPath + "/save4.json")) 
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date4").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(4).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(4);
+        if (!File.Exists(Application.persistentDataPath + "/save3.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date3").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(3).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(5);
+        if (!File.Exists(Application.persistentDataPath + "/save2.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date2").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(2).saveDateTime;
+        }
+            
+        slot = contentscroll.GetChild(6);
+        if (!File.Exists(Application.persistentDataPath + "/save1.json"))
+            slot.gameObject.SetActive(false);
+        else
+        {
+            slot.gameObject.SetActive(true);
+            slot.Find("date1").gameObject.GetComponent<TextMeshProUGUI>().text = SaveManager.Instance.LoadGame(1).saveDateTime;
+        }
+    }
+
+    public void OnAntiAliasingChanged(int value)
+    {
+        GlobalAAManager.Instance.SetAA(value);
+    }
+
+    public void OnLanguageChanged(int index)
+    {
+        if (index == 0)
+            LanguageManager.CurrentLanguage = "turkce";
+        if (index == 1)
+            LanguageManager.CurrentLanguage = "english";
+        if (index == 2)
+            LanguageManager.CurrentLanguage = "deutsch";
+        if (index == 3)
+            LanguageManager.CurrentLanguage = "español";
+        if (index == 4)
+            LanguageManager.CurrentLanguage = "pусский";
+        if (index == 5)
+            LanguageManager.CurrentLanguage = "français";
+        if (index == 6)
+            LanguageManager.CurrentLanguage = "italiano";
+
+        dia.LoadDias();
+        LanguageMenu();
     }
 
     public void NewGame()
     {
+        SaveManager.Instance.IsLoadingFromSave = false;
+        SaveManager.Instance.DeletePaths();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeAndStart());
+    }
+    public void OnSensitivityChanged(float value)
+    {
+        GlobalMouseSensitivityManager.Instance.SetSensitivity(value*100f);
     }
 
     IEnumerator FadeAndStart()
@@ -90,14 +201,43 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(2);
     }
 
+    public void ContinueGame()
+    {
+        SaveManager.Instance.IsLoadingFromSave = true;
+        StartCoroutine(ContinueSavedGame());
+    }
+
+    IEnumerator ContinueSavedGame()
+    {
+        blackScreen.color = new Color(0, 0, 0, 0f);
+        blackScreen.gameObject.SetActive(true);
+        float t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+        
+        SceneManager.LoadScene(SaveManager.Instance.LastGame().sceneIndex);
+    }
+
     public void LoadGame()
     {
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(true);
+    }
 
+    public void Slot(int id)
+    {
+        SaveManager.Instance.IsLoadingFromSave = true;
+        SceneManager.LoadScene(SaveManager.Instance.LoadGame(id).sceneIndex);
     }
 
     public void Settings()
     {
         Camera.Play("Menu2Settings");
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(false);
     }
 
     public void BacktoMenu()
@@ -111,6 +251,7 @@ public class MainMenu : MonoBehaviour
         creditscoroutine=StartCoroutine(creditsslider());
         menumusic.Stop();
         menumusic.gameObject.GetComponents<AudioSource>()[1].Play();
+        menucanvas.GetComponent<Transform>().Find("Load_Game").Find("Scroll View").gameObject.SetActive(false);
     }
 
     public void back2menu()
@@ -124,7 +265,6 @@ public class MainMenu : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("Uygulama kapatılıyor...");
         Application.Quit();
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -135,93 +275,47 @@ public class MainMenu : MonoBehaviour
     {
         fontsizeDropdown.gameObject.SetActive(true);
         languageDropdown.gameObject.SetActive(false);
-        fontcolorDropdown.gameObject.SetActive(false);
     }
 
     public void sellanguage()
     {
         languageDropdown.gameObject.SetActive(true);
         fontsizeDropdown.gameObject.SetActive(false);
-        fontcolorDropdown.gameObject.SetActive(false);
-    }
-
-    public void choosefontcolor()
-    {
-        fontcolorDropdown.gameObject.SetActive(true);
-        languageDropdown.gameObject.SetActive(false);
-        fontsizeDropdown.gameObject.SetActive(false);
     }
 
     public void settingmainmusic()
     {
-        mainvolume.gameObject.SetActive(true);
+        mainvolumeslider.gameObject.SetActive(true);
     }
 
     public void startmainvolume()
     {
-        mainvolume.value = menumusic.volume;
-        mainvolume.onValueChanged.AddListener(settingvolume);
+        mainvolumeslider.onValueChanged.AddListener(settingvolume);
     }
 
     public void settingvolume(float vol)
     {
         menumusic.volume = vol;
+        PlayerPrefs.SetFloat("MAIN_VOLUME", vol);
     }
 
     public void SetResolution(int index)
     {
-        Debug.Log("Seçilen çözünürlük: " + resolutionsize.options[index].text);
-
-        Screen.fullScreenMode = FullScreenMode.Windowed;
-
-        switch (index)
-        {
-            case 0: Screen.SetResolution(1920, 1080, false); break;
-            case 1: Screen.SetResolution(1366, 768, false); break;
-            case 2: Screen.SetResolution(1280, 800, false); break;
-            case 3: Screen.SetResolution(1280, 720, false); break;
-        }
+        GlobalResolutionManager.Instance.SetResolution(index);
     }
     public void SetScreenMode(int index)
     {
-        Debug.Log("Seçilen ekran modu: " + screensizechoose.options[index].text);
-
-        switch (index)
-        {
-            case 0:
-                // Borderless Fullscreen (ÖNERİLEN)
-                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
-                Screen.fullScreen = true;
-                break;
-
-            case 1:
-                // Pencere Modu
-                Screen.fullScreenMode = FullScreenMode.Windowed;
-                Screen.fullScreen = false;
-                break;
-        }
+        GlobalScreenModeManager.Instance.SetScreenMode(index);
     }
+
     public void SetGraphicsQuality(int index)
     {
-        Debug.Log("Seçilen grafik ayarı: " + graphicsettings.options[index].text);
+        GlobalGraphicsQualityManager.Instance.SetGraphicsQuality(index);
+    }
 
-        switch (index)
-        {
-            case 0:
-                // Yüksek
-                QualitySettings.SetQualityLevel(0, true);
-                break;
-
-            case 1:
-                // Orta
-                QualitySettings.SetQualityLevel(1, true);
-                break;
-
-            case 2:
-                // Düşük
-                QualitySettings.SetQualityLevel(2, true);
-                break;
-        }
+    public void OnHeadBobOnClicked(int index)
+    {
+        GlobalHeadBobbingManager.Instance.SetHeadBob(index);
     }
     public void SetAntiAliasing(int index)
     {
@@ -310,7 +404,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(true);
         screensize.SetActive(true);
         graphics.SetActive(true);
@@ -324,7 +417,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(true);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
         graphics.SetActive(false);
@@ -340,7 +432,6 @@ public class MainMenu : MonoBehaviour
         mainmusic.SetActive(false);
         selecetlanguage.SetActive(false);
         fontsize.SetActive(false);
-        fontcolor.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
         graphics.SetActive(false);
@@ -351,7 +442,6 @@ public class MainMenu : MonoBehaviour
     {
         selecetlanguage.SetActive(true);
         fontsize.SetActive(true);
-        fontcolor.SetActive(true);
         mainmusic.SetActive(false);
         resolution.SetActive(false);
         screensize.SetActive(false);
@@ -360,33 +450,9 @@ public class MainMenu : MonoBehaviour
         camsensetive.SetActive(false);
         headbobbing.SetActive(false);
     }
-    public void lanset(int val)
-    {
-        Debug.Log(languageDropdown.options[val].text);
-    }
     public void chofontsize(int val)
     {
-        Debug.Log(fontsizeDropdown.options[val].text);
-    }
-    public void chofontcolor(int val)
-    {
-        Debug.Log(fontcolorDropdown.options[val].text);
-    }
-    public void resultresosize(int val)
-    {
-        Debug.Log(resolutionsize.options[val].text);
-    }
-    public void resultscreensize(int val)
-    {
-        Debug.Log(screensizechoose.options[val].text);
-    }
-    public void resultgrafik(int val)
-    {
-        Debug.Log(graphicsettings.options[val].text);
-    }
-    public void resultheadbobbing(int val)
-    {
-        Debug.Log(headbobbingsettings.options[val].text);
+        PlayerPrefs.SetInt("FONT_SIZE", val);
     }
     IEnumerator creditsslider()
     {
@@ -400,7 +466,85 @@ public class MainMenu : MonoBehaviour
             pos.y = Mathf.Lerp(-900f, 9300f, t);
             content.anchoredPosition = pos;
 
-            yield return null; // 🔥 ZORUNLU
+            yield return null;
         }
+    }
+
+    public void LanguageMenu()
+    {
+        menucanvas.GetComponent<Transform>().Find("Game_Start").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[1];
+        menucanvas.GetComponent<Transform>().Find("Continue").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[2];
+        menucanvas.GetComponent<Transform>().Find("Load_Game").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[30];
+        menucanvas.GetComponent<Transform>().Find("Settings").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[3];
+        menucanvas.GetComponent<Transform>().Find("Credits").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[4];
+        menucanvas.GetComponent<Transform>().Find("Exit").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[5];
+
+        settingscanvas.GetComponent<Transform>().Find("Grafik").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[6];
+        settingscanvas.GetComponent<Transform>().Find("Ses").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[7];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[8];
+        settingscanvas.GetComponent<Transform>().Find("Dil").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[9];
+        settingscanvas.GetComponent<Transform>().Find("Back").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[10];
+        
+        creditscanvas.GetComponent<Transform>().Find("Back").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[10];
+        
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Cozunurluk").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[11];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[12];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[13];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Anti-Aliasing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[14];
+        
+        settingscanvas.GetComponent<Transform>().Find("Ses").Find("Ana Müzik").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[15];
+        
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Camera Sensetive").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[16];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[17];
+        
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Select Language").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[18];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[19];
+        
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[20];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[21];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Ekran Boyutu").Find("Ekran Boyutu Secenekleri").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[22];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[23];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[24];
+        settingscanvas.GetComponent<Transform>().Find("Grafik").Find("Grafik Ayarı").Find("Grafik Ayarı Secenekleri").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+        
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[25];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[26];
+        settingscanvas.GetComponent<Transform>().Find("Kamera").Find("Head Bobbing").Find("Head Bobbing Settings").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+        
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[0].text = dia.menuUI[27];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[28];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[29];
+        settingscanvas.GetComponent<Transform>().Find("Dil").Find("Substitle font size").Find("FontSize").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+    }
+
+    public void LoadSettings()
+    {
+        resolutionsize.value = PlayerPrefs.GetInt("RESOLUTION_INDEX", 3);
+        resolutionsize.RefreshShownValue();
+
+        screensizechoose.value = PlayerPrefs.GetInt("SCREEN_MODE", 0);
+        resolutionsize.RefreshShownValue();
+        
+        graphicsettings.value = PlayerPrefs.GetInt("GRAPHICS_QUALITY", 0);
+        graphicsettings.RefreshShownValue();
+        
+        antialiasing.value = PlayerPrefs.GetInt("AA_MODE", 3);
+        antialiasing.RefreshShownValue();
+
+
+        mainvolumeslider.value = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+        menumusic.volume = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+
+
+        camerasenstive.value = PlayerPrefs.GetFloat("MOUSE_SENS", 20f)/100f;
+        
+        headbobbingsettings.value = PlayerPrefs.GetInt("HEAD_BOB_ENABLED", 1);
+        headbobbingsettings.RefreshShownValue();
+
+        
+        fontsizeDropdown.value = PlayerPrefs.GetInt("FONT_SIZE", 1);
+        fontsizeDropdown.RefreshShownValue();
     }
 }

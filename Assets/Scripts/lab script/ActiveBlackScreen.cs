@@ -23,6 +23,9 @@ public class ActiveBlackScreen : MonoBehaviour
     public Missions missions;
     public ESCMenu Menu;
     public Dialogs dia;
+    public GlitchController GC;
+    public Sprite GlitchSprite1;
+    public Sprite GlitchSprite2;
     public bool outfit = false;
 
     public void BlackScreenOn()
@@ -94,13 +97,15 @@ public class ActiveBlackScreen : MonoBehaviour
         {
             security.GetComponent<BoxCollider>().isTrigger = true;
             security.tag = "Untagged";  
+            missions.DisMis(10);
         }
         pac.isSetAnimator = false;
-        missions.DisMis(++(missions.missionCount));
+        
         Menu.canOpenMenu = true;
         if(night != null)
         {
           dia.WakeUp();
+          missions.DisMis(6);
         }
     }
 
@@ -122,6 +127,7 @@ public class ActiveBlackScreen : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         blackScreen.gameObject.GetComponent<AudioSource>().Play();
+        dia.EventDia(3f, dia.dias[116]);      /////comeback alive
 
         yield return new WaitForSeconds(4f);
         float t = 0f;
@@ -136,7 +142,7 @@ public class ActiveBlackScreen : MonoBehaviour
         blackScreen.gameObject.SetActive(false);
         playerMovement.gameObject.GetComponent<LabMovement>().ExplosionAfter();
 
-        missions.DisMis(++(missions.missionCount));  ///////
+        missions.DisMis(16);  ///////
     }
 
     public void GlassBroke()
@@ -144,11 +150,20 @@ public class ActiveBlackScreen : MonoBehaviour
         StartCoroutine(StartGlassBroke());
       }
 
-    IEnumerator StartGlassBroke()
+    IEnumerator StartGlassBroke() //7 saniyede ekran kararıyor 4 saniye siyah ekrandan sonra 1.5 saniyede geri açılıyor.
     {
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(true);
+        GC.ActiveGlitch();
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponents<AudioSource>()[1].Play();
+        yield return new WaitForSeconds(4f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = true;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite1;
         blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(0.5f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
         yield return new WaitForSeconds(1f);
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = true;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().sprite = GlitchSprite2;
+        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<AudioSource>().Play();
         blackScreen.color = new Color(0, 0, 0, 0f);
         
         float t = 0f;
@@ -156,13 +171,15 @@ public class ActiveBlackScreen : MonoBehaviour
 
         while (t < fadeTime)
         {
+            if(t > 0.5f)
+                blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponent<Image>().enabled = false;
             t += Time.deltaTime;
             float alpha = Mathf.Lerp(0, 1, t / fadeTime);
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        GC.DisableGlitchInstant();
         yield return new WaitForSeconds(2f);
-        blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.SetActive(false);
         yield return new WaitForSeconds(2f);
         t = 0f;
         while (t < fadeTime)
@@ -211,6 +228,29 @@ public class ActiveBlackScreen : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
+        yield return new WaitForSeconds(1f);
+        t = 0f;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackScreen.color = new Color(0, 0, 0, alpha);
+            yield return null;
+        }
+
+        blackScreen.gameObject.SetActive(false);
+    }
+
+    public void DisBlack()
+    {
+      StartCoroutine(StartDisBlack());
+    }
+
+    IEnumerator StartDisBlack()
+    {
+        float t = 0f;
+        blackScreen.gameObject.SetActive(true);
+        blackScreen.color = new Color(0, 0, 0, 1f);
         yield return new WaitForSeconds(1f);
         t = 0f;
         while (t < fadeTime)

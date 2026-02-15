@@ -10,6 +10,7 @@ public class BeachCinematic : MonoBehaviour
     public GameObject Aral;
     public ActiveBlackScreen ABS;
     public Animator door;
+    public Dialogs dia;
     public GameObject pastAral;
     public GameObject night;
     public GameObject nightlight;
@@ -45,7 +46,9 @@ public class BeachCinematic : MonoBehaviour
         Aral.GetComponent<Transform>().position = new Vector3(1477.92f,2.10f,1788.94f);
         Aral.GetComponent<Transform>().rotation = Quaternion.Euler(18f,20.635f,0f);
         Aral.GetComponent<Transform>().Find("CameraParent").Find("Camera").localRotation = Quaternion.Euler(0f,0f,0f);
-        yield return new WaitForSeconds(5f);//bu süre lara ile konuşma süresi
+        yield return new WaitForSeconds(1.6f);
+        dia.BoatDia();
+        yield return new WaitForSeconds(100f);
         ABS.Black();
         yield return new WaitForSeconds(1.6f);
 
@@ -54,13 +57,17 @@ public class BeachCinematic : MonoBehaviour
         Lara.GetComponent<LaraMovement>().LaraBeach();
         pastAral.GetComponent<Transform>().position = new Vector3(1472.74f,1.94f,1790.86f);
         pastAral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,-163.602f,0f);
+        yield return new WaitForSeconds(3f);
+        dia.EventDia(3f,dia.dias[161]);
 
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(3f);
         ABS.GlassBroke();
+        yield return new WaitForSeconds(7f);
+        dia.EventDia(6f,dia.dias[162]);
         yield return new WaitForSeconds(3f);
         Aral.GetComponent<Transform>().position = new Vector3(1437.80f,4.35f,1668.34f);
         Aral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,-93.866f,0f);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2f);
         Aral.GetComponent<Transform>().Find("aral.v1 (1)").gameObject.GetComponent<Animator>().SetBool("isWalking",true);
         pastAral.GetComponent<Transform>().position = new Vector3(1410.85f,5.28f,1669.72f);
         pastAral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,-267.38f,0f);
@@ -87,17 +94,21 @@ public class BeachCinematic : MonoBehaviour
             Aral.GetComponent<Transform>().rotation = Quaternion.Slerp(Aral.GetComponent<Transform>().rotation, Quaternion.Euler(0f,-61.284f,0f), t);
             yield return null;
         }
+        dia.EventDia(4f,dia.dias[169]);
+        yield return new WaitForSeconds(4.5f);
+        dia.EventDia(4.5f,dia.dias[163]);
         yield return new WaitForSeconds(5f);
+        dia.EventDia(4f,dia.dias[164]);
         t = 0f;
+        ABS.GlassBroke();
         while (t < 1f)
         {
             t += Time.deltaTime * 0.4f;
             Aral.GetComponent<Transform>().rotation = Quaternion.Slerp(Aral.GetComponent<Transform>().rotation, Quaternion.Euler(27.72f,56.964f,0f), t);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
-        ABS.GlassBroke();
-        yield return new WaitForSeconds(2.5f);
+        dia.EventDia(3f,dia.dias[165],5f);
+        yield return new WaitForSeconds(6.5f);
         Aral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,56.964f,0f);
         pastAral.GetComponent<AudioSource>().Stop();
         night.SetActive(false);
@@ -109,10 +120,14 @@ public class BeachCinematic : MonoBehaviour
         Laradead.SetActive(true);
         Lara.SetActive(false);
         pastAral.SetActive(false);
-
-
-
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(5f);
         ABS.ActivePlayer();
+        dia.EventDia(4f,dia.dias[166],2f);
+        yield return new WaitForSeconds(6f);
+        dia.EventDia(7f,dia.dias[167]);
+        yield return new WaitForSeconds(7f);
+        dia.EventDia(4f,dia.dias[168]);
+
+
     }
 }

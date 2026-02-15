@@ -4,6 +4,7 @@ using System.Collections;
 public class RunShadow : MonoBehaviour
 {
     private bool triggered = false;
+    public Dialogs dia;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -22,6 +23,7 @@ public class RunShadow : MonoBehaviour
 
     IEnumerator ShadowRoutine(GameObject shadow)
     {
+        dia.EventDia(4f,dia.dias[121],1f);
         GetComponent<AudioSource>().Play();
         shadow.SetActive(true);
         shadow.GetComponent<Animator>().SetTrigger("start");

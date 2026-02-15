@@ -12,6 +12,7 @@ public class LaptopController : MonoBehaviour
     public GameObject canvasLaptop;
     public BoxCollider col;
     public BoxCollider seaCol;
+    public bool isload = false;
 
     public void TryLogin()
     {
@@ -41,8 +42,10 @@ public class LaptopController : MonoBehaviour
     {
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop window pass").gameObject.SetActive(true);
-        col.enabled = true;
-        seaCol.enabled = false;
+        if(col != null && !isload)
+            col.enabled = true;
+        if(seaCol != null && !isload)
+            seaCol.enabled = false;
     }
     public void ExitLog()
     {

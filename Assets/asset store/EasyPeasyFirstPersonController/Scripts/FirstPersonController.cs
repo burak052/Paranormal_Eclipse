@@ -2,7 +2,9 @@ namespace EasyPeasyFirstPersonController
 {
     using System;
     using System.Collections;
+    using System.IO;
     using UnityEngine;
+    using UnityEngine.SceneManagement;
 
     public partial class FirstPersonController : MonoBehaviour
     {
