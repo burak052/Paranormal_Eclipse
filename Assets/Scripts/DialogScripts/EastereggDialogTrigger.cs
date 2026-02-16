@@ -10,6 +10,6 @@ public class EastereggDialogTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         first = true;
-        dia.EventDia(10f,dia.dias[133]);
+        dia.EventDia(133);
     }
 }

@@ -18,32 +18,25 @@ public class DialogTriggerSignal : MonoBehaviour
     }
     IEnumerator BeforeSleep()
     {
-        dia.dialog.text = dia.dias[24];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(dia.EventDialog(24));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[26];
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(26));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[27];
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(27));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[28];
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(28));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[29];
-        yield return new WaitForSeconds(6f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(29));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[30];
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(30));
         dia.dialog.text = "";
-        yield return new WaitForSeconds(0.5f);
-        dia.dialog.text = dia.dias[31];
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
+        yield return StartCoroutine(dia.EventDialog(31));
         dia.dialog.text = "";
         missions.DisMis(5);
         bed.tag = "bed";

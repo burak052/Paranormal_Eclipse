@@ -31,12 +31,10 @@ public class BushScare : MonoBehaviour
     IEnumerator cor1()
     {
         yield return new WaitForSeconds(1f);
-        dia.dialog.text = dia.dias[16];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(dia.EventDialog(16));
         dia.dialog.text = "";
         yield return new WaitForSeconds(2f);
-        dia.dialog.text = dia.dias[17];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(dia.EventDialog(17));
         dia.dialog.text = "";
     }
 

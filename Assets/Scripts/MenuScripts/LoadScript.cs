@@ -57,7 +57,7 @@ public class LoadScript : MonoBehaviour
             {
                 dia.LoadDias();
                 dia.scene = 0;
-                dia.EventDia(0.1f,"");
+                dia.dialog.text = "";
                 mis.missionCount = 0;
                 mis.StartMis(0);
                 SaveManager.Instance.IsLoadingFromSave = false;
@@ -67,7 +67,7 @@ public class LoadScript : MonoBehaviour
             {
                 dia.LoadDias();
                 dia.scene = 0;
-                dia.EventDia(0.1f,"");
+                dia.dialog.text = "";
                 mis.missionCount = 3;
                 StartCoroutine(StartMissions(mis.missions[3],mis));
                 ra.haveRepairKit = true;
@@ -88,7 +88,7 @@ public class LoadScript : MonoBehaviour
             {
                 dia.LoadDias();
                 dia.scene = 0;
-                dia.EventDia(0.1f,"");
+                dia.dialog.text = "";
                 mis.missionCount = 7;
                 StartCoroutine(StartMissions(mis.missions[7],mis));
                 ra.haveRepairKit = true;
@@ -177,7 +177,7 @@ public class LoadScript : MonoBehaviour
             {
                 inv.gameObject.SetActive(false);
                 inv.gameObject.SetActive(true);
-                dia.EventDia(3f, dia.dias[136], 6f);
+                dia.EventDia(136, 6f);
 
                 SaveManager.Instance.IsLoadingFromSave = false;
             }

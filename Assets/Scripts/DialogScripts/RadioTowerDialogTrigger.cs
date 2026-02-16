@@ -10,7 +10,7 @@ public class RadioTowerDialogTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player") && !triggered && ray.haveRepairKit)
         {
-            dia.EventDia(3f, dia.dias[25]);
+            dia.EventDia(25);
             triggered = true;
         }
     }

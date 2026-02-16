@@ -44,7 +44,7 @@ public class BlinkLight : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.Play();
-            dia.EventDia(3f,dia.dias[118],3f);
+            dia.EventDia(118,3f);
         }
     }
 }

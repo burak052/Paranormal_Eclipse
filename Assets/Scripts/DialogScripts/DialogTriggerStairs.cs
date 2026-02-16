@@ -11,12 +11,11 @@ public class DialogTriggerStairs : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         first = true;
-        dia.dialog.text = dia.dias[15];
         StartCoroutine(cor1());
     }
     IEnumerator cor1()
     {
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(dia.EventDialog(15));
         dia.dialog.text = "";
     }
 }

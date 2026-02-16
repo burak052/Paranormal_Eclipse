@@ -127,7 +127,7 @@ public class ActiveBlackScreen : MonoBehaviour
         yield return new WaitForSeconds(4f);
 
         blackScreen.gameObject.GetComponent<AudioSource>().Play();
-        dia.EventDia(3f, dia.dias[116]);      /////comeback alive
+        dia.EventDia(116);      /////comeback alive
 
         yield return new WaitForSeconds(4f);
         float t = 0f;

@@ -525,7 +525,7 @@ public class Raycast : MonoBehaviour
                         missions.DisMis(3);
                         haveRepairKit = true;
                         hit.collider.gameObject.SetActive(false);
-                        dialog.EventDia(4f, dialog.dias[18]);
+                        dialog.EventDia(18);
                         checkpoint2.SetActive(true);
                     }
                     if (hit.collider.CompareTag("HeadLight")) 
@@ -576,22 +576,22 @@ public class Raycast : MonoBehaviour
                     if (hit.collider.CompareTag("HeadLight")) 
                     {
                         missions.DisMis(7);
-                        dialog.EventDia(3f, dialog.dias[20]);
+                        dialog.EventDia(20);
                         takelight = true;
                     }
                     if (hit.collider.CompareTag("Levye"))
                     {
-                        dialog.EventDia(3f, dialog.dias[21]);
+                        dialog.EventDia(21);
                         levye = true;
                     }
                     if (hit.collider.CompareTag("IDCard"))
                     {
-                        dialog.EventDia(2f, dialog.dias[6]);
+                        dialog.EventDia(6);
                         missions.DisMis(1);
                     }
                     if (hit.collider.CompareTag("Gun"))
                     {
-                        dialog.EventDia(4f, dialog.dias[22]);
+                        dialog.EventDia(22);
                         havegun = true;
                     }
                     if(hit.collider.CompareTag("EnergyCapsule"))
@@ -636,7 +636,7 @@ public class Raycast : MonoBehaviour
                         if(havesleep && horrorSoundOutdoor != null && !isload)
                         {
                             horrorSoundOutdoor.Play();
-                            dialog.EventDia(3f, dialog.dias[34], 1.5f);
+                            dialog.EventDia(34, 1.5f);
                         }
                     }
                 }
@@ -688,7 +688,7 @@ public class Raycast : MonoBehaviour
                 }
                 if (Input.GetKeyDown(KeyCode.E) && haveRepairKit)
                 {
-                    dialog.EventDia(3f, dialog.dias[19]);
+                    dialog.EventDia(19);
                     missions.DisMis(4);
                     hit.collider.GetComponent<AudioSource>().Play();
                     hit.collider.tag = "Untagged";
@@ -737,7 +737,7 @@ public class Raycast : MonoBehaviour
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";
                     paper.offpaper();
-                    dialog.EventDia(5f,dialog.dias[74]);
+                    dialog.EventDia(74);
                     playerMovement.enabled = true;
                     playeranim.enabled = true;
                 }
@@ -789,18 +789,18 @@ public class Raycast : MonoBehaviour
                         hit.collider.transform.parent.gameObject.GetComponent<AudioSource>().Play();
                         paper.showpaper(7);
                         inventor.takeItem(12);
-                        dialog.EventDia(3f, dialog.dias[132],2f);
+                        dialog.EventDia(132,2f);
                     }
                     ispressE = true;
                 }
                 if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.G))&& ispressE)
                 {
                     if(hit.collider.CompareTag("LaraNote"))
-                        dialog.EventDia(3f,dialog.dias[99]);
+                        dialog.EventDia(99);
                     if(hit.collider.CompareTag("MaterialNote"))
                         dialog.ShadowDia();
                     if(hit.collider.CompareTag("SecurityNote"))
-                        dialog.EventDia(7f,dialog.dias[125],1f);
+                        dialog.EventDia(125,1f);
                     if(hit.collider.CompareTag("EasterEggNote"))
                         dialog.EasterEggDia();
                     hit.collider.gameObject.SetActive(false);
@@ -877,7 +877,7 @@ public class Raycast : MonoBehaviour
                 {
                     if(!havegun)
                     {
-                        dialog.EventDia(4f,dialog.dias[172]);
+                        dialog.EventDia(172);
                         return;
                     }
                     hit.collider.gameObject.tag = "Untagged";
@@ -928,7 +928,7 @@ public class Raycast : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     hit.collider.gameObject.tag = "Untagged";
-                    dialog.EventDia(2.5f,dialog.dias[124],1f);
+                    dialog.EventDia(124,1f);
                     hit.collider.gameObject.GetComponents<AudioSource>()[0].Play();
                     hit.collider.gameObject.GetComponents<AudioSource>()[1].Play();
                     hit.collider.gameObject.GetComponent<OpenGenerator>().PowerOn();
@@ -1046,7 +1046,7 @@ public class Raycast : MonoBehaviour
             currentDoorAnimator2.SetBool("Open", false);
         }
         yield return new WaitForSeconds(3f);
-        dialog.EventDia(2f,dialog.dias[129]);
+        dialog.EventDia(129);
         yield return new WaitForSeconds(2f);
         GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
         GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
@@ -1057,7 +1057,7 @@ public class Raycast : MonoBehaviour
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(true);
-        dialog.EventDia(2f,dialog.dias[130]);
+        dialog.EventDia(130);
         yield return new WaitForSeconds(0.4f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.2f);
@@ -1082,7 +1082,7 @@ public class Raycast : MonoBehaviour
         }
         GO.SetActive(false);
         yield return new WaitForSeconds(4f);
-        dialog.EventDia(3f,dialog.dias[131]);
+        dialog.EventDia(131);
     }
     IEnumerator StartCapseuleAnim()
     {

@@ -9,7 +9,7 @@ public class PlayerEnter : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             shad.DisableShadow();
-            dia.EventDia(7f, dia.dias[35]); 
+            dia.EventDia(35); 
         }
     }
 }

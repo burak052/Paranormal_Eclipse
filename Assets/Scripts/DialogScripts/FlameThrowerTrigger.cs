@@ -10,6 +10,6 @@ public class FlameThrowerTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         first = true;
-        dia.EventDia(3f,dia.dias[117]);
+        dia.EventDia(117);
     }
 }

@@ -23,7 +23,7 @@ public class RunShadow : MonoBehaviour
 
     IEnumerator ShadowRoutine(GameObject shadow)
     {
-        dia.EventDia(4f,dia.dias[121],1f);
+        dia.EventDia(121,1f);
         GetComponent<AudioSource>().Play();
         shadow.SetActive(true);
         shadow.GetComponent<Animator>().SetTrigger("start");

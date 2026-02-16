@@ -26,7 +26,7 @@ public class LaraDead : MonoBehaviour
 
     IEnumerator Dead()
     {
-        dia.EventDia(2f,dia.dias[170]);
+        dia.EventDia(170);
         ABS.DisablePlayer();
         yield return new WaitForSeconds(1.6f);
         Aral.GetComponent<Transform>().position = new Vector3(1562.45f,51.42f,1505.96f);
@@ -38,7 +38,7 @@ public class LaraDead : MonoBehaviour
         Laradead.GetComponent<Transform>().rotation = Quaternion.Euler(0f,132.785f,0f);
         Laralab.GetComponent<Transform>().Find("gun").gameObject.GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(1.6f);
-        dia.EventDia(2f,dia.dias[171],0.5f);
+        dia.EventDia(171,0.5f);
         float t = 0f;
         while (t < 3f)
         {

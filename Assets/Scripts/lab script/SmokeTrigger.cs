@@ -78,6 +78,6 @@ public class SmokeTrigger : MonoBehaviour
         if (colliderA) colliderA.enabled = true;
         if (colliderB) colliderB.enabled = true;
         if(dia != null)
-            dia.EventDia(4f, dia.dias[52]);
+            dia.EventDia(52);
     }
 }

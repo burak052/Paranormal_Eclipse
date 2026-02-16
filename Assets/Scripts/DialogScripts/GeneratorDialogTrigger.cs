@@ -10,6 +10,6 @@ public class GeneratorDialogTrigger : MonoBehaviour
         if (!other.CompareTag("Player")) return;
 
         first = true;
-        dia.EventDia(1.5f,dia.dias[123]);
+        dia.EventDia(123);
     }
 }

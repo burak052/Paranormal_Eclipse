@@ -12,6 +12,7 @@ public class Dialogs : MonoBehaviour
     public ShowNotes sho;
     public BoxCollider seaCol;
     public StartEnergySmoke SES;
+    public PlayDialogLine PDL;
     public bool Laradia = false;
     
     public string[] dias = new string[300];
@@ -33,9 +34,9 @@ public class Dialogs : MonoBehaviour
         if (scene == 1)
             PlayDialog(OutdoorDialog());
         if (scene == 2)
-            EventDia(5f, dias[53], 4f);
+            EventDia(53, 4f);
         if (scene == 3)
-            EventDia(3f, dias[136], 6f);
+            EventDia(136, 6f);
         if (scene == 4)
             PlayDialog(StartSinematicDialog());
     }
@@ -44,7 +45,8 @@ public class Dialogs : MonoBehaviour
     {
         if(dialog.text != "")
         {
-            if(dialog.text.StartsWith("Aral"))
+            if(dialog.text.StartsWith("Aral") || dialog.text.StartsWith("Арал") || dialog.text.StartsWith("Developer") || dialog.text.StartsWith("Sviluppatore") ||
+             dialog.text.StartsWith("Entwickler") || dialog.text.StartsWith("Desarrollador") || dialog.text.StartsWith("Разработчик") || dialog.text.StartsWith("Développeur"))
                 dialog.color = new Color32(0xBD, 0xE7, 0xFF, 0xFF);
             else
                 dialog.color = new Color32(0xFF, 0xBD, 0xE5, 0xFF);
@@ -148,7 +150,7 @@ public class Dialogs : MonoBehaviour
         dias[65] = "Lara: Bu sayede zamanda yolculuğu mümkün kılmaya çalışıyoruz.";
         dias[66] = "Lara: Burada yaptıklarımız ve yapacaklarımız insanlık için çok önemli.";
         dias[67] = "Aral: Vay! bu kulağı sihir gibi geliyor.";
-        dias[68] = "Lara: Yeterince gelişmiş bir teknolojinin sihirden farkı yoktur.";
+        dias[68] = "Lara: Yeterince gelişmiş bir teknoloji, sihirden ayırt edilemez.";
         dias[69] = "Aral: Haklısın Lara C. Clarke.";
         dias[70] = "Lara: Haha! Aman ne komik.";
         dias[71] = "Aral: Enviro odası kilitli nasıl içeri giriceğiz?";
@@ -494,7 +496,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[31] =  "Lara: Whatever you prefer.";
         dias[32] =  "Aral: How many hours have I been sleeping? The center must have sent the code.";
         dias[33] =  "Aral: Where is Lara?";
-        dias[34] =  "Aral: What is this? A shadow of mine? But there’s no one in front of the light...";
+        dias[34] =  "Aral: What is this? A shadow? But there’s no one in front of the light...";
         dias[35] =  "Aral: What just happened? I must still be groggy since I just woke up. Yes, there can’t be any other explanation.";
         dias[36] =  "Aral: Lara.";
         dias[37] =  "Lara: You’re such a sleepyhead. I got bored waiting for you and went down to the beach.";
@@ -519,14 +521,14 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[56] =  "Aral: You… how… when did you get here?";
         dias[57] =  "Lara: Like I said, I’m always—";
         dias[58] =  "Aral: Punctual, yes, I got it.";
-        dias[59] =  "Aral: So, can you briefly explain what we’re going to do now ? ";
+        dias[59] =  "Aral: So, can you briefly explain what we’re going to do now?";
         dias[60] =  "Lara: Sure. First, we’ll take the Aether Core energy capsules from the enviro room. There should be six of them.";
         dias[61] =  "Lara: Then, using these capsules, we need to activate the warp engine located in the experiment room on the second floor.";
         dias[62] =  "Lara: The warp engine is normally used for interstellar travel.";
         dias[63] =  "Lara: But today, we’re trying to combine the warp engine and the Aether Core energy capsules to create a Parallax engine.";
         dias[64] =  "Lara: In theory, this engine will be able to manipulate space and time not only forward like a warp engine, but also backward, in a more controlled way.";
         dias[65] =  "Lara: This way, we’re trying to make time travel possible.";
-        dias[66] =  "Lara: What we’re doing here—and what we’re about to do—is very important for humanity.";
+        dias[66] =  "Lara: What we’re doing here—and what we’re about to do—is very important for humanity."; // dont use
         dias[67] =  "Aral: Wow! That sounds like magic.";
         dias[68] =  "Lara: Any sufficiently advanced technology is indistinguishable from magic.";
         dias[69] =  "Aral: You’re right, Lara C.Clarke.";
@@ -576,7 +578,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[113] = "Lara: There’s an overload—stop the procedure!";
         dias[114] = "Aral: Lara, I can’t hear you.";
         dias[115] = "Aral: I’m going to stop the procedure.";
-        dias[116] = "Bilinmeyen: Return to life.";
+        dias[116] = "Bilinmeyen: Come back alive.";
         dias[117] = "Aral: Not this way. Maybe there’s an exit on the upper floor.";
         dias[118] = "Aral: The laboratory is in ruins. I hope the elevator still works.";
         dias[119] = "Aral: Hey, who’s there?";
@@ -604,11 +606,11 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[141] = "Aral: When did all this happen? After the accident in the laboratory, you suddenly disappeared. I found the note you left behind.";
         dias[142] = "Lara: Now I understand…";
         dias[143] = "Aral: For God’s sake! Will you finally tell me what’s going on?";
-        dias[144] = "Lara: Aral, you’re trapped in limbo. Look at your clothes!";
+        dias[144] = "Lara: Aral, you’re trapped in purgatory. Look at your clothes!";
         dias[145] = "Lara: If you had really come here after the accident in the laboratory, you’d still be wearing your lab coat. But you’re wearing the jacket you had on the day we arrived on the island.";
         dias[146] = "Aral: I can’t believe it… How is this possible?";
         dias[147] = "Lara: The current time is the night of the day we arrived on the island. You’re actually asleep, and I came down to the beach.";
-        dias[148] = "Lara: I tried to free you from the limbo you’re trapped in—from this time loop. I did everything for you. I even—";
+        dias[148] = "Lara: I tried to free you from the purgatory you’re trapped in—from this time loop. I did everything for you. I even—";
         dias[149] = "Aral: Even what? What did you do, Lara?";
         dias[150] = "Lara: When you learned the truth, you told me that I had to leave. That’s why I won’t explain it now. You’ll find out eventually.";
         dias[151] = "Lara: Just know that I love you enough to do this.";
@@ -616,7 +618,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[153] = "Lara: Aral, you…";
         dias[154] = "Aral: Whatever the problem is, I’m sure we can overcome it. Until then—and even after that—just stay with me.";
         dias[155] = "Lara: You’re forcing me to make a difficult decision… again.";
-        dias[156] = "Lara: To be honest, I never wanted to leave in the first place. I will save you from this limbo.";
+        dias[156] = "Lara: To be honest, I never wanted to leave in the first place. I will save you from this purgatory.";
         dias[157] = "Aral: We can handle it together. If—";
         dias[158] = "Lara: Aral, hide—quickly. He mustn’t see you.";
         dias[159] = "Aral: Who mustn’t see me?";
@@ -626,10 +628,10 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[163] = "Aral: Is that my past self? And I’m standing in front of the light—how can I not see myself?";
         dias[164] = "Aral: Wait… that shadow I keep seeing… could it be…?";
         dias[165] = "Aral: I’m turning into that shadow.";
-        dias[166] = "Aral: This is what Lara meant by being trapped in limbo.";
+        dias[166] = "Aral: This is what Lara meant by being trapped in purgatory.";
         dias[167] = "Aral: It seems that every time I see my past self, reality fractures and I’m pushed a little further back in time.";
         dias[168] = "Aral: I’m literally becoming a shadow in time.";
-        dias[169] = "Bilinmeyen: What is this? A shadow of mine? But there’s no one in front of the light…";
+        dias[169] = "Bilinmeyen: What is this? A shadow? But there’s no one in front of the light…";
         dias[170] = "Aral: Lara?";
         dias[171] = "Aral: Lara, no!";
         dias[172] = "Aral: I'd better find a weapon before I go down.";
@@ -791,7 +793,7 @@ Life is lived forward, but understood backward.";
 
 Lara, if you are reading this letter, you must know that I failed to save Aral.
 I had to kill my past self and take her place, but it was in vain.
-I could not break this time loop, and I could not free Aral from the limbo he is trapped in.
+I could not break this time loop, and I could not free Aral from the purgatory he is trapped in.
 
 You must prevent the accident before it happens.
 Even if it means killing me and taking my place, you have to do it.
@@ -1376,11 +1378,11 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[141] = "Aral: ¿Cuándo se supone que fue eso? Después del accidente en el laboratorio desapareciste de repente. Encontré la nota que dejaste.";
         dias[142] = "Lara: Ahora lo entiendo…";
         dias[143] = "Aral: ¡Por el amor de Dios! ¡Dime de una vez qué está pasando aquí!";
-        dias[144] = "Lara: Aral… estás atrapado en el limbo. Mírate — ¡tu ropa!";
+        dias[144] = "Lara: Aral… estás atrapado en el purgatory. Mírate — ¡tu ropa!";
         dias[145] = "Lara: Si realmente hubieras venido aquí después del accidente del laboratorio, todavía llevarías tu bata. Pero llevas la chaqueta del día en que llegamos a la isla.";
         dias[146] = "Aral: No puede ser… ¿Cómo es posible?";
         dias[147] = "Lara: Es la noche del día en que llegamos a la isla. En realidad aún estás durmiendo — y yo fui a la playa.";
-        dias[148] = "Lara: He intentado liberarte de este limbo… de este bucle temporal. He hecho todo por ti. Incluso he—";
+        dias[148] = "Lara: He intentado liberarte de este purgatory… de este bucle temporal. He hecho todo por ti. Incluso he—";
         dias[149] = "Aral: ¿Incluso qué? ¿Qué hiciste, Lara?";
         dias[150] = "Lara: Cuando descubriste la verdad, me dijiste que me fuera. Por eso ahora no te lo explicaré. Tarde o temprano lo descubrirás por ti mismo.";
         dias[151] = "Lara: Solo debes saber que te amo lo suficiente como para hacer eso.";
@@ -1388,7 +1390,7 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[153] = "Lara: Aral… tú…";
         dias[154] = "Aral: Sea cual sea el problema, lo superaremos juntos. Hasta entonces — y también después — simplemente quédate conmigo.";
         dias[155] = "Lara: Me estás obligando a tomar otra decisión difícil...";
-        dias[156] = "Lara: Sinceramente, nunca quise irme. Te liberaré de este limbo.";
+        dias[156] = "Lara: Sinceramente, nunca quise irme. Te liberaré de este purgatory.";
         dias[157] = "Aral: Podemos superar esto juntos. Si—";
         dias[158] = "Lara: Aral, escóndete — ¡rápido! No puede verte.";
         dias[159] = "Aral: ¿Quién no puede verme?";
@@ -1398,7 +1400,7 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[163] = "Aral: ¿Es realmente mi yo del pasado? Y estoy justo frente a la fuente de luz… ¿por qué no puedo verme a mí mismo?";
         dias[164] = "Aral: Espera… esa sombra que veo constantemente… ¿podría ser que…?";
         dias[165] = "Aral: Me estoy convirtiendo en esa sombra.";
-        dias[166] = "Aral: Entonces eso era lo que Lara quería decir con estar atrapado en el limbo.";
+        dias[166] = "Aral: Entonces eso era lo que Lara quería decir con estar atrapado en el purgatory.";
         dias[167] = "Aral: Cada vez que me encuentro con mi yo del pasado, la realidad se quiebra un poco más — y soy empujado más atrás en el tiempo.";
         dias[168] = "Aral: Literalmente me estoy convirtiendo en una sombra en el tiempo.";
         dias[169] = "Desconocido: ¿Qué es eso? ¿Mi sombra? Pero no hay nadie frente a la fuente de luz…";
@@ -1799,11 +1801,11 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[170] = "Арал: Лара?";
         dias[171] = "Арал: Лара, нет!";
         dias[172] = "Арал: Лучше найти оружие, прежде чем спускаться вниз.";
-        dias[173] = "Lara: Остров посреди Тихого океана, в тысячах километров от материка... Прежде чем прилететь сюда, дважды подумаешь.";
-        dias[174] = "Aral: В этом и был смысл. Изолированная лаборатория. Если эксперимент со временем пойдет не так, последствия должны остаться здесь.";
-        dias[175] = "Lara: По официальным данным это заброшенная метеостанция. Но комплекс под скалами позволит нам управлять временем.";
-        dias[176] = "Aral: Надеюсь, мы покинем этот остров с успешным результатом.";
-        dias[177] = "Lara: Мы приближаемся к острову. Готовьтесь к посадке.";
+        dias[173] = "Лара: Остров посреди Тихого океана, в тысячах километров от материка... Прежде чем прилететь сюда, дважды подумаешь.";
+        dias[174] = "Арал: В этом и был смысл. Изолированная лаборатория. Если эксперимент со временем пойдет не так, последствия должны остаться здесь.";
+        dias[175] = "Лара: По официальным данным это заброшенная метеостанция. Но комплекс под скалами позволит нам управлять временем.";
+        dias[176] = "Арал: Надеюсь, мы покинем этот остров с успешным результатом.";
+        dias[177] = "Лара: Мы приближаемся к острову. Готовьтесь к посадке.";
 
 
 
@@ -2534,11 +2536,11 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[141] = "Aral: Quando è successo tutto questo? Dopo l'incidente nel laboratorio, sei scomparsa all'improvviso. Ho trovato il biglietto che hai lasciato.";
         dias[142] = "Lara: Ora capisco…";
         dias[143] = "Aral: Per l'amor di Dio! Finalmente mi dirai cosa sta succedendo?";
-        dias[144] = "Lara: Aral, sei intrappolato nel limbo. Guarda i tuoi vestiti!";
+        dias[144] = "Lara: Aral, sei intrappolato nel purgatory. Guarda i tuoi vestiti!";
         dias[145] = "Lara: Se fossi davvero venuto qui dopo l'incidente nel laboratorio, indosseresti ancora il camice. Ma stai indossando la giacca che avevi il giorno in cui siamo arrivati sull'isola.";
         dias[146] = "Aral: Non ci posso credere… Com'è possibile?";
         dias[147] = "Lara: L'orario attuale è la notte del giorno in cui siamo arrivati sull'isola. In realtà stai dormendo, e io sono scesa sulla spiaggia.";
-        dias[148] = "Lara: Ho cercato di liberarti dal limbo in cui sei intrappolato—da questo loop temporale. Ho fatto tutto per te. Ho perfino—";
+        dias[148] = "Lara: Ho cercato di liberarti dal purgatory in cui sei intrappolato—da questo loop temporale. Ho fatto tutto per te. Ho perfino—";
         dias[149] = "Aral: Perfino cosa? Cosa hai fatto, Lara?";
         dias[150] = "Lara: Quando hai scoperto la verità, mi hai detto che dovevo andarmene. Ecco perché non lo spiegherò ora. Lo scoprirai col tempo.";
         dias[151] = "Lara: Sappi solo che ti amo abbastanza da fare questo.";
@@ -2546,7 +2548,7 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[153] = "Lara: Aral, tu…";
         dias[154] = "Aral: Qualunque sia il problema, sono sicuro che possiamo superarlo. Fino ad allora—e anche dopo—resta con me.";
         dias[155] = "Lara: Mi stai costringendo a prendere una decisione difficile… di nuovo.";
-        dias[156] = "Lara: A dire il vero, non ho mai voluto andarmene. Ti salverò da questo limbo.";
+        dias[156] = "Lara: A dire il vero, non ho mai voluto andarmene. Ti salverò da questo purgatory.";
         dias[157] = "Aral: Possiamo farcela insieme. Se—";
         dias[158] = "Lara: Aral, nasconditi—velocemente. Non deve vederti.";
         dias[159] = "Aral: Chi non deve vedermi?";
@@ -2556,7 +2558,7 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[163] = "Aral: È il mio sé passato? E io sto davanti alla luce—come è possibile che non mi veda?";
         dias[164] = "Aral: Aspetta… quell'ombra che continuo a vedere… potrebbe essere…?";
         dias[165] = "Aral: Sto diventando quell'ombra.";
-        dias[166] = "Aral: Questo è ciò che Lara intendeva con essere intrappolati nel limbo.";
+        dias[166] = "Aral: Questo è ciò che Lara intendeva con essere intrappolati nel purgatory.";
         dias[167] = "Aral: Sembra che ogni volta che vedo il mio sé passato, la realtà si frantuma e vengo spinto un po' più indietro nel tempo.";
         dias[168] = "Aral: Sto letteralmente diventando un'ombra nel tempo.";
         dias[169] = "Sconosciuto: Cos'è questo? Un'ombra mia? Ma non c'è nessuno davanti alla luce…";
@@ -2721,7 +2723,7 @@ La vita si vive in avanti, ma si comprende all’indietro.";
 
 Lara, se stai leggendo questa lettera, devi sapere che non sono riuscita a salvare Aral.
 Ho dovuto uccidere il mio io passato e prendere il suo posto, ma è stato inutile.
-Non sono riuscita a rompere questo loop temporale, e non sono riuscita a liberare Aral dal limbo in cui è intrappolato.
+Non sono riuscita a rompere questo loop temporale, e non sono riuscita a liberare Aral dal purgatory in cui è intrappolato.
 
 Devi prevenire l’incidente prima che accada.
 Anche se significa uccidermi e prendere il mio posto, devi farlo.
@@ -2781,43 +2783,43 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = ""; // ekranda kalan yazıyı temizle
         activeDialog = StartCoroutine(dialogRoutine);
     }
-    
+
     IEnumerator OutdoorDialog()
     {
         yield return new WaitForSeconds(4f);
         dialog.text = dias[0];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(0));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[1];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(1));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[2];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(2));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[3];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(3));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[4];
-        yield return new WaitForSeconds(4.5f);
+        yield return StartCoroutine(PDL.PlayVoice(4));
         dialog.text = "";
         mis.StartMis(mis.missionCount);
         Laradia = true;
     }
 
-    public void EventDia(float delayafter, string s, float delaybefore=0f)
+    public void EventDia(int s, float delaybefore=0f)
     {
-        PlayDialog(EventDialog(delayafter, s, delaybefore));
+        PlayDialog(EventDialog(s, delaybefore));
     }
-    IEnumerator EventDialog(float delayafter, string s, float delaybefore=0f)
+    public IEnumerator EventDialog(int s, float delaybefore=0f)
     {
         if(delaybefore != 0f)
             yield return new WaitForSeconds(delaybefore);
-        dialog.text = s;
-        yield return new WaitForSeconds(delayafter);
+        dialog.text = dias[s];
+        yield return StartCoroutine(PDL.PlayVoice(s));
         dialog.text = "";
     }
 
@@ -2828,35 +2830,35 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator SleepDoorOpen()
     {
         dialog.text = dias[7];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(7));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[8];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(8));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[9];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(9));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[10];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(10));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[11];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(11));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[12];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(12));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[13];
-        yield return new WaitForSeconds(8f);
+        yield return StartCoroutine(PDL.PlayVoice(13));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[14];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(14));
         dialog.text = "";
         mis.DisMis(2);
     }
@@ -2868,11 +2870,11 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator WakeUpStart()
     {
         dialog.text = dias[32];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(32));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[33];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(33));
         dialog.text = "";
     }
     
@@ -2884,67 +2886,67 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator BeachSpeakStart()
     {
         dialog.text = dias[36];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(36));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[37];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(37));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[38];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(38));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[39];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(39));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[40];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(40));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[41];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(41));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[42];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(42));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[43];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(43));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[44];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(44));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[45];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(45));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[46];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(46));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[47];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(47));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[48];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(48));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[49];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(49));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[50];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(50));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[51];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(51));
         dialog.text = "";
         mis.DisMis(8);
     }
@@ -2957,11 +2959,11 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator SteamStart()
     {
         dialog.text = dias[32];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(32));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[33];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(33));
         dialog.text = "";
     }
     
@@ -2973,55 +2975,53 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     {
         ABS.DisablePlayer();
         dialog.text = dias[55];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(55));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[56];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(56));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[57];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(57));
         dialog.text = dias[58];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(58));
         dialog.text = "";
         ABS.ActivePlayer();
         Lara.LaraXray();
         yield return new WaitForSeconds(2.5f);
         dialog.text = dias[59];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(59));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[60];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(60));
         dialog.text = dias[61];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(61));
         dialog.text = dias[62];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(62));
         dialog.text = dias[63];
-        yield return new WaitForSeconds(8f);
+        yield return StartCoroutine(PDL.PlayVoice(63));
         dialog.text = dias[64];
-        yield return new WaitForSeconds(10f);
+        yield return StartCoroutine(PDL.PlayVoice(64));
         dialog.text = dias[65];
-        yield return new WaitForSeconds(4f);
-        dialog.text = dias[66];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(65));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[67];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(67));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[68];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(68));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[69];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(69));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[70];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(70));
         dialog.text = "";
         seaCol.enabled = true;
     }
@@ -3034,15 +3034,15 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator PassDiaStart()
     {
         dialog.text = dias[76];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(76));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[77];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(77));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[78];
-        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(PDL.PlayVoice(78));
         dialog.text = "";
     }
     
@@ -3053,15 +3053,15 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator CapsuleDialog()
     {
         dialog.text = dias[79];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(79));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[80];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(80));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[81];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(81));
         dialog.text = "";
     }
     
@@ -3072,11 +3072,11 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator FindMacDialog()
     {
         dialog.text = dias[82];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(82));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[83];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(83));
         dialog.text = "";
     }
     
@@ -3087,21 +3087,21 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator ComCapDialog()
     {
         dialog.text = dias[23];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(23));
         dialog.text = dias[84];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(84));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[85];
-        yield return new WaitForSeconds(8f);
+        yield return StartCoroutine(PDL.PlayVoice(85));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[86];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(86));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[87];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(87));
         dialog.text = "";
         mis.DisMis(12);
         SES.OnElevatorButton();
@@ -3115,43 +3115,43 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator ArcDialog()
     {
         dialog.text = dias[88];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(88));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[89];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(89));
         dialog.text = dias[90];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(90));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[91];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(91));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[92];
-        yield return new WaitForSeconds(8f);
+        yield return StartCoroutine(PDL.PlayVoice(92));
         dialog.text = dias[93];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(93));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[94];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(94));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[95];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(95));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[96];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(96));
         dialog.text = "";
         yield return new WaitForSeconds(2f);
         dialog.text = dias[100];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(100));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[101];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(101));
         dialog.text = "";
     }
 
@@ -3163,13 +3163,13 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator SeaDialog()
     {
         dialog.text = dias[71];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(71));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[72];
-        yield return new WaitForSeconds(8f);
+        yield return StartCoroutine(PDL.PlayVoice(72));
         dialog.text = dias[73];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(73));
         dialog.text = "";
     }
 
@@ -3181,15 +3181,15 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator WarpDialog()
     {
         dialog.text = dias[102];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(102));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[103];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(103));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[104];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(104));
         dialog.text = "";
     }
     
@@ -3200,19 +3200,19 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator Warp2Dialog()
     {
         dialog.text = dias[105];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(105));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[106];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(106));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[107];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(107));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[108];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(108));
         dialog.text = "";
         mis.DisMis(15);
     }
@@ -3224,9 +3224,9 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator RunSoundDialog()
     {
         dialog.text = dias[119];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(119));
         dialog.text = dias[120];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(120));
         dialog.text = "";
     }
     
@@ -3238,13 +3238,13 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     {
         yield return new WaitForSeconds(5f);
         dialog.text = dias[126];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(126));
         dialog.text = "";
         yield return new WaitForSeconds(3f);
         dialog.text = dias[127];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(127));
         dialog.text = dias[128];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(128));
         dialog.text = "";
     }
 
@@ -3255,11 +3255,11 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     IEnumerator EasterEggDialog()
     {
         dialog.text = dias[134];
-        yield return new WaitForSeconds(7f);
+        yield return StartCoroutine(PDL.PlayVoice(134));
         dialog.text = "";
         yield return new WaitForSeconds(3f);
         dialog.text = dias[135];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(135));
         dialog.text = "";
     }
     
@@ -3267,88 +3267,88 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     {
         PlayDialog(BoatDialog());
     }
-    IEnumerator BoatDialog()
+    public IEnumerator BoatDialog()
     {
         dialog.text = dias[137];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(137));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[138];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(138));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[139];
-        yield return new WaitForSeconds(4.5f);
+        yield return StartCoroutine(PDL.PlayVoice(139));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[140];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(140));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[141];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(141));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[142];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(142));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[143];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(143));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[144];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(144));
         dialog.text = dias[145];
-        yield return new WaitForSeconds(9f);
+        yield return StartCoroutine(PDL.PlayVoice(145));
         dialog.text = dias[146];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(146));
         dialog.text = dias[147];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(147));
         dialog.text = dias[148];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(148));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[149];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(149));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[150];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(150));
         dialog.text = dias[151];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(151));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[152];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(152));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[153];
-        yield return new WaitForSeconds(1.5f);
+        yield return StartCoroutine(PDL.PlayVoice(153));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[154];
-        yield return new WaitForSeconds(6f);
+        yield return StartCoroutine(PDL.PlayVoice(154));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[155];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(155));
         dialog.text = dias[156];
-        yield return new WaitForSeconds(4f);
+        yield return StartCoroutine(PDL.PlayVoice(156));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[157];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(157));
         dialog.text = dias[158];
-        yield return new WaitForSeconds(2.5f);
+        yield return StartCoroutine(PDL.PlayVoice(158));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[159];
-        yield return new WaitForSeconds(2f);
+        yield return StartCoroutine(PDL.PlayVoice(159));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[160];
-        yield return new WaitForSeconds(4.5f);
+        yield return StartCoroutine(PDL.PlayVoice(160));
         dialog.text = "";
     }
 
@@ -3356,23 +3356,23 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     {
         yield return new WaitForSeconds(2f);
         dialog.text = dias[173];
-        yield return new WaitForSeconds(5.5f);
+        yield return StartCoroutine(PDL.PlayVoice(173));
         dialog.text = "";
         yield return new WaitForSeconds(0.2f);
         dialog.text = dias[174];
-        yield return new WaitForSeconds(5f);
+        yield return StartCoroutine(PDL.PlayVoice(174));
         dialog.text = "";
         yield return new WaitForSeconds(0.2f);
         dialog.text = dias[175];
-        yield return new WaitForSeconds(7.5f);
+        yield return StartCoroutine(PDL.PlayVoice(175));
         dialog.text = "";
         yield return new WaitForSeconds(0.2f);
         dialog.text = dias[176];
-        yield return new WaitForSeconds(3.5f);
+        yield return StartCoroutine(PDL.PlayVoice(176));
         dialog.text = "";
         yield return new WaitForSeconds(0.2f);
         dialog.text = dias[177];
-        yield return new WaitForSeconds(3f);
+        yield return StartCoroutine(PDL.PlayVoice(177));
         dialog.text = "";
     }
 }

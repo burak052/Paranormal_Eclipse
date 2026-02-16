@@ -42,6 +42,6 @@ public class SecurityCamscare : MonoBehaviour
         glitch.sprite = glitch4;
 
         glitch.gameObject.SetActive(false);
-        dia.EventDia(2.5f,dia.dias[122]);
+        dia.EventDia(122);
     }
 }
