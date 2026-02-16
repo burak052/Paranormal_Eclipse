@@ -577,7 +577,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[112] = "Aral: Lara, is this normal?";
         dias[113] = "Lara: There’s an overload—stop the procedure!";
         dias[114] = "Aral: Lara, I can’t hear you.";
-        dias[115] = "Aral: I’m going to stop the procedure.";
+        dias[115] = "Aral: I’m going to stop the procedure.";   //çıkarıldı
         dias[116] = "Bilinmeyen: Come back alive.";
         dias[117] = "Aral: Not this way. Maybe there’s an exit on the upper floor.";
         dias[118] = "Aral: The laboratory is in ruins. I hope the elevator still works.";
@@ -640,6 +640,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[175] = "Lara: Official records show this place as an abandoned meteorological station. But the facility built beneath those cliffs will allow us to control time.";
         dias[176] = "Aral: I hope we leave this island with a successful result.";
         dias[177] = "Lara: We’re approaching the island. Prepare for landing.";
+        dias[178] = "Lara: We’re approaching the island. Prepare for landing.";
 
 
         
