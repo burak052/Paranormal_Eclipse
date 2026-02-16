@@ -2952,7 +2952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &275041448
 Transform:
   m_ObjectHideFlags: 0
@@ -18459,7 +18459,7 @@ GameObject:
   - component: {fileID: 1540211952}
   m_Layer: 5
   m_Name: "Ana M\xFCzik"
-  m_TagString: Untagged
+  m_TagString: MenuMusic
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18504,7 +18504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAIN MUSIC
+  m_text: MENU MUZIK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
   m_sharedMaterial: {fileID: 3826551174890622921, guid: 55892158122f2a341a6dd4fb830922d1, type: 2}
@@ -19378,7 +19378,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1645507304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22217,7 +22217,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1831849932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24631,7 +24631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2030425106
 MonoBehaviour:
   m_ObjectHideFlags: 0
