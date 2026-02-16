@@ -317,44 +317,6 @@ public class MainMenu : MonoBehaviour
     {
         GlobalHeadBobbingManager.Instance.SetHeadBob(index);
     }
-    public void SetAntiAliasing(int index)
-    {
-        Debug.Log("Seçilen AA (HDRP): " +
-                  (antialiasing != null ? antialiasing.options[index].text : index.ToString()));
-
-        PlayerPrefs.SetInt("AA_SETTING", index);
-        PlayerPrefs.Save();
-
-        ApplyAA(); // anında uygula
-    }
-    void ApplyAA()
-    {
-        var cameraData = GetComponent<HDAdditionalCameraData>();
-        if (cameraData == null) return;
-
-        int index = PlayerPrefs.GetInt("AA_SETTING", 0);
-
-        switch (index)
-        {
-            case 0:
-                // No AA
-                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.None;
-                QualitySettings.antiAliasing = 0;
-                break;
-
-            case 1:
-                // FXAA
-                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.FastApproximateAntialiasing;
-                QualitySettings.antiAliasing = 0;
-                break;
-
-            case 2:
-                // TAA
-                cameraData.antialiasing = HDAdditionalCameraData.AntialiasingMode.TemporalAntialiasing;
-                QualitySettings.antiAliasing = 0;
-                break;
-        }
-    }
 
     public void choreso()
     {
