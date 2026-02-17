@@ -51,6 +51,7 @@ TagManager:
   - EasterEggNote
   - Generator
   - NeedGenerator
+  - GirlTalking
   layers:
   - Default
   - TransparentFX
