@@ -11,8 +11,8 @@ public class DisableImageAfterDelay : MonoBehaviour
 
     void Start()
     {
-        if (FM != null)
-            FM.StartGoBeach();
+        // if (FM != null)
+        //     FM.StartGoBeach();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(DisableAfterDelay());
     }

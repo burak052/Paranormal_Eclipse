@@ -3860,4 +3860,238 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return StartCoroutine(PDL.PlayVoice(177));
         dialog.text = "";
     }
+
+    public IEnumerator FinalDialog()
+    {
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[178];
+        yield return StartCoroutine(PDL.PlayVoice(178));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[179];
+        yield return StartCoroutine(PDL.PlayVoice(179));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[180];
+        yield return StartCoroutine(PDL.PlayVoice(180));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[181];
+        yield return StartCoroutine(PDL.PlayVoice(181));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[182];
+        yield return StartCoroutine(PDL.PlayVoice(182));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[183];
+        yield return StartCoroutine(PDL.PlayVoice(183));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[184];
+        dialog.text = "";
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[185];
+        yield return StartCoroutine(PDL.PlayVoice(185));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[186];
+        yield return StartCoroutine(PDL.PlayVoice(186));
+        dialog.text = dias[187];
+        yield return StartCoroutine(PDL.PlayVoice(187));
+        dialog.text = dias[188];
+        yield return StartCoroutine(PDL.PlayVoice(188));
+        dialog.text = dias[189];
+        yield return StartCoroutine(PDL.PlayVoice(189));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[190];
+        yield return StartCoroutine(PDL.PlayVoice(190));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.7f);
+        dialog.text = dias[191];
+        yield return StartCoroutine(PDL.PlayVoice(191));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[192];
+        yield return StartCoroutine(PDL.PlayVoice(192));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[193];
+        yield return StartCoroutine(PDL.PlayVoice(193));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[194];
+        yield return StartCoroutine(PDL.PlayVoice(194));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[195];
+        yield return StartCoroutine(PDL.PlayVoice(195));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[196];
+        yield return StartCoroutine(PDL.PlayVoice(196));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[197];
+        yield return StartCoroutine(PDL.PlayVoice(197));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.7f);
+        dialog.text = dias[198];
+        yield return StartCoroutine(PDL.PlayVoice(198));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[199];
+        yield return StartCoroutine(PDL.PlayVoice(199));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[200];
+        yield return StartCoroutine(PDL.PlayVoice(200));
+        dialog.text = "";
+    }
+
+    public IEnumerator FirstEndDialog()
+    {
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[201];
+        yield return StartCoroutine(PDL.PlayVoice(201));
+        dialog.text = "";
+        yield return new WaitForSeconds(4f);
+        dialog.text = dias[202];
+        yield return StartCoroutine(PDL.PlayVoice(202));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[203];
+        yield return StartCoroutine(PDL.PlayVoice(203));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[204];
+        yield return StartCoroutine(PDL.PlayVoice(204));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[205];
+        yield return StartCoroutine(PDL.PlayVoice(205));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.6f);
+        dialog.text = dias[206];
+        yield return StartCoroutine(PDL.PlayVoice(206));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.1f);
+        dialog.text = dias[207];
+        yield return StartCoroutine(PDL.PlayVoice(207));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.1f);
+        dialog.text = dias[208];
+        yield return StartCoroutine(PDL.PlayVoice(208));
+        dialog.text = "";
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[209];
+        yield return StartCoroutine(PDL.PlayVoice(209));
+        dialog.text = "";
+    }
+    public IEnumerator SecondEndDialog()
+    {
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[210];
+        yield return StartCoroutine(PDL.PlayVoice(210));
+        dialog.text = dias[211];
+        yield return StartCoroutine(PDL.PlayVoice(211));
+        dialog.text = dias[212];
+        yield return StartCoroutine(PDL.PlayVoice(212));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[213];
+        yield return StartCoroutine(PDL.PlayVoice(213));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[214];
+        yield return StartCoroutine(PDL.PlayVoice(214));
+        dialog.text = "";
+    }
+    public IEnumerator SecondEndDialogPart2()
+    {
+        yield return new WaitForSeconds(4f);
+        dialog.text = dias[215];
+        yield return StartCoroutine(PDL.PlayVoice(215));
+        dialog.text = "";
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[216];
+        yield return StartCoroutine(PDL.PlayVoice(216));
+        dialog.text = "";
+    }
+    
+    public IEnumerator ThirdEndDialog()
+    {
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[217];
+        yield return StartCoroutine(PDL.PlayVoice(217));
+        dialog.text = dias[218];
+        yield return StartCoroutine(PDL.PlayVoice(218));
+        dialog.text = dias[219];
+        yield return StartCoroutine(PDL.PlayVoice(219));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[220];
+        yield return StartCoroutine(PDL.PlayVoice(220));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[221];
+        yield return StartCoroutine(PDL.PlayVoice(221));
+        dialog.text = dias[222];
+        yield return StartCoroutine(PDL.PlayVoice(222));
+        dialog.text = dias[223];
+        yield return StartCoroutine(PDL.PlayVoice(223));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[224];
+        yield return StartCoroutine(PDL.PlayVoice(224));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[225];
+        yield return StartCoroutine(PDL.PlayVoice(225));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[226];
+        yield return StartCoroutine(PDL.PlayVoice(226));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.2f);
+        dialog.text = dias[227];
+        yield return StartCoroutine(PDL.PlayVoice(227));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[228];
+        yield return StartCoroutine(PDL.PlayVoice(228));
+        dialog.text = "";
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[229];
+        yield return StartCoroutine(PDL.PlayVoice(229));
+        dialog.text = dias[230];
+        yield return StartCoroutine(PDL.PlayVoice(230));
+        dialog.text = dias[231];
+        yield return StartCoroutine(PDL.PlayVoice(231));
+        dialog.text = dias[232];
+        yield return StartCoroutine(PDL.PlayVoice(232));
+        dialog.text = "";
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[233];
+        yield return StartCoroutine(PDL.PlayVoice(233));
+        dialog.text = "";
+    }
+    public IEnumerator ThirdEndDialogPart2()
+    {
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[234];
+        yield return StartCoroutine(PDL.PlayVoice(234));
+        dialog.text = dias[235];
+        yield return StartCoroutine(PDL.PlayVoice(235));
+        dialog.text = "";
+        yield return new WaitForSeconds(3f);
+        dialog.text = dias[236];
+        yield return StartCoroutine(PDL.PlayVoice(236));
+        dialog.text = "";
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[237];
+        yield return StartCoroutine(PDL.PlayVoice(237));
+        dialog.text = "";
+    }
 }
