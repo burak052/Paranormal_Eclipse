@@ -260,6 +260,66 @@ public class Dialogs : MonoBehaviour
         dias[175] = "Lara: Resmî kayıtlarda burası terk edilmiş bir meteoroloji istasyonu olarak görünüyor. Ama aşağıda, kayalıkların altında kurulu o tesis, zamanı kontrol etmemizi sağlayacak.";
         dias[176] = "Aral: Umarım bu adadan başarılı bir sonuçla ayrılırız.";
         dias[177] = "Lara: Adaya yaklaştık, iniş için hazırlanalım.";
+        dias[178] = "Aral: Ne yaptın sen…";
+        dias[179] = "Aral: Az önce… kendini mi vurdun?";
+        dias[180] = "Lara: Ben…";
+        dias[181] = "Lara: Hayır… o ben değildim…";
+        dias[182] = "Lara: O… başarısız olandı.";
+        dias[183] = "Aral: Bu ne demek?!";
+        dias[184] = "Lara: ...";
+        dias[185] = "Aral: Kaç kere yaptın bunu?";
+        dias[186] = "Lara: Hatırlamıyorum.";
+        dias[187] = "Aral: Hatırlamıyor musun?!";
+        dias[188] = "Lara: Çünkü her seferinde anılarım karışıyor. Amacımı unutmamak için kendime not bırakıp duruyorum.";
+        dias[189] = "Lara: İşte bu yüzden bu sefer farklı olacak!";
+        dias[190] = "Lara: Bu sefer seni çıkaracağım buradan!";
+        dias[191] = "Aral: Lara… Beni kurtarmaya çalışmıyorsun.";
+        dias[192] = "Aral: Beni burada tutuyorsun. Şimdi anlıyorum.";
+        dias[193] = "Lara: Ben sadece seni kurtarmaya çalıştım… Sen gittikçe o gölgeye dönüşüyorsun. Bunu en başından beri biliyordum.";
+        dias[194] = "Aral: Her seferinde bu kaza yeniden oluyor değil mi?";
+        dias[195] = "Aral: Her seferinde helikopter geliyor.";
+        dias[196] = "Aral: Her seferinde biz geliyoruz ve kaza olduktan sonra ben arafta kayboluyorum.";
+        dias[197] = "Aral: Ama sen geçmişteki kendini öldürüp yerine geçerek arafta ilk kaybolan beni kurtarmaya çalışıyorsun.";
+        dias[198] = "Aral: Bu kaza ve bu döngü… Sebebi sensin.";
+        dias[199] = "Lara: Hayır ben... ilk kaza benim yüzümden değildi. ilk kaza gerçekten bir kazaydı.";
+        dias[200] = "Aral: Lara buna bi son verelim.";
+        dias[201] = "Aral: Ben gidiyorum bu öldürme döngüsünün bir parçası olmayacağım. Sende benimle geliyorsun.";
+        dias[202] = "Aral: Lara?";
+        dias[203] = "Lara: Ben gelmeyeceğim.";
+        dias[204] = "Aral: Anlamıyor musun? döngüyü bu şekilde sonlandırabiliriz.";
+        dias[205] = "Lara: Senin için sonlanacak. Sen gölgeye dönüştüğünde ve geriye senden bir şey kalmadığında benim döngüm yeniden başlayacak.";
+        dias[206] = "Lara: Birinin olanları düzeltmesi gerekiyor ve bunun için ne gerekiyorsa yapacağım.";
+        dias[207] = "Aral: Seni burada bırakmayı hiç istemiyorum.";
+        dias[208] = "Lara: Ama ben istiyorum, o yüzden şimdi git.";
+        dias[209] = "Aral: Kendine iyi bak.";
+        dias[210] = "Lara: Aral hayır… Bunu yapamazsın… Ben seni kurtarmak istedim sadece!";     //(Aral silahı alır. Lara anlar ve panikler.)
+        dias[211] = "Aral: Tam olarak bu yüzden. Her şeye bir son vereceğim.";
+        dias[212] = "Lara: Ben sensiz ne yapacağım…"; 
+        dias[213] = "Aral: Yaşayacaksın.";
+        dias[214] = "Aral: Ben senin nedenin oldum. Şimdi özgürlüğün olacağım.";    //silah sesi ekran kararır mezarlık sahnesi
+        dias[215] = "Lara: Ben seni kurtaramadım ama sen beni kurtardın."; 
+        dias[216] = "Lara: teşekkürler."; 
+        dias[217] = "Aral: Bu işe yaramıyor."; 
+        dias[218] = "Lara: Bu sefer farklı."; 
+        dias[219] = "Aral: Hayır. Aynısını yaptın."; 
+        dias[220] = "Lara: Ne?"; 
+        dias[221] = "Aral: Defalarca. Her seferinde kendini öldürdün… Her seferinde yerini aldın."; 
+        dias[222] = "Lara: Bunu nereden—"; 
+        dias[223] = "Aral: Buldum."; 
+        dias[224] = "Aral: Sakladığın notları."; 
+        dias[225] = "Aral: Beni kurtarmaya çalışırken döngüyü başlatan kişi oldun."; 
+        dias[226] = "Lara: Ben… hatırlamıyorum."; 
+        dias[227] = "Aral: Çünkü hatırlarsan devam edemezsin.."; 
+        dias[228] = "Aral: Sorun denememen değildi. Sorun vazgeçmemen."; 
+        dias[229] = "Lara: Peki ya seni burada bırakırsam…"; 
+        dias[230] = "Aral: İlk kez bırakmamış olacaksın."; 
+        dias[231] = "Lara: Ya ölürsen…"; 
+        dias[232] = "Aral: O zaman gerçekten yaşarsın."; 
+        dias[233] = "Lara: Artık denemeyeceğim."; 
+        dias[234] = "Lara: Aral… o helikopter…";
+        dias[235] = "Aral: Evet, biziz.";
+        dias[236] = "Aral: Biz kendi döngümüzü kırdık…";
+        dias[237] = "Aral: Size bol şans.";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -326,8 +386,10 @@ public class Dialogs : MonoBehaviour
         uıUI[28] = "Feneri ac";
         uıUI[29] = "Comelmek";
         uıUI[30] = "Cikis";
-        uıUI[31] = "";
-        uıUI[32] = "";
+        uıUI[31] = "Karar anı, bir yanıt seç.";
+        uıUI[32] = "Larayı yaptıklarıyla yüzleştir ve adayı terk et.";
+        uıUI[33] = "Kendini öldürüp Lara'nın bu acı döngüsüne bir son ver.";
+        uıUI[34] = "Laraya onun notundan bahsederek ikna et.";
 
         if(mis != null)
         {
@@ -640,7 +702,66 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[175] = "Lara: Official records show this place as an abandoned meteorological station. But the facility built beneath those cliffs will allow us to control time.";
         dias[176] = "Aral: I hope we leave this island with a successful result.";
         dias[177] = "Lara: We’re approaching the island. Prepare for landing.";
-        dias[178] = "Lara: We’re approaching the island. Prepare for landing.";
+        dias[178] = "Aral: What did you do…";
+        dias[179] = "Aral: Just now… did you shoot yourself?";
+        dias[180] = "Lara: I…";
+        dias[181] = "Lara: No… that wasn’t me…";
+        dias[182] = "Lara: That was the one who failed.";
+        dias[183] = "Aral: What does that mean?!";
+        dias[184] = "Lara: ...";
+        dias[185] = "Aral: How many times have you done this?";
+        dias[186] = "Lara: I don’t remember.";
+        dias[187] = "Aral: You don’t remember?!";
+        dias[188] = "Lara: Because every time my memories get mixed. I keep leaving notes to myself so I won’t forget my purpose.";
+        dias[189] = "Lara: That’s why this time will be different!";
+        dias[190] = "Lara: This time I’ll get you out of here!";
+        dias[191] = "Aral: Lara… You’re not trying to save me.";
+        dias[192] = "Aral: You’re keeping me here. Now I understand.";
+        dias[193] = "Lara: I only tried to save you… You keep turning into that shadow. I knew it from the beginning.";
+        dias[194] = "Aral: The crash happens every time, doesn’t it?";
+        dias[195] = "Aral: Every time the helicopter arrives.";
+        dias[196] = "Aral: Every time we come and after the crash I get lost in purgatory.";
+        dias[197] = "Aral: But you kill your past self and replace her to save the first me who got lost.";
+        dias[198] = "Aral: This crash and this loop… You are the cause.";
+        dias[199] = "Lara: No I... the first crash wasn’t because of me. The first one was really an accident.";
+        dias[200] = "Aral: Lara let’s end this.";
+        dias[201] = "Aral: I’m leaving. I won’t be part of this killing loop. You’re coming with me.";
+        dias[202] = "Aral: Lara?";
+        dias[203] = "Lara: I’m not coming.";
+        dias[204] = "Aral: Don’t you understand? We can end the loop this way.";
+        dias[205] = "Lara: It will end for you. When you turn into the shadow and nothing of you remains, my loop will begin again.";
+        dias[206] = "Lara: Someone has to fix this and I’ll do whatever it takes.";
+        dias[207] = "Aral: I really don’t want to leave you here.";
+        dias[208] = "Lara: But I do. So go now.";
+        dias[209] = "Aral: Take care of yourself.";
+        dias[210] = "Lara: Aral no… You can’t do this… I only wanted to save you!";
+        dias[211] = "Aral: Exactly. I’m ending everything.";
+        dias[212] = "Lara: What will I do without you…";
+        dias[213] = "Aral: You will live.";
+        dias[214] = "Aral: I was your reason. Now I’ll be your freedom.";
+        dias[215] = "Lara: I couldn’t save you but you saved me.";
+        dias[216] = "Lara: Thank you.";
+        dias[217] = "Aral: This doesn’t work.";
+        dias[218] = "Lara: This time is different.";
+        dias[219] = "Aral: No. You did the same.";
+        dias[220] = "Lara: What?";
+        dias[221] = "Aral: Countless times. Every time you killed yourself… Every time you took your place.";
+        dias[222] = "Lara: How do you—";
+        dias[223] = "Aral: I found them.";
+        dias[224] = "Aral: The notes you hid.";
+        dias[225] = "Aral: While trying to save me, you became the one who started the loop.";
+        dias[226] = "Lara: I… don’t remember.";
+        dias[227] = "Aral: Because if you remember, you can’t continue.";
+        dias[228] = "Aral: The problem wasn’t trying. The problem was never stopping.";
+        dias[229] = "Lara: What if I leave you here…";
+        dias[230] = "Aral: Then for the first time you wouldn’t be abandoning me.";
+        dias[231] = "Lara: What if you die…";
+        dias[232] = "Aral: Then you’ll finally live.";
+        dias[233] = "Lara: I won’t try anymore.";
+        dias[234] = "Lara: Aral… that helicopter…";
+        dias[235] = "Aral: Yes, it’s us.";
+        dias[236] = "Aral: We broke our loop…";
+        dias[237] = "Aral: Good luck to you";
 
 
         
@@ -708,6 +829,11 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         uıUI[28] = "to open light";
         uıUI[29] = "to crouch";
         uıUI[30] = "to exit";
+        uıUI[31] = "Moment of decision, choose a response.";
+        uıUI[32] = "Leave island and Lara to face what she has done.";
+        uıUI[33] = "Kill yourself and put an end to Lara's painful loop.";
+        uıUI[34] = "Convince Lara by telling her about her note.";
+
 
         
         if(mis != null)
@@ -1022,6 +1148,67 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         dias[175] = "Lara: Offiziell gilt dieser Ort als verlassene Wetterstation. Doch die Anlage unter den Klippen wird es uns ermöglichen, die Zeit zu kontrollieren.";
         dias[176] = "Aral: Ich hoffe, wir verlassen diese Insel mit einem erfolgreichen Ergebnis.";
         dias[177] = "Lara: Wir nähern uns der Insel. Bereitmachen zur Landung.";
+        dias[178] = "Aral: Was hast du getan…";
+        dias[179] = "Aral: Gerade eben… hast du dich selbst erschossen?";
+        dias[180] = "Lara: Ich…";
+        dias[181] = "Lara: Nein… das war nicht ich…";
+        dias[182] = "Lara: Das war die, die versagt hat.";
+        dias[183] = "Aral: Was soll das heißen?!";
+        dias[184] = "Lara: ...";
+        dias[185] = "Aral: Wie oft hast du das getan?";
+        dias[186] = "Lara: Ich erinnere mich nicht.";
+        dias[187] = "Aral: Du erinnerst dich nicht?!";
+        dias[188] = "Lara: Meine Erinnerungen vermischen sich jedes Mal. Ich hinterlasse mir Notizen, um mein Ziel nicht zu vergessen.";
+        dias[189] = "Lara: Deshalb wird es diesmal anders!";
+        dias[190] = "Lara: Dieses Mal hole ich dich hier raus!";
+        dias[191] = "Aral: Lara… du versuchst mich nicht zu retten.";
+        dias[192] = "Aral: Du hältst mich hier fest. Jetzt verstehe ich.";
+        dias[193] = "Lara: Ich wollte dich nur retten… Du wirst immer mehr zu diesem Schatten.";
+        dias[194] = "Aral: Der Absturz passiert jedes Mal, oder?";
+        dias[195] = "Aral: Jedes Mal kommt der Helikopter.";
+        dias[196] = "Aral: Jedes Mal kommen wir und nach dem Absturz verliere ich mich im Limbus.";
+        dias[197] = "Aral: Und du tötest dein früheres Ich und ersetzt es.";
+        dias[198] = "Aral: Dieser Unfall und diese Schleife… du bist der Grund.";
+        dias[199] = "Lara: Nein… der erste Absturz war nicht meine Schuld. Es war wirklich ein Unfall.";
+        dias[200] = "Aral: Lara, beenden wir das.";
+        dias[201] = "Aral: Ich gehe. Ich werde nicht Teil dieser Schleife sein. Du kommst mit.";
+        dias[202] = "Aral: Lara?";
+        dias[203] = "Lara: Ich komme nicht.";
+        dias[204] = "Aral: Verstehst du nicht? So können wir es beenden.";
+        dias[205] = "Lara: Für dich vielleicht. Wenn du zum Schatten wirst, beginnt meine Schleife erneut.";
+        dias[206] = "Lara: Jemand muss das in Ordnung bringen und ich werde alles tun.";
+        dias[207] = "Aral: Ich will dich nicht hier lassen.";
+        dias[208] = "Lara: Aber ich will es. Also geh.";
+        dias[209] = "Aral: Pass auf dich auf.";
+        dias[210] = "Lara: Aral nein… du kannst das nicht… ich wollte dich nur retten!";
+        dias[211] = "Aral: Genau deshalb. Ich beende es.";
+        dias[212] = "Lara: Was soll ich ohne dich tun…";
+        dias[213] = "Aral: Du wirst leben.";
+        dias[214] = "Aral: Ich war dein Grund. Jetzt bin ich deine Freiheit.";
+        dias[215] = "Lara: Ich konnte dich nicht retten, aber du hast mich gerettet.";
+        dias[216] = "Lara: Danke.";
+        dias[217] = "Aral: Das funktioniert nicht.";
+        dias[218] = "Lara: Diesmal ist es anders.";
+        dias[219] = "Aral: Nein. Dasselbe wieder.";
+        dias[220] = "Lara: Was?";
+        dias[221] = "Aral: Unzählige Male…";
+        dias[222] = "Lara: Woher weißt du—";
+        dias[223] = "Aral: Ich habe sie gefunden.";
+        dias[224] = "Aral: Deine Notizen.";
+        dias[225] = "Aral: Beim Versuch mich zu retten hast du die Schleife erschaffen.";
+        dias[226] = "Lara: Ich… erinnere mich nicht.";
+        dias[227] = "Aral: Wenn du dich erinnerst, kannst du nicht weitermachen.";
+        dias[228] = "Aral: Das Problem war nie der Versuch, sondern das Nicht-Aufhören.";
+        dias[229] = "Lara: Wenn ich dich hier lasse…";
+        dias[230] = "Aral: Dann würdest du mich zum ersten Mal nicht verlassen.";
+        dias[231] = "Lara: Wenn du stirbst…";
+        dias[232] = "Aral: Dann wirst du endlich leben.";
+        dias[233] = "Lara: Ich werde es nicht mehr versuchen.";
+        dias[234] = "Lara: Aral… der Helikopter…";
+        dias[235] = "Aral: Ja, wir sind das.";
+        dias[236] = "Aral: Wir haben unsere Schleife gebrochen…";
+        dias[237] = "Aral: Viel Glück.";
+
 
 
 
@@ -1090,6 +1277,11 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         uıUI[28] = "Licht einschalten";
         uıUI[29] = "Ducken";
         uıUI[30] = "Verlassen";
+        uıUI[31] = "Moment der Entscheidung, wähle eine Antwort.";
+        uıUI[32] = "Lass Lara auf der Insel zurück, damit sie sich ihren Taten stellt, und verlasse die Insel.";
+        uıUI[33] = "Töte dich selbst und beende Laras schmerzhaften Kreislauf.";
+        uıUI[34] = "Überzeuge Lara, indem du ihr von ihrer Notiz erzählst.";
+
 
 
 
@@ -1413,6 +1605,67 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[175] = "Lara: Oficialmente este lugar figura como una estación meteorológica abandonada. Pero la instalación bajo los acantilados nos permitirá controlar el tiempo.";
         dias[176] = "Aral: Espero que abandonemos esta isla con un resultado exitoso.";
         dias[177] = "Lara: Nos estamos acercando a la isla. Preparémonos para el aterrizaje.";
+        dias[178] = "Aral: ¿Qué has hecho…";
+        dias[179] = "Aral: Hace un momento… ¿te disparaste?";
+        dias[180] = "Lara: Yo…";
+        dias[181] = "Lara: No… no era yo…";
+        dias[182] = "Lara: Era la que falló.";
+        dias[183] = "Aral: ¿Qué significa eso?!";
+        dias[184] = "Lara: ...";
+        dias[185] = "Aral: ¿Cuántas veces hiciste esto?";
+        dias[186] = "Lara: No lo recuerdo.";
+        dias[187] = "Aral: ¿No lo recuerdas?!";
+        dias[188] = "Lara: Porque cada vez mis recuerdos se mezclan. Me dejo notas para no olvidar mi propósito.";
+        dias[189] = "Lara: ¡Por eso esta vez será diferente!";
+        dias[190] = "Lara: ¡Esta vez te sacaré de aquí!";
+        dias[191] = "Aral: Lara… no intentas salvarme.";
+        dias[192] = "Aral: Me estás manteniendo aquí. Ahora lo entiendo.";
+        dias[193] = "Lara: Solo intenté salvarte… sigues convirtiéndote en esa sombra.";
+        dias[194] = "Aral: El accidente ocurre cada vez, ¿verdad?";
+        dias[195] = "Aral: Cada vez llega el helicóptero.";
+        dias[196] = "Aral: Cada vez venimos y después del accidente me pierdo en el purgatory.";
+        dias[197] = "Aral: Y tú matas a tu yo pasado y tomas su lugar.";
+        dias[198] = "Aral: Este accidente y este bucle… tú eres la causa.";
+        dias[199] = "Lara: No… el primer accidente no fue por mí. Fue realmente un accidente.";
+        dias[200] = "Aral: Lara, terminemos con esto.";
+        dias[201] = "Aral: Me voy. No seré parte de este ciclo. Vienes conmigo.";
+        dias[202] = "Aral: ¿Lara?";
+        dias[203] = "Lara: No voy.";
+        dias[204] = "Aral: ¿No lo entiendes? Podemos terminarlo así.";
+        dias[205] = "Lara: Terminará para ti. Cuando te conviertas en sombra mi ciclo comenzará otra vez.";
+        dias[206] = "Lara: Alguien debe arreglarlo y haré lo que sea.";
+        dias[207] = "Aral: No quiero dejarte aquí.";
+        dias[208] = "Lara: Pero yo sí. Así que vete.";
+        dias[209] = "Aral: Cuídate.";
+        dias[210] = "Lara: Aral no… no puedes… ¡solo quería salvarte!";
+        dias[211] = "Aral: Exactamente por eso. Se acabó.";
+        dias[212] = "Lara: ¿Qué haré sin ti…";
+        dias[213] = "Aral: Vivirás.";
+        dias[214] = "Aral: Fui tu razón. Ahora seré tu libertad.";
+        dias[215] = "Lara: No pude salvarte pero tú me salvaste.";
+        dias[216] = "Lara: Gracias.";
+        dias[217] = "Aral: No funciona.";
+        dias[218] = "Lara: Esta vez es diferente.";
+        dias[219] = "Aral: No. Hiciste lo mismo.";
+        dias[220] = "Lara: ¿Qué?";
+        dias[221] = "Aral: Innumerables veces…";
+        dias[222] = "Lara: Cómo sabes—";
+        dias[223] = "Aral: Los encontré.";
+        dias[224] = "Aral: Tus notas.";
+        dias[225] = "Aral: Intentando salvarme iniciaste el bucle.";
+        dias[226] = "Lara: Yo… no recuerdo.";
+        dias[227] = "Aral: Si recuerdas no podrás continuar.";
+        dias[228] = "Aral: El problema no era intentar sino no detenerse.";
+        dias[229] = "Lara: Si te dejo aquí…";
+        dias[230] = "Aral: Por primera vez no me abandonarías.";
+        dias[231] = "Lara: Si mueres…";
+        dias[232] = "Aral: Entonces vivirás de verdad.";
+        dias[233] = "Lara: No lo intentaré más.";
+        dias[234] = "Lara: Aral… ese helicóptero…";
+        dias[235] = "Aral: Sí, somos nosotros.";
+        dias[236] = "Aral: Rompimos nuestro bucle…";
+        dias[237] = "Aral: Buena suerte.";
+
 
 
 
@@ -1481,6 +1734,11 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         uıUI[28] = "ENCENDER LUZ";
         uıUI[29] = "AGACHARSE";
         uıUI[30] = "SALIR";
+        uıUI[31] = "Momento de decisión, elige una respuesta.";
+        uıUI[32] = "Deja a Lara en la isla para que enfrente sus actos y márchate.";
+        uıUI[33] = "Suicídate y pon fin al doloroso bucle de Lara.";
+        uıUI[34] = "Convence a Lara hablándole sobre su nota.";
+
 
 
 
@@ -1807,6 +2065,67 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[175] = "Лара: По официальным данным это заброшенная метеостанция. Но комплекс под скалами позволит нам управлять временем.";
         dias[176] = "Арал: Надеюсь, мы покинем этот остров с успешным результатом.";
         dias[177] = "Лара: Мы приближаемся к острову. Готовьтесь к посадке.";
+        dias[178] = "Арал: Что ты сделала…";
+        dias[179] = "Арал: Только что… ты выстрелила в себя?";
+        dias[180] = "Лара: Я…";
+        dias[181] = "Лара: Нет… это была не я…";
+        dias[182] = "Лара: Это была та, что потерпела неудачу.";
+        dias[183] = "Арал: Что это значит?!";
+        dias[184] = "Лара: ...";
+        dias[185] = "Арал: Сколько раз ты это делала?";
+        dias[186] = "Лара: Не помню.";
+        dias[187] = "Арал: Не помнишь?!";
+        dias[188] = "Лара: Каждый раз воспоминания путаются. Я оставляю себе записи, чтобы не забыть цель.";
+        dias[189] = "Лара: Поэтому в этот раз всё будет иначе!";
+        dias[190] = "Лара: В этот раз я вытащу тебя отсюда!";
+        dias[191] = "Арал: Лара… ты не пытаешься спасти меня.";
+        dias[192] = "Арал: Ты держишь меня здесь. Теперь я понимаю.";
+        dias[193] = "Лара: Я лишь пыталась спасти тебя… ты превращаешься в ту тень.";
+        dias[194] = "Арал: Катастрофа происходит каждый раз, да?";
+        dias[195] = "Арал: Каждый раз прилетает вертолёт.";
+        dias[196] = "Арал: Каждый раз мы приходим и после аварии я теряюсь в лимбе.";
+        dias[197] = "Арал: А ты убиваешь себя в прошлом и заменяешь её.";
+        dias[198] = "Арал: Эта авария и этот цикл… причина ты.";
+        dias[199] = "Лара: Нет… первая авария была не из-за меня. Это действительно был несчастный случай.";
+        dias[200] = "Арал: Лара, давай покончим с этим.";
+        dias[201] = "Арал: Я ухожу. Я не буду частью этого цикла. Ты идёшь со мной.";
+        dias[202] = "Арал: Лара?";
+        dias[203] = "Лара: Я не пойду.";
+        dias[204] = "Арал: Ты не понимаешь? Мы можем закончить это.";
+        dias[205] = "Лара: Для тебя да. Когда ты станешь тенью, мой цикл начнётся снова.";
+        dias[206] = "Лара: Кто-то должен всё исправить, и я сделаю всё.";
+        dias[207] = "Арал: Я не хочу оставлять тебя здесь.";
+        dias[208] = "Лара: Но я хочу. Уходи.";
+        dias[209] = "Арал: Береги себя.";
+        dias[210] = "Лара: Арал нет… ты не можешь… я просто хотела спасти тебя!";
+        dias[211] = "Арал: Именно поэтому. Я всё закончу.";
+        dias[212] = "Лара: Что я буду делать без тебя…";
+        dias[213] = "Арал: Жить.";
+        dias[214] = "Арал: Я был твоей причиной. Теперь буду твоей свободой.";
+        dias[215] = "Лара: Я не смогла спасти тебя, но ты спас меня.";
+        dias[216] = "Лара: Спасибо.";
+        dias[217] = "Арал: Это не работает.";
+        dias[218] = "Лара: В этот раз всё иначе.";
+        dias[219] = "Арал: Нет. Ты сделала то же самое.";
+        dias[220] = "Лара: Что?";
+        dias[221] = "Арал: Бесчисленное количество раз…";
+        dias[222] = "Лара: Откуда ты—";
+        dias[223] = "Арал: Я нашёл их.";
+        dias[224] = "Арал: Твои записи.";
+        dias[225] = "Арал: Пытаясь спасти меня, ты запустила цикл.";
+        dias[226] = "Лара: Я… не помню.";
+        dias[227] = "Арал: Если вспомнишь — не сможешь продолжать.";
+        dias[228] = "Арал: Проблема была не в попытках, а в том что ты не останавливалась.";
+        dias[229] = "Лара: Если я оставлю тебя здесь…";
+        dias[230] = "Арал: Тогда впервые ты не бросишь меня.";
+        dias[231] = "Лара: Если ты умрёшь…";
+        dias[232] = "Арал: Тогда ты по-настоящему начнёшь жить.";
+        dias[233] = "Лара: Я больше не буду пытаться.";
+        dias[234] = "Лара: Арал… тот вертолёт…";
+        dias[235] = "Арал: Да, это мы.";
+        dias[236] = "Арал: Мы разорвали свой цикл…";
+        dias[237] = "Арал: Удачи.";
+
 
 
 
@@ -1874,8 +2193,11 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         uıUI[28] = "ВКЛЮЧИТЬ ФОНАРЬ";
         uıUI[29] = "ПРИСЕСТЬ";
         uıUI[30] = "ВЫХОД";
-        uıUI[31] = "";
-        uıUI[32] = "";
+        uıUI[31] = "Момент решения, выберите ответ.";
+        uıUI[32] = "Оставьте Лару на острове, чтобы она столкнулась со своими поступками, и покиньте его.";
+        uıUI[33] = "Покончите с собой и завершите болезненный цикл Лары.";
+        uıUI[34] = "Убедите Лару, рассказав ей о её записи.";
+
 
 
         if (mis != null)
@@ -2190,6 +2512,67 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[175] = "Lara: Officiellement, cet endroit est une station météorologique abandonnée. Mais l’installation sous les falaises nous permettra de contrôler le temps.";
         dias[176] = "Aral: J’espère que nous quitterons cette île avec un résultat concluant.";
         dias[177] = "Lara: Nous approchons de l’île. Préparez-vous à l’atterrissage.";
+        dias[178] = "Aral : Qu’est-ce que tu as fait…";
+        dias[179] = "Aral : À l’instant… tu t’es tiré dessus ?";
+        dias[180] = "Lara : Je…";
+        dias[181] = "Lara : Non… ce n’était pas moi…";
+        dias[182] = "Lara : C’était celle qui a échoué.";
+        dias[183] = "Aral : Qu’est-ce que ça veut dire ?!";
+        dias[184] = "Lara : ...";
+        dias[185] = "Aral : Combien de fois as-tu fait ça ?";
+        dias[186] = "Lara : Je ne me souviens pas.";
+        dias[187] = "Aral : Tu ne te souviens pas ?!";
+        dias[188] = "Lara : Parce que mes souvenirs se mélangent à chaque fois. Je me laisse des notes pour ne pas oublier mon objectif.";
+        dias[189] = "Lara : C’est pour ça que cette fois sera différente !";
+        dias[190] = "Lara : Cette fois je te sortirai d’ici !";
+        dias[191] = "Aral : Lara… tu n’essaies pas de me sauver.";
+        dias[192] = "Aral : Tu me gardes ici. Maintenant je comprends.";
+        dias[193] = "Lara : J’ai seulement essayé de te sauver… Tu te transformes peu à peu en cette ombre. Je l’ai toujours su.";
+        dias[194] = "Aral : L’accident arrive à chaque fois, n’est-ce pas ?";
+        dias[195] = "Aral : Chaque fois l’hélicoptère arrive.";
+        dias[196] = "Aral : Chaque fois nous venons et après l’accident je me perds dans le limbe.";
+        dias[197] = "Aral : Mais toi tu tues ton ancien toi et prends sa place pour sauver le premier moi perdu.";
+        dias[198] = "Aral : Cet accident et cette boucle… tu en es la cause.";
+        dias[199] = "Lara : Non… le premier accident n’était pas à cause de moi. C’était vraiment un accident.";
+        dias[200] = "Aral : Lara, mettons fin à ça.";
+        dias[201] = "Aral : Je pars. Je ne ferai plus partie de cette boucle meurtrière. Tu viens avec moi.";
+        dias[202] = "Aral : Lara ?";
+        dias[203] = "Lara : Je ne viens pas.";
+        dias[204] = "Aral : Tu ne comprends pas ? On peut arrêter la boucle ainsi.";
+        dias[205] = "Lara : Pour toi oui. Quand tu deviendras l’ombre, ma boucle recommencera.";
+        dias[206] = "Lara : Quelqu’un doit réparer tout ça et je ferai tout ce qu’il faut.";
+        dias[207] = "Aral : Je ne veux vraiment pas te laisser ici.";
+        dias[208] = "Lara : Mais moi oui. Alors pars.";
+        dias[209] = "Aral : Prends soin de toi.";
+        dias[210] = "Lara : Aral non… tu ne peux pas… je voulais seulement te sauver !";
+        dias[211] = "Aral : Justement. Je vais tout arrêter.";
+        dias[212] = "Lara : Que vais-je faire sans toi…";
+        dias[213] = "Aral : Tu vas vivre.";
+        dias[214] = "Aral : J’étais ta raison. Maintenant je serai ta liberté.";
+        dias[215] = "Lara : Je n’ai pas pu te sauver mais tu m’as sauvée.";
+        dias[216] = "Lara : Merci.";
+        dias[217] = "Aral : Ça ne marche pas.";
+        dias[218] = "Lara : Cette fois c’est différent.";
+        dias[219] = "Aral : Non. Tu as fait pareil.";
+        dias[220] = "Lara : Quoi ?";
+        dias[221] = "Aral : D’innombrables fois. Chaque fois tu t’es tuée… chaque fois tu as pris ta place.";
+        dias[222] = "Lara : Comment sais-tu—";
+        dias[223] = "Aral : Je les ai trouvées.";
+        dias[224] = "Aral : Les notes que tu as cachées.";
+        dias[225] = "Aral : En voulant me sauver, tu as créé la boucle.";
+        dias[226] = "Lara : Je… ne me souviens pas.";
+        dias[227] = "Aral : Parce que si tu te souviens, tu ne peux pas continuer.";
+        dias[228] = "Aral : Le problème n’était pas d’essayer mais de ne jamais arrêter.";
+        dias[229] = "Lara : Et si je te laisse ici…";
+        dias[230] = "Aral : Pour la première fois tu ne m’abandonnerais pas.";
+        dias[231] = "Lara : Et si tu meurs…";
+        dias[232] = "Aral : Alors tu vivras enfin.";
+        dias[233] = "Lara : Je n’essaierai plus.";
+        dias[234] = "Lara : Aral… cet hélicoptère…";
+        dias[235] = "Aral : Oui, c’est nous.";
+        dias[236] = "Aral : Nous avons brisé notre boucle…";
+        dias[237] = "Aral : Bonne chance.";
+
 
 
 
@@ -2257,6 +2640,11 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         uıUI[28] = "pour allumer la lumière";
         uıUI[29] = "pour s'accroupir";
         uıUI[30] = "pour sortir";
+        uıUI[31] = "Moment de décision, choisissez une réponse.";
+        uıUI[32] = "Laissez Lara sur l’île pour qu’elle affronte ses actes et partez.";
+        uıUI[33] = "Tuez-vous et mettez fin à la boucle douloureuse de Lara.";
+        uıUI[34] = "Convainquez Lara en lui parlant de sa note.";
+
 
 
         if (mis != null)
@@ -2571,6 +2959,67 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[175] = "Lara: Ufficialmente questo posto è una stazione meteorologica abbandonata. Ma la struttura sotto le scogliere ci permetterà di controllare il tempo.";
         dias[176] = "Aral: Spero che lasceremo quest’isola con un risultato positivo.";
         dias[177] = "Lara: Ci stiamo avvicinando all’isola. Prepariamoci all’atterraggio.";
+        dias[178] = "Aral: Che cosa hai fatto…";
+        dias[179] = "Aral: Poco fa… ti sei sparata?";
+        dias[180] = "Lara: Io…";
+        dias[181] = "Lara: No… non ero io…";
+        dias[182] = "Lara: Era quella che ha fallito.";
+        dias[183] = "Aral: Cosa significa?!";
+        dias[184] = "Lara: ...";
+        dias[185] = "Aral: Quante volte l’hai fatto?";
+        dias[186] = "Lara: Non ricordo.";
+        dias[187] = "Aral: Non ricordi?!";
+        dias[188] = "Lara: Perché ogni volta i miei ricordi si confondono. Continuo a lasciarmi appunti per non dimenticare il mio scopo.";
+        dias[189] = "Lara: Per questo stavolta sarà diverso!";
+        dias[190] = "Lara: Stavolta ti porterò fuori di qui!";
+        dias[191] = "Aral: Lara… non stai cercando di salvarmi.";
+        dias[192] = "Aral: Mi stai tenendo qui. Ora capisco.";
+        dias[193] = "Lara: Ho solo cercato di salvarti… continui a trasformarti in quell’ombra.";
+        dias[194] = "Aral: L’incidente succede ogni volta, vero?";
+        dias[195] = "Aral: Ogni volta arriva l’elicottero.";
+        dias[196] = "Aral: Ogni volta arriviamo e dopo l’incidente mi perdo nel purgatory.";
+        dias[197] = "Aral: E tu uccidi il tuo passato e prendi il suo posto.";
+        dias[198] = "Aral: Questo incidente e questo ciclo… la causa sei tu.";
+        dias[199] = "Lara: No… il primo incidente non è stato per colpa mia. È stato davvero un incidente.";
+        dias[200] = "Aral: Lara, mettiamo fine a tutto.";
+        dias[201] = "Aral: Me ne vado. Non farò parte di questo ciclo. Vieni con me.";
+        dias[202] = "Aral: Lara?";
+        dias[203] = "Lara: Non vengo.";
+        dias[204] = "Aral: Non capisci? Possiamo finirla così.";
+        dias[205] = "Lara: Finirà per te. Quando diventerai ombra, il mio ciclo ricomincerà.";
+        dias[206] = "Lara: Qualcuno deve sistemare tutto e farò qualsiasi cosa.";
+        dias[207] = "Aral: Non voglio lasciarti qui.";
+        dias[208] = "Lara: Ma io sì. Quindi vai.";
+        dias[209] = "Aral: Stammi bene.";
+        dias[210] = "Lara: Aral no… non puoi… volevo solo salvarti!";
+        dias[211] = "Aral: Proprio per questo. Finisce qui.";
+        dias[212] = "Lara: Cosa farò senza di te…";
+        dias[213] = "Aral: Vivrai.";
+        dias[214] = "Aral: Ero la tua ragione. Ora sarò la tua libertà.";
+        dias[215] = "Lara: Non sono riuscita a salvarti ma tu hai salvato me.";
+        dias[216] = "Lara: Grazie.";
+        dias[217] = "Aral: Non funziona.";
+        dias[218] = "Lara: Stavolta è diverso.";
+        dias[219] = "Aral: No. Hai fatto lo stesso.";
+        dias[220] = "Lara: Cosa?";
+        dias[221] = "Aral: Innumerevoli volte…";
+        dias[222] = "Lara: Come fai a—";
+        dias[223] = "Aral: Li ho trovati.";
+        dias[224] = "Aral: I tuoi appunti.";
+        dias[225] = "Aral: Cercando di salvarmi hai iniziato il ciclo.";
+        dias[226] = "Lara: Io… non ricordo.";
+        dias[227] = "Aral: Se ricordi non puoi continuare.";
+        dias[228] = "Aral: Il problema non era provarci ma non fermarsi mai.";
+        dias[229] = "Lara: Se ti lasciassi qui…";
+        dias[230] = "Aral: Per la prima volta non mi abbandoneresti.";
+        dias[231] = "Lara: Se morissi…";
+        dias[232] = "Aral: Allora vivresti davvero.";
+        dias[233] = "Lara: Non ci proverò più.";
+        dias[234] = "Lara: Aral… quell’elicottero…";
+        dias[235] = "Aral: Sì, siamo noi.";
+        dias[236] = "Aral: Abbiamo spezzato il nostro ciclo…";
+        dias[237] = "Aral: Buona fortuna.";
+
 
 
 
@@ -2638,6 +3087,11 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         uıUI[28] = "per accendere la luce";
         uıUI[29] = "per accovacciarsi";
         uıUI[30] = "per uscire";
+        uıUI[31] = "Momento della decisione, scegli una risposta.";
+        uıUI[32] = "Lascia Lara sull’isola ad affrontare le sue azioni e vai via.";
+        uıUI[33] = "Ucciditi e metti fine al doloroso ciclo di Lara.";
+        uıUI[34] = "Convincila parlando a Lara del suo appunto.";
+
 
 
         if (mis != null)
@@ -3300,10 +3754,39 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[144];
         yield return StartCoroutine(PDL.PlayVoice(144));
+        yield return new WaitForSeconds(0.5f);
+
+        Transform Aral = transform.parent.parent.parent;
+        float duration = 0.5f;
+        float t = 0f;
+
+        Quaternion startRot = Quaternion.Euler(0f, 0f, 0f);
+        Quaternion targetRot = Quaternion.Euler(80f, 0f, 0f);
+
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            Aral.localRotation = Quaternion.Lerp(startRot, targetRot, t);
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[146];
+        StartCoroutine(PDL.PlayVoice(146));
+        yield return new WaitForSeconds(1f);
+
+        t = 0f;
+        while (t < 1f)
+        {
+            t += Time.deltaTime / duration;
+            Aral.localRotation = Quaternion.Lerp(targetRot, startRot, t);
+            yield return null;
+        }
+        Aral.localRotation = startRot;
+
+        yield return new WaitForSeconds(1.5f);
         dialog.text = dias[145];
         yield return StartCoroutine(PDL.PlayVoice(145));
-        dialog.text = dias[146];
-        yield return StartCoroutine(PDL.PlayVoice(146));
         dialog.text = dias[147];
         yield return StartCoroutine(PDL.PlayVoice(147));
         dialog.text = dias[148];
@@ -3334,6 +3817,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return new WaitForSeconds(0.5f);
         dialog.text = dias[155];
         yield return StartCoroutine(PDL.PlayVoice(155));
+        yield return new WaitForSeconds(1f);
         dialog.text = dias[156];
         yield return StartCoroutine(PDL.PlayVoice(156));
         dialog.text = "";

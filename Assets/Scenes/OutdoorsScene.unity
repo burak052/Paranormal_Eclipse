@@ -81511,7 +81511,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.803
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -81530,7 +81530,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.2
+      time: 0.1211731
       value: 1
       inSlope: -5.0019917
       outSlope: -5.0019917
@@ -81558,7 +81558,7 @@ AudioSource:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.053833008
       inSlope: -0.20007975
       outSlope: -0.20007975
       tangentMode: 0

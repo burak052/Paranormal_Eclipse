@@ -8,6 +8,7 @@ using UnityEngine.Audio;
 public class ESCMenu : MonoBehaviour
 {  
     public PlayerAnimationController playeranim;
+    public SelectionScript SS;
     public MonoBehaviour playerMovement;
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
@@ -377,5 +378,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Dil/Substitle font size/FontSize").gameObject.GetComponent<TMP_Dropdown>().options[1].text = dia.menuUI[28];
         menu.Find("Settings/Dil/Substitle font size/FontSize").gameObject.GetComponent<TMP_Dropdown>().options[2].text = dia.menuUI[29];
         menu.Find("Settings/Dil/Substitle font size/FontSize").gameObject.GetComponent<TMP_Dropdown>().RefreshShownValue();
+
+        if(SS != null)
+            SS.SetLangSelect();
     }
 }
