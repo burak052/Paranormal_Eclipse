@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class ActiveBlackScreen : MonoBehaviour
 {
@@ -129,7 +130,15 @@ public class ActiveBlackScreen : MonoBehaviour
         blackScreen.gameObject.GetComponent<AudioSource>().Play();
         dia.EventDia(116);      /////comeback alive
 
-        yield return new WaitForSeconds(4f);
+
+
+        // yield return new WaitForSeconds(2.5f);     //demo satırı
+        // AudioListener.volume = 0f;
+        // transform.Find("Canvas/Demo thanks").gameObject.SetActive(true);
+        // yield return new WaitForSeconds(6f);
+        // SceneManager.LoadScene(0);
+
+        yield return new WaitForSeconds(4f);    
         float t = 0f;
         while (t < fadeTime)
         {
