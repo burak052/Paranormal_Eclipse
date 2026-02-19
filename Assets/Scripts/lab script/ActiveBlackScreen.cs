@@ -130,8 +130,6 @@ public class ActiveBlackScreen : MonoBehaviour
         blackScreen.gameObject.GetComponent<AudioSource>().Play();
         dia.EventDia(116);      /////comeback alive
 
-
-
         // yield return new WaitForSeconds(2.5f);     //demo satırı
         // AudioListener.volume = 0f;
         // transform.Find("Canvas/Demo thanks").gameObject.SetActive(true);

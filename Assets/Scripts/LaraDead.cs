@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Animations.Rigging;
 
 public class LaraDead : MonoBehaviour
 {
@@ -70,6 +71,7 @@ public class LaraDead : MonoBehaviour
         muzzle.SetActive(false);
         Laradead.SetActive(false);
         yield return StartCoroutine(dia.FinalDialog());
+        yield return new WaitForSeconds(1f);
 
         dia.gameObject.GetComponent<Transform>().parent.Find("Selections").gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
@@ -87,6 +89,7 @@ public class LaraDead : MonoBehaviour
                 tra.rotation = Quaternion.Slerp(tra.rotation, Quaternion.Euler(0f, 205f, 0f), normalizedT);
                 yield return null;
             }
+            tra.Find("aral.v1 (1)").gameObject.GetComponent<Animator>().SetBool("isWalking",true);
             t = 0f;
             while (t < 3f)
             {
@@ -95,6 +98,7 @@ public class LaraDead : MonoBehaviour
                 tra.position = Vector3.Lerp(tra.position, new Vector3(1561.28f,51.42f,1505.8f), normalizedT);
                 yield return null;
             }
+            tra.Find("aral.v1 (1)").gameObject.GetComponent<Animator>().SetBool("isWalking",false);
             t = 0f;
             while (t < 1f)
             {
@@ -124,13 +128,63 @@ public class LaraDead : MonoBehaviour
         }
         else if(finalSelect == 2)       //killyourself
         {
+            
+            tra.Find("aral.v1 (1)/Rig 1").gameObject.GetComponent<Rig>().weight = 0.7f;
+            
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                float normalizedT = t * 0.2f;
+                tra.Find("CameraParent").localRotation = Quaternion.Slerp(tra.Find("CameraParent").localRotation, Quaternion.Euler(30f, 0f, 0f), normalizedT);
+                yield return null;
+            }
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                float normalizedT = t * 0.1f;
+                tra.Find("aral.v1 (1)/Rig 1").gameObject.GetComponent<Rig>().weight = Mathf.Lerp(tra.Find("aral.v1 (1)/Rig 1").gameObject.GetComponent<Rig>().weight, 1f, normalizedT);
+                yield return null;
+            }
+            tra.Find("aral.v1 (1)/Rig 1").gameObject.GetComponent<Rig>().weight = 1f;
+            yield return new WaitForSeconds(1f);   
+            t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                float normalizedT = t * 0.2f;
+                tra.Find("CameraParent").localRotation = Quaternion.Slerp(tra.Find("CameraParent").localRotation, Quaternion.Euler(20f, 0f, 0f), normalizedT);
+                yield return null;
+            }
             yield return StartCoroutine(dia.SecondEndDialog());
-            yield return StartCoroutine(dia.SecondEndDialogPart2());
+            yield return new WaitForSeconds(0.5f); 
+            tra.Find("aral.v1 (1)/MaleBaseRig_SHJntGrp/MaleBaseRig_ROOTSHJnt/MaleBaseRig_Spine_01SHJnt/MaleBaseRig_Spine_02SHJnt/MaleBaseRig_Spine_TopSHJnt/MaleBaseRig_r_Arm_ClavicleSHJnt/MaleBaseRig_r_Arm_ShoulderSHJnt/MaleBaseRig_r_Arm_Elbow_CurveSHJnt/MaleBaseRig_r_Arm_WristSHJnt/gun/vfx_MuzzleFlash_01").gameObject.SetActive(true);
+            yield return new WaitForSeconds(0.2f); 
+            ABS.blackScreen.gameObject.SetActive(true);
+            ABS.blackScreen.color = new Color(0, 0, 0, 1f);
+            yield return new WaitForSeconds(3f); 
+
+
+            SceneManager.LoadScene(5);
         }
         else if(finalSelect == 3)       //secret
         {
             yield return StartCoroutine(dia.ThirdEndDialog());
             yield return StartCoroutine(dia.ThirdEndDialogPart2());
+            
+
+
+            ABS.Black();                        
+            yield return new WaitForSeconds(2f);   
+            dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits").gameObject.SetActive(true); 
+            yield return new WaitForSeconds(3f);   
+            dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(false); 
+            yield return new WaitForSeconds(1f);   
+            dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.SetActive(true); 
+            yield return StartCoroutine(dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.GetComponent<EndGameCradits>().creditsslider());
+            yield return new WaitForSeconds(3f);   
+            SceneManager.LoadScene(0);
         }
     }
 }

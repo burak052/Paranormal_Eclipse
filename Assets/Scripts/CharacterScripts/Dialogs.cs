@@ -3889,7 +3889,6 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = "";
         yield return new WaitForSeconds(0.2f);
         dialog.text = dias[184];
-        dialog.text = "";
         yield return new WaitForSeconds(2f);
         dialog.text = dias[185];
         yield return StartCoroutine(PDL.PlayVoice(185));
@@ -3991,7 +3990,6 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
     }
     public IEnumerator SecondEndDialog()
     {
-        yield return new WaitForSeconds(3f);
         dialog.text = dias[210];
         yield return StartCoroutine(PDL.PlayVoice(210));
         dialog.text = dias[211];
