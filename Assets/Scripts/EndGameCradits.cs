@@ -26,7 +26,7 @@ public class EndGameCradits : MonoBehaviour
             t += Time.deltaTime * 0.008f;
 
             Vector2 pos = GetComponent<RectTransform>().anchoredPosition;
-            pos.y = Mathf.Lerp(-600f, 17600f, t);
+            pos.y = Mathf.Lerp(-600f, 14600f, t);
             GetComponent<RectTransform>().anchoredPosition = pos;
 
             yield return null;
