@@ -11,6 +11,7 @@ public class LaraDead : MonoBehaviour
     public GameObject Laralab;
     public GameObject Aral;
     public GameObject sail;
+    public GameObject heliMove;
     public ActiveBlackScreen ABS;
     public Dialogs dia;
     private bool triggered = false;
@@ -70,7 +71,9 @@ public class LaraDead : MonoBehaviour
         ABS.DisBlack();
         muzzle.SetActive(false);
         Laradead.SetActive(false);
+
         yield return StartCoroutine(dia.FinalDialog());
+
         yield return new WaitForSeconds(1f);
 
         dia.gameObject.GetComponent<Transform>().parent.Find("Selections").gameObject.SetActive(true);
@@ -171,11 +174,21 @@ public class LaraDead : MonoBehaviour
         else if(finalSelect == 3)       //secret
         {
             yield return StartCoroutine(dia.ThirdEndDialog());
+            ABS.Black();       
+            yield return new WaitForSeconds(1.6f);
+            tra.position = new Vector3(1585f,-0.73f,1900f);
+            tra.rotation = Quaternion.Euler(0f,218f,0f);
+            sail.GetComponent<Transform>().parent.Find("Boat (3)").gameObject.SetActive(true);     
+            tra.Find("CameraParent/Camera").gameObject.GetComponent<Animator>().enabled = true;   
+            tra.Find("CameraParent/Camera").gameObject.GetComponent<Animator>().SetTrigger("trig");          
+            yield return new WaitForSeconds(2f);  
+            heliMove.SetActive(true);
+
+
             yield return StartCoroutine(dia.ThirdEndDialogPart2());
             
 
-
-            ABS.Black();                        
+            ABS.Black();                         
             yield return new WaitForSeconds(2f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits").gameObject.SetActive(true); 
             yield return new WaitForSeconds(3f);   
@@ -183,7 +196,7 @@ public class LaraDead : MonoBehaviour
             yield return new WaitForSeconds(1f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.SetActive(true); 
             yield return StartCoroutine(dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.GetComponent<EndGameCradits>().creditsslider());
-            yield return new WaitForSeconds(3f);   
+            yield return new WaitForSeconds(3f); 
             SceneManager.LoadScene(0);
         }
     }

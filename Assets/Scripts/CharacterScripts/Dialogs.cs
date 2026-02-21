@@ -4061,23 +4061,20 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return StartCoroutine(PDL.PlayVoice(228));
         dialog.text = "";
         yield return new WaitForSeconds(0.5f);
-        dialog.text = dias[229];
-        yield return StartCoroutine(PDL.PlayVoice(229));
-        dialog.text = dias[230];
-        yield return StartCoroutine(PDL.PlayVoice(230));
         dialog.text = dias[231];
         yield return StartCoroutine(PDL.PlayVoice(231));
+        yield return new WaitForSeconds(1f);
         dialog.text = dias[232];
         yield return StartCoroutine(PDL.PlayVoice(232));
         dialog.text = "";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(3f);
         dialog.text = dias[233];
         yield return StartCoroutine(PDL.PlayVoice(233));
         dialog.text = "";
     }
     public IEnumerator ThirdEndDialogPart2()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         dialog.text = dias[234];
         yield return StartCoroutine(PDL.PlayVoice(234));
         dialog.text = dias[235];
