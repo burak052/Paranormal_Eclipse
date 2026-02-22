@@ -178,6 +178,7 @@ public class MainMenu : MonoBehaviour
         SaveManager.Instance.DeletePaths();
         blackScreen.gameObject.SetActive(true);
         StartCoroutine(FadeAndStart());
+        PlayerPrefs.SetInt("EASTER_EGG_NOTE", 0);
     }
     public void OnSensitivityChanged(float value)
     {

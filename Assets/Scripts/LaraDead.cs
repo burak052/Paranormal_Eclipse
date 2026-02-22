@@ -72,14 +72,19 @@ public class LaraDead : MonoBehaviour
         muzzle.SetActive(false);
         Laradead.SetActive(false);
 
-        yield return StartCoroutine(dia.FinalDialog());
+        //yield return StartCoroutine(dia.FinalDialog());
 
         yield return new WaitForSeconds(1f);
 
         dia.gameObject.GetComponent<Transform>().parent.Find("Selections").gameObject.SetActive(true);
+        if(PlayerPrefs.GetInt("EASTER_EGG_NOTE", 0) == 0)
+            dia.gameObject.GetComponent<Transform>().parent.Find("Selections/image3").gameObject.GetComponent<Button>().interactable = false;
+
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         yield return new WaitUntil(() => finalSelect != 0);       //seçim ekranı beklemesi
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         if(finalSelect == 1)    //Larayı bırak
         {
             StartCoroutine(dia.FirstEndDialog());

@@ -59,6 +59,7 @@ public class Raycast : MonoBehaviour
     public bool ctrlshow = false;
     public bool havegun = false;
     public bool isload = false;
+    public bool camscarehave = false;
     public int capsuleCount = 0;
     public int EnergyCapsuleCount = 0;
     public Sprite LSprite;
@@ -635,8 +636,12 @@ public class Raycast : MonoBehaviour
                         repairt.ChangeTag();
                         if(havesleep && horrorSoundOutdoor != null && !isload)
                         {
-                            horrorSoundOutdoor.Play();
-                            dialog.EventDia(34, 1.5f);
+                            if(!camscarehave)
+                            {
+                                horrorSoundOutdoor.Play();
+                                dialog.EventDia(34, 1.5f);
+                                camscarehave = true;
+                            }
                         }
                     }
                 }
@@ -802,7 +807,10 @@ public class Raycast : MonoBehaviour
                     if(hit.collider.CompareTag("SecurityNote"))
                         dialog.EventDia(125,1f);
                     if(hit.collider.CompareTag("EasterEggNote"))
+                    {
+                        PlayerPrefs.SetInt("EASTER_EGG_NOTE", 1);
                         dialog.EasterEggDia();
+                    }
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
                     hit.collider.gameObject.tag = "Untagged";

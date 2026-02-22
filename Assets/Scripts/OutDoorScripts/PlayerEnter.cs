@@ -10,6 +10,7 @@ public class PlayerEnter : MonoBehaviour
         {
             shad.DisableShadow();
             dia.EventDia(35); 
+            transform.parent.gameObject.SetActive(false);
         }
     }
 }

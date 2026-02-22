@@ -20,6 +20,7 @@ public class ExplosionTest : MonoBehaviour
     public GameObject elevatorcrash;
     public GameObject elevator;
     public ScreenController triangle;
+    public LightController lig;
     public Raycast ray;
     public Animator door;
     public Dialogs dia;
@@ -73,6 +74,7 @@ public class ExplosionTest : MonoBehaviour
         transform.Find("flame_box").gameObject.SetActive(true);
         transform.Find("Flamethrower").gameObject.SetActive(true);
         transform.Find("Flamethrower (1)").gameObject.SetActive(true);
+        lig.generator = true;
 
         //labın enkazlı halini buraya ekle
         laranote.SetActive(true);
