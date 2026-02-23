@@ -320,6 +320,8 @@ public class Dialogs : MonoBehaviour
         dias[235] = "Aral: Evet, biziz.";
         dias[236] = "Aral: Biz kendi döngümüzü kırdık…";
         dias[237] = "Aral: Size bol şans.";
+        dias[238] = "Aral: Bu saat kimin?";
+        dias[239] = "Aral: Lara bir saatten bahsediyordu.";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -762,9 +764,11 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[235] = "Aral: Yes, it’s us.";
         dias[236] = "Aral: We broke our loop…";
         dias[237] = "Aral: Good luck to you";
+        dias[238] = "Aral: Whose watch is this?";
+        dias[239] = "Aral: Lara was talking about a watch.";
 
 
-        
+
         menuUI[1] = "START NEW GAME";
         menuUI[2] = "CONTINUE";
         menuUI[3] = "SETTINGS";
@@ -1208,6 +1212,8 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         dias[235] = "Aral: Ja, wir sind das.";
         dias[236] = "Aral: Wir haben unsere Schleife gebrochen…";
         dias[237] = "Aral: Viel Glück.";
+        dias[238] = "Aral: Wem gehört diese Uhr?";
+        dias[239] = "Aral: Lara hat von einer Uhr gesprochen.";
 
 
 
@@ -1665,6 +1671,8 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[235] = "Aral: Sí, somos nosotros.";
         dias[236] = "Aral: Rompimos nuestro bucle…";
         dias[237] = "Aral: Buena suerte.";
+        dias[238] = "Aral: ¿De quién es este reloj?";
+        dias[239] = "Aral: Lara estaba hablando de un reloj.";
 
 
 
@@ -2125,6 +2133,8 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[235] = "Арал: Да, это мы.";
         dias[236] = "Арал: Мы разорвали свой цикл…";
         dias[237] = "Арал: Удачи.";
+        dias[238] = "Арал: Чьи это часы?";
+        dias[239] = "Арал: Лара говорила о часах.";
 
 
 
@@ -2572,6 +2582,8 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[235] = "Aral : Oui, c’est nous.";
         dias[236] = "Aral : Nous avons brisé notre boucle…";
         dias[237] = "Aral : Bonne chance.";
+        dias[238] = "Aral : À qui est cette montre ?";
+        dias[239] = "Aral : Lara parlait d'une montre.";
 
 
 
@@ -3019,6 +3031,8 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[235] = "Aral: Sì, siamo noi.";
         dias[236] = "Aral: Abbiamo spezzato il nostro ciclo…";
         dias[237] = "Aral: Buona fortuna.";
+        dias[238] = "Aral: Di chi è questo orologio?";
+        dias[239] = "Aral: Lara stava parlando di un orologio.";
 
 
 

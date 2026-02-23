@@ -52,6 +52,7 @@ TagManager:
   - Generator
   - NeedGenerator
   - GirlTalking
+  - watch
   layers:
   - Default
   - TransparentFX

@@ -447,13 +447,13 @@ public class Raycast : MonoBehaviour
 
 
             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("Capsule") || hit.collider.CompareTag("EnergyCapsule")
-            || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye") || hit.collider.CompareTag("Gun"))
+            || hit.collider.CompareTag("PlaceEnergyCapsule") || hit.collider.CompareTag("EnergyCapsuleReady") || hit.collider.CompareTag("Levye") || hit.collider.CompareTag("Gun") || hit.collider.CompareTag("watch"))
             {
                 if (pressEUI != null)
                     pressEUI.SetActive(true);
                 if (inspectSystem.isInspecting)
                     pressEUI.SetActive(false);
-                if (hit.collider.CompareTag("IDCard"))
+                if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("watch"))
                     pressEUIText.text = dialog.uıUI[9];
                 if (hit.collider.CompareTag("RepairKit"))
                     pressEUIText.text = dialog.uıUI[9];
@@ -513,6 +513,7 @@ public class Raycast : MonoBehaviour
                                 pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                                 inspectSystem.StartInspect(hit.collider.gameObject);
                             }
+                                
                             pickupSound.Play();
                         }
                     }
@@ -810,6 +811,10 @@ public class Raycast : MonoBehaviour
                     {
                         PlayerPrefs.SetInt("EASTER_EGG_NOTE", 1);
                         dialog.EasterEggDia();
+                    }
+                    if (!hit.collider.CompareTag("watch"))
+                    {
+                        hit.collider.gameObject.SetActive(false);
                     }
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;

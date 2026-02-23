@@ -6,6 +6,7 @@ public class ItemInspectSystem : MonoBehaviour
     public Transform inspectPoint;
     public float rotateSpeed = 120f;
     public ESCMenu Menu;
+    public Transform boxex2;
 
     GameObject inspectedObject;
     public bool isInspecting = false;
@@ -25,7 +26,7 @@ public class ItemInspectSystem : MonoBehaviour
     {
         Menu.canOpenMenu = false;
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = true;
-        if(item.tag != "RepairKit" && item.tag != "PlaceEnergyCapsule")
+        if (item.tag != "RepairKit" && item.tag != "PlaceEnergyCapsule")
         {
             playerMovement.enabled = false;
             isInspecting = true;
@@ -38,8 +39,10 @@ public class ItemInspectSystem : MonoBehaviour
             item.transform.localPosition = Vector3.zero;
             item.transform.localRotation = Quaternion.identity;
         }
-        else
-            item.SetActive(false);
+        else {
+            if (item.tag!="watch") 
+                item.SetActive(false);
+        }
     }
 
     public void EndInspect()
@@ -48,8 +51,16 @@ public class ItemInspectSystem : MonoBehaviour
         gameObject.GetComponent<PlayerAnimationController>().isSetAnimator = false;
         playerMovement.enabled = true;
         inspectedObject.transform.SetParent(null);
-        inspectedObject.SetActive(false);
-
+        if (inspectedObject.tag != "watch")
+        {
+            inspectedObject.SetActive(false);
+        }
+        if (inspectedObject.tag == "watch")
+        {
+            inspectedObject.transform.SetParent(boxex2);
+            inspectedObject.transform.localPosition = new Vector3(-0.71f, 0.53f, 0.05f);
+            inspectedObject.transform.localRotation = Quaternion.Euler(0f, 6.02f, 0f);
+        }
         isInspecting = false;
         inspectedObject = null;
     }

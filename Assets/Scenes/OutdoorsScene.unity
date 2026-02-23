@@ -28762,11 +28762,44 @@ PrefabInstance:
       propertyPath: m_Name
       value: PocketWatch_FBX
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 7e92ea9e4a610e448adc759eb57cc565, type: 3}
+      propertyPath: m_TagString
+      value: watch
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e92ea9e4a610e448adc759eb57cc565, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 798650951}
   m_SourcePrefab: {fileID: 100100000, guid: 7e92ea9e4a610e448adc759eb57cc565, type: 3}
+--- !u!1 &798650950 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7e92ea9e4a610e448adc759eb57cc565, type: 3}
+  m_PrefabInstance: {fileID: 798650949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &798650951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798650950}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.109576575, y: 0.03511099, z: 0.26241055}
+  m_Center: {x: 0.020855498, y: 0.0016843262, z: -0.0649772}
 --- !u!1001 &803439409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37056,6 +37089,7 @@ MonoBehaviour:
   inspectPoint: {fileID: 1028160178}
   rotateSpeed: 120
   Menu: {fileID: 2087430275}
+  boxex2: {fileID: 2683725405198397113}
   isInspecting: 0
 --- !u!114 &991071743
 MonoBehaviour:
@@ -103924,8 +103958,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.6122764, y: 0.1757762, z: 1.015732}
-  m_Center: {x: -0.6602281, y: 0.5982213, z: 0.0000001297187}
+  m_Size: {x: 0.040292982, y: 0.1757762, z: 1.015732}
+  m_Center: {x: -0.37423533, y: 0.5982213, z: 0.00000012698568}
 --- !u!95 &8712001978562862066
 Animator:
   serializedVersion: 7
