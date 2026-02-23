@@ -12,6 +12,6 @@ public class GunSoundTrig : MonoBehaviour
 
         gun.SetActive(true);
         first = true;
-        dia.EventDia(16);
+        dia.EventDia(16,1.5f);
     }
 }

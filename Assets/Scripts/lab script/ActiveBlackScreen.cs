@@ -216,12 +216,12 @@ public class ActiveBlackScreen : MonoBehaviour
         playerMovement.enabled = false;
     }
 
-    public void Black()
+    public void Black(float time = 1f)
     {
-      StartCoroutine(StartBlack());
+      StartCoroutine(StartBlack(time));
     }
 
-    IEnumerator StartBlack()
+    IEnumerator StartBlack(float time = 1f)
     {
         blackScreen.color = new Color(0, 0, 0, 0f);
         
@@ -235,7 +235,7 @@ public class ActiveBlackScreen : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(time);
         t = 0f;
         while (t < fadeTime)
         {

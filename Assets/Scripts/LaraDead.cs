@@ -12,6 +12,10 @@ public class LaraDead : MonoBehaviour
     public GameObject Aral;
     public GameObject sail;
     public GameObject heliMove;
+    public AudioClip creditMusic;
+    public AudioClip choseSound;
+    public AudioClip creditAmbiance;
+    public AudioClip dungeonAmbiance;
     public ActiveBlackScreen ABS;
     public Dialogs dia;
     private bool triggered = false;
@@ -33,6 +37,8 @@ public class LaraDead : MonoBehaviour
     IEnumerator Dead()
     {
         Transform tra = Aral.GetComponent<Transform>();
+        tra.Find("aral.v1 (1)/MaleBaseRig_SHJntGrp/MaleBaseRig_ROOTSHJnt/MaleBaseRig_Spine_01SHJnt/MaleBaseRig_Spine_02SHJnt/MaleBaseRig_Spine_TopSHJnt/MaleBaseRig_r_Arm_ClavicleSHJnt/MaleBaseRig_r_Arm_ShoulderSHJnt/MaleBaseRig_r_Arm_Elbow_CurveSHJnt/MaleBaseRig_r_Arm_WristSHJnt/gun").gameObject.SetActive(true);
+    
         dia.EventDia(170);
         ABS.DisablePlayer();
         Laradead.SetActive(true);
@@ -72,7 +78,7 @@ public class LaraDead : MonoBehaviour
         muzzle.SetActive(false);
         Laradead.SetActive(false);
 
-        //yield return StartCoroutine(dia.FinalDialog());
+        yield return StartCoroutine(dia.FinalDialog());
 
         yield return new WaitForSeconds(1f);
 
@@ -82,11 +88,15 @@ public class LaraDead : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GetComponent<AudioSource>().clip = choseSound;
+        GetComponent<AudioSource>().Play();
         yield return new WaitUntil(() => finalSelect != 0);       //seçim ekranı beklemesi
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         if(finalSelect == 1)    //Larayı bırak
         {
+            GetComponent<AudioSource>().clip = dungeonAmbiance;
+            GetComponent<AudioSource>().Play();
             StartCoroutine(dia.FirstEndDialog());
             yield return new WaitForSeconds(6f);
             t = 0f;
@@ -120,12 +130,37 @@ public class LaraDead : MonoBehaviour
             yield return new WaitForSeconds(1.6f);
             tra.position = new Vector3(1585f,-0.73f,1900f);
             tra.rotation = Quaternion.Euler(0f,218f,0f);
-            sail.SetActive(true);
+            sail.SetActive(true); 
 
             yield return new WaitForSeconds(5f);
             ABS.Black();                        
-            yield return new WaitForSeconds(2f);   
+            yield return new WaitForSeconds(1.5f);
+
+            AudioSource[] sources = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource source in sources)
+            {
+                source.volume = 0f;
+            }
+            GetComponent<AudioSource>().volume = 1f;
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits").gameObject.SetActive(true); 
+
+            float time = 0f;
+            while (time < 3f)
+            {
+                time += Time.deltaTime;
+                GetComponent<AudioSource>().volume = Mathf.Lerp(GetComponent<AudioSource>().volume, 0f, time / 3f);
+                yield return null;
+            }
+            GetComponent<AudioSource>().volume = 0f;
+            GetComponent<AudioSource>().Stop();
+
+            yield return new WaitForSeconds(3f);  
+
+            GetComponent<AudioSource>().clip = creditMusic;
+            GetComponent<AudioSource>().volume = 1f;
+            GetComponent<AudioSource>().Play(); 
+            yield return new WaitForSeconds(4f);  
+            dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(true); 
             yield return new WaitForSeconds(3f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(false); 
             yield return new WaitForSeconds(1f);   
@@ -136,7 +171,8 @@ public class LaraDead : MonoBehaviour
         }
         else if(finalSelect == 2)       //killyourself
         {
-            
+            GetComponent<AudioSource>().clip = dungeonAmbiance;
+            GetComponent<AudioSource>().Play(); 
             tra.Find("aral.v1 (1)/Rig 1").gameObject.GetComponent<Rig>().weight = 0.7f;
             
             t = 0f;
@@ -167,6 +203,7 @@ public class LaraDead : MonoBehaviour
             }
             yield return StartCoroutine(dia.SecondEndDialog());
             yield return new WaitForSeconds(0.5f); 
+            GetComponent<AudioSource>().Stop();
             tra.Find("aral.v1 (1)/MaleBaseRig_SHJntGrp/MaleBaseRig_ROOTSHJnt/MaleBaseRig_Spine_01SHJnt/MaleBaseRig_Spine_02SHJnt/MaleBaseRig_Spine_TopSHJnt/MaleBaseRig_r_Arm_ClavicleSHJnt/MaleBaseRig_r_Arm_ShoulderSHJnt/MaleBaseRig_r_Arm_Elbow_CurveSHJnt/MaleBaseRig_r_Arm_WristSHJnt/gun/vfx_MuzzleFlash_01").gameObject.SetActive(true);
             yield return new WaitForSeconds(0.2f); 
             ABS.blackScreen.gameObject.SetActive(true);
@@ -178,14 +215,17 @@ public class LaraDead : MonoBehaviour
         }
         else if(finalSelect == 3)       //secret
         {
+            GetComponent<AudioSource>().clip = dungeonAmbiance;
+            GetComponent<AudioSource>().Play(); 
             yield return StartCoroutine(dia.ThirdEndDialog());
-            ABS.Black();       
+            ABS.Black(3f);       
             yield return new WaitForSeconds(1.6f);
             tra.position = new Vector3(1585f,-0.73f,1900f);
-            tra.rotation = Quaternion.Euler(0f,218f,0f);
-            sail.GetComponent<Transform>().parent.Find("Boat (3)").gameObject.SetActive(true);     
+            tra.rotation = Quaternion.Euler(0f,218f,0f);   
             tra.Find("CameraParent/Camera").gameObject.GetComponent<Animator>().enabled = true;   
-            tra.Find("CameraParent/Camera").gameObject.GetComponent<Animator>().SetTrigger("trig");          
+            tra.Find("CameraParent/Camera").gameObject.GetComponent<Animator>().SetTrigger("trig");  
+            sail.GetComponent<Transform>().parent.Find("Boat (3)").gameObject.SetActive(true);  
+
             yield return new WaitForSeconds(2f);  
             heliMove.SetActive(true);
 
@@ -193,9 +233,34 @@ public class LaraDead : MonoBehaviour
             yield return StartCoroutine(dia.ThirdEndDialogPart2());
             
 
-            ABS.Black();                         
-            yield return new WaitForSeconds(2f);   
+            ABS.Black();                   
+            yield return new WaitForSeconds(1.5f);
+
+            AudioSource[] sources = FindObjectsOfType<AudioSource>();
+            foreach (AudioSource source in sources)
+            {
+                source.volume = 0f;
+            }
+            GetComponent<AudioSource>().volume = 1f;
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits").gameObject.SetActive(true); 
+            
+            float time = 0f;
+            while (time < 3f)
+            {
+                time += Time.deltaTime;
+                GetComponent<AudioSource>().volume = Mathf.Lerp(GetComponent<AudioSource>().volume, 0f, time / 3f);
+                yield return null;
+            }
+            GetComponent<AudioSource>().volume = 0f;
+            GetComponent<AudioSource>().Stop();
+            
+            yield return new WaitForSeconds(3f);  
+
+            GetComponent<AudioSource>().clip = creditMusic;
+            GetComponent<AudioSource>().volume = 1f;
+            GetComponent<AudioSource>().Play(); 
+            yield return new WaitForSeconds(4f);   
+            dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(true); 
             yield return new WaitForSeconds(3f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(false); 
             yield return new WaitForSeconds(1f);   

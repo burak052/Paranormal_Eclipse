@@ -414,7 +414,7 @@ public class Dialogs : MonoBehaviour
             mis.missions[15] = "—protokolu baslatin";
             mis.missions[16] = "—laboratuvardan cikin";
             mis.missions[17] = "—lara ile konusun.";
-            mis.missions[18] = "—Find the password for the enviro room.";
+            mis.missions[18] = "—Helikoptere dön.";
             mis.missions[19] = "—Find the password for the enviro room.";
             mis.missions[20] = "—Find the password for the enviro room.";
         }
@@ -861,7 +861,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
             mis.missions[15] = "—Initiate the protocol";
             mis.missions[16] = "—Exit Lab.";
             mis.missions[17] = "—Speak with lara.";
-            mis.missions[18] = "—Find the password for the enviro room.";
+            mis.missions[18] = "—Return to the helicopter.";
             mis.missions[19] = "—Find the password for the enviro room.";
             mis.missions[20] = "—Find the password for the enviro room.";
         }
@@ -1312,7 +1312,7 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
             mis.missions[15] = "—Starte das Protokoll";
             mis.missions[16] = "—Verlasse das Labor";
             mis.missions[17] = "—Sprich mit Lara";
-            mis.missions[18] = "—Finde das Passwort für den Enviro-Raum";
+            mis.missions[18] = "—Kehre zum Hubschrauber zurück.";
             mis.missions[19] = "—Finde das Passwort für den Enviro-Raum";
             mis.missions[20] = "—Finde das Passwort für den Enviro-Raum";
         }
@@ -1772,7 +1772,7 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
             mis.missions[15] = "—Inicia el protocolo";
             mis.missions[16] = "—Sal del laboratorio";
             mis.missions[17] = "—Habla con Lara";
-            mis.missions[18] = "—Encuentra la contraseña de la sala Enviro";
+            mis.missions[18] = "—Regresa al helicóptero.";
             mis.missions[19] = "—Encuentra la contraseña de la sala Enviro";
             mis.missions[20] = "—Encuentra la contraseña de la sala Enviro";
         }
@@ -2231,7 +2231,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
             mis.missions[15] = "—ЗАПУСТИТЕ ПРОТОКОЛ";
             mis.missions[16] = "—ВЫЙДИТЕ ИЗ ЛАБОРАТОРИИ";
             mis.missions[17] = "—ПОГОВОРИТЕ С ЛАРОЙ";
-            mis.missions[18] = "—НАЙДИТЕ ПАРОЛЬ ДЛЯ КОМНАТЫ ЭНВИРО";
+            mis.missions[18] = "—Вернись к вертолёту.";
             mis.missions[19] = "—НАЙДИТЕ ПАРОЛЬ ДЛЯ КОМНАТЫ ЭНВИРО";
             mis.missions[20] = "—НАЙДИТЕ ПАРОЛЬ ДЛЯ КОМНАТЫ ЭНВИРО";
         }
@@ -2680,7 +2680,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
             mis.missions[15] = "—Initier le protocole";
             mis.missions[16] = "—Quitter le laboratoire";
             mis.missions[17] = "—Parler avec Lara";
-            mis.missions[18] = "—Trouver le mot de passe de la salle environnementale";
+            mis.missions[18] = "—Retourne à l’hélicoptère.";
             mis.missions[19] = "—Trouver le mot de passe de la salle environnementale";
             mis.missions[20] = "—Trouver le mot de passe de la salle environnementale";
         }
@@ -3129,7 +3129,7 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
             mis.missions[15] = "—Avvia il protocollo";
             mis.missions[16] = "—Esci dal laboratorio";
             mis.missions[17] = "—Parla con Lara";
-            mis.missions[18] = "—Trova la password per la stanza ambientale";
+            mis.missions[18] = "—Torna all’elicottero.";
             mis.missions[19] = "—Trova la password per la stanza ambientale";
             mis.missions[20] = "—Trova la password per la stanza ambientale";
         }

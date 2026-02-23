@@ -44909,7 +44909,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 20
-  MaxDistance: 100
+  MaxDistance: 200
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -44928,8 +44928,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.4
-      value: 0.5
+      time: 0.366156
+      value: 0.4233551
       inSlope: -1.2504979
       outSlope: -1.2504979
       tangentMode: 0
@@ -44937,8 +44937,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.8
-      value: 0.25
+      time: 0.747937
+      value: 0.05834961
       inSlope: -0.31262448
       outSlope: -0.31262448
       tangentMode: 0
@@ -44946,8 +44946,8 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
-      value: 0
+      time: 0.9921875
+      value: 0.027545169
       inSlope: -0.20007975
       outSlope: -0.20007975
       tangentMode: 0
@@ -93780,6 +93780,7 @@ GameObject:
   - component: {fileID: 8712001978562862069}
   - component: {fileID: 8712001978562862068}
   - component: {fileID: 8712001978562862067}
+  - component: {fileID: 8712001978562862070}
   m_Layer: 0
   m_Name: boxes2
   m_TagString: BoilerDoor
@@ -104208,6 +104209,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   openAudioSource: {fileID: 8712001978562862068}
   closeAudioSource: {fileID: 8712001978562862067}
+--- !u!64 &8712001978562862070
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4132881957473521336}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7491582409780019559, guid: 411db0d99457676479af17482a50c395, type: 3}
 --- !u!108 &8731683671210250112
 Light:
   m_ObjectHideFlags: 0

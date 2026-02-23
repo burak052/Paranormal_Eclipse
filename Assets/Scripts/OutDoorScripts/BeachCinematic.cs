@@ -16,6 +16,10 @@ public class BeachCinematic : MonoBehaviour
     public GameObject nightlight;
     public GameObject day;
     public GameObject daylight;
+    public AudioSource amb;
+    public AudioClip ambClip;
+    public BoxCollider LD;
+    public Missions mis;
 
     private bool triggered = false;
 
@@ -120,12 +124,16 @@ public class BeachCinematic : MonoBehaviour
         pastAral.SetActive(false);
         yield return new WaitForSeconds(5f);
         ABS.ActivePlayer();
+        amb.clip = ambClip;
+        amb.Play();
+        mis.StartMis(18);
+        Aral.GetComponent<AudioSource>().Stop();
         yield return StartCoroutine(dia.EventDialog(166,2f));
         yield return new WaitForSeconds(1f);
         yield return StartCoroutine(dia.EventDialog(167));
         yield return new WaitForSeconds(1f);
         dia.EventDia(168);
-
+        LD.enabled = true;
 
     }
 }

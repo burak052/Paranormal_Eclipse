@@ -39,7 +39,7 @@ public class LabMovement : MonoBehaviour
         {
             t += Time.deltaTime * 0.4f;
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0f, 45f, 0f), t/3);
-            camParent.localRotation = Quaternion.Slerp(camParent.localRotation, Quaternion.Euler(40f, 0f, 0f), t);
+            camParent.localRotation = Quaternion.Slerp(camParent.localRotation, Quaternion.Euler(37f, 0f, 0f), t);
             yield return null;
         }
         
