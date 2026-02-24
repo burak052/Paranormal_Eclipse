@@ -83,6 +83,6 @@ public class TriggerScript : MonoBehaviour
         }
         yield return new WaitForSeconds(waitTime);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 }
