@@ -28,6 +28,6 @@ public class StartLabScene : MonoBehaviour
             blackScreen.color = new Color(0, 0, 0, alpha);
             yield return null;
         }
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 }

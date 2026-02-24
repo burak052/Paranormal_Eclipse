@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Steamworks;
+
 
 public class GrevyardBlack : MonoBehaviour
 {
@@ -30,6 +32,17 @@ public class GrevyardBlack : MonoBehaviour
         transform.Find("Canvas/EndCredits").gameObject.SetActive(true);
         yield return new WaitForSeconds(3f);
         transform.Find("Canvas/EndCredits/End Logo").gameObject.SetActive(false);
+        
+        bool alreadyUnlocked;
+        SteamUserStats.GetAchievement("ACH_ENDING_1", out alreadyUnlocked);
+
+        if (!alreadyUnlocked)
+        {
+            SteamUserStats.SetAchievement("ACH_ENDING_1");
+            SteamUserStats.StoreStats();
+            Debug.Log("Achievement gönderildi.");
+        } 
+
         transform.Find("Canvas/EndCredits/Credits").gameObject.SetActive(true);
         yield return StartCoroutine(transform.Find("Canvas/EndCredits/Credits").gameObject.GetComponent<EndGameCradits>().creditsslider());
     }

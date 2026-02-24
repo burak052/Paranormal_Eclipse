@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Epilepsy.unity
+    guid: ab1864ffe46701142b87ad43aa1f47ef
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 83d35b643237f804a8e49e6e4d3d7f3a
   - enabled: 1

@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Animations.Rigging;
+using Steamworks;
 
 public class LaraDead : MonoBehaviour
 {
@@ -163,11 +164,21 @@ public class LaraDead : MonoBehaviour
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(true); 
             yield return new WaitForSeconds(3f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(false); 
-            yield return new WaitForSeconds(1f);   
+            yield return new WaitForSeconds(1f);  
+            
+            bool alreadyUnlocked;
+            SteamUserStats.GetAchievement("ACH_ENDING_2", out alreadyUnlocked);
+
+            if (!alreadyUnlocked)
+            {
+                SteamUserStats.SetAchievement("ACH_ENDING_2");
+                SteamUserStats.StoreStats();
+                Debug.Log("Achievement gönderildi.");
+            } 
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.SetActive(true); 
             yield return StartCoroutine(dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.GetComponent<EndGameCradits>().creditsslider());
             yield return new WaitForSeconds(3f);   
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
         else if(finalSelect == 2)       //killyourself
         {
@@ -211,7 +222,7 @@ public class LaraDead : MonoBehaviour
             yield return new WaitForSeconds(3f); 
 
 
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(6);
         }
         else if(finalSelect == 3)       //secret
         {
@@ -264,10 +275,21 @@ public class LaraDead : MonoBehaviour
             yield return new WaitForSeconds(3f);   
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/End Logo").gameObject.SetActive(false); 
             yield return new WaitForSeconds(1f);   
+
+            bool alreadyUnlocked;
+            SteamUserStats.GetAchievement("ACH_SECRET_ENDING", out alreadyUnlocked);
+
+            if (!alreadyUnlocked)
+            {
+                SteamUserStats.SetAchievement("ACH_SECRET_ENDING");
+                SteamUserStats.StoreStats();
+                Debug.Log("Achievement gönderildi.");
+            } 
+            
             dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.SetActive(true); 
             yield return StartCoroutine(dia.gameObject.GetComponent<Transform>().parent.Find("EndCredits/Credits").gameObject.GetComponent<EndGameCradits>().creditsslider());
             yield return new WaitForSeconds(3f); 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
 }

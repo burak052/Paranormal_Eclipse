@@ -199,7 +199,7 @@ public class MainMenu : MonoBehaviour
         }
 
         // Sonra sahneyi yükle
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
     }
 
     public void ContinueGame()

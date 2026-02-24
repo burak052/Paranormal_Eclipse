@@ -24,6 +24,6 @@ public class LoadScene5 : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(5);
     }
 }

@@ -4103,4 +4103,20 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         yield return StartCoroutine(PDL.PlayVoice(237));
         dialog.text = "";
     }
+
+    public void WatchDia()
+    {
+        StartCoroutine(WatchDialog());
+    }    
+
+    public IEnumerator WatchDialog()
+    {
+        yield return new WaitForSeconds(0.5f);
+        dialog.text = dias[238];
+        yield return StartCoroutine(PDL.PlayVoice(238));
+        yield return new WaitForSeconds(1f);
+        dialog.text = dias[239];
+        yield return StartCoroutine(PDL.PlayVoice(239));
+        dialog.text = "";
+    }
 }

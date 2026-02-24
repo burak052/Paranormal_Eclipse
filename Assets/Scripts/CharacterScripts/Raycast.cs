@@ -60,6 +60,7 @@ public class Raycast : MonoBehaviour
     public bool havegun = false;
     public bool isload = false;
     public bool camscarehave = false;
+    public bool firstDialog = true;
     public int capsuleCount = 0;
     public int EnergyCapsuleCount = 0;
     public Sprite LSprite;
@@ -614,6 +615,19 @@ public class Raycast : MonoBehaviour
                             dialog.FindMacDia();
                         }
                     }
+                    
+                    if (!hit.collider.CompareTag("watch"))
+                    {
+                        hit.collider.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        if(firstDialog)
+                        {
+                            dialog.WatchDia();
+                            firstDialog = false;
+                        }
+                    }
                 }
                 return;
             }
@@ -811,10 +825,6 @@ public class Raycast : MonoBehaviour
                     {
                         PlayerPrefs.SetInt("EASTER_EGG_NOTE", 1);
                         dialog.EasterEggDia();
-                    }
-                    if (!hit.collider.CompareTag("watch"))
-                    {
-                        hit.collider.gameObject.SetActive(false);
                     }
                     hit.collider.gameObject.SetActive(false);
                     playeranim.isSetAnimator = false;
