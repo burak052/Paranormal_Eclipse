@@ -42,6 +42,9 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
         CheckSaveSlots();
         LanguageMenu();
         LoadSettings();

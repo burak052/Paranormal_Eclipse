@@ -37,11 +37,8 @@ public class LoadScript : MonoBehaviour
                 GameObject.FindGameObjectWithTag("LaraNote").SetActive(false);
             if (inv.inventoryData.ownedItemIDs.Contains(10) && GameObject.FindGameObjectWithTag("MaterialNote") != null)
                 GameObject.FindGameObjectWithTag("MaterialNote").SetActive(false);
-            if (inv.inventoryData.ownedItemIDs.Contains(11) && GameObject.FindGameObjectWithTag("EasterEggNote") != null)
-            {
-                GameObject.FindGameObjectWithTag("EasterEggNote").SetActive(false);
+            if (inv.inventoryData.ownedItemIDs.Contains(11))
                 PlayerPrefs.SetInt("EASTER_EGG_NOTE", 1);
-            }
             else
                 PlayerPrefs.SetInt("EASTER_EGG_NOTE", 0);
             if (inv.inventoryData.ownedItemIDs.Contains(12) && GameObject.FindGameObjectWithTag("BoilerNote") != null)

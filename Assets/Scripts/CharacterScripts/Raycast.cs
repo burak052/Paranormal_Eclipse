@@ -616,11 +616,7 @@ public class Raycast : MonoBehaviour
                         }
                     }
                     
-                    if (!hit.collider.CompareTag("watch"))
-                    {
-                        hit.collider.gameObject.SetActive(false);
-                    }
-                    else
+                    if (hit.collider.CompareTag("watch"))
                     {
                         if(firstDialog)
                         {
