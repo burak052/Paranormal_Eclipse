@@ -355,6 +355,8 @@ public class Dialogs : MonoBehaviour
         menuUI[29] = "BÜYÜK";
         menuUI[30] = "OYUN YÜKLE";
         menuUI[31] = "ANA MENÜ";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
 
         uıUI[0] = "Kilitli";
@@ -800,6 +802,8 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         menuUI[29] = "BIG";
         menuUI[30] = "LOAD GAME";
         menuUI[31] = "MAIN MANU";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
         
         uıUI[0] = "Locked";
@@ -1249,6 +1253,8 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         menuUI[29] = "GROSS";
         menuUI[30] = "SPIEL LADEN";
         menuUI[31] = "HAUPTMENÜ";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
 
 
@@ -1708,6 +1714,8 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         menuUI[29] = "GRANDE";
         menuUI[30] = "CARGAR PARTIDA";
         menuUI[31] = "MENÚ PRINCIPAL";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
 
 
@@ -2170,6 +2178,8 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         menuUI[29] = "БОЛЬШОЙ";
         menuUI[30] = "ЗАГРУЗИТЬ ИГРУ";
         menuUI[31] = "ГЛАВНОЕ МЕНЮ";
+        menuUI[32] = "АРАЛ";
+        menuUI[33] = "ЛАРА";
 
 
         uıUI[0] = "ЗАКРЫТО";
@@ -2619,6 +2629,8 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         menuUI[29] = "GRAND";
         menuUI[30] = "CHARGER LA PARTIE";
         menuUI[31] = "MENU PRINCIPAL";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
 
         uıUI[0] = "Verrouillé";
@@ -3068,6 +3080,8 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         menuUI[29] = "GRANDE";
         menuUI[30] = "CARICA PARTITA";
         menuUI[31] = "MENÙ PRINCIPALE";
+        menuUI[32] = "ARAL";
+        menuUI[33] = "LARA";
 
 
         uıUI[0] = "Bloccato";

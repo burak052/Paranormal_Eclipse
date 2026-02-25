@@ -47,7 +47,6 @@ public class footsteps : MonoBehaviour
             if (clip != null)
             {
                 audioSource.pitch  = Random.Range(0.95f, 1.05f);
-                audioSource.volume = Random.Range(0.85f, 1f);
 
                 audioSource.PlayOneShot(clip);
             }

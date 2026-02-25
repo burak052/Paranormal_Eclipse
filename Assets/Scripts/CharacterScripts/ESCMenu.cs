@@ -18,6 +18,8 @@ public class ESCMenu : MonoBehaviour
     public TMP_Dropdown antialiasing;
     public TMP_Dropdown headbobbingsettings;
     public Slider mainvolumeslider;
+    public Slider aralvolumeslider;
+    public Slider laravolumeslider;
     public Slider camerasenstive;
     public Dialogs dia;
     public bool canOpenMenu = true;
@@ -116,6 +118,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Grafik/Grafik Ayarı").gameObject.SetActive(true);
         menu.Find("Settings/Grafik/Anti-Aliasing").gameObject.SetActive(true);
         menu.Find("Settings/Ses/Ana Müzik").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Aral Voice").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Lara Voice").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Camera Sensetive").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Head Bobbing").gameObject.SetActive(false);
         menu.Find("Settings/Dil/Select Language").gameObject.SetActive(false);
@@ -128,6 +132,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Grafik/Grafik Ayarı").gameObject.SetActive(false);
         menu.Find("Settings/Grafik/Anti-Aliasing").gameObject.SetActive(false);
         menu.Find("Settings/Ses/Ana Müzik").gameObject.SetActive(true);
+        menu.Find("Settings/Ses/Aral Voice").gameObject.SetActive(true);
+        menu.Find("Settings/Ses/Lara Voice").gameObject.SetActive(true);
         menu.Find("Settings/Kamera/Camera Sensetive").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Head Bobbing").gameObject.SetActive(false);
         menu.Find("Settings/Dil/Select Language").gameObject.SetActive(false);
@@ -140,6 +146,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Grafik/Grafik Ayarı").gameObject.SetActive(false);
         menu.Find("Settings/Grafik/Anti-Aliasing").gameObject.SetActive(false);
         menu.Find("Settings/Ses/Ana Müzik").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Aral Voice").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Lara Voice").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Camera Sensetive").gameObject.SetActive(true);
         menu.Find("Settings/Kamera/Head Bobbing").gameObject.SetActive(true);
         menu.Find("Settings/Dil/Select Language").gameObject.SetActive(false);
@@ -152,6 +160,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Grafik/Grafik Ayarı").gameObject.SetActive(false);
         menu.Find("Settings/Grafik/Anti-Aliasing").gameObject.SetActive(false);
         menu.Find("Settings/Ses/Ana Müzik").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Aral Voice").gameObject.SetActive(false);
+        menu.Find("Settings/Ses/Lara Voice").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Camera Sensetive").gameObject.SetActive(false);
         menu.Find("Settings/Kamera/Head Bobbing").gameObject.SetActive(false);
         menu.Find("Settings/Dil/Select Language").gameObject.SetActive(true);
@@ -191,6 +201,14 @@ public class ESCMenu : MonoBehaviour
     {
         menu.Find("Settings/Ses/Ana Müzik/Main Music").gameObject.SetActive(true);
     }
+    public void choseAralMusic()
+    {
+        menu.Find("Settings/Ses/Aral Voice/ARAL").gameObject.SetActive(true);
+    }
+    public void choseLaraMusic()
+    {
+        menu.Find("Settings/Ses/Lara Voice/LARA").gameObject.SetActive(true);
+    }
 
     
     public void choseSensitive()
@@ -224,6 +242,28 @@ public class ESCMenu : MonoBehaviour
     public void settingvolume(float vol)
     {
         PlayerPrefs.SetFloat("MAIN_VOLUME", vol);
+        SetAllSound();
+    }
+
+    public void startaralvolume()
+    {
+        aralvolumeslider.onValueChanged.AddListener(aralsettingvolume);
+    }
+
+    public void aralsettingvolume(float vol)
+    {
+        PlayerPrefs.SetFloat("ARAL_VOLUME", vol);
+        SetAllSound();
+    }
+
+    public void startlaravolume()
+    {
+        laravolumeslider.onValueChanged.AddListener(larasettingvolume);
+    }
+
+    public void larasettingvolume(float vol)
+    {
+        PlayerPrefs.SetFloat("LARA_VOLUME", vol);
         SetAllSound();
     }
     
@@ -292,10 +332,18 @@ public class ESCMenu : MonoBehaviour
         if (allAudioSources == null || allAudioSources.Length == 0)
             return;
 
+        float volume = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+        float aralvolume = PlayerPrefs.GetFloat("ARAL_VOLUME", 1f);
+        float laravolume = PlayerPrefs.GetFloat("LARA_VOLUME", 1f);
+
         foreach (AudioSource audio in allAudioSources)
         {
-            if (audio != null)
-                audio.volume = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+            if (audio != null && audio.CompareTag("AralVoice"))
+                audio.volume = aralvolume;
+            else if (audio != null && audio.CompareTag("LaraVoice"))
+                audio.volume = laravolume;
+            else if (audio != null)
+                audio.volume = volume;
         }
     }
 
@@ -315,6 +363,8 @@ public class ESCMenu : MonoBehaviour
 
 
         mainvolumeslider.value = PlayerPrefs.GetFloat("MAIN_VOLUME", 1f);
+        aralvolumeslider.value = PlayerPrefs.GetFloat("ARAL_VOLUME", 1f);
+        laravolumeslider.value = PlayerPrefs.GetFloat("LARA_VOLUME", 1f);
 
 
         camerasenstive.value = PlayerPrefs.GetFloat("MOUSE_SENS", 20f)/100f;
@@ -354,6 +404,8 @@ public class ESCMenu : MonoBehaviour
         menu.Find("Settings/Grafik/Anti-Aliasing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[14];
         
         menu.Find("Settings/Ses/Ana Müzik").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[15];
+        menu.Find("Settings/Ses/Aral Voice").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[32];
+        menu.Find("Settings/Ses/Lara Voice").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[33];
         
         menu.Find("Settings/Kamera/Camera Sensetive").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[16];
         menu.Find("Settings/Kamera/Head Bobbing").gameObject.GetComponent<TextMeshProUGUI>().text = dia.menuUI[17];

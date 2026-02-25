@@ -17,7 +17,7 @@ public class ShaderWarpUp : MonoBehaviour
     { 
         blackScreen.color = new Color(1, 1, 1, 1); 
         float t = 0f; 
-        yield return new WaitForSeconds(10f); 
+        yield return new WaitForSeconds(8f); 
         SceneManager.LoadScene(1);
     }
 }

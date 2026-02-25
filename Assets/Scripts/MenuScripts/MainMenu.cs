@@ -426,10 +426,10 @@ public class MainMenu : MonoBehaviour
 
         while (t < 1f)
         {
-            t += Time.deltaTime * 0.005f;
+            t += Time.deltaTime * 0.006f;
 
             Vector2 pos = content.anchoredPosition;
-            pos.y = Mathf.Lerp(-900f, 16500f, t);
+            pos.y = Mathf.Lerp(-900f, 11650f, t);
             content.anchoredPosition = pos;
 
             yield return null;

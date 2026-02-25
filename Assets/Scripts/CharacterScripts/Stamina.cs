@@ -69,7 +69,7 @@ public class Stamina : MonoBehaviour
             if (stamina <= 0f)
                 fpsController.sprintSpeed = fpsController.walkSpeed;
             else
-                fpsController.sprintSpeed = 50f;         ///////////normal koşma hızı 7 olmalı
+                fpsController.sprintSpeed = 7f;         ///////////normal koşma hızı 7 olmalı
 
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();

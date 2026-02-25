@@ -53,6 +53,8 @@ TagManager:
   - NeedGenerator
   - GirlTalking
   - watch
+  - AralVoice
+  - LaraVoice
   layers:
   - Default
   - TransparentFX
