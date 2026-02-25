@@ -11,9 +11,9 @@ public class PlayDialogLine : MonoBehaviour
     {
         if (id != 116 && id != 133)
         {
-            if(id == 169)
+            if (id == 169)
                 id = 34;
-                
+
             string path = "Line/dialog" + id;
 
             ResourceRequest req = Resources.LoadAsync<AudioClip>(path);
@@ -21,9 +21,20 @@ public class PlayDialogLine : MonoBehaviour
 
             AudioClip clip = req.asset as AudioClip;
 
-            if(dia.dias[id] != "")
+            if (clip == null)
+                yield break;
+
+            if (dia.dias[id] != "")
             {
-                if(dia.dias[id].StartsWith("Aral") || dia.dias[id].StartsWith("Арал"))
+                // 🔴 Önce sadece bu iki source'u durdur
+                if (Aralsource.isPlaying)
+                    Aralsource.Stop();
+
+                if (Larasource.isPlaying)
+                    Larasource.Stop();
+
+                // 🎙 Sonra doğru karakteri oynat
+                if (dia.dias[id].StartsWith("Aral") || dia.dias[id].StartsWith("Арал"))
                     Aralsource.PlayOneShot(clip);
                 else
                     Larasource.PlayOneShot(clip);
@@ -32,7 +43,7 @@ public class PlayDialogLine : MonoBehaviour
             yield return new WaitForSeconds(clip.length);
             Resources.UnloadAsset(clip);
         }
-        else if(id == 116)
+        else if (id == 116)
         {
             yield return new WaitForSeconds(2.5f);
         }

@@ -46,11 +46,12 @@ public class ExplosionTest : MonoBehaviour
         yield return new WaitForSeconds(1f);
         dia.EventDia(113);
         Electricity2.SetActive(true);
+        dia.EventDia(114,3f);
 
         yield return new WaitForSeconds(0.5f);
         Electricity3.SetActive(true);
         yield return new WaitForSeconds(5f);
-        dia.EventDia(114);
+        dia.EventDia(170);
         yield return new WaitForSeconds(3f);
         Explosion.SetActive(true);
         rotor.speed = 0f;    

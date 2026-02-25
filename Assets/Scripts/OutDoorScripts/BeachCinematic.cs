@@ -8,6 +8,7 @@ public class BeachCinematic : MonoBehaviour
     public GameObject Laradead;
     public GameObject Laralab;
     public GameObject Aral;
+    public Transform lantern;
     public ActiveBlackScreen ABS;
     public Animator door;
     public Dialogs dia;
@@ -55,8 +56,10 @@ public class BeachCinematic : MonoBehaviour
         ABS.Black();
         yield return new WaitForSeconds(1.6f);
 
+        lantern.localPosition = new Vector3(-146.87f,36.65f,-50.22f);
+        lantern.localRotation = Quaternion.Euler(3.179f,0.311f,-1.402f);
         Aral.GetComponent<Transform>().position = new Vector3(1448.65f,4.26f,1788.04f);
-        Aral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,77f,0f);
+        Aral.GetComponent<Transform>().rotation = Quaternion.Euler(6.32f,83.46f,0f);
         Lara.GetComponent<LaraMovement>().LaraBeach();
         pastAral.GetComponent<Transform>().position = new Vector3(1472.74f,1.94f,1790.86f);
         pastAral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,-163.602f,0f);
@@ -65,10 +68,19 @@ public class BeachCinematic : MonoBehaviour
 
         yield return new WaitForSeconds(3f);
         ABS.GlassBroke();
-        yield return new WaitForSeconds(7f);
+        
+        float ti = 0f;
+        while (ti < 7f)
+        {
+            ti += Time.deltaTime;
+            float normalizedT = ti / 7f;
+            Aral.GetComponent<Transform>().Find("CameraParent/Camera").localPosition = Vector3.Lerp(new Vector3(0f,0f,0f), new Vector3(0f,0f,20f), Mathf.SmoothStep(0f, 1f, normalizedT));
+            yield return null;
+        }
         dia.EventDia(162);
         Aral.GetComponent<Transform>().position = new Vector3(1437.80f,4.35f,1668.34f);
         Aral.GetComponent<Transform>().rotation = Quaternion.Euler(0f,-93.866f,0f);
+        Aral.GetComponent<Transform>().Find("CameraParent/Camera").localPosition = new Vector3(0f,0f,0f);
         yield return new WaitForSeconds(2f);
         Aral.GetComponent<Transform>().Find("aral.v1 (1)").gameObject.GetComponent<Animator>().SetBool("isWalking",true);
         pastAral.GetComponent<Transform>().position = new Vector3(1410.85f,5.28f,1669.72f);

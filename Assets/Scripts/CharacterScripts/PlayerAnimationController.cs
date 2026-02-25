@@ -44,6 +44,11 @@ public class PlayerAnimationController : MonoBehaviour
 
             // Ko�ma �ncelikli
             bool isRunning = wPressed && shiftPressed;
+            if(GetComponent<Stamina>() != null)
+            {
+                bool run = GetComponent<Stamina>().canRun;
+                isRunning = wPressed && shiftPressed && run;
+            }
             bool isJumping = spacePressed && !ctrlPressed;
             bool isWalking = ((wPressed || sPressed || aPressed || dPressed) && !isRunning && !ctrlPressed && !spacePressed);
             bool isCrouchingWalkingFoward =((wPressed || dPressed || aPressed) && !sPressed && !isRunning && ctrlPressed);

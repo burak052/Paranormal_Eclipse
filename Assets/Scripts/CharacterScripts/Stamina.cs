@@ -20,6 +20,7 @@ public class Stamina : MonoBehaviour
     public float exhaustedMaxVolume = 0.8f;
     public float audioFadeSpeed = 5f;
     public bool canplay = true;
+    public bool canRun = true;
 
     void Start()
     {
@@ -67,9 +68,15 @@ public class Stamina : MonoBehaviour
 
             // ?? SPRINT K�L�D�
             if (stamina <= 0f)
+            {
                 fpsController.sprintSpeed = fpsController.walkSpeed;
+                canRun = false;
+            }
             else
+            {
                 fpsController.sprintSpeed = 7f;         ///////////normal koşma hızı 7 olmalı
+                canRun = true;
+            }
 
             // ????? YORGUNLUK SES� (FADE IN / OUT)
             HandleExhaustedAudio();

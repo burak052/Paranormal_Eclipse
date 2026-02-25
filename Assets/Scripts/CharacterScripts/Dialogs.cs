@@ -320,8 +320,9 @@ public class Dialogs : MonoBehaviour
         dias[235] = "Aral: Evet, biziz.";
         dias[236] = "Aral: Biz kendi döngümüzü kırdık…";
         dias[237] = "Aral: Size bol şans.";
-        dias[238] = "Aral: Bu saat kimin?";
-        dias[239] = "Aral: Lara bir saatten bahsediyordu.";
+        dias[238] = "Aral: Güzel saatmiş.";
+        dias[239] = "Aral: Acaba kimin...";
+        dias[240] = "Lara: Nerede bu saat...";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -416,7 +417,7 @@ public class Dialogs : MonoBehaviour
             mis.missions[15] = "—protokolu baslatin";
             mis.missions[16] = "—laboratuvardan cikin";
             mis.missions[17] = "—lara ile konusun.";
-            mis.missions[18] = "—Helikoptere dön.";
+            mis.missions[18] = "—Helikoptere don.";
             mis.missions[19] = "—Find the password for the enviro room.";
             mis.missions[20] = "—Find the password for the enviro room.";
         }
@@ -766,9 +767,9 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[235] = "Aral: Yes, it’s us.";
         dias[236] = "Aral: We broke our loop…";
         dias[237] = "Aral: Good luck to you";
-        dias[238] = "Aral: Whose watch is this?";
-        dias[239] = "Aral: Lara was talking about a watch.";
-
+        dias[238] = "Aral: Nice clock.";
+        dias[239] = "Aral: I wonder whose it is...";
+        dias[240] = "Lara: Where is that clock...";
 
 
         menuUI[1] = "START NEW GAME";
@@ -1216,9 +1217,9 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         dias[235] = "Aral: Ja, wir sind das.";
         dias[236] = "Aral: Wir haben unsere Schleife gebrochen…";
         dias[237] = "Aral: Viel Glück.";
-        dias[238] = "Aral: Wem gehört diese Uhr?";
-        dias[239] = "Aral: Lara hat von einer Uhr gesprochen.";
-
+        dias[238] = "Aral: Schöne Uhr.";
+        dias[239] = "Aral: Ich frage mich, wem sie gehört...";
+        dias[240] = "Lara: Wo ist diese Uhr...";
 
 
 
@@ -1677,9 +1678,9 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[235] = "Aral: Sí, somos nosotros.";
         dias[236] = "Aral: Rompimos nuestro bucle…";
         dias[237] = "Aral: Buena suerte.";
-        dias[238] = "Aral: ¿De quién es este reloj?";
-        dias[239] = "Aral: Lara estaba hablando de un reloj.";
-
+        dias[238] = "Aral: Bonito reloj.";
+        dias[239] = "Aral: Me pregunto de quién será...";
+        dias[240] = "Lara: ¿Dónde está ese reloj...?";
 
 
 
@@ -2141,9 +2142,9 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[235] = "Арал: Да, это мы.";
         dias[236] = "Арал: Мы разорвали свой цикл…";
         dias[237] = "Арал: Удачи.";
-        dias[238] = "Арал: Чьи это часы?";
-        dias[239] = "Арал: Лара говорила о часах.";
-
+        dias[238] = "Арал: Красивые часы.";
+        dias[239] = "Арал: Интересно, чьи они...";
+        dias[240] = "Лара: Где эти часы...";
 
 
 
@@ -2592,9 +2593,9 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[235] = "Aral : Oui, c’est nous.";
         dias[236] = "Aral : Nous avons brisé notre boucle…";
         dias[237] = "Aral : Bonne chance.";
-        dias[238] = "Aral : À qui est cette montre ?";
-        dias[239] = "Aral : Lara parlait d'une montre.";
-
+        dias[238] = "Aral : Belle horloge.";
+        dias[239] = "Aral : Je me demande à qui elle appartient...";
+        dias[240] = "Lara : Où est cette horloge...";
 
 
 
@@ -3043,9 +3044,9 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[235] = "Aral: Sì, siamo noi.";
         dias[236] = "Aral: Abbiamo spezzato il nostro ciclo…";
         dias[237] = "Aral: Buona fortuna.";
-        dias[238] = "Aral: Di chi è questo orologio?";
-        dias[239] = "Aral: Lara stava parlando di un orologio.";
-
+        dias[238] = "Aral: Bel orologio.";
+        dias[239] = "Aral: Mi chiedo di chi sia...";
+        dias[240] = "Lara: Dov'è quell'orologio...";
 
 
 
@@ -3291,6 +3292,10 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = "";
         mis.StartMis(mis.missionCount);
         Laradia = true;
+        yield return new WaitForSeconds(2f);
+        dialog.text = dias[240];
+        yield return StartCoroutine(PDL.PlayVoice(240));
+        dialog.text = "";
     }
 
     public void EventDia(int s, float delaybefore=0f)
@@ -3628,7 +3633,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[96];
         yield return StartCoroutine(PDL.PlayVoice(96));
         dialog.text = "";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         dialog.text = dias[100];
         yield return StartCoroutine(PDL.PlayVoice(100));
         dialog.text = "";

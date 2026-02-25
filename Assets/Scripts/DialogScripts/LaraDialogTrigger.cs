@@ -29,7 +29,7 @@ public class LaraDialogTrigger : MonoBehaviour
 
     IEnumerator DialogDelay()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         dia.EventDia(5);
         triggered = true; 
     }

@@ -1068,7 +1068,6 @@ public class Raycast : MonoBehaviour
         dialog.EventDia(129);
         yield return new WaitForSeconds(2f);
         GO.GetComponent<Transform>().parent.Find("shadow").Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
-        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
         GO.GetComponent<Transform>().parent.parent.parent.Find("light").gameObject.GetComponent<AudioSource>().Play();
         AudioSource[] sources = currentDoorAnimator.gameObject.GetComponents<AudioSource>();
         sources[1].Play();
@@ -1088,7 +1087,7 @@ public class Raycast : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         GO.GetComponent<Transform>().parent.parent.parent.Find("elevator light").gameObject.SetActive(false);
         yield return new WaitForSeconds(0.8f);
-
+        GO.GetComponent<Transform>().parent.Find("shadow").gameObject.SetActive(false);
         if (currentDoorAnimator != null)
         {
             bool state = currentDoorAnimator.GetBool("Open");
