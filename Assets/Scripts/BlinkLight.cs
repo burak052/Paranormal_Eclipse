@@ -8,6 +8,7 @@ public class BlinkLight : MonoBehaviour
     AudioSource audioSource;
     Coroutine blinkRoutine;
     bool isBroken = false;
+    public bool canPlayDialog = true;
 
     void Start()
     {
@@ -44,7 +45,8 @@ public class BlinkLight : MonoBehaviour
         if (audioSource != null)
         {
             audioSource.Play();
-            dia.EventDia(118,3f);
+            if(canPlayDialog)
+                dia.EventDia(118,3f);
         }
     }
 }

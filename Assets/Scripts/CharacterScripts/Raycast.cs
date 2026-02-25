@@ -454,20 +454,10 @@ public class Raycast : MonoBehaviour
                     pressEUI.SetActive(true);
                 if (inspectSystem.isInspecting)
                     pressEUI.SetActive(false);
-                if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("watch"))
+
+                if (!hit.collider.CompareTag("PlaceEnergyCapsule"))
                     pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("RepairKit"))
-                    pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("HeadLight"))
-                    pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("Capsule"))
-                    pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("EnergyCapsuleReady"))
-                    pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("Levye"))
-                    pressEUIText.text = dialog.uıUI[9];
-                if (hit.collider.CompareTag("Gun"))
-                    pressEUIText.text = dialog.uıUI[9];
+
                 if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim)
                 {
                     pressEUI.transform.Find("img").gameObject.GetComponent<Image>().sprite = ESprite;
@@ -498,8 +488,7 @@ public class Raycast : MonoBehaviour
                             {
                                 SES.OffLight();
                                 SES.ping = false;
-                                pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
-                                inspectSystem.StartInspect(hit.collider.gameObject);
+                                hit.collider.gameObject.SetActive(false);
                                 pickupSound.Play();
                             }
                         }
@@ -509,7 +498,7 @@ public class Raycast : MonoBehaviour
                                 hit.collider.transform.Find("Bullet_Shell").gameObject.SetActive(false);
                             if (hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("RepairKit"))
                                 hit.collider.gameObject.GetComponent<HighlightBlink>().stopPing();
-                            if (!hit.collider.CompareTag("RepairKit"))
+                            if (hit.collider.CompareTag("Gun") || hit.collider.CompareTag("IDCard") || hit.collider.CompareTag("HeadLight") || hit.collider.CompareTag("watch"))
                             {
                                 pressEUI.GetComponent<Transform>().parent.Find("PressGUI").gameObject.SetActive(true);
                                 inspectSystem.StartInspect(hit.collider.gameObject);
@@ -542,19 +531,20 @@ public class Raycast : MonoBehaviour
                     { 
                         inventor.takeItem(3);
                         capsuleCount++;
-                    }
-                    if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim) 
-                    { 
-                        inventor.takeItem(4);
+                        hit.collider.gameObject.SetActive(false);
                     }
                     if (hit.collider.CompareTag("EnergyCapsuleReady")) 
                     { 
                         EnergyCapsuleCount++;
                         inventor.takeItem(4);
+                        hit.collider.gameObject.SetActive(false);
                     }
                     if (hit.collider.CompareTag("Levye")) 
                     { 
                         inventor.takeItem(5);
+                        hit.collider.gameObject.SetActive(false);
+                        dialog.EventDia(21);
+                        levye = true;
                     }
                     if (hit.collider.CompareTag("Gun")) 
                     { 
@@ -572,33 +562,9 @@ public class Raycast : MonoBehaviour
                             StartCoroutine(StartCapseuleAnim());
                         }
                     }
-                }
-                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && inspectSystem.isInspecting)
-                {
-                    inspectSystem.EndInspect();
-                    if (hit.collider.CompareTag("HeadLight")) 
-                    {
-                        missions.DisMis(7);
-                        dialog.EventDia(20);
-                        takelight = true;
-                    }
-                    if (hit.collider.CompareTag("Levye"))
-                    {
-                        dialog.EventDia(21);
-                        levye = true;
-                    }
-                    if (hit.collider.CompareTag("IDCard"))
-                    {
-                        dialog.EventDia(6);
-                        missions.DisMis(1);
-                    }
-                    if (hit.collider.CompareTag("Gun"))
-                    {
-                        dialog.EventDia(22);
-                        havegun = true;
-                    }
-                    if(hit.collider.CompareTag("EnergyCapsule"))
-                    {
+                    if (hit.collider.CompareTag("EnergyCapsule") && capsuleAnim) 
+                    { 
+                        inventor.takeItem(4);
                         EnergyCapsuleCount++;
                         hit.collider.gameObject.SetActive(true);
                         hit.collider.gameObject.tag = "PlaceEnergyCapsule";
@@ -614,6 +580,26 @@ public class Raycast : MonoBehaviour
                             hit.collider.transform.Find("check").gameObject.SetActive(false);
                             dialog.FindMacDia();
                         }
+                    }
+                }
+                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.G) || Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)) && inspectSystem.isInspecting)
+                {
+                    inspectSystem.EndInspect();
+                    if (hit.collider.CompareTag("HeadLight")) 
+                    {
+                        missions.DisMis(7);
+                        dialog.EventDia(20);
+                        takelight = true;
+                    }
+                    if (hit.collider.CompareTag("IDCard"))
+                    {
+                        dialog.EventDia(6);
+                        missions.DisMis(1);
+                    }
+                    if (hit.collider.CompareTag("Gun"))
+                    {
+                        dialog.EventDia(22);
+                        havegun = true;
                     }
                     
                     if (hit.collider.CompareTag("watch"))

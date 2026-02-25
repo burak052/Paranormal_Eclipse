@@ -9,6 +9,7 @@ public class LaptopController : MonoBehaviour
     public TMP_InputField passwordInput;
     public AudioSource laptopsuccess;
     public AudioSource laptopdenied;
+    public AudioSource openLogSound;
     public GameObject canvasLaptop;
     public BoxCollider col;
     public BoxCollider seaCol;
@@ -35,11 +36,13 @@ public class LaptopController : MonoBehaviour
     }
     public void openLog()
     {
+        openLogSound.Play();
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop window log").gameObject.SetActive(true);
     }
     public void openPass()
     {
+        openLogSound.Play();
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop window pass").gameObject.SetActive(true);
         if(col != null && !isload)

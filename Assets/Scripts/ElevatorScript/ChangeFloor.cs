@@ -5,7 +5,6 @@ public class ChangeFloor : MonoBehaviour
     public GameObject floor1;
     public GameObject floor2;
     public LaraMovement Lara;
-    public PlayLabAmbiance labAmbiance;
 
     void Start()
     {
@@ -24,7 +23,6 @@ public class ChangeFloor : MonoBehaviour
     {
         if(floor2 != null && floor1 != null)
         {
-            labAmbiance.PlayAmbiance();
             floor1.SetActive(false);
             floor2.SetActive(true);
         }
