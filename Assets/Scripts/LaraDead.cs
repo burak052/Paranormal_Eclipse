@@ -18,6 +18,7 @@ public class LaraDead : MonoBehaviour
     public AudioClip creditAmbiance;
     public AudioClip dungeonAmbiance;
     public ActiveBlackScreen ABS;
+    public PlayDialogLine PDL;
     public Dialogs dia;
     private bool triggered = false;
 
@@ -29,6 +30,7 @@ public class LaraDead : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            PDL.isLaraChanged = true;
             triggered = true;
             StartCoroutine(Dead());
             ABS.Black();

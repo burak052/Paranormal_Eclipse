@@ -323,6 +323,7 @@ public class Dialogs : MonoBehaviour
         dias[238] = "Aral: Güzel saatmiş.";
         dias[239] = "Aral: Acaba kimin...";
         dias[240] = "Lara: Nerede bu saat...";
+        dias[241] = "Aral: Galiba zamanda geçmişe gitmeye devam ediyorum... Helikopter... Lara orada olmalı";
 
 
         menuUI[1] = "YENİ OYUNA BAŞLA";
@@ -770,6 +771,7 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         dias[238] = "Aral: Nice clock.";
         dias[239] = "Aral: I wonder whose it is...";
         dias[240] = "Lara: Where is that clock...";
+        dias[241] = "Aral: I think I keep traveling back in time... The helicopter... Lara must be there.";
 
 
         menuUI[1] = "START NEW GAME";
@@ -1220,7 +1222,7 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         dias[238] = "Aral: Schöne Uhr.";
         dias[239] = "Aral: Ich frage mich, wem sie gehört...";
         dias[240] = "Lara: Wo ist diese Uhr...";
-
+        dias[241] = "Aral: Ich glaube, ich reise weiter in die Vergangenheit... Der Hubschrauber... Lara muss dort sein.";
 
 
         menuUI[1] = "NEUES SPIEL STARTEN";
@@ -1681,6 +1683,7 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         dias[238] = "Aral: Bonito reloj.";
         dias[239] = "Aral: Me pregunto de quién será...";
         dias[240] = "Lara: ¿Dónde está ese reloj...?";
+        dias[241] = "Aral: Creo que sigo viajando al pasado... El helicóptero... Lara debe estar allí.";
 
 
 
@@ -2145,6 +2148,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[238] = "Арал: Красивые часы.";
         dias[239] = "Арал: Интересно, чьи они...";
         dias[240] = "Лара: Где эти часы...";
+        dias[241] = "Арал: Похоже, я продолжаю возвращаться в прошлое... Вертолёт... Лара должна быть там.";
 
 
 
@@ -2596,6 +2600,7 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         dias[238] = "Aral : Belle horloge.";
         dias[239] = "Aral : Je me demande à qui elle appartient...";
         dias[240] = "Lara : Où est cette horloge...";
+        dias[241] = "Aral: Je crois que je continue à voyager dans le passé... L'hélicoptère... Lara doit être là-bas.";
 
 
 
@@ -3047,6 +3052,7 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         dias[238] = "Aral: Bel orologio.";
         dias[239] = "Aral: Mi chiedo di chi sia...";
         dias[240] = "Lara: Dov'è quell'orologio...";
+        dias[241] = "Aral: Credo di continuare a viaggiare nel passato... L'elicottero... Lara deve essere lì.";
 
 
 

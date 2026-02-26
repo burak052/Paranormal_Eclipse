@@ -152,12 +152,12 @@ public class ActiveBlackScreen : MonoBehaviour
         missions.DisMis(16);  ///////
     }
 
-    public void GlassBroke()
+    public void GlassBroke(float delay = 4f)
       {
-        StartCoroutine(StartGlassBroke());
+        StartCoroutine(StartGlassBroke(delay));
       }
 
-    IEnumerator StartGlassBroke() //7 saniyede ekran kararıyor 4 saniye siyah ekrandan sonra 1.5 saniyede geri açılıyor.
+    IEnumerator StartGlassBroke(float delay = 4f) //7 saniyede ekran kararıyor 4 saniye siyah ekrandan sonra 1.5 saniyede geri açılıyor.
     {
         GC.ActiveGlitch();
         blackScreen.gameObject.GetComponent<Transform>().parent.Find("Broke").gameObject.GetComponents<AudioSource>()[1].Play();
@@ -186,8 +186,7 @@ public class ActiveBlackScreen : MonoBehaviour
             yield return null;
         }
         GC.DisableGlitchInstant();
-        yield return new WaitForSeconds(2f);
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(delay);
         t = 0f;
         while (t < fadeTime)
         {

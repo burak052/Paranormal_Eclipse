@@ -20279,6 +20279,8 @@ MonoBehaviour:
   dia: {fileID: 1060247398}
   Aralsource: {fileID: 1060247402}
   Larasource: {fileID: 1060247402}
+  laraFace: {fileID: 1750936987}
+  mouthBlendShapeName: O
 --- !u!82 &1060247402
 AudioSource:
   m_ObjectHideFlags: 0
@@ -32120,6 +32122,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 696c0e5241689f240986ae53766ae361, type: 2}
+    - target: {fileID: 2068342759069531934, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5206433653445044451, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -32176,6 +32182,11 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!137 &1750936987 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+  m_PrefabInstance: {fileID: 1750936983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1755317855
 GameObject:
   m_ObjectHideFlags: 0

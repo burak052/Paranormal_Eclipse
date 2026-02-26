@@ -51191,6 +51191,10 @@ MonoBehaviour:
   dia: {fileID: 161451330}
   Aralsource: {fileID: 748939943}
   Larasource: {fileID: 1077103584}
+  laraFace: {fileID: 2136078515}
+  laraLabFace: {fileID: 1950793469}
+  mouthBlendShapeName: O
+  isLaraChanged: 0
 --- !u!82 &748939943
 AudioSource:
   m_ObjectHideFlags: 0
@@ -64054,6 +64058,7 @@ MonoBehaviour:
   exhaustedMaxVolume: 0.8
   audioFadeSpeed: 2.5
   canplay: 1
+  canRun: 1
 --- !u!82 &991071741
 AudioSource:
   m_ObjectHideFlags: 0
@@ -137220,6 +137225,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2068342759069531934, guid: c4ac35ec1f1ed904f993df865fc6275d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068342759069531934, guid: c4ac35ec1f1ed904f993df865fc6275d, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
@@ -137550,6 +137559,11 @@ PrefabInstance:
 --- !u!4 &1950793468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c4ac35ec1f1ed904f993df865fc6275d, type: 3}
+  m_PrefabInstance: {fileID: 1950793467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &1950793469 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4750469698511600036, guid: c4ac35ec1f1ed904f993df865fc6275d, type: 3}
   m_PrefabInstance: {fileID: 1950793467}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951211805
@@ -140414,6 +140428,7 @@ MonoBehaviour:
   creditAmbiance: {fileID: 8300000, guid: e4938e1f4309b8944bc88e28e244f7dd, type: 3}
   dungeonAmbiance: {fileID: 8300000, guid: 3b7ec3f20a3d9d74ba7a21ddcc7babeb, type: 3}
   ABS: {fileID: 2087430266}
+  PDL: {fileID: 748939942}
   dia: {fileID: 161451330}
   finalSelect: 0
 --- !u!65 &2016160554
@@ -152429,6 +152444,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 09ab2bd2f2ed4ee43a50fc685a5c3550, type: 2}
+    - target: {fileID: -6868654065143361947, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -152437,6 +152456,54 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 773907a31049cbf41bec9e7ce3b0923c, type: 2}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[0]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[1]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[2]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[3]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[7]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[8]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[9]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[15]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[19]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[21]'
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[22]'
+      value: 43.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: 'm_BlendShapeWeights.Array.data[23]'
+      value: 44.8
+      objectReference: {fileID: 0}
     - target: {fileID: -3191441085452602507, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -152513,6 +152580,10 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 696c0e5241689f240986ae53766ae361, type: 2}
+    - target: {fileID: 2068342759069531934, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5206433653445044451, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -152573,6 +152644,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1875478962}
   m_SourcePrefab: {fileID: 100100000, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+--- !u!137 &2136078515 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+  m_PrefabInstance: {fileID: 2136078514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2137492227
 GameObject:
   m_ObjectHideFlags: 0

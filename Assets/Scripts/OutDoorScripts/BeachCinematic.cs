@@ -114,7 +114,7 @@ public class BeachCinematic : MonoBehaviour
         yield return new WaitForSeconds(1f);
         dia.EventDia(164);
         t = 0f;
-        ABS.GlassBroke();
+        ABS.GlassBroke(16f);
         while (t < 1f)
         {
             t += Time.deltaTime * 0.4f;
@@ -134,17 +134,21 @@ public class BeachCinematic : MonoBehaviour
         Laradead.SetActive(true);
         Lara.SetActive(false);
         pastAral.SetActive(false);
-        yield return new WaitForSeconds(5f);
+
+        yield return new WaitForSeconds(1f);    //siyah ekran konuşması
+        yield return StartCoroutine(dia.EventDialog(166));
+        yield return new WaitForSeconds(1f);
+        yield return StartCoroutine(dia.EventDialog(167));
+        yield return new WaitForSeconds(0.5f);
+        yield return StartCoroutine(dia.EventDialog(168));
+
         ABS.ActivePlayer();
         amb.clip = ambClip;
         amb.Play();
-        mis.StartMis(18);
         Aral.GetComponent<AudioSource>().Stop();
-        yield return StartCoroutine(dia.EventDialog(166,2f));
-        yield return new WaitForSeconds(1f);
-        yield return StartCoroutine(dia.EventDialog(167));
-        yield return new WaitForSeconds(1f);
-        dia.EventDia(168);
+        yield return StartCoroutine(dia.EventDialog(241,2f));
+        mis.startdelay = 0f;
+        mis.StartMis(18);
         LD.enabled = true;
 
     }
