@@ -17,6 +17,8 @@ public class ActiveBlackScreen : MonoBehaviour
     public GameObject headlight;
     public GameObject security;
     public GameObject looklara;
+    public GameObject hutday;
+    public GameObject hutnight;
     public AudioSource forestSound;
     public AudioClip nightSound;
     public ShadowDisable Shaddis;
@@ -72,6 +74,8 @@ public class ActiveBlackScreen : MonoBehaviour
           Shaddis.gameObject.GetComponent<Transform>().Find("Cube").gameObject.SetActive(true);
           Shaddis.gameObject.GetComponent<Transform>().Find("Cube1").gameObject.SetActive(true);
           Shaddis.gameObject.GetComponent<Transform>().Find("Cube2").gameObject.SetActive(true);
+          hutday.SetActive(false);
+          hutnight.SetActive(true);
         }
         if (outfit)
         {

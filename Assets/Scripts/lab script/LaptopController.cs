@@ -5,6 +5,7 @@ using System.Collections;
 
 public class LaptopController : MonoBehaviour
 {
+    public Dialogs dia;
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
     public AudioSource laptopsuccess;
@@ -14,6 +15,11 @@ public class LaptopController : MonoBehaviour
     public BoxCollider col;
     public BoxCollider seaCol;
     public bool isload = false;
+
+    void Start()
+    {
+        SetLangLaptop();
+    }
 
     public void TryLogin()
     {
@@ -53,9 +59,7 @@ public class LaptopController : MonoBehaviour
     public void ExitLog()
     {
         canvasLaptop.transform.Find("Desktop window pass").gameObject.SetActive(false);
-        canvasLaptop.transform.Find("Desktop window pass turkish").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop window log").gameObject.SetActive(false);
-        canvasLaptop.transform.Find("Desktop window log turkish").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(true);
     }
     IEnumerator openSystem()
@@ -63,5 +67,25 @@ public class LaptopController : MonoBehaviour
         yield return new WaitForSeconds(2f);
         canvasLaptop.transform.Find("Background").gameObject.SetActive(false);
         canvasLaptop.transform.Find("Desktop").gameObject.SetActive(true);
+    }
+
+    public void SetLangLaptop()
+    {
+        transform.Find("Canvas laptop/Login Image/username/Text Area/Placeholder").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[35];
+
+        transform.Find("Canvas laptop/Login Image/password/Text Area/Placeholder").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[36];
+
+        transform.Find("Canvas laptop/Background/welcome txt").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[37];
+
+        transform.Find("Canvas laptop/Desktop/Image/password").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[38];
+        transform.Find("Canvas laptop/Desktop window pass/password").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[38];
+        transform.Find("Canvas laptop/Desktop window pass/window password").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[38] + " 1453";
+        transform.Find("Canvas laptop/Desktop window log/password").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[38];
+
+        transform.Find("Canvas laptop/Desktop/Image (1)/personal").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[39];
+        transform.Find("Canvas laptop/Desktop window pass/personal").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[39];
+        transform.Find("Canvas laptop/Desktop window log/personal").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[39];
+
+        transform.Find("Canvas laptop/Desktop window log/window log").gameObject.GetComponent<TextMeshProUGUI>().text = dia.uıUI[40];
     }
 }

@@ -396,6 +396,19 @@ public class Dialogs : MonoBehaviour
         uıUI[32] = "Larayı yaptıklarıyla yüzleştir ve adayı terk et.";
         uıUI[33] = "Kendini öldürüp Lara'nın bu acı döngüsüne bir son ver.";
         uıUI[34] = "Laraya onun notundan bahsederek ikna et.";
+        uıUI[35] = "kullanici adi";
+        uıUI[36] = "Sifre";
+        uıUI[37] = "hosgeldiniz";
+        uıUI[38] = "Enviro odasi Sifresi";
+        uıUI[39] = "personel";
+        uıUI[40] = @"Arthur'un gunlugu
+
+   Zamanin dogrusal oldugu varsayimi bugun bir kez daha coktu. Gozlemlerim, sebep ve sonuc arasindaki siranin degisebilecegini gosteriyor.
+
+   Bu notu ben yazmadan once okuyorsaniz, deney basariyla siniri asmistir.
+Sistemi kapatirken cekirdegi sifirlamayin.
+
+   Bazi sonuclar henuz ortaya cikmadi.";
 
         if(mis != null)
         {
@@ -844,6 +857,18 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
         uıUI[32] = "Leave island and Lara to face what she has done.";
         uıUI[33] = "Kill yourself and put an end to Lara's painful loop.";
         uıUI[34] = "Convince Lara by telling her about her note.";
+        uıUI[35] = "Username";
+        uıUI[36] = "Password";
+        uıUI[37] = "Welcome";
+        uıUI[38] = "Enviro Room Password";
+        uıUI[39] = "Personnel";
+        uıUI[40] = @"Arthur's Journal
+
+     The assumption that time is linear has collapsed once again today. My observations show that the order between cause and effect can change.
+
+     If you are reading this note before I write it, the experiment has successfully crossed the threshold. Do not reset the core while shutting down the system.
+
+     Some consequences have not yet emerged.";
 
 
         
@@ -1296,6 +1321,20 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         uıUI[32] = "Lass Lara auf der Insel zurück, damit sie sich ihren Taten stellt, und verlasse die Insel.";
         uıUI[33] = "Töte dich selbst und beende Laras schmerzhaften Kreislauf.";
         uıUI[34] = "Überzeuge Lara, indem du ihr von ihrer Notiz erzählst.";
+        uıUI[35] = "Benutzername";
+        uıUI[36] = "Passwort";
+        uıUI[37] = "Willkommen";
+        uıUI[38] = "Enviro-Raum-Passwort";
+        uıUI[39] = "Personal";
+        uıUI[40] = @"Arthurs Tagebuch
+
+        Die Annahme, dass die Zeit linear ist, ist heute erneut zusammengebrochen.
+        Meine Beobachtungen zeigen, dass sich die Reihenfolge zwischen Ursache und Wirkung ändern kann.
+
+        Wenn Sie diese Notiz lesen, bevor ich sie geschrieben habe, hat das Experiment erfolgreich die Grenze überschritten.
+        Setzen Sie den Kern beim Herunterfahren des Systems nicht zurück.
+
+        Einige Konsequenzen sind noch nicht eingetreten.";
 
 
 
@@ -1758,7 +1797,18 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
         uıUI[32] = "Deja a Lara en la isla para que enfrente sus actos y márchate.";
         uıUI[33] = "Suicídate y pon fin al doloroso bucle de Lara.";
         uıUI[34] = "Convence a Lara hablándole sobre su nota.";
+        uıUI[35] = "Nombre de usuario";
+        uıUI[36] = "Contraseña";
+        uıUI[37] = "Bienvenido";
+        uıUI[38] = "Contraseña de la Sala Enviro";
+        uıUI[39] = "Personal";
+        uıUI[40] = @"Diario de Arthur
 
+     La suposición de que el tiempo es lineal volvió a derrumbarse hoy. Mis observaciones muestran que el orden entre causa y efecto puede cambiar.
+
+     Si estás leyendo esta nota antes de que la escriba, el experimento ha cruzado el límite con éxito. No reinicies el núcleo al apagar el sistema.
+
+     Algunas consecuencias aún no han aparecido.";
 
 
 
@@ -2222,6 +2272,19 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         uıUI[32] = "Оставьте Лару на острове, чтобы она столкнулась со своими поступками, и покиньте его.";
         uıUI[33] = "Покончите с собой и завершите болезненный цикл Лары.";
         uıUI[34] = "Убедите Лару, рассказав ей о её записи.";
+        uıUI[35] = "Имя пользователя";
+        uıUI[36] = "Пароль";
+        uıUI[37] = "Добро пожаловать";
+        uıUI[38] = "Пароль комнаты Enviro";
+        uıUI[39] = "Персонал";
+        uıUI[40] = @"Дневник Артура
+
+     Предположение о том, что время линейно, сегодня снова рухнуло.
+Мои наблюдения показывают, что порядок между причиной и следствием может измениться.
+
+     Если вы читаете эту запись до того, как я её написал, эксперимент успешно пересёк границу. Не сбрасывайте ядро при отключении системы.
+
+     Некоторые последствия ещё не проявились.";
 
 
 
@@ -2674,6 +2737,18 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
         uıUI[32] = "Laissez Lara sur l’île pour qu’elle affronte ses actes et partez.";
         uıUI[33] = "Tuez-vous et mettez fin à la boucle douloureuse de Lara.";
         uıUI[34] = "Convainquez Lara en lui parlant de sa note.";
+        uıUI[35] = "Nom d'utilisateur";
+        uıUI[36] = "Mot de passe";
+        uıUI[37] = "Bienvenue";
+        uıUI[38] = "Mot de passe de la salle Enviro";
+        uıUI[39] = "Personnel";
+        uıUI[40] = @"Journal d'Arthur
+
+     L'hypothèse selon laquelle le temps est linéaire s'est une fois de plus effondrée aujourd'hui. Mes observations montrent que l'ordre entre cause et effet peut changer.
+
+     Si vous lisez cette note avant que je ne l'écrive, l'expérience a franchi la limite avec succès. Ne réinitialisez pas le noyau lors de l'arrêt du système.
+
+     Certaines conséquences ne sont pas encore apparues.";
 
 
 
@@ -3126,6 +3201,19 @@ S’il te plaît, ne reproduis pas les mêmes erreurs que moi. Quoi qu’il arri
         uıUI[32] = "Lascia Lara sull’isola ad affrontare le sue azioni e vai via.";
         uıUI[33] = "Ucciditi e metti fine al doloroso ciclo di Lara.";
         uıUI[34] = "Convincila parlando a Lara del suo appunto.";
+        uıUI[35] = "Nome utente";
+        uıUI[36] = "Password";
+        uıUI[37] = "Benvenuto";
+        uıUI[38] = "Password della Stanza Enviro";
+        uıUI[39] = "Personale";
+        uıUI[40] = @"Diario di Arthur
+
+     L'ipotesi che il tempo sia lineare è crollata ancora una volta oggi.
+Le mie osservazioni mostrano che l'ordine tra causa ed effetto può cambiare.
+
+    Se stai leggendo questa nota prima che io la scriva, l'esperimento ha superato con successo la soglia. Non reimpostare il nucleo durante lo spegnimento del sistema.
+
+    Alcune conseguenze non si sono ancora manifestate.";
 
 
 
@@ -3639,7 +3727,7 @@ Per favore, non commettere gli stessi errori che ho fatto io. A qualunque costo,
         dialog.text = dias[96];
         yield return StartCoroutine(PDL.PlayVoice(96));
         dialog.text = "";
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(7f);
         dialog.text = dias[100];
         yield return StartCoroutine(PDL.PlayVoice(100));
         dialog.text = "";
