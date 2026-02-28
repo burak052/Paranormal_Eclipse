@@ -409,6 +409,10 @@ public class Dialogs : MonoBehaviour
 Sistemi kapatirken cekirdegi sifirlamayin.
 
    Bazi sonuclar henuz ortaya cikmadi.";
+        uıUI[41] = "Sinyal yok";
+        uıUI[42] = "lutfen bekleyin";
+        uıUI[43] = "Seni sahilde bekliyorum yaka fenerini alıp gel.";
+        uıUI[44] = "Nova kodu";
 
         if(mis != null)
         {
@@ -869,6 +873,10 @@ Hayat ileri dogru yasanir geriye dogru anlasilir.";
      If you are reading this note before I write it, the experiment has successfully crossed the threshold. Do not reset the core while shutting down the system.
 
      Some consequences have not yet emerged.";
+        uıUI[41] = "no signal";
+        uıUI[42] = "please wait";
+        uıUI[43] = "I’m waiting for you on the beach. Bring the lapellight.";
+        uıUI[44] = "Nova code";
 
 
         
@@ -1335,7 +1343,10 @@ Please do not make the same mistakes I did. No matter what, save Aral and never 
         Setzen Sie den Kern beim Herunterfahren des Systems nicht zurück.
 
         Einige Konsequenzen sind noch nicht eingetreten.";
-
+        uıUI[41] = "kein Signal";
+        uıUI[42] = "bitte warten";
+        uıUI[43] = "Ich warte am Strand auf dich. Bring das Anstecklicht mit.";
+        uıUI[44] = "Nova-Code";
 
 
 
@@ -1809,7 +1820,10 @@ Bitte mache nicht dieselben Fehler wie ich. Egal, was geschieht, rette Aral – 
      Si estás leyendo esta nota antes de que la escriba, el experimento ha cruzado el límite con éxito. No reinicies el núcleo al apagar el sistema.
 
      Algunas consecuencias aún no han aparecido.";
-
+        uıUI[41] = "sin señal";
+        uıUI[42] = "por favor espera";
+        uıUI[43] = "Te estoy esperando en la playa. Trae la luz de solapa.";
+        uıUI[44] = "Código Nova";
 
 
 
@@ -2285,7 +2299,10 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
      Если вы читаете эту запись до того, как я её написал, эксперимент успешно пересёк границу. Не сбрасывайте ядро при отключении системы.
 
      Некоторые последствия ещё не проявились.";
-
+        uıUI[41] = "нет сигнала";
+        uıUI[42] = "пожалуйста, подождите";
+        uıUI[43] = "Я жду тебя на пляже. Принеси нагрудный фонарь.";
+        uıUI[44] = "Код Нова";
 
 
         if (mis != null)
@@ -2749,7 +2766,10 @@ Por favor, no cometas los mismos errores que yo. Pase lo que pase, salva a Aral�
      Si vous lisez cette note avant que je ne l'écrive, l'expérience a franchi la limite avec succès. Ne réinitialisez pas le noyau lors de l'arrêt du système.
 
      Certaines conséquences ne sont pas encore apparues.";
-
+        uıUI[41] = "pas de signal";
+        uıUI[42] = "veuillez patienter";
+        uıUI[43] = "Je t’attends sur la plage. Apporte la lampe de revers.";
+        uıUI[44] = "Code Nova";
 
 
         if (mis != null)
@@ -3214,7 +3234,10 @@ Le mie osservazioni mostrano che l'ordine tra causa ed effetto può cambiare.
     Se stai leggendo questa nota prima che io la scriva, l'esperimento ha superato con successo la soglia. Non reimpostare il nucleo durante lo spegnimento del sistema.
 
     Alcune conseguenze non si sono ancora manifestate.";
-
+        uıUI[41] = "nessun segnale";
+        uıUI[42] = "attendere prego";
+        uıUI[43] = "Ti aspetto sulla spiaggia. Porta la luce da bavero.";
+        uıUI[44] = "Codice Nova";
 
 
         if (mis != null)

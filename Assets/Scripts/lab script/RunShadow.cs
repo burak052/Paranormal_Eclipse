@@ -31,5 +31,6 @@ public class RunShadow : MonoBehaviour
         yield return new WaitForSeconds(2f);
         shadow.SetActive(false);
         shadow.GetComponent<Transform>().Find("MaleBase").gameObject.GetComponent<Animator>().SetBool("start",false);
+        transform.Find("Cube").gameObject.SetActive(false);
     }
 }

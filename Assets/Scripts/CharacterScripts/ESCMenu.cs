@@ -11,6 +11,7 @@ public class ESCMenu : MonoBehaviour
     public SelectionScript SS;
     public LaptopController LC1;
     public LaptopController LC2;
+    public signal Sig;
     public MonoBehaviour playerMovement;
     public TMP_Dropdown languageDropdown;
     public TMP_Dropdown fontsizeDropdown;
@@ -441,5 +442,8 @@ public class ESCMenu : MonoBehaviour
             
         if(LC2 != null)
             LC2.SetLangLaptop();
+
+        if(Sig != null)
+            Sig.SetLang();
     }
 }

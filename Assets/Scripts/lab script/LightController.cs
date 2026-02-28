@@ -27,7 +27,7 @@ public class LightController : MonoBehaviour
         activeCorridor = this;
     }
 
-    void SetLights(bool state)
+    public void SetLights(bool state)
     {
         StartCoroutine(SetLightsRandom(state));
     }

@@ -5626,6 +5626,7 @@ MonoBehaviour:
   en1: {fileID: 559225862}
   laranote: {fileID: 1824186830}
   pass: {fileID: 1206317673}
+  dia: {fileID: 1123506126}
 --- !u!1 &159863909
 GameObject:
   m_ObjectHideFlags: 0
@@ -74988,7 +74989,7 @@ GameObject:
   - component: {fileID: 1735494573}
   - component: {fileID: 1735494572}
   m_Layer: 0
-  m_Name: Image (1)
+  m_Name: Image2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91352,6 +91353,7 @@ MonoBehaviour:
   SS: {fileID: 0}
   LC1: {fileID: 0}
   LC2: {fileID: 0}
+  Sig: {fileID: 158385363}
   playerMovement: {fileID: 991071736}
   languageDropdown: {fileID: 792196772}
   fontsizeDropdown: {fileID: 1724427767}

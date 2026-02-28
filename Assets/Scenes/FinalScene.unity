@@ -140263,7 +140263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db8cb8ace978394cb01ea5273baaec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dia: {fileID: 0}
+  dia: {fileID: 161451330}
   jumpScareAudio: {fileID: 978149527}
   playOnce: 1
 --- !u!65 &1987402430
