@@ -4186,6 +4186,10 @@ MonoBehaviour:
   dia: {fileID: 2069620079}
   Aralsource: {fileID: 678347856}
   Larasource: {fileID: 678347856}
+  laraFace: {fileID: 1833295142}
+  laraLabFace: {fileID: 1833295142}
+  mouthBlendShapeName: O
+  isLaraChanged: 0
 --- !u!114 &678347859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11832,6 +11836,11 @@ MonoBehaviour:
   range: {x: 0, y: 1}
   texture: {fileID: 8600000, guid: d46db75bb793b7d42b68b0ed3bb522e2, type: 2}
   version: 0
+--- !u!137 &1833295142 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4750469698511600036, guid: 6fc3e28ac1b2b1a4bb8d85f35f8fde15, type: 3}
+  m_PrefabInstance: {fileID: 1666201354}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1842493459
 GameObject:
   m_ObjectHideFlags: 0
